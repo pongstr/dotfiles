@@ -1,0 +1,41 @@
+<snippet>
+  <description>HTML5 vanilla markup</description>
+  <content>
+  <![CDATA[
+<!doctype html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+
+  <title></title>
+  <meta name="description" content="">
+
+  <!-- Mobile viewport optimized: h5bp.com/viewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png" />
+
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header></header>
+
+  <!-- CONTENT -->
+  <div></div>
+
+  <!-- FOOTER -->
+  <footer></footer>
+
+</body>
+</html> 
+  ]]> 
+  </content>
+  <tabTrigger>html-vanilla</tabTrigger>
+  <scope>-source, source.html, source.php</scope>
+</snippet>

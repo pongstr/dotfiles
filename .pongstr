@@ -1,0 +1,51 @@
+#!/usr/bin/bash
+
+# Ask for the administrator password upfront
+sudo -v
+
+# Set the dotfiles directory location
+DOTFILES="$HOME/dotfiles"
+
+# Check application support directory for Sublime Text 3, if not create it.
+function check() {  
+  if [[ -d "${@}" && ! -L "${@}" ]] ; then
+    echo "👍  ${@}"
+  else
+    echo "✅  Created directory: ${@}"
+    mkdir "${@}"
+  fi
+}
+check "$HOME/Library/Application Support/Sublime Text 3/"
+check "$HOME/Library/Application Support/Sublime Text 3/Packages/"
+check "$HOME/Library/Application Support/Sublime Text 3/Packages/User"
+
+# Checkout Sublime Text Package Control
+echo "Add Sublime Text Package Control"
+cd "$HOME/Library/Application Support/Sublime Text 3/Packages/" && git clone https://github.com/wbond/sublime_package_control.git "Package Control"
+cd "Package Control" && git checkout python3 && 
+cd "../User"
+
+# Copy Sublime Text 3 User Prefrences and Snippets
+cp -r "$DOTFILES/osx/sublimetext/" "$HOME/Library/Application Support/Sublime Text 3/Packages/User/"
+echo " * Sublime Text Preferences and Snippets"
+echo ""
+
+# Copy Consolas Font for Optimal Coding ^^
+cp -r "$DOTFILES/osx/fonts/" "$HOME/Library/Fonts/"
+echo "✅  Copied Consolas Font"
+echo ""
+
+cp -r "$DOTFILES/osx/preferences/" "$HOME/Library/Preferences/"
+echo "✅  Copied Application Preferences"
+echo "      * OSX Prefrences [ Dock, SidebarList, Terminal ]"
+
+# Log user out make sure the changes will take effect. 
+echo ""
+echo "You need to logout and log back in for settings to take effect."
+
+logout() {
+  osascript -e 'tell application "System Events" to log out'
+  builtin logout
+}
+
+logout

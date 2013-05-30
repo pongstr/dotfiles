@@ -1,0 +1,12 @@
+<snippet>
+  <description>jQuery CDN Source with local fallback</description>
+  <content>
+  <![CDATA[
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/library/jquery.min.js"><\/script>')</script>
+  ]]>
+  </content>
+  <tabTrigger>jq-cdn</tabTrigger>
+  <scope>-source, source.html, source.php, source.js</scope>
+</snippet>
+  

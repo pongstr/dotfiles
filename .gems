@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+# Ask for the administrator password upfront
+sudo -v
+
+# Update Gem
+# ----------------------------------------------------------------------
+sudo gem update --system
+
+# Install Gems Tools
+# ----------------------------------------------------------------------
+sudo gem install jammit
+sudo gem install compass
+sudo gem install jekyll
+sudo gem install zurb-foundation

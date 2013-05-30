@@ -1,0 +1,23 @@
+<snippet>
+  <description>jQuery Document Ready Snippet</description>
+  <content>
+  <![CDATA[
+/*!
+ * Script Title Goes Here
+ * Examples and documentation URI
+ * Copyright (c) Year AuthorName
+ * Version: 1.x.x
+ * License: Code license under Apache License v2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * Script Requirements
+ */
+\$(document).ready(function() \{
+
+
+\});
+  ]]>
+  </content>
+  <tabTrigger>jq-doc-ready</tabTrigger>
+  <scope>-source, source.html, source.php, source.js</scope>
+</snippet>
+  

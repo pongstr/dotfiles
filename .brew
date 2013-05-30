@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+# To run this, you must download & install the latest Xcode App and the latest Commandline Tools
+# https://developer.apple.com/xcode/
+# https://developer.apple.com/downloads/
+
+# Ask for the administrator password upfront
+sudo -v
+
+# Install Homebrew
+# ----------------------------------------------------------------------
+
+ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+
+# Install Homebrew Formulas:
+brew install git
+brew install node
+brew install webkit2png
+
+# Install Native Apps
+# ----------------------------------------------------------------------
+
+brew tap phinze/homebrew-cask
+brew install brew-cask
+
+# Make /Applications the default location of apps
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
+function installcask() {  
+  if brew cask info "${@}" | grep "Not installed" > /dev/null; then
+    brew cask install "${@}"
+  else
+    echo "${@} is already installed."
+  fi
+}
+
+installcask textmate2
+installcask app-cleaner
+installcask dropbox
+installcask firefox
+installcask github
+installcask google-chrome
+installcask open-office
+installcask skype
+installcask the-unarchiver
+installcask vlc
