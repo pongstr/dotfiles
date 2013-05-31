@@ -30,7 +30,7 @@ cp -r "$DOTFILES/osx/sublimetext/" "$HOME/Library/Application Support/Sublime Te
 echo " * Sublime Text Preferences and Snippets"
 echo ""
 
-# Copy Consolas Font for Optimal Coding ^^
+# Copy Consolas Font (favourite for coding).
 cp -r "$DOTFILES/osx/fonts/" "$HOME/Library/Fonts/"
 echo "✅  Copied Consolas Font"
 echo ""

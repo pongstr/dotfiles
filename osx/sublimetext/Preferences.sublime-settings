@@ -1,5 +1,9 @@
 {
-  // Sets the colors used within the text area
+  // Set Theme and Color Scheme
+  // ==========================
+  // Uncomment after Soda Theme has been downloaded, Sublime Text 3 will look
+  // crappy otherwise.
+  
   // "color_scheme": "Packages/User/color_scheme/Clouds Midnight.tmTheme",
   // "theme": "Soda Dark.sublime-theme",
 
@@ -23,7 +27,7 @@
   "fade_fold_buttons": true,
 
   // Columns in which to display vertical rulers
-  "rulers": [0, 80],
+  "rulers": [0, 79],
 
   // Set to true to turn spell checking on by default
   "spell_check": false,
