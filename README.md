@@ -11,15 +11,18 @@ My Dotfiles for setting up my OSX Workspace.
 ### Usage:
 
 ```shell
-# Open up Terminal: Application > Utilities > Terminal.app
-# and download the zipball with this command, don't include the "$" sign.
-$ curl -L -o dotfiles.tar.gz https://api.github.com/repos/pongstr/dotfiles/tarball/ | tar -zx
-
 # I like to keep my projects in ~/Projects, and just create a symlink ~/dotfiles
 # just to keep it clean and/or organised.
 
-# Create Proejcts directory
+# Create Projects directory
 $ mkdir ~/Projects
+
+# Open up Terminal: Application > Utilities > Terminal.app
+# and download the zipball with this command, don't include the "$" sign.
+$ curl -L -o dotfiles.tar.gz https://api.github.com/repos/pongstr/dotfiles/tarball/
+
+# Extract files
+$ tar -zxf dotfiles.tar.gz
 
 # Move extracted folder to ~/Projects dir
 $ mv pongstr-dotfiles ~/Projects/dotfiles
@@ -38,28 +41,31 @@ $ sh .brew
 
 # Update Gem and Install Gem tools:
 # Jammit, Compass-SASS, Jekyll, Foundation Front-end
-$ sh .gems
+$ sh ~/dotfiles/.gems
 
 # OSX Defaults
-$ sh .osx
+$ sh ~/dotfiles/.osx
 
 # My personal preferences (this is optional, you don't really need to run it).
-$ sh .pongstr
+$ sh ~/dotfiles/.pongstr
+
+# Cleanup
+$ rm -rf ~/dotfiles.tar.gz
 
 # ...aaand we're done, Logout or restart your machine for settings to take effect.
 ```
 
 ### dotfiles:
 
-  - ```.brew```  installs homebrew packages and native apps.
-  - ```.gems```  installs gems for web development.
-  - ```.osx```   OSX-Mountain Lion setup and preferences.
+- ```.brew```  installs homebrew packages and native apps.
+- ```.gems```  installs gems for web development.
+- ```.osx```   OSX-Mountain Lion setup and preferences.
+
   
-  ```.pongstr``` personal preferences for:
-  
-    - Finder [sidebarlists, dock, terminal]
-    - Sublime Text [Package Control, Keybindings, Preferences, Theme, Fonts]
-    - Photoshop Workspace *work in progress
+```.pongstr``` personal preferences for:
+  - Finder [sidebarlists, dock, terminal]
+  - Sublime Text [Package Control, Keybindings, Preferences, Theme, Fonts]
+  - Photoshop Workspace *work in progress
 
 
 
