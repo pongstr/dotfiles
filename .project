@@ -1,0 +1,75 @@
+#!/usr/bin/env bash
+
+# Your Projects Directory
+# =======================
+ProjectsDir="$HOME/Projects/"
+
+# =============================================================================
+# Components
+# =============================================================================
+
+# Bootstrap
+# =========
+
+
+
+function init {
+  while true; do
+    if [ "${2:-}" = "Bootstrap" ]; then
+      prompt="1/2"
+       default=1
+    elif [ "${2:-}" = "Foundation" ]; then
+      prompt="1/2"
+      default=2
+    else
+      prompt="1:Bootstrap | 2:Foundation"
+      default=
+    fi
+    # Ask the question
+    read -p "$1 [$prompt] " REPLY
+    # Default?
+    if [ -z "$REPLY" ]; then
+       REPLY=$default
+    fi
+    # Check if the reply is valid
+    case "$REPLY" in
+      1*|1*) return 0 ;;
+      2*|2*) return 1 ;;
+    esac
+  done
+}
+
+# =============================================================================
+# Initialise project
+# =============================================================================
+
+
+
+# Bootstrap Installation
+# ======================
+if init "Initialise Project using: "; then
+
+
+  echo "Create Project Directory"
+  read -p "Please enter directory name: " ${@}
+  
+  # Check if directory exists
+  if [[ -d "$ProjectsDir ${@}" && ! -L "$ProjectsDir ${@}" ]]; then
+    read -p "❗ the name you chose exists, overwrite matching files? [y/n] " respond
+    
+    # Install in this directory?
+    if [ "$respond" = "y" ]; then
+      echo "Installing  to $ProjectsDir ${@}"
+      
+    else
+      echo "🚫  no balls to do it huh? now aborting..."
+      exit
+    fi
+  else
+    echo "✅  Directory Created"
+    mkdir "$ProjectsDir ${@}"  
+  fi      
+  
+else
+  echo "foundation"
+fi

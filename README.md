@@ -60,13 +60,26 @@ $ rm -rf ~/dotfiles.tar.gz
 - ```.brew```  installs homebrew packages and native apps.
 - ```.gems```  installs gems for web development.
 - ```.osx```   OSX-Mountain Lion setup and preferences.
-
   
 ```.pongstr``` personal preferences for:
   - Finder [sidebarlists, dock, terminal]
   - Sublime Text [Package Control, Keybindings, Preferences, Theme, Fonts]
   - Photoshop Workspace *work in progress
 
+```.project``` - (work in progress) initialise front-end web projects direct
+  - Initialise web project using either Bootstrap or Foundation front-end files
+    and directories in this structure
+  
+  ```html
+  .
+  └── [Project Name]
+      └── css
+      ├── fonts
+      ├── img
+      └── js
+      └── index.html
+  ```
+  
 
 
 -------------------------------------------------------------------------------
