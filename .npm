@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+
+# To run this, you must download & install the latest Xcode App and the latest Commandline Tools
+# https://developer.apple.com/xcode/
+# https://developer.apple.com/downloads/
+
+# Ask for the administrator password upfront
+sudo -v
+
+
+formulae="node"
+
+function installPackages {
+  # Point the NODE_PATH to the correct place to find Node modules
+  export NODE_PATH="/usr/local/lib/node"
+   
+  # export $PATH since some node modules have execute files
+  export PATH="/usr/local/share/npm/bin:$PATH"
+
+  # Install NPM Packages
+  npm install -g less
+  npm install -g bower
+}
+
+
+# Install Homebrew Node Package
+# ----------------------------------------------------------------------
+if brew which "$formulae" | grep "Not Installed" > /dev/null; then 
+  read -p "Homebrew is not installed, would you like to install it? [y/n]" respond
+  
+  if [ "$respond" = "y" ]; then
+    brew install node
+  elif [ "$respond" = "n"]; then
+    echo "🚫  no balls to do it huh? now aborting..."
+    exit
+  fi
+  
+  echo "Installing Packages..."
+  installPackages
+else
+  echo "Installing Packages..."
+  installPackages
+fi
+
+echo "✅  Installed NodeJS and Packages"

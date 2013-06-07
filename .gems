@@ -7,9 +7,18 @@ sudo -v
 # ----------------------------------------------------------------------
 sudo gem update --system
 
+function installgem(){
+  if ! gem spec "${@}" > /dev/null 2>&1; then
+    echo "Installing gem: ${@}"
+    sudo gem install "${@}"
+  else
+    echo "Gem ${@} is installed!"
+  fi
+}
+
 # Install Gems Tools
 # ----------------------------------------------------------------------
-sudo gem install jammit
-sudo gem install compass
-sudo gem install jekyll
-sudo gem install zurb-foundation
+installgem compass
+installgem jammit
+installgem jekyll
+installgem zurb-foundation
