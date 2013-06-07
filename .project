@@ -3,8 +3,8 @@
 # Your Projects Directory
 # I like to keep my projects in ~/Projects
 # -----------------------------------------------------------------------------
-homedir="$HOME/Projects"
-srcdir="github"
+home_directory="$HOME/Projects"
+bower_components="$HOME/components"
 
 
 
@@ -39,6 +39,46 @@ function init {
 
 
 
+
+# Create Directory
+function build_bootstrap {
+  read -p "Please enter directory name: " directory_name
+  
+  if [ -d "$home_directory/$directory_name" ]; then
+    
+    # Ask user to enter a different name or overwrite the directory
+    read -p "❗ the name you chose exists, overwrite matching files? [y/n] " respond
+  
+    # Write in this directory?
+    if [ "$respond" = "y" ]; then
+    mkdir -p $home_directory/$directory_name/assets/{css,fonts,img,js}
+    
+    cp -R "$bower_components/bootstrap/img"  "$home_directory/$directory_name/assets"
+    cp -R "$bower_components/bootstrap/js"   "$home_directory/$directory_name/assets"
+    cp -R "$bower_components/bootstrap/less" "$home_directory/$directory_name/assets"
+
+    echo "✅  Done! Built Bootstrap project in $home_directory/$directory_name"
+    echo ""
+     
+    elif [ "$respond" = "n" ]; then
+      echo "🚫  no balls to do it huh? now aborting..."
+      echo ""
+      exit      
+    fi
+    
+  else
+    mkdir -p $home_directory/$directory_name/assets/{css,fonts,img,js}
+    cp -R "$bower_components/bootstrap/img"  "$home_directory/$directory_name/assets"
+    cp -R "$bower_components/bootstrap/js"   "$home_directory/$directory_name/assets"
+    cp -R "$bower_components/bootstrap/less" "$home_directory/$directory_name/assets"
+
+    echo "✅  Done! Built Bootstrap project in $home_directory/$directory_name"
+    echo ""
+
+  fi
+}
+
+
 # =============================================================================
 # Begin Installation Process
 # =============================================================================
@@ -46,9 +86,20 @@ function init {
 if init "Initialise Project using: "; then
 # Bootstrap 
 # =============================================================================
-
+  
+  if [[ -d "$bower_components/bootstrap" && ! -L "$bower_components/bootstrap" ]] ; then
+    echo "Creating project using Bootstrap"
+    build_bootstrap
+  else
+    echo " Installing Bower Package: Bootstrap"
+    echo "$bower_components/bootstrap doesnt exists"
+    bower install bootstrap
+    build_bootstrap
+  fi
+    
 else
 # Foundation
 # =============================================================================
   
+  echo "foundation"
 fi
