@@ -59,6 +59,7 @@ $ rm -rf ~/dotfiles.tar.gz
 
 - ```.brew```  installs homebrew packages and native apps.
 - ```.gems```  installs gems for web development.
+- ```.npm```   installs node package manager and packages.
 - ```.osx```   OSX-Mountain Lion setup and preferences.
   
 ```.pongstr``` personal preferences for:
@@ -78,6 +79,9 @@ $ rm -rf ~/dotfiles.tar.gz
   ├── config.rb   # => [configuration file for foundation]
   └── index.html
 ```
+
+this also comes as a separate [gist](https://gist.github.com/pongstr/5725667).
+
   
 **Dependancies:**
 
