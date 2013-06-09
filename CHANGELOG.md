@@ -2,9 +2,10 @@
 
 --------------------------------------
 
-**v1.0.?  [June ??, 2013]**
+**v1.0.8  [June 9, 2013]**
   - Improved .gem with an ``installgem``` function
   - added .npm to separate npm packages installation
+  - added ```.project```
   - added ```CHANGELOG.md```
   - updated ```README.md```
 

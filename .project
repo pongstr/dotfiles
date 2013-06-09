@@ -115,11 +115,13 @@ else
   
   # Install Foundation using Sass
   cd "$home_directory/$project_name"
+  echo ""
   echo "Adding config.rb to project"
   curl -O -# "https://gist.github.com/pongstr/5743895/raw/foundation.rb" && mv "foundation.rb" "config.rb"
   
   # Install Foundation Sass
   echo "Copying Foundation components"
+  echo ""
     
   echo "  ├── Copying foundation/js > $home_directory/$project_name/assets"
   cp -R "$bower_packages/foundation/js" "$home_directory/$project_name/assets"
