@@ -34,7 +34,6 @@ function init {
   done
 }
 
-
 # Check Bower Packages
 function bower_install() {
   if [[ -d "$bower_packages/${@}" ]]; then
@@ -95,6 +94,19 @@ if init "Initialise Project using: "; then
   echo "  └── Copying bootstrap/less > $home_directory/$project_name/assets/less"
   cp -R "$bower_packages/bootstrap/less" "$home_directory/$project_name/assets"
   
+  # Compile Less to CSS
+  echo ""
+  echo "Compiling Less to CSS"
+  cd "$home_directory/$project_name/assets/"
+
+  function compile_less(){
+    echo "  create .assets/${@}.min.css"
+    lessc --yui-compress less/"${@}".less > css/"${@}".min.css
+  }
+  
+  compile_less bootstrap
+  compile_less responsive
+  
   # Cleanup
   echo ""
   rm -rf "$home_directory/$project_name/assets/js/tests"
@@ -129,7 +141,9 @@ else
   echo "  ├── Copying foundation/scss > $home_directory/$project_name/scss"
   cp -R "$bower_packages/foundation/scss" "$home_directory/$project_name/"
 
-  echo 
+  # Compile Sass to CSS
+  echo ""
+  echo "Compiling sass stylesheets to css"
   cd "$home_directory/$project_name" && compass compile .
 
   echo ""

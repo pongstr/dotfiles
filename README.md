@@ -79,6 +79,20 @@ $ rm -rf ~/dotfiles.tar.gz
   └── index.html
 ```
   
+**Dependancies:**
+
+  - [git](http://git-scm.com)
+  - [nodejs](http://nodejs.org) and [node package manager](https://npmjs.org)
+  - [bower](http://bower.io)
+  - [Less CSS Compiler](http://lesscss.org) installs via npm for compiling less stylesheets
+  - [Compass/Sass](http://compass-style.org) for compiling sass stylesheets
+ 
+
+**Usage:**
+
+Just edit ```projects.sh line:6``` to target your Projects folder and run: ```$ sh projects.sh``` and it will guide you through the process.
+
+If you have custom installation of bower and its packages, your may modify ```projects.sh line:7``` to target the directory where packages are installed, the scrip will also copy components from there.
 
 
 -------------------------------------------------------------------------------
