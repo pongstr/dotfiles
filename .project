@@ -37,7 +37,7 @@ function init {
 
 # Check Bower Packages
 function bower_install() {
-  if [[ -d x"$bower_packages/${@}" ]]; then
+  if [[ -d "$bower_packages/${@}" ]]; then
     echo "${@} is already installed"
   else
     bower install "${@}"
