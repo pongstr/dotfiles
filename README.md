@@ -66,7 +66,7 @@ $ rm -rf ~/dotfiles.tar.gz
   - Sublime Text [Package Control, Keybindings, Preferences, Theme, Fonts]
   - Photoshop Workspace *work in progress
 
-```.project``` - Initialise front-end web projects direct Initialise web project using either [Bootstrap 2.3.2](http://twitter.github.io/bootstrap/) or [Foundation 4.2.1](http://foundation.zurb.com) front-end files and directories in this structure:
+```.project``` - Initialise front-end web project using either [Bootstrap 2.3.2](http://twitter.github.io/bootstrap/) or [Foundation 4.2.1](http://foundation.zurb.com) front-end files and directories in this structure:
   
 ```html
 . [Project Directory]
