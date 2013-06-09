@@ -4,13 +4,10 @@
 # I like to keep my projects in ~/Projects
 # -----------------------------------------------------------------------------
 home_directory="$HOME/Projects"
-bower_components="$HOME/components"
+bower_packages="$HOME/components"
 
 
-
-# =============================================================================
-# Initialise project
-# =============================================================================
+# Initialise
 function init {
   while true; do
     if [ "${2:-}" = "Bootstrap" ]; then
@@ -38,68 +35,103 @@ function init {
 }
 
 
-
-
-# Create Directory
-function build_bootstrap {
-  read -p "Please enter directory name: " directory_name
-  
-  if [ -d "$home_directory/$directory_name" ]; then
-    
-    # Ask user to enter a different name or overwrite the directory
-    read -p "❗ the name you chose exists, overwrite matching files? [y/n] " respond
-  
-    # Write in this directory?
-    if [ "$respond" = "y" ]; then
-    mkdir -p $home_directory/$directory_name/assets/{css,fonts,img,js}
-    
-    cp -R "$bower_components/bootstrap/img"  "$home_directory/$directory_name/assets"
-    cp -R "$bower_components/bootstrap/js"   "$home_directory/$directory_name/assets"
-    cp -R "$bower_components/bootstrap/less" "$home_directory/$directory_name/assets"
-
-    echo "✅  Done! Built Bootstrap project in $home_directory/$directory_name"
-    echo ""
-     
-    elif [ "$respond" = "n" ]; then
-      echo "🚫  no balls to do it huh? now aborting..."
-      echo ""
-      exit      
-    fi
-    
+# Check Bower Packages
+function bower_install() {
+  if [[ -d x"$bower_packages/${@}" ]]; then
+    echo "${@} is already installed"
   else
-    mkdir -p $home_directory/$directory_name/assets/{css,fonts,img,js}
-    cp -R "$bower_components/bootstrap/img"  "$home_directory/$directory_name/assets"
-    cp -R "$bower_components/bootstrap/js"   "$home_directory/$directory_name/assets"
-    cp -R "$bower_components/bootstrap/less" "$home_directory/$directory_name/assets"
-
-    echo "✅  Done! Built Bootstrap project in $home_directory/$directory_name"
-    echo ""
-
+    bower install "${@}"
   fi
 }
 
+# Create project directory and assets
+function create_project() {
+  # Check if Project Directory Exists
+  if [ -d "$home_directory/${@}" ]; then
+    # Ask user to enter a different name or overwrite the directory
+    read -p "❗ the name you chose exists, overwrite matching files? [y/n] " respond
+
+    # Overwrite existing directories and matching files
+    if [ "$respond" = "y" ]; then
+      echo ""
+      echo "❗❗❗  Overwriting existing directory and matching files..."
+      mkdir -p $home_directory/"${@}"/assets/{css,fonts,img,js}
+    elif [ "$respond" = "n" ]; then
+      echo "🚫  no balls to do it huh? now aborting..."
+      echo "" && exit
+    fi 
+  else
+    echo "Created project directory: ${@}"  
+    mkdir -p $home_directory/"${@}"/assets/{css,fonts,img,js}
+  fi  
+}
 
 # =============================================================================
 # Begin Installation Process
 # =============================================================================
 
+
 if init "Initialise Project using: "; then
 # Bootstrap 
 # =============================================================================
   
-  if [[ -d "$bower_components/bootstrap" && ! -L "$bower_components/bootstrap" ]] ; then
-    echo "Creating project using Bootstrap"
-    build_bootstrap
-  else
-    echo " Installing Bower Package: Bootstrap"
-    echo "$bower_components/bootstrap doesnt exists"
-    bower install bootstrap
-    build_bootstrap
-  fi
-    
+  # Check if Bootstrap Package is installed
+  bower_install bootstrap
+
+  # Create Project Directory
+  read -p "Please enter directory name:" project_name
+  create_project $project_name
+  echo ""
+  
+  # Boostrap Components
+  echo "Copying Bootstrap components"
+  
+  echo "  └── Copying bootstrap/img > $home_directory/$project_name/assets/img"
+  cp -R "$bower_packages/bootstrap/img" "$home_directory/$project_name/assets"
+  
+  echo "  ├── Copying bootstrap/js > $home_directory/$project_name/assets/js"
+  cp -R "$bower_packages/bootstrap/js" "$home_directory/$project_name/assets"
+  
+  echo "  └── Copying bootstrap/less > $home_directory/$project_name/assets/less"
+  cp -R "$bower_packages/bootstrap/less" "$home_directory/$project_name/assets"
+  
+  # Cleanup
+  echo ""
+  rm -rf "$home_directory/$project_name/assets/js/tests"
+  rm -rf "$home_directory/$project_name/assets/less/tests"
+   
+  echo "✅  Done! Built Bootstrap project in $home_directory/$project_name"
+  echo "" 
 else
 # Foundation
 # =============================================================================
+
+  # Check if Bootstrap Package is installed
+  bower_install foundation
+
+  # Create Project Directory
+  read -p "Please enter directory name:" project_name
+  create_project $project_name
   
-  echo "foundation"
+  # Install Foundation using Sass
+  cd "$home_directory/$project_name"
+  echo "Adding config.rb to project"
+  curl -O -# "https://gist.github.com/pongstr/5743895/raw/foundation.rb" && mv "foundation.rb" "config.rb"
+  
+  # Install Foundation Sass
+  echo "Copying Foundation components"
+    
+  echo "  ├── Copying foundation/js > $home_directory/$project_name/assets"
+  cp -R "$bower_packages/foundation/js" "$home_directory/$project_name/assets"
+  
+  echo "  ├── Copying foundation/scss > $home_directory/$project_name/scss"
+  cp -R "$bower_packages/foundation/scss" "$home_directory/$project_name/"
+
+  echo 
+  cd "$home_directory/$project_name" && compass compile .
+
+  echo ""
+  echo "✅  Done! Built Foundation project in $home_directory/$project_name"
+  echo ""  
+  
 fi
