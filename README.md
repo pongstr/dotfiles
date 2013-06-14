@@ -11,49 +11,67 @@ My Dotfiles for setting up my OSX Workspace.
 ### Usage:
 
 ```shell
+# Open up Terminal: Application > Utilities > Terminal.app
+# and download the zipball with this command, don't include the "$" sign.
+$ curl -L -o dotfiles.tar.gz https://api.github.com/repos/pongstr/dotfiles/tarball/
+```
+
+```shell
 # I like to keep my projects in ~/Projects, and just create a symlink ~/dotfiles
 # just to keep it clean and/or organised.
 
 # Create Projects directory
 $ mkdir ~/Projects
+```
 
-# Open up Terminal: Application > Utilities > Terminal.app
-# and download the zipball with this command, don't include the "$" sign.
-$ curl -L -o dotfiles.tar.gz https://api.github.com/repos/pongstr/dotfiles/tarball/
-
+```shell
 # Extract files
 $ tar -zxf dotfiles.tar.gz
+```
 
+```shell
 # Move extracted folder to ~/Projects dir
 $ mv pongstr-dotfiles ~/Projects/dotfiles
+```
 
+```shell
 # Create a Symlink to ~/
 $ ln -s ~/Projects/dotfiles ~/dotfiles
+```
 
-# If you're setting up a brand new Mac or a clean installed one, you may run
-# the dotfiles in this order:
+If you're setting up a brand new Mac or a clean installed one, you may run the dotfiles in this order:
 
+```shell
 # Install Homebrew Git, NodeJS, Webkit2Png, Homebrew-Cask
 # Homebrew-Cask then installs these apps: 
 # Textmate2, App Cleaner, Dropbox, Firefox, Github, Chrome, 
 # OpenOffice, Skype, Unarchiver and VLC Player
 $ sh .brew
+```
 
+```shell
 # Update Gem and Install Gem tools:
 # Jammit, Compass-SASS, Jekyll, Foundation Front-end
 $ sh ~/dotfiles/.gems
+```
 
+```shell
 # OSX Defaults
 $ sh ~/dotfiles/.osx
+```
 
+```shell
 # My personal preferences (this is optional, you don't really need to run it).
 $ sh ~/dotfiles/.pongstr
+```
 
+```shell
 # Cleanup
 $ rm -rf ~/dotfiles.tar.gz
-
-# ...aaand we're done, Logout or restart your machine for settings to take effect.
 ```
+
+...aaand we're done, Logout or restart your machine for settings to take effect.
+
 
 ### dotfiles:
 
