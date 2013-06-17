@@ -10,9 +10,9 @@ My Dotfiles for setting up my OSX Workspace.
   
 ### Usage:
 
+Open up Terminal: Application > Utilities > Terminal.app
+and download the zipball with this command, don't include the "$" sign.
 ```shell
-# Open up Terminal: Application > Utilities > Terminal.app
-# and download the zipball with this command, don't include the "$" sign.
 $ curl -L -o dotfiles.tar.gz https://api.github.com/repos/pongstr/dotfiles/tarball/
 ```
 
