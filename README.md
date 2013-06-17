@@ -14,22 +14,15 @@ Open up Terminal: ```Application > Utilities > Terminal.app``` and download the 
 
 ```$ curl -L -o dotfiles.tar.gz https://api.github.com/repos/pongstr/dotfiles/tarball/```
 
-I like to keep my projects in ~/Projects, and just create a symlink ```~/dotfiles``` just to keep it clean and/or organised.
+I like to keep my projects in ```~/Projects```, and just create a symlink ```~/dotfiles``` just to keep it clean and/or organised.
 
-**Create Projects directory**
+**Create Projects directory:** ```$ mkdir ~/Projects```
 
-```$ mkdir ~/Projects```
+**Extract files:** ```$ tar -zxf dotfiles.tar.gz```
 
-**Extract files**
+**Move extracted folder to** ```~/Projects``` **dir:** ```$ mv pongstr-dotfiles ~/Projects/dotfiles```
 
-```$ tar -zxf dotfiles.tar.gz```
-
-**Move extracted folder to** ```~/Projects``` **dir**
-
-```$ mv pongstr-dotfiles ~/Projects/dotfiles```
-
-**Create Symlink from** ```~/``` **directory**
-```$ ln -s ~/Projects/dotfiles ~/dotfiles```
+**Create Symlink from** ```~/``` **directory** : ```$ ln -s ~/Projects/dotfiles ~/dotfiles```
 
 If you're setting up a brand new Mac or a clean installed one, you may run the dotfiles in this order:
 
