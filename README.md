@@ -10,34 +10,26 @@ My Dotfiles for setting up my OSX Workspace.
   
 ### Usage:
 
-Open up Terminal: Application > Utilities > Terminal.app
-and download the zipball with this command, don't include the "$" sign.
-```shell
-$ curl -L -o dotfiles.tar.gz https://api.github.com/repos/pongstr/dotfiles/tarball/
-```
+Open up Terminal: ```Application > Utilities > Terminal.app``` and download the zipball with this command, don't include the "$" sign.
 
-```shell
-# I like to keep my projects in ~/Projects, and just create a symlink ~/dotfiles
-# just to keep it clean and/or organised.
+```$ curl -L -o dotfiles.tar.gz https://api.github.com/repos/pongstr/dotfiles/tarball/```
 
-# Create Projects directory
-$ mkdir ~/Projects
-```
+I like to keep my projects in ~/Projects, and just create a symlink ```~/dotfiles``` just to keep it clean and/or organised.
 
-```shell
-# Extract files
-$ tar -zxf dotfiles.tar.gz
-```
+**Create Projects directory**
 
-```shell
-# Move extracted folder to ~/Projects dir
-$ mv pongstr-dotfiles ~/Projects/dotfiles
-```
+```$ mkdir ~/Projects```
 
-```shell
-# Create a Symlink to ~/
-$ ln -s ~/Projects/dotfiles ~/dotfiles
-```
+**Extract files**
+
+```$ tar -zxf dotfiles.tar.gz```
+
+**Move extracted folder to** ```~/Projects``` **dir**
+
+```$ mv pongstr-dotfiles ~/Projects/dotfiles```
+
+**Create Symlink from** ```~/``` **directory**
+```$ ln -s ~/Projects/dotfiles ~/dotfiles```
 
 If you're setting up a brand new Mac or a clean installed one, you may run the dotfiles in this order:
 
