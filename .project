@@ -78,21 +78,23 @@ if init "Initialise Project using: "; then
   bower_install bootstrap
 
   # Create Project Directory
-  read -p "Please enter directory name:" project_name
+  read -p "Please enter directory name: " project_name
   create_project $project_name
   echo ""
   
   # Boostrap Components
   echo "Copying Bootstrap components"
   
-  echo "  └── Copying bootstrap/img > $home_directory/$project_name/assets/img"
+  echo "  └── Copying bootstrap/img   >  $home_directory/$project_name/assets/img"
   cp -R "$bower_packages/bootstrap/img" "$home_directory/$project_name/assets"
   
-  echo "  ├── Copying bootstrap/js > $home_directory/$project_name/assets/js"
+  echo "  ├── Copying bootstrap/js    >  $home_directory/$project_name/assets/js"
   cp -R "$bower_packages/bootstrap/js" "$home_directory/$project_name/assets"
   
-  echo "  └── Copying bootstrap/less > $home_directory/$project_name/assets/less"
-  cp -R "$bower_packages/bootstrap/less" "$home_directory/$project_name/assets"
+  echo "  └── Copying bootstrap/less  >  $home_directory/$project_name/assets/less"
+  
+  mkdir -p "$home_directory/$project_name/assets/less/bootstrap/"
+  cp "$bower_packages/bootstrap/less/"*.less "$home_directory/$project_name/assets/less/bootstrap/"
   
   # Compile Less to CSS
   echo ""
@@ -100,8 +102,8 @@ if init "Initialise Project using: "; then
   cd "$home_directory/$project_name/assets/"
 
   function compile_less(){
-    echo "  create .assets/${@}.min.css"
-    lessc --yui-compress less/"${@}".less > css/"${@}".min.css
+    echo "  create .assets/css/${@}.min.css"
+    lessc --yui-compress less/bootstrap/"${@}".less > css/"${@}".min.css
   }
   
   compile_less bootstrap
@@ -110,7 +112,7 @@ if init "Initialise Project using: "; then
   # Cleanup
   echo ""
   rm -rf "$home_directory/$project_name/assets/js/tests"
-  rm -rf "$home_directory/$project_name/assets/less/tests"
+  rm -rf "$home_directory/$project_name/assets/less/bootstrap/tests"
    
   echo "✅  Done! Built Bootstrap project in $home_directory/$project_name"
   echo "" 
@@ -135,7 +137,7 @@ else
   echo "Copying Foundation components"
   echo ""
     
-  echo "  ├── Copying foundation/js > $home_directory/$project_name/assets"
+  echo "  ├── Copying foundation/js   > $home_directory/$project_name/assets"
   cp -R "$bower_packages/foundation/js" "$home_directory/$project_name/assets"
   
   echo "  ├── Copying foundation/scss > $home_directory/$project_name/scss"

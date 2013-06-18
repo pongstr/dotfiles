@@ -188,6 +188,6 @@
   
   // Add SASS/SCSS extensions for ST3 to recognize and assign appropriate 
   // syntax highlighting.
-  "extensions": [ "sass", "scss" ]
+  "extensions": [ "sass", "scss", "less", "twig" ]
 }
 
