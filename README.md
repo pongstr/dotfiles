@@ -1,30 +1,46 @@
 Dotfiles (Pongstr)
 ==================
 
-My Dotfiles for setting up my OSX Workspace.
+My Dotfiles for setting up OSX Workspace.
 
 ### Requirements:
+
+-----------------
 
   - You need to have Xcode or Xcode Command Line Tools installed.
   - You need to be an administrator (for ```sudo```).
   
 ### Usage:
 
-Open up Terminal: ```Application > Utilities > Terminal.app``` and download the zipball with this command, don't include the "$" sign.
+-----------------
 
-```$ curl -L -o dotfiles.tar.gz https://api.github.com/repos/pongstr/dotfiles/tarball/```
+Open up Terminal: **Application > Utilities > Terminal.app** and download the zipball with this command, don't include the ```$``` sign.
 
-I like to keep my projects in ```~/Projects```, and just create a symlink ```~/dotfiles``` just to keep it clean and/or organised.
+```shell
+# download dotfiles
+$ curl -L -o dotfiles.tar.gz https://api.github.com/repos/pongstr/dotfiles/tarball/
 
-**Create Projects directory:** ```$ mkdir ~/Projects```
+# I like to keep my projects in ~/Projects, and just create a symlink ~/dotfiles 
+# just to keep it clean and/or organised.
 
-**Extract files:** ```$ tar -zxf dotfiles.tar.gz```
+# Create Projects directory: 
+$ mkdir ~/Projects
 
-**Move extracted folder to** ```~/Projects``` **dir:** ```$ mv pongstr-dotfiles ~/Projects/dotfiles```
+# Extract files:
+$ tar -zxf dotfiles.tar.gz
 
-**Create Symlink from** ```~/``` **directory** : ```$ ln -s ~/Projects/dotfiles ~/dotfiles```
+# Move extracted folder to `~/Projects directory`
+$ mv pongstr-dotfiles ~/Projects/dotfiles
+
+# Create Symlink from '~/' direcotry
+$ ln -s ~/Projects/dotfiles ~/dotfiles
+```
+
+-----------------
 
 If you're setting up a brand new Mac or a clean installed one, you may run the dotfiles in this order:
+
+### Install Homebrew Stuff
 
 ```shell
 # Install Homebrew Git, NodeJS, Webkit2Png, Homebrew-Cask
@@ -34,21 +50,38 @@ If you're setting up a brand new Mac or a clean installed one, you may run the d
 $ sh .brew
 ```
 
+-----------------
+
+### Install Gem Stuff
+
 ```shell
 # Update Gem and Install Gem tools:
 # Jammit, Compass-SASS, Jekyll, Foundation Front-end
 $ sh ~/dotfiles/.gems
 ```
 
+-----------------
+
+### Install Custom OSX Defauls
+
 ```shell
 # OSX Defaults
 $ sh ~/dotfiles/.osx
 ```
 
+-----------------
+
+### Install Personal Settings
+
 ```shell
 # My personal preferences (this is optional, you don't really need to run it).
 $ sh ~/dotfiles/.pongstr
 ```
+
+-----------------
+
+### Cleanup
+
 
 ```shell
 # Cleanup
@@ -58,7 +91,9 @@ $ rm -rf ~/dotfiles.tar.gz
 ...aaand we're done, Logout or restart your machine for settings to take effect.
 
 
-### dotfiles:
+-----------------
+
+### teh dotfiles:
 
 - ```.brew```  installs homebrew packages and native apps.
 - ```.gems```  installs gems for web development.
@@ -70,39 +105,9 @@ $ rm -rf ~/dotfiles.tar.gz
   - Sublime Text [Package Control, Keybindings, Preferences, Theme, Fonts]
   - Photoshop Workspace *work in progress
 
-```.project``` - Initialise front-end web project using either [Bootstrap 2.3.2](http://twitter.github.io/bootstrap/) or [Foundation 4.2.1](http://foundation.zurb.com) front-end files and directories in this structure:
-  
-```html
-. [Project Directory]
-└── [assets]
-  | └── [css]
-  | ├── [fonts]
-  | ├── [img]
-  | └── [js]
-  ├── config.rb   # => [configuration file for foundation]
-  └── index.html
-```
+```.project``` - has been removed from dotfiles and moved to a [dedicated repository](https://github.com/pongstr/jekyll-project).
 
-this also comes as a separate [gist](https://gist.github.com/pongstr/5725667).
-
-  
-**Dependancies:**
-
-  - [git](http://git-scm.com)
-  - [nodejs](http://nodejs.org) and [node package manager](https://npmjs.org)
-  - [bower](http://bower.io)
-  - [Less CSS Compiler](http://lesscss.org) installs via npm for compiling less stylesheets
-  - [Compass/Sass](http://compass-style.org) for compiling sass stylesheets
- 
-
-**Usage:**
-
-Just edit ```projects.sh line:6``` to target your Projects folder and run: ```$ sh projects.sh``` and it will guide you through the process.
-
-If you have custom installation of bower and its packages, your may modify ```projects.sh line:7``` to target the directory where packages are installed, the scrip will also copy components from there.
-
-
--------------------------------------------------------------------------------
+-----------------
                   
 **Acknowledgements**
 
@@ -113,9 +118,7 @@ Inspiration and code was taken from may sources, including:
   - [@cowboy](https://github.com/cowboy/)               [Ben Alman](https://github.com/cowboy/dotfiles)
   - [@ptb](https://github.com/ptb/)                     [ptb](https://github.com/ptb/Mac-OS-X-Lion-Setup)
 
-
-
--------------------------------------------------------------------------------
+-----------------
 
 **License**
 
