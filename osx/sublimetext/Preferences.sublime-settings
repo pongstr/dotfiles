@@ -25,7 +25,13 @@
 
   // Hides the fold buttons unless the mouse is over the gutter
   "fade_fold_buttons": true,
+  
+  // Exclude folder from sidebar
+  "folder_exclude_patterns" : [".sass-cache"],
 
+  //Distinguish Folders from files
+  "bold_folder_labels": true,
+  
   // Columns in which to display vertical rulers
   "rulers": [0, 79],
 
@@ -107,6 +113,9 @@
   // Set to "none" to turn off drawing white space, "selection" to draw only the
   // white space within the selection, and "all" to draw all white space
   "draw_white_space": "selection",
+  
+  // Open single file in the same working window
+  "open_files_in_new_window": false,
 
   // Set to false to turn off the indentation guides.
   // The color and width of the indent guides may be customized by editing
@@ -188,6 +197,5 @@
   
   // Add SASS/SCSS extensions for ST3 to recognize and assign appropriate 
   // syntax highlighting.
-  "extensions": [ "sass", "scss", "less", "twig" ]
+  "extensions": [ "sass", "scss", "less" ]
 }
-
