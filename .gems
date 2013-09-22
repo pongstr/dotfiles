@@ -3,6 +3,19 @@
 # Ask for the administrator password upfront
 sudo -v
 
+
+# Update Ruby version to 2.0
+# ----------------------------------------------------------------------
+curl -L https://get.rvm.io | bash -s stable
+
+# install openssl, libyaml dependancies is installed via .brew
+rvm pkg install openssl
+rvm install 2.0.0
+rvm use 2.0.0 --default
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+source ~/.bashrc 
+
 # Update Gem
 # ----------------------------------------------------------------------
 sudo gem update --system

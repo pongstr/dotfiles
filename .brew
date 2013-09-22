@@ -16,6 +16,7 @@ ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
 brew install git
 brew install node
 brew install webkit2png
+brew install libyaml
 
 # Install Native Apps
 # ----------------------------------------------------------------------

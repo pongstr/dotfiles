@@ -52,6 +52,9 @@ systemsetup -setrestartfreeze on
 # Check for software updates daily, not just once per week
 defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
 
+# Don’t automatically rearrange Spaces based on most recent use
+defaults write com.apple.dock mru-spaces -bool false
+
 
 
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input
