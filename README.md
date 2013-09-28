@@ -123,7 +123,7 @@ Inspiration and code was taken from may sources, including:
 **License**
 
 ```
-Copyright 2013  cv (c) Pongstr Ordillo
+Copyright 2013 (c) Pongstr Ordillo
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of 
 this software and associated documentation files (the "Software"), to deal in 
