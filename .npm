@@ -21,6 +21,7 @@ function installPackages {
   export PATH="/usr/local/share/npm/bin:$PATH"
     
   # Install NPM Packages
+  npm install -g grunt-cli
   npm install -g less
   npm install -g bower
 }
