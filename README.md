@@ -113,17 +113,17 @@ $ rm -rf ~/dotfiles.tar.gz
 
 Inspiration and code was taken from may sources, including:
   
-  - [@mathiasbynens](https://github.com/mathiasbynens/) [Mathias Bynens Dotfiles](https://github.com/mathiasbynens/dotfiles)
-  - [@necolas](https://github.com/necolas/)             [Nicolas Gallagher](https://github.com/necolas/dotfiles)
-  - [@cowboy](https://github.com/cowboy/)               [Ben Alman](https://github.com/cowboy/dotfiles)
-  - [@ptb](https://github.com/ptb/)                     [ptb](https://github.com/ptb/Mac-OS-X-Lion-Setup)
+  - **[Mathias Bynens Dotfiles](https://github.com/mathiasbynens/dotfiles)** - [@mathiasbynens](https://github.com/mathiasbynens/) 
+  - **[Nicolas Gallagher](https://github.com/necolas/dotfiles)** - [@necolas](https://github.com/necolas/)             
+  - **[Ben Alman](https://github.com/cowboy/dotfiles)** - [@cowboy](https://github.com/cowboy/) 
+  - **[ptb](https://github.com/ptb/Mac-OS-X-Lion-Setup)** - [@ptb](https://github.com/ptb/)         
 
 -----------------
 
 **License**
 
 ```
-Copyright (c) Pongstr Ordillo
+Copyright 2013  cv (c) Pongstr Ordillo
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of 
 this software and associated documentation files (the "Software"), to deal in 
