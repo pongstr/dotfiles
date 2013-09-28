@@ -114,9 +114,9 @@ $ rm -rf ~/dotfiles.tar.gz
 Inspiration and code was taken from may sources, including:
   
   - **[Mathias Bynens Dotfiles](https://github.com/mathiasbynens/dotfiles)** - [@mathiasbynens](https://github.com/mathiasbynens/) 
-  - **[Nicolas Gallagher](https://github.com/necolas/dotfiles)** - [@necolas](https://github.com/necolas/)             
-  - **[Ben Alman](https://github.com/cowboy/dotfiles)** - [@cowboy](https://github.com/cowboy/) 
-  - **[ptb](https://github.com/ptb/Mac-OS-X-Lion-Setup)** - [@ptb](https://github.com/ptb/)         
+  - **[Necolas dotfiles](https://github.com/necolas/dotfiles)** - [@necolas](https://github.com/necolas/)             
+  - **[Cowboy dotfiles](https://github.com/cowboy/dotfiles)** - [@cowboy](https://github.com/cowboy/) 
+  - **[ptb Mac OSX Lion Setup](https://github.com/ptb/Mac-OS-X-Lion-Setup)** - [@ptb](https://github.com/ptb/)         
 
 -----------------
 
