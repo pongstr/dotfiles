@@ -7,7 +7,7 @@ My Dotfiles for setting up OSX Workspace.
 
 -----------------
 
-  - You need to have Xcode or Xcode Command Line Tools installed.
+  - You need to have **[Xcode](https://developer.apple.com/xcode/)** or **[Xcode Command Line Tools](https://developer.apple.com/downloads)** installed.
   - You need to be an administrator (for ```sudo```).
   
 ### Usage:
