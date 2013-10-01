@@ -13,8 +13,17 @@ rvm pkg install openssl
 rvm install 2.0.0
 rvm use 2.0.0 --default
 
+# Export PATH after RVM installation
+export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin
+
+# Make /Applications the default location of apps
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
+# Load RVM into a shell session as a function
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
 source ~/.bashrc 
+
 
 # Update Gem
 # ----------------------------------------------------------------------
