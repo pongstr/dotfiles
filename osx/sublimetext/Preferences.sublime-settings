@@ -27,7 +27,7 @@
   "fade_fold_buttons": true,
   
   // Exclude folder from sidebar
-  "folder_exclude_patterns" : [".sass-cache"],
+  "folder_exclude_patterns" : [".sass-cache", ".git"],
 
   //Distinguish Folders from files
   "bold_folder_labels": true,
