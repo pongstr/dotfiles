@@ -25,6 +25,14 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 source ~/.bashrc 
 
 
+# Update OSX SSL Certs
+# ---------------------------------------------------------------------
+rvm reload
+rvm osx-ssl-certs update all
+
+# Stay Healthy, automate updating of certs
+rvm osx-ssl-certs cron install
+
 # Update Gem
 # ----------------------------------------------------------------------
 sudo gem update --system
