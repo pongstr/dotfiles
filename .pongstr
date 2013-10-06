@@ -19,6 +19,9 @@ check "$HOME/Library/Application Support/Sublime Text 3/"
 check "$HOME/Library/Application Support/Sublime Text 3/Packages/"
 check "$HOME/Library/Application Support/Sublime Text 3/Packages/User"
 
+# Overwrite .bash_profile
+cp "$HOME/dotfiles/.bash_profile" "$HOME/.bash_profile"
+
 # Checkout Sublime Text Package Control
 echo "Add Sublime Text Package Control"
 cd "$HOME/Library/Application Support/Sublime Text 3/Packages/" && git clone https://github.com/wbond/sublime_package_control.git "Package Control"
