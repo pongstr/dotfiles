@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# To run this, you must download & install the latest Xcode App and the latest Commandline Tools
+# To run this, you must download & install the latest Xcode and Commandline Tools
 # https://developer.apple.com/xcode/
 # https://developer.apple.com/downloads/
 
@@ -9,24 +9,22 @@ sudo -v
 
 # Install Homebrew
 # ----------------------------------------------------------------------
-
 ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
 
 # Install Homebrew Formulas:
 brew install git
 brew install node
-brew install webkit2png
 brew install libyaml
+brew install openssl
 
 # Install Native Apps
 # ----------------------------------------------------------------------
-
 brew tap phinze/homebrew-cask
 brew install brew-cask
 
 # Make /Applications the default location of apps
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-
+  
 function installcask() {  
   if brew cask info "${@}" | grep "Not installed" > /dev/null; then
     brew cask install "${@}"
@@ -35,8 +33,6 @@ function installcask() {
   fi
 }
 
-
-installcask textmate2
 installcask app-cleaner
 installcask dropbox
 installcask firefox
@@ -44,12 +40,16 @@ installcask github
 installcask google-chrome
 installcask open-office
 installcask skype
+installcask textmate2
 installcask the-unarchiver
 installcask vlc
 
 
-# Tap from pongstr/homebrew-cask for casks that aren't
-# in the official homebrew-cask repo
-brew tap pongstr/homebrew-cask
-
-installcask sublime-text-3
+# Install RVM
+# I know this shouldn't be here, but since .brew is the step one in my
+# dotfiles installation and Terminal has to restart in order to recognize
+# $ rvm command, this is temporary though will do this the right way when
+# i get the time to reorganize everything :) 
+# ----------------------------------------------------------------------
+\curl -L https://get.rvm.io | bash
+killall Finder

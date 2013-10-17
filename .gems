@@ -3,13 +3,7 @@
 # Ask for the administrator password upfront
 sudo -v
 
-
-# Update Ruby version to 2.0
-# ----------------------------------------------------------------------
-curl -L https://get.rvm.io | bash -s stable
-
 # install openssl, libyaml dependancies is installed via .brew
-rvm pkg install openssl
 rvm install 2.0.0
 rvm use 2.0.0 --default
 
@@ -36,7 +30,7 @@ function installgem(){
 
 # Install Gems Tools
 # ----------------------------------------------------------------------
+installgem bootstrap-sass
 installgem compass
-installgem jammit
 installgem jekyll
 installgem zurb-foundation

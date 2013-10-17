@@ -15,6 +15,7 @@ function check() {
     mkdir "${@}"
   fi
 }
+
 check "$HOME/Library/Application Support/Sublime Text 3/"
 check "$HOME/Library/Application Support/Sublime Text 3/Packages/"
 check "$HOME/Library/Application Support/Sublime Text 3/Packages/User"
