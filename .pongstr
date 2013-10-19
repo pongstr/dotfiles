@@ -6,27 +6,21 @@ sudo -v
 # Set the dotfiles directory location
 DOTFILES="$HOME/dotfiles"
 
-# Check application support directory for Sublime Text 3, if not create it.
-function check() {  
-  if [[ -d "${@}" && ! -L "${@}" ]] ; then
-    echo "👍  ${@}"
-  else
-    echo "✅  Created directory: ${@}"
-    mkdir "${@}"
-  fi
-}
-
-check "$HOME/Library/Application Support/Sublime Text 3/"
-check "$HOME/Library/Application Support/Sublime Text 3/Packages/"
-check "$HOME/Library/Application Support/Sublime Text 3/Packages/User"
-
 # Overwrite .bash_profile
 cp "$HOME/dotfiles/.bash_profile" "$HOME/.bash_profile"
+
+brew tap pongstr/homebrew-cask
+
+# Make /Applications the default location of apps
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
+brew cask install mamp
+brew cask install sublimetext-3
 
 # Checkout Sublime Text Package Control
 echo "Add Sublime Text Package Control"
 cd "$HOME/Library/Application Support/Sublime Text 3/Packages/" && git clone https://github.com/wbond/sublime_package_control.git "Package Control"
-cd "Package Control" && git checkout python3 && 
+cd "Package Control" && git checkout python3 
 cd "../User"
 
 # Copy Sublime Text 3 User Prefrences and Snippets
