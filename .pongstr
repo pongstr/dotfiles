@@ -9,14 +9,6 @@ DOTFILES="$HOME/dotfiles"
 # Overwrite .bash_profile
 cp "$HOME/dotfiles/.bash_profile" "$HOME/.bash_profile"
 
-brew tap pongstr/homebrew-cask
-
-# Make /Applications the default location of apps
-export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-
-brew cask install mamp
-brew cask install sublimetext-3
-
 # Checkout Sublime Text Package Control
 echo "Add Sublime Text Package Control"
 cd "$HOME/Library/Application Support/Sublime Text 3/Packages/" && git clone https://github.com/wbond/sublime_package_control.git "Package Control"
@@ -34,8 +26,9 @@ echo "✅  Copied Consolas Font"
 echo ""
 
 cp -r "$DOTFILES/osx/preferences/" "$HOME/Library/Preferences/"
+cp -r "$DOTFILES/osx/dock/" "$HOME/Library/Application Support/Dock/"
 echo "✅  Copied Application Preferences"
-echo "      * OSX Prefrences [ Dock, SidebarList, Terminal ]"
+echo "      * OSX Prefrences [ Dock, Launchpad, Finder SidebarList, Terminal ]"
 
 # Log user out make sure the changes will take effect. 
 echo ""
