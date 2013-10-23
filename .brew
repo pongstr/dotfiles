@@ -43,6 +43,7 @@ installcask skype
 installcask sublimetext-3
 installcask textmate2
 installcask the-unarchiver
+installcask trim-enabler
 installcask vlc
 
 

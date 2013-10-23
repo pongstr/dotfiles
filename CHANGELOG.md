@@ -2,6 +2,11 @@
 
 --------------------------------------
 
+**v1.0.41 [October 24, 2013]**
+  - added launchpad .db
+  - updated sidebarlists and dock
+  - moved rvm installation to ```.brew``` 
+
 **v1.0.23  [September 22, 2013]**
   - added .brew libyaml (rvm/ruby 2.0 dependacy)
   - added .gems RVM and Ruby 2.0 installation
