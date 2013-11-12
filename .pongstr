@@ -12,8 +12,6 @@ cp "$HOME/dotfiles/.bash_profile" "$HOME/.bash_profile"
 # Checkout Sublime Text Package Control
 echo "Add Sublime Text Package Control"
 cd "$HOME/Library/Application Support/Sublime Text 3/Packages/" && git clone https://github.com/wbond/sublime_package_control.git "Package Control"
-cd "Package Control" && git checkout python3 
-cd "../User"
 
 # Copy Sublime Text 3 User Prefrences and Snippets
 cp -r "$DOTFILES/osx/sublimetext/" "$HOME/Library/Application Support/Sublime Text 3/Packages/User/"
