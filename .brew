@@ -41,7 +41,7 @@ installcask google-chrome
 installcask mamp
 installcask skype
 installcask sublime-text-3
-installcask textmate2
+installcask textmate
 installcask the-unarchiver
 installcask trim-enabler
 installcask vlc
@@ -55,3 +55,4 @@ installcask vlc
 # ----------------------------------------------------------------------
 \curl -L https://get.rvm.io | bash
 killall Finder
+killall Terminal
