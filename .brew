@@ -40,7 +40,7 @@ installcask github
 installcask google-chrome
 installcask mamp
 installcask skype
-installcask sublimetext-3
+installcask sublime-text-3
 installcask textmate2
 installcask the-unarchiver
 installcask trim-enabler

@@ -57,7 +57,7 @@ $ sh .brew
 ```shell
 # Update Gem and Install Gem tools:
 # Jammit, Compass-SASS, Jekyll, Foundation Front-end
-$ sh ~/dotfiles/.gems
+$ sh .gems
 ```
 
 -----------------
@@ -66,7 +66,7 @@ $ sh ~/dotfiles/.gems
 
 ```shell
 # OSX Defaults
-$ sh ~/dotfiles/.osx
+$ sh .osx
 ```
 
 -----------------
@@ -75,7 +75,7 @@ $ sh ~/dotfiles/.osx
 
 ```shell
 # My personal preferences (this is optional, you don't really need to run it).
-$ sh ~/dotfiles/.pongstr
+$ sh .pongstr
 ```
 
 -----------------
@@ -98,7 +98,7 @@ $ rm -rf ~/dotfiles.tar.gz
 - ```.brew```  installs homebrew packages and native apps.
 - ```.gems```  installs gems for web development.
 - ```.npm```   installs node package manager and packages.
-- ```.osx```   OSX-Mountain Lion setup and preferences.
+- ```.osx```   OSX setup and preferences.
   
 ```.pongstr``` personal preferences for:
   - Finder [sidebarlists, dock, terminal]
@@ -122,24 +122,12 @@ Inspiration and code was taken from may sources, including:
 
 **License**
 
-```
-Copyright 2013 (c) Pongstr Ordillo
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of 
-this software and associated documentation files (the "Software"), to deal in 
-the Software without restriction, including without limitation the rights to 
-use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies 
-of the Software, and to permit persons to whom the Software is furnished to do 
-so, subject to the following conditions:
+### Copyright 2013 (c) Pongstr Ordillo. MIT LICENSE
 
-The above copyright notice and this permission notice shall be included in all 
-copies or substantial portions of the Software.
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE 
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE 
-SOFTWARE.
-```
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
