@@ -17,7 +17,8 @@ My Dotfiles for setting up OSX Workspace.
 Open up Terminal: **Application > Utilities > Terminal.app** and download the zipball with this command, don't include the ```$``` sign.
 
 ```shell
-# Copy+Paste the curl command
+# Copy+Paste the curl command, this will confirm if you have Xcode and Commandline Tools installed.
+# Also, it will run .brew
 $ curl -O -# https://raw.github.com/pongstr/dotfiles/wizard/.install && sh .install
 ```
 
@@ -63,6 +64,16 @@ $ sh .osx
 ```shell
 # My personal preferences (this is optional, you don't really need to run it).
 $ sh .pongstr
+
+# Git Setup Configuration
+GIT_AUTHOR_NAME="Pongstr"
+GIT_AUTHOR_EMAIL="pongstr@example.com"
+GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
+GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
+
+git config --global user.name    "$GIT_AUTHOR_NAME"
+git config --global user.email   "$GIT_AUTHOR_EMAIL"
+git config --global push.default simple
 ```
 
 ...aaand we're done, Logout or restart your machine for settings to take effect.

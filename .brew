@@ -42,6 +42,7 @@ installcask firefox
 installcask github
 installcask google-chrome
 installcask google-chrome-canary
+installcask macvim
 installcask mamp
 installcask skype
 installcask sublime-text-3
