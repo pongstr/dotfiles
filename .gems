@@ -33,4 +33,4 @@ function installgem(){
 installgem compass
 installgem jekyll
 installgem bootstrap-sass
-installgem zurb-foundation
+installgem foundation
