@@ -7,26 +7,26 @@ sudo -v
 DOTFILES="$HOME/dotfiles"
 
 # Overwrite .bash_profile
-cp "$HOME/dotfiles/.bash_profile" "$HOME/.bash_profile"
+cp   "$HOME/dotfiles/.bash_profile" "$HOME/.bash_profile"
 
 # Checkout Sublime Text Package Control
 echo "Add Sublime Text Package Control"
-cd "$HOME/Library/Application Support/Sublime Text 3/Packages/" && git clone https://github.com/wbond/sublime_package_control.git "Package Control"
+cd   "$HOME/Library/Application Support/Sublime Text 3/Packages/" && git clone https://github.com/wbond/sublime_package_control.git "Package Control"
 
 # Copy Sublime Text 3 User Prefrences and Snippets
 cp -r "$DOTFILES/osx/sublimetext/" "$HOME/Library/Application Support/Sublime Text 3/Packages/User/"
-echo " * Sublime Text Preferences and Snippets"
-echo ""
+echo  " * Sublime Text Preferences and Snippets"
+echo  ""
 
 # Copy Consolas Font (favourite for coding).
 cp -r "$DOTFILES/osx/fonts/" "$HOME/Library/Fonts/"
-echo "✅  Copied Consolas Font"
-echo ""
+echo  "✅  Copied Consolas Font"
+echo  ""
 
 cp -r "$DOTFILES/osx/preferences/" "$HOME/Library/Preferences/"
 cp -r "$DOTFILES/osx/dock/" "$HOME/Library/Application Support/Dock/"
-echo "✅  Copied Application Preferences"
-echo "      * OSX Prefrences [ Dock, Launchpad, Finder SidebarList, Terminal ]"
+echo  "✅  Copied Application Preferences"
+echo  "      * OSX Prefrences [ Dock, Launchpad, Finder SidebarList, Terminal ]"
 
 # Log user out make sure the changes will take effect. 
 echo ""

@@ -30,7 +30,7 @@ function installgem(){
 
 # Install Gems Tools
 # ----------------------------------------------------------------------
-installgem bootstrap-sass
 installgem compass
 installgem jekyll
+installgem bootstrap-sass
 installgem zurb-foundation

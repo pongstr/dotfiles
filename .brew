@@ -8,8 +8,11 @@
 sudo -v
 
 # Install Homebrew
-# ----------------------------------------------------------------------
+# ---------------------------------------------------------------------------
 ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go/install)"
+
+# Run Brew doctor before anything else
+brew doctor
 
 # Install Homebrew Formulas:
 brew install git
@@ -18,7 +21,7 @@ brew install libyaml
 brew install openssl
 
 # Install Native Apps
-# ----------------------------------------------------------------------
+# ---------------------------------------------------------------------------
 brew tap pongstr/homebrew-cask
 brew install brew-cask
 
@@ -38,6 +41,7 @@ installcask dropbox
 installcask firefox
 installcask github
 installcask google-chrome
+installcask google-chrome-canary
 installcask mamp
 installcask skype
 installcask sublime-text-3
@@ -48,11 +52,12 @@ installcask vlc
 
 
 # Install RVM
+# ---------------------------------------------------------------------------
 # I know this shouldn't be here, but since .brew is the step one in these
 # dotfiles installation and Terminal has to restart in order to recognize
 # $ rvm command. This is temporary though will do this the right way when
 # i get the time to reorganize everything :) 
-# ----------------------------------------------------------------------
+# ---------------------------------------------------------------------------
+
 \curl -L https://get.rvm.io | bash
-killall Finder
-killall Terminal
+killall Finder Terminal
