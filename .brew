@@ -9,7 +9,7 @@ sudo -v
 
 # Install Homebrew
 # ----------------------------------------------------------------------
-ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go/install)"
 
 # Install Homebrew Formulas:
 brew install git
