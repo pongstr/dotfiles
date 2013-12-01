@@ -47,6 +47,7 @@ installcask skype
 installcask sublime-text-3
 installcask textmate
 installcask trim-enabler
+installcask viber
 installcask vlc
 
 
