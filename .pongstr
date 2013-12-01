@@ -23,8 +23,8 @@ cp -r "$DOTFILES/osx/fonts/" "$HOME/Library/Fonts/"
 echo  "✅  Copied Consolas Font"
 echo  ""
 
-cp -r "$DOTFILES/osx/preferences/" "$HOME/Library/Preferences/"
-cp -r "$DOTFILES/osx/dock/" "$HOME/Library/Application Support/Dock/"
+cp -R "$DOTFILES/osx/preferences/" "$HOME/Library/Preferences/"
+cp -R "$DOTFILES/osx/dock/" "$HOME/Library/Application Support/Dock/"
 echo  "✅  Copied Application Preferences"
 echo  "      * OSX Prefrences [ Dock, Launchpad, Finder SidebarList, Terminal ]"
 
