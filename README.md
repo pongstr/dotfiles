@@ -17,23 +17,8 @@ My Dotfiles for setting up OSX Workspace.
 Open up Terminal: **Application > Utilities > Terminal.app** and download the zipball with this command, don't include the ```$``` sign.
 
 ```shell
-# download dotfiles
-$ curl -L -o dotfiles.tar.gz https://api.github.com/repos/pongstr/dotfiles/tarball/
-
-# I like to keep my projects in ~/Projects, and just create a symlink ~/dotfiles 
-# just to keep it clean and/or organised.
-
-# Create Projects directory: 
-$ mkdir ~/Projects
-
-# Extract files:
-$ tar -zxf dotfiles.tar.gz
-
-# Move extracted folder to `~/Projects directory`
-$ mv pongstr-dotfiles ~/Projects/dotfiles
-
-# Create Symlink from '~/' direcotry
-$ ln -s ~/Projects/dotfiles ~/dotfiles
+# Copy+Paste the curl command
+$ curl -O -# https://raw.github.com/pongstr/dotfiles/wizard/.install && sh .install
 ```
 
 -----------------
@@ -43,10 +28,10 @@ If you're setting up a brand new Mac or a clean installed one, you may run the d
 ### Install Homebrew Stuff
 
 ```shell
-# Install Homebrew Git, NodeJS, Webkit2Png, Homebrew-Cask
-# Homebrew-Cask then installs these apps: 
-# Textmate2, App Cleaner, Dropbox, Firefox, Github, Chrome, 
-# OpenOffice, Skype, Unarchiver and VLC Player
+# Brew Apps: Git, Node, Libyaml, OpenSSL & Brew-Cask
+# NativeApps: 
+# [app-cleaner, dropbox, firefox, github, chrome, canary, mamp, skype, st3, tm2 and vlc]
+# RVM Installation
 $ sh .brew
 ```
 
@@ -55,17 +40,19 @@ $ sh .brew
 ### Install Gem Stuff
 
 ```shell
-# Update Gem and Install Gem tools:
-# Jammit, Compass-SASS, Jekyll, Foundation Front-end
+# Install Ruby 2.0.0, update certs cront install ssl-certs
+# Install gems: [compass,jekyll,bootstrap-sass,zurb-foundation]
 $ sh .gems
 ```
 
 -----------------
 
-### Install Custom OSX Defauls
+### Install Custom OSX Defaults
 
 ```shell
-# OSX Defaults
+# Pongstr's OSX Default Settings
+# Please make sure you change "Pongstr" to your own username,
+# it starts from Line:18 to Line:21
 $ sh .osx
 ```
 
@@ -76,16 +63,6 @@ $ sh .osx
 ```shell
 # My personal preferences (this is optional, you don't really need to run it).
 $ sh .pongstr
-```
-
------------------
-
-### Cleanup
-
-
-```shell
-# Cleanup
-$ rm -rf ~/dotfiles.tar.gz
 ```
 
 ...aaand we're done, Logout or restart your machine for settings to take effect.
@@ -103,9 +80,8 @@ $ rm -rf ~/dotfiles.tar.gz
 ```.pongstr``` personal preferences for:
   - Finder [sidebarlists, dock, terminal]
   - Sublime Text [Package Control, Keybindings, Preferences, Theme, Fonts]
-  - Photoshop Workspace *work in progress
 
-```.project``` - has been removed from dotfiles and moved to a [dedicated repository](https://github.com/pongstr/jekyll-project).
+```.project``` - has been removed from dotfiles and moved to a [dedicated repository](https://github.com/pongstr/jekyll-boilerplate).
 
 -----------------
                   
@@ -115,7 +91,7 @@ Inspiration and code was taken from may sources, including:
   
   - **[Mathias Bynens Dotfiles](https://github.com/mathiasbynens/dotfiles)** - [@mathiasbynens](https://github.com/mathiasbynens/) 
   - **[Necolas dotfiles](https://github.com/necolas/dotfiles)** - [@necolas](https://github.com/necolas/)             
-  - **[Cowboy dotfiles](https://github.com/cowboy/dotfiles)** - [@cowboy](https://github.com/cowboy/) 
+  - **[Cowboy dotfiles](https://github.com/cowboy/dotfiles)** - [@cowboy](https://twitter.com/cowboy/) 
   - **[ptb Mac OSX Lion Setup](https://github.com/ptb/Mac-OS-X-Lion-Setup)** - [@ptb](https://github.com/ptb/)         
 
 -----------------

@@ -46,7 +46,6 @@ installcask mamp
 installcask skype
 installcask sublime-text-3
 installcask textmate
-installcask the-unarchiver
 installcask trim-enabler
 installcask vlc
 
