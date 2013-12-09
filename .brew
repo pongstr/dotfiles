@@ -28,7 +28,7 @@ brew install brew-cask
 # Make /Applications the default location of apps
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
   
-function installcask() {  
+function cask() {  
   if brew cask info "${@}" | grep "Not installed" > /dev/null; then
     brew cask install "${@}"
   else
@@ -36,28 +36,29 @@ function installcask() {
   fi
 }
 
-installcask app-cleaner
-installcask dropbox
-installcask firefox
-installcask github
-installcask google-chrome
-installcask google-chrome-canary
-installcask macvim
-installcask mamp
-installcask skype
-installcask sublime-text-3
-installcask textmate
-installcask trim-enabler
-installcask viber
-installcask vlc
+cask app-cleaner
+cask dropbox
+cask firefox
+cask github
+cask google-chrome
+cask google-chrome-canary
+cask macvim
+cask mamp
+cask skype
+cask sublime-text-3
+cask textmate
+cask trim-enabler
+cask viber
+cask vlc
+cask virtualbox
 
 
 # Install RVM
 # ---------------------------------------------------------------------------
 # I know this shouldn't be here, but since .brew is the step one in these
 # dotfiles installation and Terminal has to restart in order to recognize
-# $ rvm command. This is temporary though will do this the right way when
-# i get the time to reorganize everything :) 
+# ```$ rvm``` command. This is temporary though will do this the right way
+# when i get the time to reorganize everything :) 
 # ---------------------------------------------------------------------------
 
 \curl -L https://get.rvm.io | bash
