@@ -19,7 +19,7 @@ rvm osx-ssl-certs cron install
 # ----------------------------------------------------------------------
 sudo gem update --system
 
-function installgem(){
+function gems(){
   if ! gem spec "${@}" > /dev/null 2>&1; then
     echo "Installing gem: ${@}"
     sudo gem install "${@}"
@@ -30,7 +30,7 @@ function installgem(){
 
 # Install Gems Tools
 # ----------------------------------------------------------------------
-installgem compass
-installgem jekyll
-installgem bootstrap-sass
-installgem foundation
+gems compass
+gems jekyll
+gems bootstrap-sass
+gems foundation
