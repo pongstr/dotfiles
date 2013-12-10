@@ -7,7 +7,7 @@ My Dotfiles for setting up OSX Workspace.
 
 -----------------
 
-  - You need to have **[Xcode](https://developer.apple.com/xcode/)** or **[Xcode Command Line Tools](https://developer.apple.com/downloads)** installed.
+  - You need to have **[Xcode](https://developer.apple.com/xcode/)** &amp; **[Xcode Command Line Tools](https://developer.apple.com/downloads)** installed.
   - You need to be an administrator (for ```sudo```).
   
 ### Usage:
@@ -49,6 +49,11 @@ $ sh .gems
 -----------------
 
 ### Install Custom OSX Defaults
+
+**Word of warning:** 
+
+```.osx``` is basically my operating system's preferences and settings
+you may or may not like it, run it at your own risk. :)
 
 ```shell
 # Pongstr's OSX Default Settings
