@@ -12,7 +12,7 @@ alias zshconfig="vi ~/.zshrc"
 alias ohmyzsh="vi ~/.oh-my-zsh"
 
 # Home Folders
-alias home="cd ~"
+alias home="cd ~ && clear"
 alias apps="cd /Applications/"
 alias documents="cd ~/Documents/"
 alias movies="cd ~/Movies/"
