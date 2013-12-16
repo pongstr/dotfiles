@@ -260,7 +260,7 @@ find ~/Library/Application\ Support/Dock -name "*.db" -maxdepth 1 -delete
 # ----------------------------------------------------------------------
 
 # Install Solarized Dark ansi Theme
-open "{$HOME}/dotfiles/osx/terminal/Solarized Dark ansi.terminal"
+open "{$HOME}/dotfiles/osx/terminal/Pongstr Solarized.terminal"
 sleep 1 # Wait a bit to make sure the theme is loaded
 
 # Set Solarized Dark Theme
