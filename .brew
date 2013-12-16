@@ -20,6 +20,10 @@ brew install node
 brew install libyaml
 brew install openssl
 
+# Install zsh & oh-my-zsh
+# ---------------------------------------------------------------------------
+brew install zsh && curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
+
 # Install Native Apps
 # ---------------------------------------------------------------------------
 brew tap pongstr/homebrew-cask

@@ -256,6 +256,22 @@ find ~/Library/Application\ Support/Dock -name "*.db" -maxdepth 1 -delete
 # defaults write com.apple.dock persistent-others -array-add '{tile-data={}; tile-type="spacer-tile";}'
 
 
+# Terminal
+# ----------------------------------------------------------------------
+
+# Install Solarized Dark ansi Theme
+open "{$HOME}/dotfiles/osx/terminal/Solarized Dark ansi.terminal"
+sleep 1 # Wait a bit to make sure the theme is loaded
+
+# Set Solarized Dark Theme
+defaults write com.apple.terminal "Default Window Settings" -string "Pongstr Solarized.terminal"
+defaults write com.apple.terminal "Startup Window Settings" -string "Pongstr Solarized.terminal"
+
+# Set shell to open with zsh
+defaults write com.apple.Terminal Shell "/bin/zsh"
+
+
+
 
 # Safari & WebKit
 # ----------------------------------------------------------------------

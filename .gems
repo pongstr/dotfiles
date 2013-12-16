@@ -31,6 +31,6 @@ function gems(){
 # Install Gems Tools
 # ----------------------------------------------------------------------
 gems compass
-gems jekyll
+gems jekyll --version 1.2.1
 gems bootstrap-sass
 gems foundation
