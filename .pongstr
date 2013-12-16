@@ -46,7 +46,7 @@ echo  ""
 cp -R "$DOTFILES/osx/preferences/" "$HOME/Library/Preferences/"
 cp -R "$DOTFILES/osx/dock/" "$HOME/Library/Application Support/Dock/"
 echo  "✅  Copied Application Preferences"
-echo  "      * OSX Prefrences [ Dock, Launchpad, Finder SidebarList, Terminal ]"
+echo  "      * OSX Prefrences [ Dock, Launchpad, Finder SidebarList ]"
 
 # Install MacVim Janus
 echo "Installing Janus: Vim Distribution"

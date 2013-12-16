@@ -11,9 +11,18 @@ ZSH_THEME="amuse"
 alias zshconfig="vi ~/.zshrc"
 alias ohmyzsh="vi ~/.oh-my-zsh"
 
+# Home Folders
+alias home="cd ~"
+alias apps="cd /Applications/"
+alias documents="cd ~/Documents/"
+alias movies="cd ~/Movies/"
+alias music="cd ~/Music/"
+alias pictures="cd ~/Pictures/"
+alias dropbox="cd /Volumes/Pongstr/Dropbox/"
+
 # Projects Directory
-alias projects="cd ~/Projects/"
-alias github="cd ~/Projects/github/"
+alias projects="~/Projects"
+alias github="~/Projects/github"
 
 # Set to this to use case-sensitive completion
 CASE_SENSITIVE="true"
@@ -26,9 +35,6 @@ export UPDATE_ZSH_DAYS=5
 
 # Uncomment following line if you want to disable autosetting terminal title.
 DISABLE_AUTO_TITLE="true"
-
-# Uncomment following line if you want red dots to be displayed while waiting for completion
-COMPLETION_WAITING_DOTS="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
