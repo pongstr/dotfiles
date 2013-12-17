@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+# Documents Alias
+ln -s "/Volumes/Pongstr/BackUp/Documents" "$HOME/Documents/Documents"
+
+# Movie Alias
+echo "  + Add Movies directory"
+ln -s "/Volumes/Pongstr/BackUp/Movies/Live"      "$HOME/Movies/Live"
+ln -s "/Volumes/Pongstr/BackUp/Movies/Movies"    "$HOME/Movies/Movies"
+ln -s "/Volumes/Pongstr/BackUp/Movies/Series"    "$HOME/Movies/Series"
+ln -s "/Volumes/Pongstr/BackUp/Movies/Tutorials" "$HOME/Movies/Tutorials"
+
+# Music Alias
+echo "  + Add iTunes directory"
+ln -s "/Volumes/Pongstr/BackUp/Music/iTunes" "$HOME/Music/iTunes"
+
+# Picture Alias
+echo "  + Add Pictures directory"
+ln -s "/Volumes/Pongstr/BackUp/Pictures/" "$HOME/Pictures/Pictures"
+ln -s "/Volumes/Pongstr/BackUp/Pictures/Pongstr.photolibrary" "$HOME/Pictures/Pongstr.photolibrary"

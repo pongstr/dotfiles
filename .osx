@@ -259,17 +259,8 @@ find ~/Library/Application\ Support/Dock -name "*.db" -maxdepth 1 -delete
 # Terminal
 # ----------------------------------------------------------------------
 
-# Install Solarized Dark ansi Theme
-open "{$HOME}/dotfiles/osx/terminal/Pongstr Solarized.terminal"
-sleep 1 # Wait a bit to make sure the theme is loaded
-
-# Set Solarized Dark Theme
-defaults write com.apple.terminal "Default Window Settings" -string "Pongstr Solarized.terminal"
-defaults write com.apple.terminal "Startup Window Settings" -string "Pongstr Solarized.terminal"
-
-# Set shell to open with zsh
-defaults write com.apple.Terminal Shell "/bin/zsh"
-
+defaults write com.apple.terminal "Default Window Settings" -string "Pro.terminal"
+defaults write com.apple.terminal "Startup Window Settings" -string "Pro.terminal"
 
 
 
@@ -355,8 +346,8 @@ defaults write com.apple.DiskUtility advanced-image-options -bool true
 # Kill affected applications  
 # ----------------------------------------------------------------------
 
+echo "Done. Note that some of these changes require a logout/restart to take effect."
+
 for app in "Dashboard" "Dock" "Finder" "Safari" "SystemUIServer" "Twitter" "iCal" "iTunes"; do
   killall "$app" > /dev/null 2>&1
 done
-
-echo "Done. Note that some of these changes require a logout/restart to take effect."

@@ -11,8 +11,21 @@ export EDITOR=vim
 ZSH_THEME="pongstr"
 
 # Aliases
-alias zshconfig="~/.zshrc"
-alias ohmyzsh="~/.oh-my-zsh"
+alias zshconfig="vi ~/.zshrc"
+alias ohmyzsh="vi ~/.oh-my-zsh"
+
+# Home Folders
+alias home="cd ~ && clear"
+alias apps="cd /Applications/"
+alias documents="cd ~/Documents/"
+alias movies="cd ~/Movies/"
+alias music="cd ~/Music/"
+alias pictures="cd ~/Pictures/"
+alias dropbox="cd /Volumes/Pongstr/Dropbox/"
+
+# Projects Directory
+alias projects="~/Projects"
+alias github="~/Projects/github"
 
 # Set to this to use case-sensitive completion
 CASE_SENSITIVE="true"
@@ -38,10 +51,10 @@ source $ZSH/oh-my-zsh.sh
 # -----------------------------------------------------------------------------
 
 # Export PATH after RVM installation
-# export PATH="/usr/local/bin:/Users/Pongstr/.rvm/gems/ruby-2.0.0-p247@global/bin:$PATH"
+export PATH="/usr/local/bin:/Users/Pongstr/.rvm/gems/ruby-2.0.0-p247@global/bin:$PATH"
 
 # Make /Applications the default location of apps
-# export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 # Load RVM into a shell session *as a function*
-# [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"

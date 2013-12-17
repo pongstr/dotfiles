@@ -16,45 +16,10 @@ brew doctor
 
 # Install Homebrew Formulas:
 brew install git
+brew install zsh
 brew install node
 brew install libyaml
 brew install openssl
-
-# Install zsh & oh-my-zsh
-# ---------------------------------------------------------------------------
-brew install zsh && curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
-
-# Install Native Apps
-# ---------------------------------------------------------------------------
-brew tap pongstr/homebrew-cask
-brew install brew-cask
-
-# Make /Applications the default location of apps
-export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-  
-function cask() {  
-  if brew cask info "${@}" | grep "Not installed" > /dev/null; then
-    brew cask install "${@}"
-  else
-    echo "${@} is already installed."
-  fi
-}
-
-cask app-cleaner
-cask dropbox
-cask firefox
-cask github
-cask google-chrome
-cask google-chrome-canary
-cask macvim
-cask mamp
-cask skype
-cask sublime-text-3
-cask textmate
-cask trim-enabler
-cask viber
-cask vlc
-cask virtualbox
 
 
 # Install RVM
