@@ -5,8 +5,6 @@ My Dotfiles for setting up OSX Workspace.
 
 ### Requirements:
 
------------------
-
   - You need to have **[Xcode](https://developer.apple.com/xcode/)** &amp; **[Xcode Command Line Tools](https://developer.apple.com/downloads)** installed.
   - You need to be an administrator (for ```sudo```).
   
@@ -104,11 +102,11 @@ git config --global push.default simple
 **Acknowledgements**
 
 Inspiration and code was taken from may sources, including:
-  
-  - **[Mathias Bynens Dotfiles](https://github.com/mathiasbynens/dotfiles)** - [@mathiasbynens](https://github.com/mathiasbynens/) 
-  - **[Necolas dotfiles](https://github.com/necolas/dotfiles)** - [@necolas](https://github.com/necolas/)             
-  - **[Cowboy dotfiles](https://github.com/cowboy/dotfiles)** - [@cowboy](https://twitter.com/cowboy/) 
-  - **[ptb Mac OSX Lion Setup](https://github.com/ptb/Mac-OS-X-Lion-Setup)** - [@ptb](https://github.com/ptb/)         
+
+  - **[@mathiasbynens](https://github.com/mathiasbynens/) [Dotfiles](https://github.com/mathiasbynens/dotfiles)**
+  - **[@necolas](https://github.com/necolas/) [Dotfiles](https://github.com/necolas/dotfiles)**
+  - **[@cowboy](https://twitter.com/cowboy/) [Dotfiles](https://github.com/cowboy/dotfiles)**
+  - **[@ptb](https://github.com/ptb/) [OS X Lion Setup](https://github.com/ptb/Mac-OS-X-Lion-Setup)**
 
 -----------------
 
