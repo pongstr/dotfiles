@@ -1,0 +1,16 @@
+#!/usr/bin/sh
+
+# Install Node Package Manager
+curl https://npmjs.org/install.sh | sh
+
+# Point the NODE_PATH to the correct place to find Node modules
+export NODE_PATH="/usr/local/lib/node"
+ 
+# export $PATH since some node modules have execute files
+export PATH="/usr/local/share/npm/bin:$PATH"
+  
+# Install NPM Packages
+npm install -g bower
+npm install -g express
+npm install -g grunt-cli
+npm install -g less

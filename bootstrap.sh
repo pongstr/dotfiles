@@ -4,9 +4,6 @@
 # https://developer.apple.com/xcode/
 # https://developer.apple.com/downloads/
 
-# Ask for the administrator password upfront
-sudo -v
-
 # Install Homebrew
 # ---------------------------------------------------------------------------
 ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go/install)"
@@ -15,12 +12,15 @@ ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go/install)"
 brew doctor
 
 # Install Homebrew Formulas:
+brew install libyaml
+brew install openssl
 brew install git
 brew install zsh
 brew install node
-brew install libyaml
-brew install openssl
+brew install vim --override-system-vi
 
+# Cleanup
+brew cleanup
 
 # Install RVM
 # ---------------------------------------------------------------------------
@@ -29,6 +29,7 @@ brew install openssl
 # ```$ rvm``` command. This is temporary though will do this the right way
 # when i get the time to reorganize everything :) 
 # ---------------------------------------------------------------------------
-
 \curl -L https://get.rvm.io | bash
-killall Finder Terminal
+
+# Restart Terminal for RVM to take effect
+killall Terminal

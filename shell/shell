@@ -1,0 +1,22 @@
+#!/usr/bin/bash
+
+# Install zsh & oh-my-zsh
+# ---------------------------------------------------------------------------
+brew install zsh && curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
+
+# Install Solarized Dark ansi Theme
+open "{$HOME}/dotfiles/shell/custom/Pongstr.terminal"
+sleep 1 # Wait a bit to make sure the theme is loaded
+
+# Set Solarized Dark Theme
+defaults write com.apple.terminal "Default Window Settings" -string "Pongstr.terminal"
+defaults write com.apple.terminal "Startup Window Settings" -string "Pongstr.terminal"
+
+# Set shell to open with zsh
+defaults write com.apple.Terminal Shell "/bin/zsh"
+
+# Copy custom .zsh-theme
+cp "{$HOME}/dotfiles/shell/custom/Pongstr.zsh-theme" "{$HOME}/.oh-my-zsh/themes/"
+
+# Copy custom .zshrc
+cp "{$HOME}/dotfiles/shell/custom/Pongstr.zshrc" "{$HOME}/.zshrc" && source "{$HOME}/.zshrc"

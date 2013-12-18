@@ -14,57 +14,11 @@ My Dotfiles for setting up OSX Workspace.
 
 Open up Terminal: **Application > Utilities > Terminal.app** and download the zipball with this command, don't include the ```$``` sign.
 
-```shell
-# Copy+Paste the curl command, this will confirm if you have Xcode and Commandline Tools installed.
-# Also, it will run .brew
-$ curl -O -# https://raw.github.com/pongstr/dotfiles/wizard/.install && sh .install
-```
-
 -----------------
 
-If you're setting up a brand new Mac or a clean installed one, you may run the dotfiles in this order:
+#### Pongstr Setttings
 
-### Install Homebrew Stuff
-
-```shell
-# Brew Apps: Git, Node, Libyaml, OpenSSL & Brew-Cask
-# NativeApps: 
-# [app-cleaner, dropbox, firefox, github, chrome, canary, mamp, skype, st3, tm2 and vlc]
-# RVM Installation
-$ sh .brew
 ```
-
------------------
-
-### Install Gem Stuff
-
-```shell
-# Install Ruby 2.0.0, update certs cront install ssl-certs
-# Install gems: [compass,jekyll,bootstrap-sass,zurb-foundation]
-$ sh .gems
-```
-
------------------
-
-### Install Custom OSX Defaults
-
-**Word of warning:** 
-
-```.osx``` is basically my operating system's preferences and settings
-you may or may not like it, run it at your own risk. :)
-
-```shell
-# Pongstr's OSX Default Settings
-# Please make sure you change "Pongstr" to your own username,
-# it starts from Line:18 to Line:21
-$ sh .osx
-```
-
------------------
-
-### Install Personal Settings
-
-```shell
 # My personal preferences (this is optional, you don't really need to run it).
 $ sh .pongstr
 
@@ -79,23 +33,23 @@ git config --global user.email   "$GIT_AUTHOR_EMAIL"
 git config --global push.default simple
 ```
 
-...aaand we're done, Logout or restart your machine for settings to take effect.
-
-
 -----------------
 
-### teh dotfiles:
+#### Modern.IE Virtual Boxes
 
-- ```.brew```  installs homebrew packages and native apps.
-- ```.gems```  installs gems for web development.
-- ```.npm```   installs node package manager and packages.
-- ```.osx```   OSX setup and preferences.
-  
-```.pongstr``` personal preferences for:
-  - Finder [sidebarlists, dock, terminal]
-  - Sublime Text [Package Control, Keybindings, Preferences, Theme, Fonts]
+```shell
+# Windows7 - IE8 Virtualbox
+curl -O "https://az412801.vo.msecnd.net/vhd/IEKitV1_Final/VirtualBox/OSX/IE8_Win7/IE8.Win7.For.MacVirtualBox.part{1.sfx,2.rar,3.rar,4.rar,5.rar,6.rar}"
 
-```.project``` - has been removed from dotfiles and moved to a [dedicated repository](https://github.com/pongstr/jekyll-boilerplate).
+# Windows7 IE9 Virtualbox
+curl -O "https://az412801.vo.msecnd.net/vhd/IEKitV1_Final/VirtualBox/OSX/IE9_Win7/IE9.Win7.For.MacVirtualBox.part{1.sfx,2.rar,3.rar,4.rar,5.rar}"
+
+# Windows7 IE10 Virtualbox
+curl -O "https://az412801.vo.msecnd.net/vhd/IEKitV1_Final/VirtualBox/OSX/IE10_Win7/IE10.Win7.For.MacVirtualBox.part{1.sfx,2.rar,3.rar,4.rar}"
+
+# Windows8 IE10
+curl -O "https://az412801.vo.msecnd.net/vhd/IEKitV1_Final/VirtualBox/OSX/IE10_Win8/IE10.Win8.For.MacVirtualBox.part{1.sfx,2.rar,3.rar}"
+```
 
 -----------------
                   
@@ -113,7 +67,7 @@ Inspiration and code was taken from may sources, including:
 **License**
 
 
-### Copyright 2013 (c) Pongstr Ordillo. MIT LICENSE
+#### Copyright 2013 (c) Pongstr Ordillo. MIT License.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

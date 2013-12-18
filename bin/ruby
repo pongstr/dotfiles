@@ -1,0 +1,16 @@
+#!/usr/bin/sh
+
+# Ask for the administrator password upfront
+sudo -v
+
+# install openssl, libyaml dependancies is installed via .brew
+rvm install 2.0.0
+rvm use 2.0.0 --default
+
+# Update OSX SSL Certs
+# ---------------------------------------------------------------------
+rvm reload
+rvm osx-ssl-certs update all
+
+# Stay Healthy, automate updating of certs
+rvm osx-ssl-certs cron install
