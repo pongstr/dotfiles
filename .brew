@@ -4,9 +4,6 @@
 # https://developer.apple.com/xcode/
 # https://developer.apple.com/downloads/
 
-# Ask for the administrator password upfront
-sudo -v
-
 # Install Homebrew
 # ---------------------------------------------------------------------------
 ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go/install)"

@@ -10,6 +10,7 @@ DOTFILES="$HOME/dotfiles"
 # cp   "$HOME/dotfiles/.bash_profile" "$HOME/.bash_profile"
 
 # Overwrite ~/.zshrc
+cp "$HOME/dotfiles/Pongstr.zsh-theme" "$HOME/.oh-my-zsh/themes/"
 cp "$HOME/dotfiles/.zshrc" "$HOME/.zshrc"
 source "$HOME/.zshrc"
 
@@ -53,9 +54,9 @@ echo  "✅  Copied Application Preferences"
 echo  "      * OSX Prefrences [ Dock, Launchpad, Finder SidebarList ]"
 
 # Install MacVim Janus
-echo "Installing Janus: Vim Distribution"
-echo "this may take a while..."
-curl -Lo- https://bit.ly/janus-bootstrap | bash
+# echo "Installing Janus: Vim Distribution"
+# echo "this may take a while..."
+# curl -Lo- https://bit.ly/janus-bootstrap | bash
 
 # Log user out make sure the changes will take effect. 
 echo ""

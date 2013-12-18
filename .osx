@@ -271,8 +271,6 @@ defaults write com.apple.terminal "Startup Window Settings" -string "Pongstr Sol
 defaults write com.apple.Terminal Shell "/bin/zsh"
 
 
-
-
 # Safari & WebKit
 # ----------------------------------------------------------------------
 
