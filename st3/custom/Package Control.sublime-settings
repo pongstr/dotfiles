@@ -1,0 +1,20 @@
+{
+	"installed_packages":
+	[
+		"HTML5",
+		"Java Velocity",
+		"LESS",
+		"Liquid",
+		"Nodejs",
+		"Package Control",
+		"Pretty JSON",
+		"Sass",
+		"Theme - Soda",
+		"Theme - Sodarized"
+	],
+	"repositories":
+	[
+		"https://github.com/buymeasoda/soda-theme",
+		"https://github.com/pongstr/sodarized"
+	]
+}

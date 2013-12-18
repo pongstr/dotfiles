@@ -17,7 +17,7 @@ Open up Terminal: **Application > Utilities > Terminal.app** and download the zi
 ```shell
 # Copy+Paste the curl command, this will confirm if you have Xcode and Commandline Tools installed.
 # Also, it will run bootstrap.sh
-$ curl -O -# https://raw.github.com/pongstr/dotfiles/wizard/.install && sh bootstrap.sh
+$ curl -O -# https://raw.github.com/pongstr/dotfiles/wizard/.install-v2 && sh install-v2.sh
 ```
 
 -----------------
