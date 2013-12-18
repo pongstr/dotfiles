@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# To run this, you must download & install the latest Xcode and Commandline Tools
+# https://developer.apple.com/xcode/
+# https://developer.apple.com/downloads/
+
 # Install Native Apps
 # ---------------------------------------------------------------------------
 brew tap pongstr/homebrew-cask
