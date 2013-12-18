@@ -4,7 +4,7 @@
   // Uncomment after Soda Theme has been downloaded, Sublime Text 3 will look
   // crappy otherwise.
   // "theme": "Sodarized Dark.sublime-theme",
-  // "color_scheme": "Packages/User/Pongstr-Solarized.tmTheme",
+  "color_scheme": "Packages/User/Pongstr-Solarized.tmTheme",
   
   // Note that the font_face and font_size are overriden in the platform
   // specific settings file, for example, "Base File (Linux).sublime-settings".

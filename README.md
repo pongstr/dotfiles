@@ -14,6 +14,12 @@ My Dotfiles for setting up OSX Workspace.
 
 Open up Terminal: **Application > Utilities > Terminal.app** and download the zipball with this command, don't include the ```$``` sign.
 
+```shell
+# Copy+Paste the curl command, this will confirm if you have Xcode and Commandline Tools installed.
+# Also, it will run bootstrap.sh
+$ curl -O -# https://raw.github.com/pongstr/dotfiles/wizard/.install && sh bootstrap.sh
+```
+
 -----------------
 
 #### Pongstr Setttings
@@ -57,9 +63,9 @@ curl -O "https://az412801.vo.msecnd.net/vhd/IEKitV1_Final/VirtualBox/OSX/IE10_Wi
 
 Inspiration and code was taken from may sources, including:
 
-  - **[@mathiasbynens](https://github.com/mathiasbynens/) [Dotfiles](https://github.com/mathiasbynens/dotfiles)**
-  - **[@necolas](https://github.com/necolas/) [Dotfiles](https://github.com/necolas/dotfiles)**
-  - **[@cowboy](https://twitter.com/cowboy/) [Dotfiles](https://github.com/cowboy/dotfiles)**
+  - **[@mathiasbynens](https://github.com/mathiasbynens/) [dotfiles](https://github.com/mathiasbynens/dotfiles)**
+  - **[@necolas](https://github.com/necolas/) [dotfiles](https://github.com/necolas/dotfiles)**
+  - **[@cowboy](https://twitter.com/cowboy/) [dotfiles](https://github.com/cowboy/dotfiles)**
   - **[@ptb](https://github.com/ptb/) [OS X Lion Setup](https://github.com/ptb/Mac-OS-X-Lion-Setup)**
 
 -----------------
@@ -67,7 +73,7 @@ Inspiration and code was taken from may sources, including:
 **License**
 
 
-#### Copyright 2013 (c) Pongstr Ordillo. MIT License.
+#### Copyright 2013 &copy; Pongstr Ordillo. MIT License.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

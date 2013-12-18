@@ -1,0 +1,12 @@
+#!/usr/bin/sh
+
+LIBRARY="{$HOME}/Library/Application Support/Sublime\ Text\ 3/Packages/"
+
+# Checkout  Wbond Package Control for Sublime Text 3
+cd "{$LIBRARY}" && git clone https://github.com/wbond/sublime_package_control.git "Package Control"
+
+# Copy Preferences to Sublime Text 3 Applcation Support folder
+cp -R "{$HOME}/dotfiles/st3/custom/*" "{$LIBRARY}/User/"
+
+# Launch Sublime Text 3
+open -a "/Applications/Sublime\ Text.app"
