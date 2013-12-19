@@ -56,6 +56,7 @@ ln -s "/Volumes/Pongstr/BackUp/Pictures/Pongstr.photolibrary" "$HOME/Pictures/Po
 # ... Disabled at the moment
 
 
+
 # Log user out make sure the changes will take effect. 
 # ----------------------------------------------------------------------
 echo ""
