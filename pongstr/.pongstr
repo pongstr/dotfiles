@@ -1,0 +1,69 @@
+#!/usr/bin/sh
+
+# Ask for the administrator password upfront
+sudo -v
+
+
+# OSX Defaults
+# ----------------------------------------------------------------------
+
+# Set computer name (as done via System Preferences → Sharing)
+sudo scutil --set ComputerName  "Pongstr"
+sudo scutil --set HostName      "Pongstr"
+sudo scutil --set LocalHostName "Pongstr"
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "Pongstr"
+
+
+# Git Setup Configuration
+# ----------------------------------------------------------------------
+
+GIT_AUTHOR_NAME="Pongstr"
+GIT_AUTHOR_EMAIL="twiz.tickler@gmail.com"
+GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
+GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
+
+git config --global user.name    "$GIT_AUTHOR_NAME"
+git config --global user.email   "$GIT_AUTHOR_EMAIL"
+git config --global push.default simple
+
+
+# MacbookPro : Create alias of backup folders
+# ----------------------------------------------------------------------
+
+# Documents Alias
+ln -s "/Volumes/Pongstr/BackUp/Documents" "$HOME/Documents/Documents"
+
+# Movie Alias
+echo "  + Add Movies directory"
+ln -s "/Volumes/Pongstr/BackUp/Movies/Live"      "$HOME/Movies/Live"
+ln -s "/Volumes/Pongstr/BackUp/Movies/Movies"    "$HOME/Movies/Movies"
+ln -s "/Volumes/Pongstr/BackUp/Movies/Series"    "$HOME/Movies/Series"
+ln -s "/Volumes/Pongstr/BackUp/Movies/Tutorials" "$HOME/Movies/Tutorials"
+
+# Music Alias
+echo "  + Add iTunes directory"
+ln -s "/Volumes/Pongstr/BackUp/Music/iTunes" "$HOME/Music/iTunes"
+
+# Picture Alias
+echo "  + Add Pictures directory"
+ln -s "/Volumes/Pongstr/BackUp/Pictures/" "$HOME/Pictures/Pictures"
+ln -s "/Volumes/Pongstr/BackUp/Pictures/Pongstr.photolibrary" "$HOME/Pictures/Pongstr.photolibrary"
+
+
+
+# iMac : Create alias of backup folders
+# ----------------------------------------------------------------------
+# ... Disabled at the moment
+
+
+# Log user out make sure the changes will take effect. 
+# ----------------------------------------------------------------------
+echo ""
+echo "You need to logout and log back in for settings to take effect."
+
+logout() {
+  osascript -e 'tell application "System Events" to log out'
+  builtin logout
+}
+
+logout

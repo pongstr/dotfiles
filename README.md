@@ -22,22 +22,63 @@ $ curl -O -# https://raw.github.com/pongstr/dotfiles/wizard/install-v2.sh && sh 
 
 -----------------
 
-#### Pongstr Setttings
+#### bootstrap.sh
 
+```shell 
+# Installs my personal development essentials [libyaml openssl, git, zsh, node and vim (newer version that overrides osx default)]
+# after installations are done, it will killall Terminal so rvm command will take effect.
+
+sh bootstrap.sh
 ```
-# My personal preferences (this is optional, you don't really need to run it).
-$ sh .pongstr
 
-# Git Setup Configuration
-GIT_AUTHOR_NAME="Pongstr"
-GIT_AUTHOR_EMAIL="pongstr@example.com"
-GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
-GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
+#### bin/osxdefaults
 
-git config --global user.name    "$GIT_AUTHOR_NAME"
-git config --global user.email   "$GIT_AUTHOR_EMAIL"
-git config --global push.default simple
+```shell
+# Installs OSX GUI preferences but does not change critical stuff.
+
+sh ~/dotfiles/bin/osxdefaults
 ```
+
+#### bin/casks
+
+```shell
+# Installs native apps via homebrew-cask
+# [ app-cleaner, dropbox, firefox, github, chrome, chrome-canary, mamp, skype ]
+# [ st3, tm2, trim-enabler, viber, vlc, virutalbox ]
+
+sh ~/dotfiles/bin/casks
+```
+
+#### bin/rvm
+
+```shell
+# Installs Ruby 2.0.0, updates OSX SSL Certs and crons its install to stay healthy
+# You might want to run this before bin/gems otherwise you might get some errors with
+# installing gems' documentation or something.
+  
+sh ~/dotfiles/bin/rvm
+```
+
+#### bin/gems
+
+```shell
+# Installs Jekyll, Compass, Zurb Foundation & Bootstrap-Sass
+# You might want to run bin/rvm before running this just to be safe from errors.
+
+sh ~/dotfiles/bin/ruby
+```
+
+#### bin/npm
+
+```shell
+# Installs node package manager and packages such as
+# [bower, expressjs, grunt-cli and less]
+
+sh ~/dotfiles/bin/npm
+```
+
+
+
 
 -----------------
 
@@ -69,9 +110,6 @@ Inspiration and code was taken from may sources, including:
   - **[@ptb](https://github.com/ptb/) [OS X Lion Setup](https://github.com/ptb/Mac-OS-X-Lion-Setup)**
 
 -----------------
-
-**License**
-
 
 #### Copyright 2013 &copy; Pongstr Ordillo. MIT License.
 

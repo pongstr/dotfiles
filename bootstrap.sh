@@ -24,12 +24,9 @@ brew cleanup
 
 # Install RVM
 # ---------------------------------------------------------------------------
-# I know this shouldn't be here, but since .brew is the step one in these
-# dotfiles installation and Terminal has to restart in order to recognize
-# ```$ rvm``` command. This is temporary though will do this the right way
-# when i get the time to reorganize everything :) 
-# ---------------------------------------------------------------------------
 \curl -L https://get.rvm.io | bash
+
+echo "bootstrapping complete! quitting terminal..."
 
 # Restart Terminal for RVM to take effect
 killall Terminal
