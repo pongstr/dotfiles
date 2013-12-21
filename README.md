@@ -77,8 +77,31 @@ sh ~/dotfiles/bin/ruby
 sh ~/dotfiles/bin/npm
 ```
 
+#### osx/osxcustom
 
 
+```shell
+# Customise Sublime Text 3 preferences, and adds Packages
+
+sh ~/dotfiles/str
+```
+
+#### shell/shell
+
+```shell
+# Customise Terminal look and feel with these stuff
+# Copies bash stuff and zsh stuff via oh-my-zsh framework
+
+sh ~/dotfiles/shell/shell
+```
+
+#### st3/sublime
+
+```shell
+# Customise Sublime Text 3 preferences, and adds Packages
+#
+sh ~/dotfiles/st3/sublime
+```
 
 -----------------
 

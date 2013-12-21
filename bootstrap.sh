@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/sh
 
 # To run this, you must download & install the latest Xcode and Commandline Tools
 # https://developer.apple.com/xcode/
