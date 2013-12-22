@@ -31,6 +31,8 @@ $ curl -O -# https://raw.github.com/pongstr/dotfiles/wizard/install-v2.sh && sh 
 sh bootstrap.sh
 ```
 
+## bin
+
 #### bin/osxdefaults
 
 ```shell
@@ -77,7 +79,15 @@ sh ~/dotfiles/bin/ruby
 sh ~/dotfiles/bin/npm
 ```
 
+## OSX Preferences
+
 #### osx/osxcustom
+
+```shell
+# Install gui-preferences, this may overwrite your current settings 
+
+sh ~/dotfiles/osx/osxcustom
+```
 
 
 ```shell
