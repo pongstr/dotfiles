@@ -1,5 +1,8 @@
 #!/usr/bin/sh
 
+# Ask password upfront
+sudo -v
+
 # Install Node Package Manager
 curl https://npmjs.org/install.sh | sh
 
@@ -10,7 +13,7 @@ export NODE_PATH="/usr/local/lib/node"
 export PATH="/usr/local/share/npm/bin:$PATH"
   
 # Install NPM Packages
-npm install -g bower
-npm install -g express
-npm install -g grunt-cli
-npm install -g less
+sudo npm install -g bower
+sudo npm install -g express
+sudo npm install -g grunt-cli
+sudo npm install -g less

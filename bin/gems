@@ -4,11 +4,11 @@
 sudo -v
 
 # Update Gem
-gem update --system
+sudo gem update --system
 
 # Install Gems Tools
 # ----------------------------------------------------------------------
-gem install jekyll --version 1.2.1
-gem install compass
-gem install foundation
-gem install bootstrap-sass
+sudo gem install jekyll --version 1.2.1
+sudo gem install compass
+sudo gem install foundation
+sudo gem install bootstrap-sass

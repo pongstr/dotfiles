@@ -1,12 +1,26 @@
 #!/usr/bin/sh
 
-LIBRARY="{$HOME}/Library/Application Support/Sublime\ Text\ 3/Packages/"
+# Ask password upfront 
+sudo -v
+
+LIBRARY="$HOME/Library/Application Support/Sublime Text 3/Packages"
 
 # Checkout  Wbond Package Control for Sublime Text 3
-cd "{$LIBRARY}" && git clone https://github.com/wbond/sublime_package_control.git "Package Control"
+echo "Adding Sublime Text 3 Package Control"
+cd "$LIBRARY" && git clone https://github.com/wbond/sublime_package_control.git "Package Control"
 
 # Copy Preferences to Sublime Text 3 Applcation Support folder
-cp -R "{$HOME}/dotfiles/st3/custom/*" "{$LIBRARY}/User/"
+echo "Creating directory for Sublime Text 3 User Preferences..."
+mkdir -p "$LIBRARY/User"
+
+echo "Copying Preferences and packages list..."
+cp -a "$HOME/dotfiles/st3/custom/." "$LIBRARY/User/"
+
+# Change Preferences.sublime-settings permissions so that
+# the comments don't disappear, I still haven't found the optimal
+# preference I need and I'd like to keep track of the changes.
+sudo chown -R root:admin "$LIBRARY/User/Preferences.sublime-settings"
 
 # Launch Sublime Text 3
-open -a "/Applications/Sublime\ Text.app"
+echo "Done!"
+open -a /Applications/Sublime\ Text.app
