@@ -4,10 +4,10 @@
 sudo -v
 
 # Copy Consolas Font to Font Library
-cp -R "{$HOME}/dotfiles/osx/custom/fonts/*" "{$HOME}/Library/Fonts/"
+cp -R "$HOME/dotfiles/osx/custom/fonts/*" "$HOME/Library/Fonts/"
 
 # Copy custom preferences to ~/Library/Preferences
-cp -R "{$HOME}/dotfiles/osx/custom/preferences" "{$HOME}/Library/Preferences/"
+cp -R "$HOME/dotfiles/osx/custom/preferences" "$HOME/Library/Preferences/"
 
 # Launchpad installation is manual at the moment
 # ...
