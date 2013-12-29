@@ -1,0 +1,11 @@
+#!/usr/bin/sh
+
+DOT="$HOME/dotfiles"
+ST3="$HOME/Library/Application Support/Sublime Text 3/Packages"
+
+echo "Installing Sublime Text 3 Package Control"
+cd "$ST3" && git clone https://github.com/wbond/sublime_package_control.git "Package Control"
+
+echo "Linking Spacegray theme"
+ln -s "$DOT/editors/colors/spacegray" "$ST3/Theme - Spacegray"
+

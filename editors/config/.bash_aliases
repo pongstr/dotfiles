@@ -12,5 +12,5 @@ alias pictures="cd ~/Pictures/"
 alias dropbox="cd /Volumes/Pongstr/Dropbox/"
 
 # Projects Directory
-alias projects="~/Projects"
+alias projects="~/Projects/"
 alias github="~/Projects/github"

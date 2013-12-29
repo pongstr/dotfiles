@@ -1,0 +1,23 @@
+#!/usr/bin/sh
+
+# Install zsh & oh-my-zsh
+# ---------------------------------------------------------------------------
+
+echo "Installing oh-my-zsh"
+curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
+
+# Open Terminal Settings
+open "$HOME/dotfiles/editors/colors/Pongstr Base-16.terminal"
+sleep 1 # Wait a bit to make sure the theme is loaded
+
+# Set Terminal Custom Theme
+defaults write com.apple.terminal "Default Window Settings" -string "Pongstr Base-16.terminal"
+defaults write com.apple.terminal "Startup Window Settings" -string "Pongstr Base-16.terminal"
+
+# Link .zshrc
+ln -s "$HOME/dotfiles/editors/config/.zshrc" "$HOME/.zshrc" && source "$HOME/.zshrc"
+
+# Disable "Last Login" message: http://goo.gl/kwNV6F
+# to remove just invoke $ rm .hushlogin
+touch .hushlogin
+
