@@ -6,8 +6,6 @@ set nocompatible
 if has("syntax")
     " Enable syntax highlighting
     syntax enable
-    " Set dark bACKGROund
-    " set background=dark
     " Set colorscheme
     silent! colorscheme base-16
 endif
@@ -17,6 +15,9 @@ set backspace=indent,eol,start
 
 " Optimize for fast terminal connections
 set ttyfast
+
+" Disable word wrapping
+set nowrap
 
 " Use UTF-8 without BOM
 set encoding=utf-8 nobomb
@@ -47,4 +48,10 @@ set scrolloff=3
 " Don’t reset cursor to start of line when moving around.
 set nostartofline
 
-set t_kD=<Ctrl-v><fn-Delete>
+" Centralize backups, swapfiles and undo history
+set backupdir=$HOME/.vim/backups
+set directory=$HOME/.vim/swaps
+if exists("&undodir")
+    set undodir=$HOME/.vim/undo
+endif
+set viminfo+=n$HOME/.vim/.viminfo

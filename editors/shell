@@ -1,0 +1,61 @@
+#!/usr/bin/sh
+
+DOT="$HOME/dotfiles"
+ST3="$HOME/Library/Application Support/Sublime Text 3/Packages"
+
+
+# Terminal and Zsh Stuff
+# ---------------------------------------------------------------------------
+
+# Install zsh & oh-my-zsh
+echo "Installing oh-my-zsh"
+curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
+
+# Open Terminal Settings
+open "$DOT/editors/colors/Pongstr Base-16.terminal"
+sleep 1 # Wait a bit to make sure the theme is loaded
+
+# Set Terminal Custom Theme
+defaults write com.apple.terminal "Default Window Settings" -string "Pongstr Base-16.terminal"
+defaults write com.apple.terminal "Startup Window Settings" -string "Pongstr Base-16.terminal"
+
+# Link .zshrc
+ln -s "$DOT/editors/config/.zshrc" "$HOME/.zshrc" && source "$HOME/.zshrc"
+
+# Disable "Last Login" message: http://goo.gl/kwNV6F
+# to remove just invoke $ rm .hushlogin
+touch .hushlogin
+
+
+# Bash Stuff
+# ---------------------------------------------------------------------------
+ln -s "$DOT/editors/config/.bash_aliases" "$HOME/.bash_aliases"
+ln -s "$DOT/editors/config/.bash_profile" "$HOME/.bash_profile"
+
+# Vim Stuff
+# ---------------------------------------------------------------------------
+
+mkdir -p "$HOME/.vim/.vminfo"
+mkdir -p "$HOME/.vim/backups"
+mkdir -p "$HOME/.vim/swaps"
+mkdir -p "$HOME/.vim/undo"
+
+ln -s "$DOT/editors/config/.vimrc" "$HOME/.vimrc"
+
+
+# Sublime Text 3 Stuff
+# ---------------------------------------------------------------------------
+
+echo "Installing Sublime Text 3 Package Control"
+cd "$ST3" && git clone https://github.com/wbond/sublime_package_control.git "Package Control"
+
+echo "✓ Link Spacegray theme"
+ln -s "$DOT/editors/colors/spacegray" "$ST3/Theme - Spacegray"
+
+echo "✓ Link Sublime Text 3 Preferences"
+ln -s "$DOT/editors/config/Preferences.sublime-settings"     "$ST3/User/Preferences.sublime-settings"
+ln -s "$DOT/editors/config/Default (OSX).sublime-keymap"     "$ST3/User/Default (OSX).sublime-keymap"
+ln -s "$DOT/editors/config/Pacakge Control.sublime-settings" "$ST3/User/Pacakge Control.sublime-settings"
+
+echo "Done!"
+open -a /Applications/Sublime\ Text.app
