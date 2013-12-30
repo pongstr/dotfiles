@@ -18,6 +18,7 @@ set ttyfast
 
 " Disable word wrapping
 set nowrap
+set textwidth=0 wrapmargin=0
 
 " Use UTF-8 without BOM
 set encoding=utf-8 nobomb
