@@ -3,6 +3,7 @@
 # Install Native Apps
 # ---------------------------------------------------------------------------
 brew tap phinze/homebrew-cask
+brew tap caskroom/versions
 brew install brew-cask
 
 # Make /Applications the default location of apps
