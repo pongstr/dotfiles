@@ -40,7 +40,6 @@ brew cleanup
 echo "Installing RVM..."
 \curl -L https://get.rvm.io | bash
 
-echo "bootstrapping complete! quitting terminal..."
-
 # Restart Terminal for RVM to take effect
+echo "bootstrapping complete! quitting terminal..."
 killall Terminal

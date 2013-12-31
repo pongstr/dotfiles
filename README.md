@@ -17,7 +17,7 @@ Open up Terminal: **Application > Utilities > Terminal.app** and download the zi
 ```shell
 # Copy+Paste the curl command, this will confirm if you have Xcode and Commandline Tools installed.
 # Also, it will run bootstrap.sh
-$ curl -O -# https://raw.github.com/pongstr/dotfiles/wizard/install-v2.sh && sh install-v2.sh
+$ curl -O -# https://raw.github.com/pongstr/dotfiles/wizard/install.sh && sh install.sh
 ```
 
 -----------------
@@ -31,105 +31,15 @@ $ curl -O -# https://raw.github.com/pongstr/dotfiles/wizard/install-v2.sh && sh 
 sh bootstrap.sh
 ```
 
-## bin
-
-#### bin/osxdefaults
+#### editors/
 
 ```shell
-# Installs OSX GUI preferences but does not change critical stuff.
+# Mods for Terminal, Vim and Sublime Text 3
+# Installs Base-16 syntax highlighting color scheme and Spacegray theme for ST3
 
-sh ~/dotfiles/bin/osxdefaults
+$ sh shell.sh
 ```
 
-#### bin/casks
-
-```shell
-# Installs native apps via homebrew-cask
-# [ app-cleaner, dropbox, firefox, github, chrome, chrome-canary, mamp, skype ]
-# [ st3, tm2, trim-enabler, viber, vlc, virutalbox ]
-
-sh ~/dotfiles/bin/casks
-```
-
-#### bin/rvm
-
-```shell
-# Installs Ruby 2.0.0, updates OSX SSL Certs and crons its install to stay healthy
-# You might want to run this before bin/gems otherwise you might get some errors with
-# installing gems' documentation or something.
-  
-sh ~/dotfiles/bin/rvm
-```
-
-#### bin/gems
-
-```shell
-# Installs Jekyll, Compass, Zurb Foundation & Bootstrap-Sass
-# You might want to run bin/rvm before running this just to be safe from errors.
-
-sh ~/dotfiles/bin/ruby
-```
-
-#### bin/npm
-
-```shell
-# Installs node package manager and packages such as
-# [bower, expressjs, grunt-cli and less]
-
-sh ~/dotfiles/bin/npm
-```
-
-## OSX Preferences
-
-#### osx/osxcustom
-
-```shell
-# Install gui-preferences, this may overwrite your current settings 
-
-sh ~/dotfiles/osx/osxcustom
-```
-
-
-```shell
-# Customise Sublime Text 3 preferences, and adds Packages
-
-sh ~/dotfiles/str
-```
-
-#### shell/shell
-
-```shell
-# Customise Terminal look and feel with these stuff
-# Copies bash stuff and zsh stuff via oh-my-zsh framework
-
-sh ~/dotfiles/shell/shell
-```
-
-#### st3/sublime
-
-```shell
-# Customise Sublime Text 3 preferences, and adds Packages
-#
-sh ~/dotfiles/st3/sublime
-```
-
------------------
-
-#### Modern.IE Virtual Boxes
-
-```shell
-# Windows7 - IE8 Virtualbox
-curl -O "https://az412801.vo.msecnd.net/vhd/IEKitV1_Final/VirtualBox/OSX/IE8_Win7/IE8.Win7.For.MacVirtualBox.part{1.sfx,2.rar,3.rar,4.rar,5.rar,6.rar}"
-
-# Windows7 IE9 Virtualbox
-curl -O "https://az412801.vo.msecnd.net/vhd/IEKitV1_Final/VirtualBox/OSX/IE9_Win7/IE9.Win7.For.MacVirtualBox.part{1.sfx,2.rar,3.rar,4.rar,5.rar}"
-
-# Windows7 IE10 Virtualbox
-curl -O "https://az412801.vo.msecnd.net/vhd/IEKitV1_Final/VirtualBox/OSX/IE10_Win7/IE10.Win7.For.MacVirtualBox.part{1.sfx,2.rar,3.rar,4.rar}"
-
-# Windows8 IE10
-curl -O "https://az412801.vo.msecnd.net/vhd/IEKitV1_Final/VirtualBox/OSX/IE10_Win8/IE10.Win8.For.MacVirtualBox.part{1.sfx,2.rar,3.rar}"
-```
 
 -----------------
                   
