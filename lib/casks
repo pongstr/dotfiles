@@ -25,7 +25,7 @@ cask google-chrome
 cask google-chrome-canary
 cask mamp
 cask skype
-cask sublime-text-3
+cask sublime-text3
 cask textmate
 cask trim-enabler
 cask viber

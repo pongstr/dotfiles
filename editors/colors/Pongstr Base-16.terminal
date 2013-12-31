@@ -228,7 +228,7 @@
 	<key>UseBoldFonts</key>
 	<false/>
 	<key>columnCount</key>
-	<integer>90</integer>
+	<integer>118</integer>
 	<key>name</key>
 	<string>Pongstr Base-16</string>
 	<key>rowCount</key>
