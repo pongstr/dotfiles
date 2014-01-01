@@ -42,7 +42,8 @@ mkdir -p "$HOME/.vim/swaps"
 mkdir -p "$HOME/.vim/undo"
 
 echo "Linking Vim run commands"
-ln -s "$DOT/editors/config/.vimrc" "$HOME/.vimrc"
+ln -s -f "$DOT/editors/colors/Pongstr Base-16.vim" "$HOME/.vim/colors/Pongstr Base-16.vim"
+ln -s -f "$DOT/editors/config/.vimrc" "$HOME/.vimrc"
 
 
 # Sublime Text 3 Stuff
