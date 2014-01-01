@@ -30,8 +30,8 @@ touch .hushlogin
 
 # Bash Stuff
 # ---------------------------------------------------------------------------
-ln -s "$DOT/editors/config/.bash_aliases" "$HOME/.bash_aliases"
-ln -s "$DOT/editors/config/.bash_profile" "$HOME/.bash_profile"
+ln -s -f "$DOT/editors/config/.bash_aliases" "$HOME/.bash_aliases"
+ln -s -f "$DOT/editors/config/.bash_profile" "$HOME/.bash_profile"
 
 # Vim Stuff
 # ---------------------------------------------------------------------------
@@ -55,9 +55,9 @@ echo "✓ Link Spacegray theme"
 ln -s "$DOT/editors/colors/spacegray" "$ST3/Theme - Spacegray"
 
 echo "✓ Link Sublime Text 3 Preferences"
-ln -s "$DOT/editors/config/Preferences.sublime-settings"     "$ST3/User/Preferences.sublime-settings"
-ln -s "$DOT/editors/config/Default (OSX).sublime-keymap"     "$ST3/User/Default (OSX).sublime-keymap"
-ln -s "$DOT/editors/config/Pacakge Control.sublime-settings" "$ST3/User/Pacakge Control.sublime-settings"
+ln -s -f "$DOT/editors/config/Preferences.sublime-settings"     "$ST3/User/Preferences.sublime-settings"
+ln -s -f "$DOT/editors/config/Default (OSX).sublime-keymap"     "$ST3/User/Default (OSX).sublime-keymap"
+ln -s -f "$DOT/editors/config/Pacakge Control.sublime-settings" "$ST3/User/Pacakge Control.sublime-settings"
 
 echo "Done!"
 open -a /Applications/Sublime\ Text.app
