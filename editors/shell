@@ -4,6 +4,12 @@ DOT="$HOME/dotfiles"
 ST3="$HOME/Library/Application Support/Sublime Text 3/Packages"
 
 
+# Install Consolas Font
+# ---------------------------------------------------------------------------
+
+cp "$DOT/editors/fonts/*" "$HOME/Library/Fonts/"
+
+
 # Terminal and Zsh Stuff
 # ---------------------------------------------------------------------------
 
