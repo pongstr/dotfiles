@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/usr/bin/env bash
 
 DOT="$HOME/dotfiles"
 ST3="$HOME/Library/Application Support/Sublime Text 3/Packages"

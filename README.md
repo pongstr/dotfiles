@@ -28,46 +28,46 @@ $ curl -O -# https://raw.github.com/pongstr/dotfiles/wizard/install.sh && sh ins
 Installs development essentials: libyaml openssl, git, zsh, node and vim (newer version that overrides osx default). After installations are done, it will killall Terminal so rvm command will take effect.
 
 ```shell 
-sh ~/dotfiles/bootstrap.sh
+$ ./dotfiles/bootstrap.sh
 ```
 
 ### lib/
 
 -----------------
 
-**lib/casks**
+**lib/.casks**
 
 ```shell
 # Tap to phinez/homebrew-cask and caskroom/versions
 # and then installs osx native apps like: [app-cleaner, dropbox, firefox, github, etc...]
 
-$ sh ~/dotfiles/lib/casks
+$ ./dotfiles/lib/casks
 ```
 
-**lib/npm**
+**lib/.npm**
 
 ```shell
 # installs npm stuff globally: [bower, express, grunt-cli and less]
 
-$ sh ~/dotfiles/lib/npm
+$ ./dotfiles/lib/.npm
 ```
 
-**lib/rvm** 
+**lib/.rvm** 
 
 (it's better to run .rvm before .gems to make sure we're using ruby 2.0.0)
 
 ```shell
 # this installs ruby 2.0.0 and reloads/updates osx ssl certs
 
-$ sh ~/dotfiles/lib/rvm
+$ ./dotfiles/lib/.rvm
 ```
 
-**lib/gems**
+**lib/.gems**
 
 ```shell
 # this installs gem stuff: [jekyll 1.2.1, compass, foundation and bootstrap-sass]
 
-$ sh ~/dotfiles/lib/gems
+$ ./dotfiles/lib/gems
 ```
 
 
@@ -80,7 +80,7 @@ Mods for Terminal, Vim and Sublime Text 3
 Installs Base-16 syntax highlighting color scheme and Spacegray theme for ST3
 
 ```shell
-$ sh ~/dotfiles/editors/shell.sh
+$ ./dotfiles/editors/terminal.sh
 ```
 
 **OSX Terminal** 
