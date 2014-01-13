@@ -2,6 +2,12 @@
 
 # Set custom OS X defaults
 # See: github.com/mathiasbynens/dotfiles
+# ---------------------------------------------------------------------------
+USR="Pongstr"
+
+
+DOT="$HOME/dotfiles"
+LIB="$HOME/Library/Preferences/"
 
 # Ask for the administrator password upfront
 sudo -v
@@ -10,15 +16,14 @@ sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 
-
 # General UI/UX
-# ----------------------------------------------------------------------
+# ---------------------------------------------------------------------------
 
 # Set computer name (as done via System Preferences → Sharing)
-sudo scutil --set ComputerName "Pongstr"
-sudo scutil --set HostName "Pongstr"
-sudo scutil --set LocalHostName "Pongstr"
-sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "Pongstr"
+sudo scutil --set ComputerName  "$USR"
+sudo scutil --set HostName      "$USR"
+sudo scutil --set LocalHostName "$USR"
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "$USR"
 
 # Menu bar: disable transparency
 defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool true
@@ -55,6 +60,32 @@ defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
 # Don’t automatically rearrange Spaces based on most recent use
 defaults write com.apple.dock mru-spaces -bool false
 
+# Reveal IP address, hostname, OS version, etc. when clicking the clock
+# in the login window
+sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
+
+
+# SSD-Specific tweaks
+# github.com/mathiasbynens/dotfiles/blob/master/.osx
+# ---------------------------------------------------------------------------
+
+# Disable local Time Machine snapshots
+sudo tmutil disablelocal
+
+# Disable hibernation (speeds up entering sleep mode)
+sudo pmset -a hibernatemode 0
+
+# Remove the sleep image file to save disk space
+sudo rm /Private/var/vm/sleepimage
+
+# Create a zero-byte file instead…
+sudo touch /Private/var/vm/sleepimage
+
+# …and make sure it can’t be rewritten
+sudo chflags uchg /Private/var/vm/sleepimage
+
+# Disable the sudden motion sensor as it’s not useful for SSDs
+sudo pmset -a sms 0
 
 
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input
@@ -95,9 +126,9 @@ defaults write com.apple.BezelServices kDimTime -int 300
 # Set language and text formats
 # Note: if you’re in the US, replace `EUR` with `USD`, `Centimeters` with
 # `Inches`, `en_GB` with `en_US`, and `true` with `false`.
-defaults write NSGlobalDomain AppleLanguages -array "en" 
+defaults write NSGlobalDomain AppleLanguages -array "en_US" 
 defaults write NSGlobalDomain AppleLocale -string "en_US@currency=PHP"
-defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
+defaults write NSGlobalDomain AppleMeasurementUnits -string "Inches"
 defaults write NSGlobalDomain AppleMetricUnits -bool true
 
 # Set the timezone; see `systemsetup -listtimezones` for other values
@@ -107,9 +138,8 @@ systemsetup -settimezone "Asia/Manila" > /dev/null
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
 
-
 # Screen
-# ----------------------------------------------------------------------
+# ---------------------------------------------------------------------------
 
 # Require password immediately after sleep or screen saver begins
 defaults write com.apple.screensaver askForPassword -int 1
@@ -119,19 +149,20 @@ defaults write com.apple.screensaver askForPasswordDelay -int 0
 defaults write com.apple.screencapture location -string "$HOME/Desktop"
 
 # Disable shadow in screenshots
-defaults write com.apple.screencapture disable-shadow -bool true
+defaults write com.apple.screencapture disable-shadow -bool false
 
 # Enable subpixel font rendering on non-Apple LCDs
 defaults write NSGlobalDomain AppleFontSmoothing -int 2
 
 # Enable HiDPI display modes (requires restart)
 # sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutionEnabled -bool true
-# I'll be getting a 15" Macbook Pro with Retina Display.. so excitedddd!
-
 
 
 # Finder
-# ----------------------------------------------------------------------
+# ---------------------------------------------------------------------------
+
+# Finder: allow quitting via ⌘ + Q; doing so will also hide desktop icons
+defaults write com.apple.finder QuitMenuItem -bool true
 
 # Show icons for hard drives, servers, and removable media on the desktop
 defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
@@ -210,12 +241,19 @@ chflags nohidden ~/Library
 file=/Applications/Dropbox.app/Contents/Resources/emblem-dropbox-uptodate.icns
 [ -e "$file" ] && mv -f "$file" "$file.bak"
 
+# Expand the following File Info panes:
+# “General”, “Open with”, and “Sharing & Permissions”
+defaults write com.apple.finder FXInfoPanesExpanded -dict \
+        General -bool true \
+        OpenWith -bool true \
+        Privileges -bool true
+
 # Add iOS Simulator to Launchpad
 ln -s /Applications/Xcode.app/Contents/Applications/iPhone\ Simulator.app /Applications/iOS\ Simulator.app
 
 
 # Dock, Dashboard, and hot corners  
-# ----------------------------------------------------------------------
+# ---------------------------------------------------------------------------
 
 # Set the icon size of Dock items to 22 pixels
 defaults write com.apple.dock tilesize -int 22
@@ -249,27 +287,8 @@ defaults write com.apple.dock showhidden -bool true
 # Reset Launchpad
 find ~/Library/Application\ Support/Dock -name "*.db" -maxdepth 1 -delete
 
-# Add a spacer to the left side of the Dock (where the applications are)
-# defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type="spacer-tile";}'
-
-# Add a spacer to the right side of the Dock (where the Trash is)
-# defaults write com.apple.dock persistent-others -array-add '{tile-data={}; tile-type="spacer-tile";}'
-
-
-# Terminal
-# ----------------------------------------------------------------------
-
-# Install Solarized Dark ansi Theme
-open "{$HOME}/dotfiles/osx/terminal/Pongstr Solarized.terminal"
-sleep 1 # Wait a bit to make sure the theme is loaded
-
-# Set Solarized Dark Theme
-defaults write com.apple.terminal "Default Window Settings" -string "Pongstr Solarized.terminal"
-defaults write com.apple.terminal "Startup Window Settings" -string "Pongstr Solarized.terminal"
-
-# Set shell to open with zsh
-defaults write com.apple.Terminal Shell "/bin/zsh"
-
+# Make Dock icons of hidden applications translucent
+defaults write com.apple.dock showhidden -bool true
 
 # Safari & WebKit
 # ----------------------------------------------------------------------
@@ -277,84 +296,22 @@ defaults write com.apple.Terminal Shell "/bin/zsh"
 # Set Safari’s home page to `about:blank` for faster loading
 defaults write com.apple.Safari HomePage -string "about:blank"
 
-# Remove useless icons from Safari’s bookmarks bar
-defaults write com.apple.Safari ProxiesInBookmarksBar '("Reading List")'
+# OSX Mavericks: Continuous Spellchecking but no automatic correction
+defaults write com.apple.Safari WebContinuousSpellCheckingEnabled -bool true
+defaults write com.apple.Safari WebAutomaticSpellingCorrectionEnabled -bool false
 
-# Enable the Develop menu and the Web Inspector in Safari
-defaults write com.apple.Safari IncludeDevelopMenu -bool true
-defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
-defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
+# Hide Safari’s sidebar in Top Sites
+defaults write com.apple.Safari ShowSidebarInTopSites -bool false
+
+# Disable Safari’s thumbnail cache for History and Top Sites
+defaults write com.apple.Safari DebugSnapshotsUpdatePolicy -int 2
 
 # Add a context menu item for showing the Web Inspector in web views
 defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
 
+# Remove useless icons from Safari’s bookmarks bar
+defaults write com.apple.Safari ProxiesInBookmarksBar "()"
 
-# Spotlight
-# ----------------------------------------------------------------------
-
-# Hide Spotlight tray-icon (and subsequent helper)
-#sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
-# Disable Spotlight indexing for any volume that gets mounted and has not yet
-# been indexed before.
-sudo defaults write /.Spotlight-V100/VolumeConfiguration Exclusions -array "/Volumes"
-
-# Use `sudo mdutil -i off "/Volumes/foo"` to stop indexing any volume.
-
-# Change indexing order and disable some file types
-defaults write com.apple.spotlight orderedItems -array \
-        '{"enabled" = 1;"name" = "APPLICATIONS";}' \
-        '{"enabled" = 1;"name" = "SYSTEM_PREFS";}' \
-        '{"enabled" = 1;"name" = "DIRECTORIES";}' \
-        '{"enabled" = 1;"name" = "PDF";}' \
-        '{"enabled" = 1;"name" = "FONTS";}' \
-        '{"enabled" = 0;"name" = "DOCUMENTS";}' \
-        '{"enabled" = 0;"name" = "MESSAGES";}' \
-        '{"enabled" = 0;"name" = "CONTACT";}' \
-        '{"enabled" = 0;"name" = "EVENT_TODO";}' \
-        '{"enabled" = 0;"name" = "IMAGES";}' \
-        '{"enabled" = 0;"name" = "BOOKMARKS";}' \
-        '{"enabled" = 0;"name" = "MUSIC";}' \
-        '{"enabled" = 0;"name" = "MOVIES";}' \
-        '{"enabled" = 0;"name" = "PRESENTATIONS";}' \
-        '{"enabled" = 0;"name" = "SPREADSHEETS";}' \
-        '{"enabled" = 0;"name" = "SOURCE";}'
-# Load new settings before rebuilding the index
-killall mds
-# Make sure indexing is enabled for the main volume
-sudo mdutil -i on /
-# Rebuild the index from scratch
-sudo mdutil -E /
-
-
-# Time Machine 
-# ----------------------------------------------------------------------
-
-# Prevent Time Machine from prompting to use new hard drives as backup volume
-defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
-
-# Disable local Time Machine backups
-hash tmutil &> /dev/null && sudo tmutil disablelocal
-
-
-# TextEdit, and Disk Utility   
-# ----------------------------------------------------------------------
-
-# Use plain text mode for new TextEdit documents
-defaults write com.apple.TextEdit RichText -int 0
-# Open and save files as UTF-8 in TextEdit
-defaults write com.apple.TextEdit PlainTextEncoding -int 4
-defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
-
-# Enable the debug menu in Disk Utility
-defaults write com.apple.DiskUtility DUDebugMenuEnabled -bool true
-defaults write com.apple.DiskUtility advanced-image-options -bool true
-
-
-# Kill affected applications  
-# ----------------------------------------------------------------------
-
-for app in "Dashboard" "Dock" "Finder" "Safari" "SystemUIServer" "Twitter" "iCal" "iTunes"; do
-  killall "$app" > /dev/null 2>&1
-done
-
-echo "Done. Note that some of these changes require a logout/restart to take effect."
+# Enable the Develop menu and the Web Inspector in Safari
+defaults write com.apple.Safari IncludeDevelopMenu -bool true
+defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true

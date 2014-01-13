@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# Ask for the administrator password upfront
+sudo -v
+
+# Update Gem
+sudo gem update --system
+
+# Install Gems Tools
+# ----------------------------------------------------------------------
+sudo gem install jekyll --version 1.2.1
+sudo gem install compass
+sudo gem install foundation
+sudo gem install bootstrap-sass

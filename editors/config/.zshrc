@@ -11,8 +11,8 @@ export EDITOR=vim
 ZSH_THEME="pongstr"
 
 # Aliases
-alias zshconfig="vi ~/.zshrc"
-alias ohmyzsh="vi ~/.oh-my-zsh"
+alias zshconfig="vi $HOME/.zshrc"
+alias ohmyzsh="cd $HOME/.oh-my-zsh"
 
 # Home Folders
 alias home="cd ~ && clear"

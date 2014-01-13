@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+# Install Native Apps
+# ---------------------------------------------------------------------------
+brew tap phinze/homebrew-cask
+brew tap caskroom/versions
+brew install brew-cask
+
+# Make /Applications the default location of apps
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+  
+function cask() {
+  if brew cask info "${@}" | grep "Not installed" > /dev/null; then
+    brew cask install "${@}"
+  else
+    echo "${@} is already installed."
+  fi
+}
+
+cask app-cleaner
+cask dropbox
+cask firefox
+cask github
+cask google-chrome
+cask google-chrome-canary
+cask mamp
+cask skype
+cask sublime-text3
+cask textmate
+cask trim-enabler
+cask viber
+cask vlc
+cask virtualbox

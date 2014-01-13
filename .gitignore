@@ -1,10 +1,8 @@
 # Ignore docs files
+install.sh
 _gh_pages
 _site
-gh-pages
 .ruby-version
-tests.*
-testing.*
 
 Numerous always-ignore extensions
 *.diff
@@ -30,7 +28,3 @@ Thumbs.db
 nbproject
 *.sublime-project
 *.sublime-workspace
-
-# Folders to ignore
-node_modules
-.sass-cache

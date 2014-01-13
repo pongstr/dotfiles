@@ -1,10 +1,8 @@
 {
   // Set Theme and Color Scheme
   // ==========================
-  // Uncomment after Soda Theme has been downloaded, Sublime Text 3 will look
-  // crappy otherwise.
-  // "theme": "Sodarized Dark.sublime-theme",
-  // "color_scheme": "Packages/User/Pongstr-Solarized.tmTheme",
+  "theme": "Spacegray.sublime-theme",
+  "color_scheme": "Packages/Theme - Spacegray/base16-ocean.dark.tmTheme",
   
   // Note that the font_face and font_size are overriden in the platform
   // specific settings file, for example, "Base File (Linux).sublime-settings".
@@ -26,7 +24,7 @@
   "fade_fold_buttons": true,
   
   // Exclude folder from sidebar
-  "folder_exclude_patterns" : [".sass-cache", ".git"],
+  "folder_exclude_patterns" : [".sass-cache", ".git", "node_modules", "bower_components"],
 
   //Distinguish Folders from files
   "bold_folder_labels": true,
