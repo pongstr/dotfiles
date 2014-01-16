@@ -26,6 +26,7 @@ alias dropbox="cd /Volumes/Pongstr/Dropbox/"
 # Projects Directory
 alias projects="~/Projects"
 alias github="~/Projects/github"
+alias sandbox="~/Projects/sandbox"
 
 # Set to this to use case-sensitive completion
 CASE_SENSITIVE="true"
