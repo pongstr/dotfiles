@@ -40,7 +40,7 @@ set number
 :highlight LineNr guibg=base03 guifg=base0
 
 " Highlight current line
-:highlight CursorLine cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+:highlight CursorLine cterm=NONE ctermbg=darkgreen ctermfg=lightyellow guibg=darkred guifg=white
 set cursorline
 
 " Start scrolling three lines before the horizontal window border
