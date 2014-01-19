@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<photoshop-workspace version="1.0">
+	<photoshop-panel-configuration>
+<workspace version="1">
+	<dock anchor="top" content="control-bar" is-closed="false">
+		<control-bar id="0x116512550" origin="0 -1058" size="1904 31" is-closed="false" app-data="AAAAEAAAAAEAAAAAAABudWxsAAAAAgAAABdvd2xDb250ZW50Vmlld1N0cmluZ2lJRFRFWFQAAAAXAHAAYQBuAGUAbABpAGQALgBzAHQAYQB0AGkAYwAuAG8AcAB0AGkAbwBuAHMAAAAAABVvd2xDb250ZW50Vmlld0FwcERhdGFPYmpjAAAAAQAAAAAAAG51bGwAAAAA"/>
+	</dock>
+	<dock anchor="bottom" content="palette" is-closed="false">
+		<tab-pane mode="expanded" preferred-iconic-length="0" layout-mode="auto-flow">
+			<tab-group active-palette="0x116525e70" is-closed="true">
+				<palette id="0x116525e70" is-closed="false" preferred-unconstrained-size="100 100" preferred-constrained-size="100 100" current-state="1" is-minimized="false" app-data="AAAAEAAAAAEAAAAAAABudWxsAAAAAgAAABdvd2xDb250ZW50Vmlld1N0cmluZ2lJRFRFWFQAAAAgAHAAYQBuAGUAbABpAGQALgBkAHkAbgBhAG0AaQBjAC4AcwB3AGYALgBjAHMAeABzAC4ATQBJAE4ASQBCAFIAAAAAABVvd2xDb250ZW50Vmlld0FwcERhdGFPYmpjAAAAAQAAAAAAAG51bGwAAAACAAAAHG93bFBhbGV0dGVQcmVmZXJyZWRTaXplQXJyYXlWbExzAAAAAU9iamMAAAABAAAAAAAAUmN0MQAAAAQAAAAAVG9wIGxvbmcAAADwAAAAAExlZnRsb25nAAACWAAAAABCdG9tbG9uZwAAAPAAAAAAUmdodGxvbmcAAAJYAAAAEWZsYXNoUGFuZWxBcHBEYXRhT2JqYwAAAAEAAAAAAABudWxsAAAABAAAAABUdGwgVEVYVAAAAAwATQBpAG4AaQAgAEIAcgBpAGQAZwBlAAAAAAAaaG9ub3JJbml0aWFsQVBFU2l6ZVJlcXVlc3Rib29sAAAAABNmbGFzaFBhbmVsUGFuZWxEYXRhVEVYVAAAAAEAAAAAACJkZWZhdWx0Q29uZmlnRm9yV29ya3NwYWNlSXNQZW5kaW5nYm9vbAE=" host-cached-sizes="true"/>
+				<palette id="0x116b488d0" is-closed="true" preferred-unconstrained-size="100 100" preferred-constrained-size="100 100" current-state="1" is-minimized="false" app-data="AAAAEAAAAAEAAAAAAABudWxsAAAAAgAAABdvd2xDb250ZW50Vmlld1N0cmluZ2lJRFRFWFQAAAAZAHAAYQBuAGUAbABpAGQALgBzAHQAYQB0AGkAYwAuAGEAbgBpAG0AYQB0AGkAbwBuAAAAAAAVb3dsQ29udGVudFZpZXdBcHBEYXRhT2JqYwAAAAEAAAAAAABudWxsAAAAAQAAABxvd2xQYWxldHRlUHJlZmVycmVkU2l6ZUFycmF5VmxMcwAAAAJPYmpjAAAAAQAAAAAAAFJjdDEAAAAEAAAAAFRvcCBsb25nAAAAYAAAAABMZWZ0bG9uZwAAAcwAAAAAQnRvbWxvbmcAAABgAAAAAFJnaHRsb25nAAABzE9iamMAAAABAAAAAAAAUmN0MQAAAAQAAAAAVG9wIGxvbmcAAACCAAAAAExlZnRsb25nAAABzAAAAABCdG9tbG9uZwAAAHkAAAAAUmdodGxvbmcAAAHM" host-cached-sizes="true"/>
+			</tab-group>
+		</tab-pane>
+	</dock>
+	<dock anchor="left" content="palette toolbar" is-closed="false"/>
+	<dock anchor="right" content="palette toolbar" is-closed="false">
+		<tab-pane mode="icon" preferred-iconic-length="23" layout-mode="auto-flow">
+			<tab-group active-palette="0x116b485d0" is-closed="true">
+				<palette id="0x116b485d0" is-closed="true" preferred-unconstrained-size="100 100" preferred-constrained-size="100 100" current-state="1" is-minimized="false" app-data="AAAAEAAAAAEAAAAAAABudWxsAAAAAgAAABdvd2xDb250ZW50Vmlld1N0cmluZ2lJRFRFWFQAAAAbAHAAYQBuAGUAbABpAGQALgBzAHQAYQB0AGkAYwAuAG0AZQBhAHMAdQByAGUAbQBlAG4AdAAAAAAAFW93bENvbnRlbnRWaWV3QXBwRGF0YU9iamMAAAABAAAAAAAAbnVsbAAAAAEAAAAcb3dsUGFsZXR0ZVByZWZlcnJlZFNpemVBcnJheVZsTHMAAAABT2JqYwAAAAEAAAAAAABSY3QxAAAABAAAAABUb3AgbG9uZwAAAAAAAAAATGVmdGxvbmcAAAAAAAAAAEJ0b21sb25nAAAAAAAAAABSZ2h0bG9uZwAAAAA=" host-cached-sizes="true"/>
+			</tab-group>
+		</tab-pane>
+	</dock>
+	<dock anchor="none" content="palette toolbar" origin="33 -923" is-closed="false">
+		<toolbar id="0x116b562e0" size-variant="vertical-wide" is-closed="false" app-data="AAAAEAAAAAEAAAAAAABudWxsAAAAAgAAABdvd2xDb250ZW50Vmlld1N0cmluZ2lJRFRFWFQAAAAXAHAAYQBuAGUAbABpAGQALgBzAHQAYQB0AGkAYwAuAHQAbwBvAGwAYgBhAHIAAAAAABVvd2xDb250ZW50Vmlld0FwcERhdGFPYmpjAAAAAQAAAAAAAG51bGwAAAAA"/>
+	</dock>
+	<dock anchor="none" content="palette toolbar" origin="33 -540" is-closed="false">
+		<tab-pane mode="icon" preferred-iconic-length="73" layout-mode="manual">
+			<tab-group active-palette="0x116bb1d30" is-closed="false">
+				<palette id="0x116bb1d30" is-closed="false" preferred-unconstrained-size="100 100" preferred-constrained-size="100 100" current-state="1" is-minimized="false" app-data="AAAAEAAAAAEAAAAAAABudWxsAAAAAgAAABdvd2xDb250ZW50Vmlld1N0cmluZ2lJRFRFWFQAAAAdAHAAYQBuAGUAbABpAGQALgBzAHQAYQB0AGkAYwAuAHQAZQB4AHQAYwBoAGEAcgBhAGMAdABlAHIAAAAAABVvd2xDb250ZW50Vmlld0FwcERhdGFPYmpjAAAAAQAAAAAAAG51bGwAAAABAAAAHG93bFBhbGV0dGVQcmVmZXJyZWRTaXplQXJyYXlWbExzAAAAAU9iamMAAAABAAAAAAAAUmN0MQAAAAQAAAAAVG9wIGxvbmcAAADUAAAAAExlZnRsb25nAAAA0gAAAABCdG9tbG9uZwAAANQAAAAAUmdodGxvbmcAAADS" host-cached-sizes="true"/>
+				<palette id="0x116bb8780" is-closed="false" preferred-unconstrained-size="100 100" preferred-constrained-size="100 100" current-state="1" is-minimized="false" app-data="AAAAEAAAAAEAAAAAAABudWxsAAAAAgAAABdvd2xDb250ZW50Vmlld1N0cmluZ2lJRFRFWFQAAAAdAHAAYQBuAGUAbABpAGQALgBzAHQAYQB0AGkAYwAuAHQAZQB4AHQAcABhAHIAYQBnAHIAYQBwAGgAAAAAABVvd2xDb250ZW50Vmlld0FwcERhdGFPYmpjAAAAAQAAAAAAAG51bGwAAAABAAAAHG93bFBhbGV0dGVQcmVmZXJyZWRTaXplQXJyYXlWbExzAAAAAU9iamMAAAABAAAAAAAAUmN0MQAAAAQAAAAAVG9wIGxvbmcAAACOAAAAAExlZnRsb25nAAAA0AAAAABCdG9tbG9uZwAAAI4AAAAAUmdodGxvbmcAAADQ" host-cached-sizes="true"/>
+			</tab-group>
+			<tab-group active-palette="0x11642dca0" is-closed="false">
+				<palette id="0x1164267e0" is-closed="false" preferred-unconstrained-size="100 100" preferred-constrained-size="100 100" current-state="1" is-minimized="false" app-data="AAAAEAAAAAEAAAAAAABudWxsAAAAAgAAABdvd2xDb250ZW50Vmlld1N0cmluZ2lJRFRFWFQAAAAWAHAAYQBuAGUAbABpAGQALgBzAHQAYQB0AGkAYwAuAHAAaQBjAGsAZQByAAAAAAAVb3dsQ29udGVudFZpZXdBcHBEYXRhT2JqYwAAAAEAAAAAAABudWxsAAAAAQAAABxvd2xQYWxldHRlUHJlZmVycmVkU2l6ZUFycmF5VmxMcwAAAAFPYmpjAAAAAQAAAAAAAFJjdDEAAAAEAAAAAFRvcCBsb25nAAAAXwAAAABMZWZ0bG9uZwAAAM4AAAAAQnRvbWxvbmcAAABfAAAAAFJnaHRsb25nAAAAzg==" host-cached-sizes="true"/>
+				<palette id="0x11642dca0" is-closed="false" preferred-unconstrained-size="100 100" preferred-constrained-size="100 100" current-state="1" is-minimized="false" app-data="AAAAEAAAAAEAAAAAAABudWxsAAAAAgAAABdvd2xDb250ZW50Vmlld1N0cmluZ2lJRFRFWFQAAAAYAHAAYQBuAGUAbABpAGQALgBzAHQAYQB0AGkAYwAuAHMAdwBhAHQAYwBoAGUAcwAAAAAAFW93bENvbnRlbnRWaWV3QXBwRGF0YU9iamMAAAABAAAAAAAAbnVsbAAAAAEAAAAcb3dsUGFsZXR0ZVByZWZlcnJlZFNpemVBcnJheVZsTHMAAAABT2JqYwAAAAEAAAAAAABSY3QxAAAABAAAAABUb3AgbG9uZwAAAHQAAAAATGVmdGxvbmcAAADPAAAAAEJ0b21sb25nAAAAdAAAAABSZ2h0bG9uZwAAAM8=" host-cached-sizes="true"/>
+			</tab-group>
+		</tab-pane>
+	</dock>
+	<dock anchor="none" content="palette toolbar" origin="701 160" is-closed="false">
+		<tab-pane mode="expanded" preferred-iconic-length="39" layout-mode="manual">
+			<tab-group active-palette="0x116b6a5b0" is-closed="false">
+				<palette id="0x116b6a5b0" is-closed="true" preferred-unconstrained-size="100 100" preferred-constrained-size="100 100" current-state="1" is-minimized="false" app-data="AAAAEAAAAAEAAAAAAABudWxsAAAAAgAAABdvd2xDb250ZW50Vmlld1N0cmluZ2lJRFRFWFQAAAAXAHAAYQBuAGUAbABpAGQALgBzAHQAYQB0AGkAYwAuAGEAYwB0AGkAbwBuAHMAAAAAABVvd2xDb250ZW50Vmlld0FwcERhdGFPYmpjAAAAAQAAAAAAAG51bGwAAAABAAAAHG93bFBhbGV0dGVQcmVmZXJyZWRTaXplQXJyYXlWbExzAAAAAU9iamMAAAABAAAAAAAAUmN0MQAAAAQAAAAAVG9wIGxvbmcAAABjAAAAAExlZnRsb25nAAAAzgAAAABCdG9tbG9uZwAAAGMAAAAAUmdodGxvbmcAAADO" host-cached-sizes="true"/>
+			</tab-group>
+		</tab-pane>
+	</dock>
+	<dock anchor="none" content="palette toolbar" origin="1650 -1058" is-closed="false">
+		<tab-pane mode="expanded" preferred-iconic-length="0" layout-mode="manual">
+			<tab-group active-palette="0x116437420" is-closed="true">
+				<palette id="0x116437420" is-closed="false" preferred-unconstrained-size="100 100" preferred-constrained-size="100 100" current-state="1" is-minimized="false" app-data="AAAAEAAAAAEAAAAAAABudWxsAAAAAgAAABdvd2xDb250ZW50Vmlld1N0cmluZ2lJRFRFWFQAAAAWAHAAYQBuAGUAbABpAGQALgBzAHQAYQB0AGkAYwAuAGMAcgBlAGEAdABlAAAAAAAVb3dsQ29udGVudFZpZXdBcHBEYXRhT2JqYwAAAAEAAAAAAABudWxsAAAAAQAAABxvd2xQYWxldHRlUHJlZmVycmVkU2l6ZUFycmF5VmxMcwAAAAFPYmpjAAAAAQAAAAAAAFJjdDEAAAAEAAAAAFRvcCBsb25nAAAAZAAAAABMZWZ0bG9uZwAAAM4AAAAAQnRvbWxvbmcAAABkAAAAAFJnaHRsb25nAAAAzg==" host-cached-sizes="true"/>
+				<palette id="0x11643d7d0" is-closed="false" preferred-unconstrained-size="100 100" preferred-constrained-size="100 100" current-state="1" is-minimized="false" app-data="AAAAEAAAAAEAAAAAAABudWxsAAAAAgAAABdvd2xDb250ZW50Vmlld1N0cmluZ2lJRFRFWFQAAAAWAHAAYQBuAGUAbABpAGQALgBzAHQAYQB0AGkAYwAuAHMAdAB5AGwAZQBzAAAAAAAVb3dsQ29udGVudFZpZXdBcHBEYXRhT2JqYwAAAAEAAAAAAABudWxsAAAAAQAAABxvd2xQYWxldHRlUHJlZmVycmVkU2l6ZUFycmF5VmxMcwAAAAFPYmpjAAAAAQAAAAAAAFJjdDEAAAAEAAAAAFRvcCBsb25nAAAC6wAAAABMZWZ0bG9uZwAAANYAAAAAQnRvbWxvbmcAAAB0AAAAAFJnaHRsb25nAAAAzw==" host-cached-sizes="true"/>
+			</tab-group>
+		</tab-pane>
+		<tab-pane mode="expanded" preferred-iconic-length="39" layout-mode="manual">
+			<tab-group active-palette="0x116b89e60" is-closed="false">
+				<palette id="0x116b89e60" is-closed="false" preferred-unconstrained-size="100 100" preferred-constrained-size="100 100" current-state="1" is-minimized="false" app-data="AAAAEAAAAAEAAAAAAABudWxsAAAAAgAAABdvd2xDb250ZW50Vmlld1N0cmluZ2lJRFRFWFQAAAAUAHAAYQBuAGUAbABpAGQALgBzAHQAYQB0AGkAYwAuAGkAbgBmAG8AAAAAABVvd2xDb250ZW50Vmlld0FwcERhdGFPYmpjAAAAAQAAAAAAAG51bGwAAAABAAAAHG93bFBhbGV0dGVQcmVmZXJyZWRTaXplQXJyYXlWbExzAAAAAU9iamMAAAABAAAAAAAAUmN0MQAAAAQAAAAAVG9wIGxvbmcAAADUAAAAAExlZnRsb25nAAABAQAAAABCdG9tbG9uZwAAANQAAAAAUmdodGxvbmcAAAD1" host-cached-sizes="true"/>
+				<palette id="0x116b73c90" is-closed="false" preferred-unconstrained-size="100 100" preferred-constrained-size="100 100" current-state="1" is-minimized="false" app-data="AAAAEAAAAAEAAAAAAABudWxsAAAAAgAAABdvd2xDb250ZW50Vmlld1N0cmluZ2lJRFRFWFQAAAAZAHAAYQBuAGUAbABpAGQALgBzAHQAYQB0AGkAYwAuAG4AYQB2AGkAZwBhAHQAbwByAAAAAAAVb3dsQ29udGVudFZpZXdBcHBEYXRhT2JqYwAAAAEAAAAAAABudWxsAAAAAQAAABxvd2xQYWxldHRlUHJlZmVycmVkU2l6ZUFycmF5VmxMcwAAAAFPYmpjAAAAAQAAAAAAAFJjdDEAAAAEAAAAAFRvcCBsb25nAAAC6wAAAABMZWZ0bG9uZwAAAM4AAAAAQnRvbWxvbmcAAAByAAAAAFJnaHRsb25nAAAAzg==" host-cached-sizes="true"/>
+				<palette id="0x116b73500" is-closed="false" preferred-unconstrained-size="100 100" preferred-constrained-size="100 100" current-state="1" is-minimized="false" app-data="AAAAEAAAAAEAAAAAAABudWxsAAAAAgAAABdvd2xDb250ZW50Vmlld1N0cmluZ2lJRFRFWFQAAAAZAHAAYQBuAGUAbABpAGQALgBzAHQAYQB0AGkAYwAuAGgAaQBzAHQAbwBnAHIAYQBtAAAAAAAVb3dsQ29udGVudFZpZXdBcHBEYXRhT2JqYwAAAAEAAAAAAABudWxsAAAAAwAAABxvd2xQYWxldHRlUHJlZmVycmVkU2l6ZUFycmF5VmxMcwAAAAFPYmpjAAAAAQAAAAAAAFJjdDEAAAAEAAAAAFRvcCBsb25nAAAAXwAAAABMZWZ0bG9uZwAAAM4AAAAAQnRvbWxvbmcAAABfAAAAAFJnaHRsb25nAAAAzgAAAABIUGV4Ym9vbAAAAAAASFBzYWJvb2wA" host-cached-sizes="true"/>
+			</tab-group>
+			<tab-group active-palette="0x116ba54f0" is-closed="true">
+				<palette id="0x116ba54f0" is-closed="false" preferred-unconstrained-size="100 100" preferred-constrained-size="100 100" current-state="1" is-minimized="false" app-data="AAAAEAAAAAEAAAAAAABudWxsAAAAAgAAABdvd2xDb250ZW50Vmlld1N0cmluZ2lJRFRFWFQAAAAbAHAAYQBuAGUAbABpAGQALgBzAHQAYQB0AGkAYwAuAGMAbABvAG4AZQBzAG8AdQByAGMAZQAAAAAAFW93bENvbnRlbnRWaWV3QXBwRGF0YU9iamMAAAABAAAAAAAAbnVsbAAAAAEAAAAcb3dsUGFsZXR0ZVByZWZlcnJlZFNpemVBcnJheVZsTHMAAAABT2JqYwAAAAEAAAAAAABSY3QxAAAABAAAAABUb3AgbG9uZwAAAAAAAAAATGVmdGxvbmcAAAAAAAAAAEJ0b21sb25nAAAAAAAAAABSZ2h0bG9uZwAAAAA=" host-cached-sizes="true"/>
+			</tab-group>
+			<tab-group active-palette="0x116bc1c30" is-closed="true">
+				<palette id="0x116bc1c30" is-closed="false" preferred-unconstrained-size="100 100" preferred-constrained-size="100 100" current-state="1" is-minimized="false" app-data="AAAAEAAAAAEAAAAAAABudWxsAAAAAgAAABdvd2xDb250ZW50Vmlld1N0cmluZ2lJRFRFWFQAAAAdAHAAYQBuAGUAbABpAGQALgBzAHQAYQB0AGkAYwAuAHQAZQB4AHQAcABhAHIAYQBzAHQAeQBsAGUAAAAAABVvd2xDb250ZW50Vmlld0FwcERhdGFPYmpjAAAAAQAAAAAAAG51bGwAAAABAAAAHG93bFBhbGV0dGVQcmVmZXJyZWRTaXplQXJyYXlWbExzAAAAAU9iamMAAAABAAAAAAAAUmN0MQAAAAQAAAAAVG9wIGxvbmcAAAAAAAAAAExlZnRsb25nAAAAAAAAAABCdG9tbG9uZwAAAAAAAAAAUmdodGxvbmcAAAAA" host-cached-sizes="true"/>
+				<palette id="0x116bc8690" is-closed="false" preferred-unconstrained-size="100 100" preferred-constrained-size="100 100" current-state="1" is-minimized="false" app-data="AAAAEAAAAAEAAAAAAABudWxsAAAAAgAAABdvd2xDb250ZW50Vmlld1N0cmluZ2lJRFRFWFQAAAAdAHAAYQBuAGUAbABpAGQALgBzAHQAYQB0AGkAYwAuAHQAZQB4AHQAYwBoAGEAcgBzAHQAeQBsAGUAAAAAABVvd2xDb250ZW50Vmlld0FwcERhdGFPYmpjAAAAAQAAAAAAAG51bGwAAAABAAAAHG93bFBhbGV0dGVQcmVmZXJyZWRTaXplQXJyYXlWbExzAAAAAU9iamMAAAABAAAAAAAAUmN0MQAAAAQAAAAAVG9wIGxvbmcAAAAAAAAAAExlZnRsb25nAAAAAAAAAABCdG9tbG9uZwAAAAAAAAAAUmdodGxvbmcAAAAA" host-cached-sizes="true"/>
+			</tab-group>
+			<tab-group active-palette="0x116be63d0" is-closed="true">
+				<palette id="0x116be63d0" is-closed="false" preferred-unconstrained-size="100 100" preferred-constrained-size="100 100" current-state="1" is-minimized="false" app-data="AAAAEAAAAAEAAAAAAABudWxsAAAAAgAAABdvd2xDb250ZW50Vmlld1N0cmluZ2lJRFRFWFQAAAAbAHAAYQBuAGUAbABpAGQALgBzAHQAYQB0AGkAYwAuAHQAbwBvAGwAcAByAGUAcwBlAHQAcwAAAAAAFW93bENvbnRlbnRWaWV3QXBwRGF0YU9iamMAAAABAAAAAAAAbnVsbAAAAAEAAAAcb3dsUGFsZXR0ZVByZWZlcnJlZFNpemVBcnJheVZsTHMAAAABT2JqYwAAAAEAAAAAAABSY3QxAAAABAAAAABUb3AgbG9uZwAAAAAAAAAATGVmdGxvbmcAAAAAAAAAAEJ0b21sb25nAAAAAAAAAABSZ2h0bG9uZwAAAAA=" host-cached-sizes="true"/>
+			</tab-group>
+			<tab-group active-palette="0x1164032b0" is-closed="true">
+				<palette id="0x1164032b0" is-closed="false" preferred-unconstrained-size="100 100" preferred-constrained-size="100 100" current-state="1" is-minimized="false" app-data="AAAAEAAAAAEAAAAAAABudWxsAAAAAgAAABdvd2xDb250ZW50Vmlld1N0cmluZ2lJRFRFWFQAAAAdAHAAYQBuAGUAbABpAGQALgBkAHkAbgBhAG0AaQBjAC4AcwB3AGYALgBjAHMAeABzAC4ASwBMAFIAAAAAABVvd2xDb250ZW50Vmlld0FwcERhdGFPYmpjAAAAAQAAAAAAAG51bGwAAAACAAAAHG93bFBhbGV0dGVQcmVmZXJyZWRTaXplQXJyYXlWbExzAAAAAU9iamMAAAABAAAAAAAAUmN0MQAAAAQAAAAAVG9wIGxvbmcAAAHHAAAAAExlZnRsb25nAAAA1wAAAABCdG9tbG9uZwAAAccAAAAAUmdodGxvbmcAAADXAAAAEWZsYXNoUGFuZWxBcHBEYXRhT2JqYwAAAAEAAAAAAABudWxsAAAABAAAAABUdGwgVEVYVAAAAAYASwB1AGwAZQByAAAAAAAaaG9ub3JJbml0aWFsQVBFU2l6ZVJlcXVlc3Rib29sAQAAABNmbGFzaFBhbmVsUGFuZWxEYXRhVEVYVAAAAAEAAAAAACJkZWZhdWx0Q29uZmlnRm9yV29ya3NwYWNlSXNQZW5kaW5nYm9vbAE=" host-cached-sizes="true"/>
+			</tab-group>
+			<tab-group active-palette="0x11640d270" is-closed="true">
+				<palette id="0x11640d270" is-closed="false" preferred-unconstrained-size="100 100" preferred-constrained-size="100 100" current-state="1" is-minimized="false" app-data="AAAAEAAAAAEAAAAAAABudWxsAAAAAgAAABdvd2xDb250ZW50Vmlld1N0cmluZ2lJRFRFWFQAAAAUAHAAYQBuAGUAbABpAGQALgBzAHQAYQB0AGkAYwAuAGIAbAByAGIAAAAAABVvd2xDb250ZW50Vmlld0FwcERhdGFPYmpjAAAAAQAAAAAAAG51bGwAAAABAAAAHG93bFBhbGV0dGVQcmVmZXJyZWRTaXplQXJyYXlWbExzAAAAAU9iamMAAAABAAAAAAAAUmN0MQAAAAQAAAAAVG9wIGxvbmcAAAAAAAAAAExlZnRsb25nAAAAAAAAAABCdG9tbG9uZwAAAAAAAAAAUmdodGxvbmcAAAAA" host-cached-sizes="true"/>
+			</tab-group>
+			<tab-group active-palette="0x1164198d0" is-closed="true">
+				<palette id="0x1164198d0" is-closed="false" preferred-unconstrained-size="100 100" preferred-constrained-size="100 100" current-state="1" is-minimized="false" app-data="AAAAEAAAAAEAAAAAAABudWxsAAAAAgAAABdvd2xDb250ZW50Vmlld1N0cmluZ2lJRFRFWFQAAAAUAHAAYQBuAGUAbABpAGQALgBzAHQAYQB0AGkAYwAuAGIAbABiADIAAAAAABVvd2xDb250ZW50Vmlld0FwcERhdGFPYmpjAAAAAQAAAAAAAG51bGwAAAABAAAAHG93bFBhbGV0dGVQcmVmZXJyZWRTaXplQXJyYXlWbExzAAAAAU9iamMAAAABAAAAAAAAUmN0MQAAAAQAAAAAVG9wIGxvbmcAAAAAAAAAAExlZnRsb25nAAAAAAAAAABCdG9tbG9uZwAAAAAAAAAAUmdodGxvbmcAAAAA" host-cached-sizes="true"/>
+			</tab-group>
+			<tab-group active-palette="0x116bf2a30" is-closed="true">
+				<palette id="0x116bf2a30" is-closed="false" preferred-unconstrained-size="100 100" preferred-constrained-size="100 100" current-state="1" is-minimized="false" app-data="AAAAEAAAAAEAAAAAAABudWxsAAAAAgAAABdvd2xDb250ZW50Vmlld1N0cmluZ2lJRFRFWFQAAAASAHAAYQBuAGUAbABpAGQALgBzAHQAYQB0AGkAYwAuADMAZAAAAAAAFW93bENvbnRlbnRWaWV3QXBwRGF0YU9iamMAAAABAAAAAAAAbnVsbAAAAAEAAAAcb3dsUGFsZXR0ZVByZWZlcnJlZFNpemVBcnJheVZsTHMAAAABT2JqYwAAAAEAAAAAAABSY3QxAAAABAAAAABUb3AgbG9uZwAAAAAAAAAATGVmdGxvbmcAAAAAAAAAAEJ0b21sb25nAAAAAAAAAABSZ2h0bG9uZwAAAAA=" host-cached-sizes="true"/>
+			</tab-group>
+			<tab-group active-palette="0x116447620" is-closed="false">
+				<palette id="0x116447620" is-closed="false" preferred-unconstrained-size="100 100" preferred-constrained-size="100 100" current-state="1" is-minimized="false" app-data="AAAAEAAAAAEAAAAAAABudWxsAAAAAgAAABdvd2xDb250ZW50Vmlld1N0cmluZ2lJRFRFWFQAAAAWAHAAYQBuAGUAbABpAGQALgBzAHQAYQB0AGkAYwAuAGwAYQB5AGUAcgBzAAAAAAAVb3dsQ29udGVudFZpZXdBcHBEYXRhT2JqYwAAAAEAAAAAAABudWxsAAAAAQAAABxvd2xQYWxldHRlUHJlZmVycmVkU2l6ZUFycmF5VmxMcwAAAAFPYmpjAAAAAQAAAAAAAFJjdDEAAAAEAAAAAFRvcCBsb25nAAACcgAAAABMZWZ0bG9uZwAAANYAAAAAQnRvbWxvbmcAAAKqAAAAAFJnaHRsb25nAAAA9Q==" host-cached-sizes="true"/>
+				<palette id="0x116b63530" is-closed="false" preferred-unconstrained-size="100 100" preferred-constrained-size="100 100" current-state="1" is-minimized="false" app-data="AAAAEAAAAAEAAAAAAABudWxsAAAAAgAAABdvd2xDb250ZW50Vmlld1N0cmluZ2lJRFRFWFQAAAAXAHAAYQBuAGUAbABpAGQALgBzAHQAYQB0AGkAYwAuAGgAaQBzAHQAbwByAHkAAAAAABVvd2xDb250ZW50Vmlld0FwcERhdGFPYmpjAAAAAQAAAAAAAG51bGwAAAABAAAAHG93bFBhbGV0dGVQcmVmZXJyZWRTaXplQXJyYXlWbExzAAAAAU9iamMAAAABAAAAAAAAUmN0MQAAAAQAAAAAVG9wIGxvbmcAAABjAAAAAExlZnRsb25nAAAAzgAAAABCdG9tbG9uZwAAAZUAAAAAUmdodGxvbmcAAAEB" host-cached-sizes="true"/>
+				<palette id="0x11644ddb0" is-closed="false" preferred-unconstrained-size="100 100" preferred-constrained-size="100 100" current-state="1" is-minimized="false" app-data="AAAAEAAAAAEAAAAAAABudWxsAAAAAgAAABdvd2xDb250ZW50Vmlld1N0cmluZ2lJRFRFWFQAAAAYAHAAYQBuAGUAbABpAGQALgBzAHQAYQB0AGkAYwAuAGMAaABhAG4AbgBlAGwAcwAAAAAAFW93bENvbnRlbnRWaWV3QXBwRGF0YU9iamMAAAABAAAAAAAAbnVsbAAAAAEAAAAcb3dsUGFsZXR0ZVByZWZlcnJlZFNpemVBcnJheVZsTHMAAAABT2JqYwAAAAEAAAAAAABSY3QxAAAABAAAAABUb3AgbG9uZwAAAAAAAAAATGVmdGxvbmcAAAAAAAAAAEJ0b21sb25nAAAAAAAAAABSZ2h0bG9uZwAAAAA=" host-cached-sizes="true"/>
+				<palette id="0x116446d30" is-closed="false" preferred-unconstrained-size="100 100" preferred-constrained-size="100 100" current-state="1" is-minimized="false" app-data="AAAAEAAAAAEAAAAAAABudWxsAAAAAgAAABdvd2xDb250ZW50Vmlld1N0cmluZ2lJRFRFWFQAAAAVAHAAYQBuAGUAbABpAGQALgBzAHQAYQB0AGkAYwAuAHAAYQB0AGgAcwAAAAAAFW93bENvbnRlbnRWaWV3QXBwRGF0YU9iamMAAAABAAAAAAAAbnVsbAAAAAEAAAAcb3dsUGFsZXR0ZVByZWZlcnJlZFNpemVBcnJheVZsTHMAAAABT2JqYwAAAAEAAAAAAABSY3QxAAAABAAAAABUb3AgbG9uZwAAAGMAAAAATGVmdGxvbmcAAADOAAAAAEJ0b21sb25nAAAAYwAAAABSZ2h0bG9uZwAAAM4=" host-cached-sizes="true"/>
+			</tab-group>
+		</tab-pane>
+	</dock>
+	<dock anchor="none" content="palette toolbar" origin="1141 267" is-closed="true">
+		<tab-pane mode="expanded" preferred-iconic-length="39" layout-mode="manual">
+			<tab-group active-palette="0x116b84370" is-closed="false">
+				<palette id="0x116b84370" is-closed="false" preferred-unconstrained-size="100 100" preferred-constrained-size="100 100" current-state="1" is-minimized="false" app-data="AAAAEAAAAAEAAAAAAABudWxsAAAAAgAAABdvd2xDb250ZW50Vmlld1N0cmluZ2lJRFRFWFQAAAAaAHAAYQBuAGUAbABpAGQALgBzAHQAYQB0AGkAYwAuAHAAcgBvAHAAZQByAHQAaQBlAHMAAAAAABVvd2xDb250ZW50Vmlld0FwcERhdGFPYmpjAAAAAQAAAAAAAG51bGwAAAABAAAAHG93bFBhbGV0dGVQcmVmZXJyZWRTaXplQXJyYXlWbExzAAAAAU9iamMAAAABAAAAAAAAUmN0MQAAAAQAAAAAVG9wIGxvbmcAAALrAAAAAExlZnRsb25nAAABHAAAAABCdG9tbG9uZwAAANgAAAAAUmdodGxvbmcAAADW" host-cached-sizes="true"/>
+			</tab-group>
+		</tab-pane>
+	</dock>
+	<dock anchor="none" content="palette toolbar" origin="105 -923" is-closed="false">
+		<tab-pane mode="icon" preferred-iconic-length="39" layout-mode="manual">
+			<tab-group active-palette="0x116bd1c20" is-closed="false">
+				<palette id="0x116bd1c20" is-closed="false" preferred-unconstrained-size="100 100" preferred-constrained-size="100 100" current-state="1" is-minimized="false" app-data="AAAAEAAAAAEAAAAAAABudWxsAAAAAgAAABdvd2xDb250ZW50Vmlld1N0cmluZ2lJRFRFWFQAAAAVAHAAYQBuAGUAbABpAGQALgBzAHQAYQB0AGkAYwAuAGMAbwBtAHAAcwAAAAAAFW93bENvbnRlbnRWaWV3QXBwRGF0YU9iamMAAAABAAAAAAAAbnVsbAAAAAEAAAAcb3dsUGFsZXR0ZVByZWZlcnJlZFNpemVBcnJheVZsTHMAAAABT2JqYwAAAAEAAAAAAABSY3QxAAAABAAAAABUb3AgbG9uZwAAAGMAAAAATGVmdGxvbmcAAADOAAAAAEJ0b21sb25nAAABxAAAAABSZ2h0bG9uZwAAAOA=" host-cached-sizes="true"/>
+				<palette id="0x116bd8690" is-closed="false" preferred-unconstrained-size="100 100" preferred-constrained-size="100 100" current-state="1" is-minimized="false" app-data="AAAAEAAAAAEAAAAAAABudWxsAAAAAgAAABdvd2xDb250ZW50Vmlld1N0cmluZ2lJRFRFWFQAAAAaAHAAYQBuAGUAbABpAGQALgBzAHQAYQB0AGkAYwAuAGEAbgBuAG8AdABhAHQAaQBvAG4AAAAAABVvd2xDb250ZW50Vmlld0FwcERhdGFPYmpjAAAAAQAAAAAAAG51bGwAAAABAAAAHG93bFBhbGV0dGVQcmVmZXJyZWRTaXplQXJyYXlWbExzAAAAAU9iamMAAAABAAAAAAAAUmN0MQAAAAQAAAAAVG9wIGxvbmcAAAAAAAAAAExlZnRsb25nAAAAAAAAAABCdG9tbG9uZwAAAAAAAAAAUmdodGxvbmcAAAAA" host-cached-sizes="true"/>
+			</tab-group>
+		</tab-pane>
+	</dock>
+	<dock anchor="none" content="palette toolbar" origin="1086 101" is-closed="true">
+		<tab-pane mode="expanded" preferred-iconic-length="39" layout-mode="manual">
+			<tab-group active-palette="0x116b95330" is-closed="false">
+				<palette id="0x116b95330" is-closed="false" preferred-unconstrained-size="100 100" preferred-constrained-size="100 100" current-state="1" is-minimized="false" app-data="AAAAEAAAAAEAAAAAAABudWxsAAAAAgAAABdvd2xDb250ZW50Vmlld1N0cmluZ2lJRFRFWFQAAAAbAHAAYQBuAGUAbABpAGQALgBzAHQAYQB0AGkAYwAuAGIAcgB1AHMAaABzAHQAeQBsAGUAcgAAAAAAFW93bENvbnRlbnRWaWV3QXBwRGF0YU9iamMAAAABAAAAAAAAbnVsbAAAAAEAAAAcb3dsUGFsZXR0ZVByZWZlcnJlZFNpemVBcnJheVZsTHMAAAABT2JqYwAAAAEAAAAAAABSY3QxAAAABAAAAABUb3AgbG9uZwAAAg8AAAAATGVmdGxvbmcAAAFgAAAAAEJ0b21sb25nAAACDwAAAABSZ2h0bG9uZwAAAWA=" host-cached-sizes="true"/>
+				<palette id="0x116b9b920" is-closed="false" preferred-unconstrained-size="100 100" preferred-constrained-size="100 100" current-state="1" is-minimized="false" app-data="AAAAEAAAAAEAAAAAAABudWxsAAAAAgAAABdvd2xDb250ZW50Vmlld1N0cmluZ2lJRFRFWFQAAAAcAHAAYQBuAGUAbABpAGQALgBzAHQAYQB0AGkAYwAuAGIAcgB1AHMAaABwAHIAZQBzAGUAdABzAAAAAAAVb3dsQ29udGVudFZpZXdBcHBEYXRhT2JqYwAAAAEAAAAAAABudWxsAAAAAQAAABxvd2xQYWxldHRlUHJlZmVycmVkU2l6ZUFycmF5VmxMcwAAAAFPYmpjAAAAAQAAAAAAAFJjdDEAAAAEAAAAAFRvcCBsb25nAAAAxQAAAABMZWZ0bG9uZwAAANMAAAAAQnRvbWxvbmcAAADFAAAAAFJnaHRsb25nAAAA0w==" host-cached-sizes="true"/>
+			</tab-group>
+		</tab-pane>
+	</dock>
+</workspace>
+	</photoshop-panel-configuration>
+</photoshop-workspace>
