@@ -28,6 +28,9 @@ alias projects="~/Projects"
 alias github="~/Projects/github"
 alias sandbox="~/Projects/sandbox"
 
+# Jekyll
+alias jekyllstart="jekyll serve --watch --baseurl=/"
+
 # Set to this to use case-sensitive completion
 CASE_SENSITIVE="true"
 
