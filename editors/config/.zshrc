@@ -16,12 +16,12 @@ alias ohmyzsh="cd $HOME/.oh-my-zsh"
 
 # Home Folders
 alias home="cd ~ && clear"
-alias apps="cd /Applications/"
-alias documents="cd ~/Documents/"
-alias movies="cd ~/Movies/"
-alias music="cd ~/Music/"
-alias pictures="cd ~/Pictures/"
-alias dropbox="cd /Volumes/Pongstr/Dropbox/"
+alias apps="/Applications"
+alias documents="~/Documents"
+alias movies="~/Movies/"
+alias music="~/Music/"
+alias pictures="~/Pictures/"
+alias dropbox="/Volumes/Pongstr/Dropbox/"
 
 # Projects Directory
 alias projects="~/Projects"
@@ -46,7 +46,7 @@ DISABLE_AUTO_TITLE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git bower brew  brew-cask gem npm osx rvm)
+plugins=(git osx)
 
 source $ZSH/oh-my-zsh.sh
 
