@@ -29,11 +29,6 @@ defaults write com.apple.terminal "Startup Window Settings" -string "Pongstr Bas
 ln -s "$DOT/editors/colors/Pongstr Base-16.zsh-theme" "$HOME/.oh-my-zsh/themes/pongstr.zsh-theme"
 ln -s "$DOT/editors/config/.zshrc" "$HOME/.zshrc" && source "$HOME/.zshrc"
 
-# Disable "Last Login" message: http://goo.gl/kwNV6F
-# to remove just invoke $ rm .hushlogin
-touch .hushlogin
-
-
 # Bash Stuff
 # ---------------------------------------------------------------------------
 ln -s -f "$DOT/editors/config/.bash_aliases" "$HOME/.bash_aliases"
