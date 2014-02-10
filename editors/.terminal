@@ -14,8 +14,10 @@ cp "$DOT/editors/fonts/*" "$HOME/Library/Fonts/"
 # ---------------------------------------------------------------------------
 
 # Install zsh & oh-my-zsh
-echo "Installing oh-my-zsh"
-curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+  echo "Installing oh-my-zsh"
+  curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
+fi
 
 # Open Terminal Settings
 open "$DOT/editors/colors/Pongstr Base-16.terminal"
@@ -37,10 +39,12 @@ ln -s -f "$DOT/editors/config/.bash_profile" "$HOME/.bash_profile"
 # Vim Stuff
 # ---------------------------------------------------------------------------
 
-mkdir -p "$HOME/.vim/.vminfo"
-mkdir -p "$HOME/.vim/backups"
-mkdir -p "$HOME/.vim/swaps"
-mkdir -p "$HOME/.vim/undo"
+if [ ! -d "$HOME/.vim" ]; then
+  mkdir -p "$HOME/.vim/.vminfo"
+  mkdir -p "$HOME/.vim/backups"
+  mkdir -p "$HOME/.vim/swaps"
+  mkdir -p "$HOME/.vim/undo"
+fi
 
 echo "Linking Vim run commands"
 ln -s -f "$DOT/editors/colors/Pongstr Base-16.vim" "$HOME/.vim/colors/Pongstr Base-16.vim"
@@ -50,11 +54,15 @@ ln -s -f "$DOT/editors/config/.vimrc" "$HOME/.vimrc"
 # Sublime Text 3 Stuff
 # ---------------------------------------------------------------------------
 
-echo "Installing Sublime Text 3 Package Control"
-cd "$ST3" && git clone https://github.com/wbond/sublime_package_control.git "Package Control"
+if [ ! -d "$ST3/Package Control" ]; then
+  echo "Installing Sublime Text 3 Package Control"
+  cd "$ST3" && git clone https://github.com/wbond/sublime_package_control.git "Package Control"
+fi
 
-echo "✓ Link Spacegray theme"
-ln -s "$DOT/editors/colors/spacegray" "$ST3/Theme - Spacegray"
+if [ !-d "$ST3/Theme - Spacegray" ];
+  echo "✓ Link Spacegray theme"
+  ln -s "$DOT/editors/colors/spacegray" "$ST3/Theme - Spacegray"
+fi
 
 echo "✓ Link Sublime Text 3 Preferences"
 ln -s -f "$DOT/editors/config/Preferences.sublime-settings"     "$ST3/User/Preferences.sublime-settings"
