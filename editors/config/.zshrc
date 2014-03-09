@@ -27,6 +27,7 @@ alias dropbox="/Volumes/Pongstr/Dropbox/"
 alias projects="~/Projects"
 alias github="~/Projects/github"
 alias sandbox="~/Projects/sandbox"
+alias apache="~/Projects/apache"
 
 # Jekyll
 alias jekyllstart="jekyll serve --watch --baseurl=/"
