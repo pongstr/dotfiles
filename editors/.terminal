@@ -59,15 +59,9 @@ if [ ! -d "$ST3/Package Control" ]; then
   cd "$ST3" && git clone https://github.com/wbond/sublime_package_control.git "Package Control"
 fi
 
-if [ !-d "$ST3/Theme - Spacegray" ];
-  echo "✓ Link Spacegray theme"
-  ln -s "$DOT/editors/colors/spacegray" "$ST3/Theme - Spacegray"
-fi
-
-echo "✓ Link Sublime Text 3 Preferences"
-ln -s -f "$DOT/editors/config/Preferences.sublime-settings"     "$ST3/User/Preferences.sublime-settings"
-ln -s -f "$DOT/editors/config/Default (OSX).sublime-keymap"     "$ST3/User/Default (OSX).sublime-keymap"
-ln -s -f "$DOT/editors/config/Pacakge Control.sublime-settings" "$ST3/User/Pacakge Control.sublime-settings"
+echo "✓ Copied Sublime Text 3 Preferences and Keymap"
+cp "$DOT/editors/config/Preferences.sublime-settings"  "$ST3/User/Preferences.sublime-settings"
+cp "$DOT/editors/config/Default (OSX).sublime-keymap"  "$ST3/User/Default (OSX).sublime-keymap"
 
 echo "Done!"
 open -a /Applications/Sublime\ Text.app
