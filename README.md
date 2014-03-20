@@ -54,10 +54,10 @@ $ ./dotfiles/lib/.npm
 
 **lib/.rvm** 
 
-(it's better to run .rvm before .gems to make sure we're using ruby 2.0.0)
+(it's better to run .rvm before .gems to make sure we're using ruby 2.1.0)
 
 ```shell
-# this installs ruby 2.0.0 and reloads/updates osx ssl certs
+# this installs ruby 2.1.0 and reloads/updates osx ssl certs
 
 $ ./dotfiles/lib/.rvm
 ```
