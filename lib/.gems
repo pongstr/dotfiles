@@ -8,7 +8,7 @@ sudo gem update --system
 
 # Install Gems Tools
 # ----------------------------------------------------------------------
-sudo gem install jekyll --version 1.2.1
+sudo gem install jekyll
 sudo gem install compass
 sudo gem install foundation
 sudo gem install bootstrap-sass

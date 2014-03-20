@@ -7,7 +7,7 @@ ST3="$HOME/Library/Application Support/Sublime Text 3/Packages"
 # Install Consolas Font
 # ---------------------------------------------------------------------------
 
-cp "$DOT/editors/fonts/*" "$HOME/Library/Fonts/"
+cp -R "$DOT/editors/fonts/*.*" "$HOME/Library/Fonts/"
 
 
 # Terminal and Zsh Stuff
@@ -28,8 +28,8 @@ defaults write com.apple.terminal "Default Window Settings" -string "Pongstr Bas
 defaults write com.apple.terminal "Startup Window Settings" -string "Pongstr Base-16.terminal"
 
 # Link .zshrc
-ln -s "$DOT/editors/colors/Pongstr Base-16.zsh-theme" "$HOME/.oh-my-zsh/themes/pongstr.zsh-theme"
-ln -s "$DOT/editors/config/.zshrc" "$HOME/.zshrc" && source "$HOME/.zshrc"
+ln -s -f "$DOT/editors/colors/Pongstr Base-16.zsh-theme" "$HOME/.oh-my-zsh/themes/pongstr.zsh-theme"
+ln -s -f "$DOT/editors/config/.zshrc" "$HOME/.zshrc" && source "$HOME/.zshrc"
 
 # Bash Stuff
 # ---------------------------------------------------------------------------
@@ -59,7 +59,12 @@ if [ ! -d "$ST3/Package Control" ]; then
   cd "$ST3" && git clone https://github.com/wbond/sublime_package_control.git "Package Control"
 fi
 
-echo "✓ Copied Sublime Text 3 Preferences and Keymap"
+if [ ! -d "$ST3/Theme - Spacegray" ]; then
+  echo "Installing Customized Spacegray"
+  cd "$ST3/" && git clone https://github.com/pongstr/spacegray.git "Theme - Spacegray"
+fi
+
+echo "  ✓ Copied Sublime Text 3 Preferences and Keymap"
 cp "$DOT/editors/config/Preferences.sublime-settings"  "$ST3/User/Preferences.sublime-settings"
 cp "$DOT/editors/config/Default (OSX).sublime-keymap"  "$ST3/User/Default (OSX).sublime-keymap"
 

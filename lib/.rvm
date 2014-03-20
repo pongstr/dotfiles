@@ -4,8 +4,8 @@
 sudo -v
 
 # install openssl, libyaml dependancies is installed via .brew
-rvm install 2.0.0
-rvm use 2.0.0 --default
+rvm install 2.1.0
+rvm use 2.1.0 --default
 
 # Update OSX SSL Certs
 # ---------------------------------------------------------------------
