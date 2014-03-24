@@ -7,7 +7,7 @@ ST3="$HOME/Library/Application Support/Sublime Text 3/Packages"
 # Install Consolas Font
 # ---------------------------------------------------------------------------
 
-cp -R "$DOT/editors/fonts/*.*" "$HOME/Library/Fonts/"
+cp -R "$DOT/editors/fonts/*" "$HOME/Library/Fonts/"
 
 
 # Terminal and Zsh Stuff
