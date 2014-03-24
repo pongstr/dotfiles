@@ -8,7 +8,18 @@ sudo gem update --system
 
 # Install Gems Tools
 # ----------------------------------------------------------------------
-sudo gem install jekyll
-sudo gem install compass
-sudo gem install foundation
-sudo gem install bootstrap-sass
+
+function installgem () {
+  if ! gem spec "${@}" > /dev/null 2>&1; then
+    echo "Installing ${@}..."
+    sudo gem install "${@}"
+  else
+    echo "${@} is already installed"
+  fi
+}
+
+installgem bundler
+installgem jekyll
+installgem compass
+installgem foundation
+installgem bootstrap-sass

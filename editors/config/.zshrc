@@ -15,6 +15,8 @@ alias zshconfig="vi $HOME/.zshrc"
 alias ohmyzsh="cd $HOME/.oh-my-zsh"
 
 # Home Folders
+# ---------------------------------------------------------------------------
+
 alias home="cd ~ && clear"
 alias apps="/Applications"
 alias documents="~/Documents"
@@ -24,13 +26,26 @@ alias pictures="~/Pictures/"
 alias dropbox="/Volumes/Pongstr/Dropbox/"
 
 # Projects Directory
+# ---------------------------------------------------------------------------
+
 alias projects="~/Projects"
 alias github="~/Projects/github"
 alias sandbox="~/Projects/sandbox"
 alias apache="~/Projects/apache"
 
-# Jekyll
+# Dev Stuff
+# ---------------------------------------------------------------------------
+
+# Jekyll: must be in the same working directory
 alias jekyllstart="jekyll serve --watch --baseurl=/"
+
+# Bootstrap AngularJS Project
+alias bootstrap-angular="curl -L -O https://github.com/pongstr/boilerplate/archive/0.1.2-angularjs.zip && unzip 0.1.2-angularjs.zip"
+
+# Bootstra Jekyll Project
+alias bootstrap-jekyll="curl -L -O https://github.com/pongstr/boilerplate/archive/0.1.0-jekyll.zip && unzip 0.1.0-jekyll.zip"
+
+
 
 # Set to this to use case-sensitive completion
 CASE_SENSITIVE="true"
@@ -39,7 +54,7 @@ CASE_SENSITIVE="true"
 DISABLE_AUTO_UPDATE="true"
 
 # Uncomment to change how often before auto-updates occur? (in days)
-# export UPDATE_ZSH_DAYS=5
+export UPDATE_ZSH_DAYS=5
 
 # Uncomment following line if you want to disable autosetting terminal title.
 DISABLE_AUTO_TITLE="true"
@@ -56,7 +71,7 @@ source $ZSH/oh-my-zsh.sh
 # -----------------------------------------------------------------------------
 
 # Export PATH after RVM installation
-export PATH="/usr/local/bin:/Users/Pongstr/.rvm/gems/ruby-2.1.0@global/bin:$PATH"
+export PATH="/usr/local/bin:/Users/Pongstr/.rvm/gems/ruby-2.1.1@global/bin:$PATH"
 
 # Make /Applications the default location of apps
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"

@@ -65,7 +65,7 @@ $ ./dotfiles/lib/.rvm
 **lib/.gems**
 
 ```shell
-# this installs gem stuff: [jekyll 1.2.1, compass, foundation and bootstrap-sass]
+# this installs gem stuff: [bundler, jekyll, compass, foundation and bootstrap-sass]
 
 $ ./dotfiles/lib/gems
 ```
