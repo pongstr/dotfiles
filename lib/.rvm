@@ -3,8 +3,13 @@
 # Ask for the administrator password upfront
 sudo -v
 
+# as of [24.03.2014], installing ruby versions will give you
+# a `dyld : Library not loaded` error and the way to get through
+# it is to disable binary on install: 
+# https://twitter.com/mpapis/status/447926386314186752
+
 # install openssl, libyaml dependancies is installed via .brew
-rvm install 2.1.1
+rvm install 2.1.1 --disable-binary
 rvm use 2.1.1 --default
 
 # Update OSX SSL Certs
