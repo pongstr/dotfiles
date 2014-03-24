@@ -16,4 +16,5 @@ export PATH="/usr/local/share/npm/bin:$PATH"
 sudo npm install -g bower
 sudo npm install -g express
 sudo npm install -g grunt-cli
+sudo npm install -g jshint
 sudo npm install -g less
