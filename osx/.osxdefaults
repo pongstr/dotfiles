@@ -126,7 +126,7 @@ defaults write com.apple.BezelServices kDimTime -int 300
 # Set language and text formats
 # Note: if you’re in the US, replace `EUR` with `USD`, `Centimeters` with
 # `Inches`, `en_GB` with `en_US`, and `true` with `false`.
-defaults write NSGlobalDomain AppleLanguages -array "en_US" 
+defaults write NSGlobalDomain AppleLanguages -array "en_US"
 defaults write NSGlobalDomain AppleLocale -string "en_US@currency=PHP"
 defaults write NSGlobalDomain AppleMeasurementUnits -string "Inches"
 defaults write NSGlobalDomain AppleMetricUnits -bool true
@@ -252,7 +252,7 @@ defaults write com.apple.finder FXInfoPanesExpanded -dict \
 ln -s /Applications/Xcode.app/Contents/Applications/iPhone\ Simulator.app /Applications/iOS\ Simulator.app
 
 
-# Dock, Dashboard, and hot corners  
+# Dock, Dashboard, and hot corners
 # ---------------------------------------------------------------------------
 
 # Set the icon size of Dock items to 22 pixels
@@ -315,3 +315,10 @@ defaults write com.apple.Safari ProxiesInBookmarksBar "()"
 # Enable the Develop menu and the Web Inspector in Safari
 defaults write com.apple.Safari IncludeDevelopMenu -bool true
 defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
+
+logout() {
+  osascript -e 'tell application "System Events" to log out'
+  builtin logout
+}
+
+logout

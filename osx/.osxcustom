@@ -10,5 +10,15 @@
 
 
 
-# Add Applications to Launchpad
+# OSX Preferences
 # ---------------------------------------------------------------------------
+
+
+# Add Shortcuts from secondary drive
+# ---------------------------------------------------------------------------
+
+ln -sf "/Volumes/Pongstr/Backup/Music ~/Music"
+ln -sf "/Volumes/Pongstr/Backup/Movies ~/Movies"
+ln -sf "/Volumes/Pongstr/Backup/Pictures ~/Pictures"
+ln -sf "/Volumes/Pongstr/Backup/Documents ~/Documents"
+ln -sf "/Volumes/Pongstr/Backup/Music/iTunes ~/Music/iTunes"

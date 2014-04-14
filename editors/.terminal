@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
-DOT="$HOME/dotfiles"
+DOT="$HOME/.dotfiles"
 ST3="$HOME/Library/Application Support/Sublime Text 3/Packages"
 
 
 # Install Consolas Font
 # ---------------------------------------------------------------------------
 
-cp -R "$DOT/editors/fonts/*" "$HOME/Library/Fonts/"
+cp $DOT/editors/fonts/* $HOME/Library/Fonts/
 
 
 # Terminal and Zsh Stuff
@@ -28,27 +28,27 @@ defaults write com.apple.terminal "Default Window Settings" -string "Pongstr Bas
 defaults write com.apple.terminal "Startup Window Settings" -string "Pongstr Base-16.terminal"
 
 # Link .zshrc
-ln -s -f "$DOT/editors/colors/Pongstr Base-16.zsh-theme" "$HOME/.oh-my-zsh/themes/pongstr.zsh-theme"
-ln -s -f "$DOT/editors/config/.zshrc" "$HOME/.zshrc" && source "$HOME/.zshrc"
+cp -f $DOT/editors/colors/Pongstr Base-16.zsh-theme $HOME/.oh-my-zsh/themes/pongstr.zsh-theme
+cp -f $DOT/editors/config/.zshrc $HOME/.zshrc && source $HOME/.zshrc &&  .~/.zshrc
 
 # Bash Stuff
 # ---------------------------------------------------------------------------
-ln -s -f "$DOT/editors/config/.bash_aliases" "$HOME/.bash_aliases"
-ln -s -f "$DOT/editors/config/.bash_profile" "$HOME/.bash_profile"
+cp -f $DOT/editors/config/.bash_aliases $HOME/.bash_aliases
+cp -f $DOT/editors/config/.bash_profile $HOME/.bash_profile
 
 # Vim Stuff
 # ---------------------------------------------------------------------------
 
 if [ ! -d "$HOME/.vim" ]; then
-  mkdir -p "$HOME/.vim/.vminfo"
-  mkdir -p "$HOME/.vim/backups"
-  mkdir -p "$HOME/.vim/swaps"
-  mkdir -p "$HOME/.vim/undo"
+  mkdir -p $HOME/.vim/.vminfo
+  mkdir -p $HOME/.vim/backups
+  mkdir -p $HOME/.vim/swaps
+  mkdir -p $HOME/.vim/undo
 fi
 
 echo "Linking Vim run commands"
-ln -s -f "$DOT/editors/colors/Pongstr Base-16.vim" "$HOME/.vim/colors/Pongstr Base-16.vim"
-ln -s -f "$DOT/editors/config/.vimrc" "$HOME/.vimrc"
+cp -f $DOT/editors/colors/Pongstr Base-16.vim $HOME/.vim/colors/Pongstr Base-16.vim
+cp -f $DOT/editors/config/.vimrc $HOME/.vimrc
 
 
 # Sublime Text 3 Stuff
@@ -56,17 +56,26 @@ ln -s -f "$DOT/editors/config/.vimrc" "$HOME/.vimrc"
 
 if [ ! -d "$ST3/Package Control" ]; then
   echo "Installing Sublime Text 3 Package Control"
-  cd "$ST3" && git clone https://github.com/wbond/sublime_package_control.git "Package Control"
+  cd $ST3 && git clone https://github.com/wbond/sublime_package_control.git "Package Control"
 fi
 
 if [ ! -d "$ST3/Theme - Spacegray" ]; then
   echo "Installing Customized Spacegray"
-  cd "$ST3/" && git clone https://github.com/pongstr/spacegray.git "Theme - Spacegray"
+  cd $ST3 && git clone https://github.com/pongstr/spacegray.git "Theme - Spacegray"
 fi
 
 echo "  ✓ Copied Sublime Text 3 Preferences and Keymap"
-cp "$DOT/editors/config/Preferences.sublime-settings"  "$ST3/User/Preferences.sublime-settings"
-cp "$DOT/editors/config/Default (OSX).sublime-keymap"  "$ST3/User/Default (OSX).sublime-keymap"
+cp -f $DOT/editors/config/Preferences.sublime-settings $ST3/User/Preferences.sublime-settings
+cp -f $DOT/editors/config/Default (OSX).sublime-keymap $ST3/User/Default (OSX).sublime-keymap
 
-echo "Done!"
+echo "Reload Sublime Text 3 Settings"
 open -a /Applications/Sublime\ Text.app
+killall Sublime\ Text
+
+logout() {
+  osascript -e 'tell application "System Events" to log out'
+  builtin logout
+}
+
+echo "Done! Logging out for settings to take effect."
+logout
