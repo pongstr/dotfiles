@@ -3,14 +3,12 @@ Dotfiles (Pongstr)
 
 My Dotfiles for setting up OSX Workspace.
 
-### Requirements:
+## Requirements:
 
   - You need to have **[Xcode](https://developer.apple.com/xcode/)** &amp; **[Xcode Command Line Tools](https://developer.apple.com/downloads)** installed.
   - You need to be an administrator (for ```sudo```).
 
-### Usage:
-
------------------
+## Usage:
 
 Open up Terminal: **Application > Utilities > Terminal.app** and download the zipball with this command, don't include the ```$``` sign.
 
@@ -20,61 +18,7 @@ Open up Terminal: **Application > Utilities > Terminal.app** and download the zi
 $ curl -O -# https://raw.github.com/pongstr/dotfiles/wizard/install.sh && sh install.sh
 ```
 
-#### bootstrap.sh
-
------------------
-
-
-Installs development essentials: libyaml openssl, git, zsh, node and vim (newer version that overrides osx default). After installations are done, it will killall Terminal so rvm command will take effect.
-
-```shell
-$ ./.dotfiles/bootstrap.sh
-```
-
-### lib/
-
------------------
-
-**lib/.casks**
-
-```shell
-# Tap to phinez/homebrew-cask and caskroom/versions
-# and then installs osx native apps like: [app-cleaner, dropbox, firefox, github, etc...]
-
-$ ./.dotfiles/lib/casks
-```
-
-**lib/.npm**
-
-```shell
-# installs npm stuff globally: [bower, express, grunt-cli and less]
-
-$ ./.dotfiles/lib/.npm
-```
-
-**lib/.rvm**
-
-(it's better to run .rvm before .gems to make sure we're using ruby 2.1.0)
-
-```shell
-# this installs ruby 2.1.1 and reloads/updates osx ssl certs
-
-$ ./.dotfiles/lib/.rvm
-```
-
-**lib/.gems**
-
-```shell
-# this installs gem stuff: [bundler, jekyll, compass, foundation and bootstrap-sass]
-
-$ ./.dotfiles/lib/gems
-```
-
-
-
-#### editors/
-
------------------
+## Editors
 
 Mods for Terminal, Vim and Sublime Text 3
 Installs Base-16 syntax highlighting color scheme and Spacegray theme for ST3
@@ -95,9 +39,7 @@ $ ./.dotfiles/editors/terminal.sh
 
 ![Sublime Text 3 with Theme - Spacegray ](http://farm4.staticflickr.com/3831/11663224596_107ca73f95_o.png)
 
-#### Acknowledgements
-
------------------
+## Acknowledgements
 
 Inspiration and code was taken from may sources, including:
 
