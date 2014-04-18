@@ -3,9 +3,6 @@
 # Set custom OS X defaults
 # See: github.com/mathiasbynens/dotfiles
 # ---------------------------------------------------------------------------
-USR="Pongstr"
-
-
 DOT="$HOME/dotfiles"
 LIB="$HOME/Library/Preferences/"
 
@@ -19,11 +16,7 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 # General UI/UX
 # ---------------------------------------------------------------------------
 
-# Set computer name (as done via System Preferences → Sharing)
-sudo scutil --set ComputerName  "$USR"
-sudo scutil --set HostName      "$USR"
-sudo scutil --set LocalHostName "$USR"
-sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "$USR"
+
 
 # Menu bar: disable transparency
 defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool true

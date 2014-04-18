@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-DOT="$HOME/.dotfiles"
+# Development Directory
+DOT="$HOME/Projects/github/dotfiles"
+# DOT="$HOME/.dotfiles"
 ST3="$HOME/Library/Application Support/Sublime Text 3/Packages"
 
 
@@ -10,8 +12,8 @@ ST3="$HOME/Library/Application Support/Sublime Text 3/Packages"
 cp $DOT/editors/fonts/* $HOME/Library/Fonts/
 
 
-# Terminal and Zsh Stuff
-# ---------------------------------------------------------------------------
+# # Terminal and Zsh Stuff
+# # ---------------------------------------------------------------------------
 
 # Install zsh & oh-my-zsh
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
@@ -24,49 +26,51 @@ open "$DOT/editors/colors/Pongstr Base-16.terminal"
 sleep 1 # Wait a bit to make sure the theme is loaded
 
 # Set Terminal Custom Theme
-defaults write com.apple.terminal "Default Window Settings" -string "Pongstr Base-16.terminal"
-defaults write com.apple.terminal "Startup Window Settings" -string "Pongstr Base-16.terminal"
+# defaults write com.apple.terminal "Default Window Settings" -string "Pongstr Base-16.terminal"
+# defaults write com.apple.terminal "Startup Window Settings" -string "Pongstr Base-16.terminal"
 
-# Link .zshrc
-cp -f $DOT/editors/colors/Pongstr Base-16.zsh-theme $HOME/.oh-my-zsh/themes/pongstr.zsh-theme
-cp -f $DOT/editors/config/.zshrc $HOME/.zshrc && source $HOME/.zshrc &&  .~/.zshrc
+# # Link .zshrc
+cp -f "$DOT/editors/colors/Pongstr Base-16.zsh-theme" "$HOME/.oh-my-zsh/themes/pongstr.zsh-theme"
+# breaking bug
+# cp -f "$DOT/editors/config/.zshrc" "$HOME/.zshrc" && source $HOME/.zshrc
 
-# Bash Stuff
-# ---------------------------------------------------------------------------
+# # Bash Stuff
+# # ---------------------------------------------------------------------------
 cp -f $DOT/editors/config/.bash_aliases $HOME/.bash_aliases
 cp -f $DOT/editors/config/.bash_profile $HOME/.bash_profile
 
-# Vim Stuff
-# ---------------------------------------------------------------------------
+# # Vim Stuff
+# # ---------------------------------------------------------------------------
 
 if [ ! -d "$HOME/.vim" ]; then
   mkdir -p $HOME/.vim/.vminfo
   mkdir -p $HOME/.vim/backups
+  mkdir -p $HOME/.vim/colors
   mkdir -p $HOME/.vim/swaps
   mkdir -p $HOME/.vim/undo
 fi
 
 echo "Linking Vim run commands"
-cp -f $DOT/editors/colors/Pongstr Base-16.vim $HOME/.vim/colors/Pongstr Base-16.vim
-cp -f $DOT/editors/config/.vimrc $HOME/.vimrc
+cp -f "$DOT/editors/colors/Pongstr Base-16.vim" "$HOME/.vim/colors/Pongstr Base-16.vim"
+cp -f "$DOT/editors/config/.vimrc" "$HOME/.vimrc"
 
 
-# Sublime Text 3 Stuff
-# ---------------------------------------------------------------------------
+# # Sublime Text 3 Stuff
+# # ---------------------------------------------------------------------------
 
 if [ ! -d "$ST3/Package Control" ]; then
   echo "Installing Sublime Text 3 Package Control"
-  cd $ST3 && git clone https://github.com/wbond/sublime_package_control.git "Package Control"
+  cd "$ST3" && git clone https://github.com/wbond/sublime_package_control.git "Package Control"
 fi
 
 if [ ! -d "$ST3/Theme - Spacegray" ]; then
   echo "Installing Customized Spacegray"
-  cd $ST3 && git clone https://github.com/pongstr/spacegray.git "Theme - Spacegray"
+  cd "$ST3" && git clone https://github.com/pongstr/spacegray.git "Theme - Spacegray"
 fi
 
 echo "  ✓ Copied Sublime Text 3 Preferences and Keymap"
-cp -f $DOT/editors/config/Preferences.sublime-settings $ST3/User/Preferences.sublime-settings
-cp -f $DOT/editors/config/Default (OSX).sublime-keymap $ST3/User/Default (OSX).sublime-keymap
+cp -f "$DOT/editors/config/Preferences.sublime-settings" "$ST3/User/Preferences.sublime-settings"
+cp -f "$DOT/editors/config/Default (OSX).sublime-keymap" "$ST3/User/Default (OSX).sublime-keymap"
 
 echo "Reload Sublime Text 3 Settings"
 open -a /Applications/Sublime\ Text.app
