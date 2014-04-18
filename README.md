@@ -24,7 +24,7 @@ Mods for Terminal, Vim and Sublime Text 3
 Installs Base-16 syntax highlighting color scheme and Spacegray theme for ST3
 
 ```shell
-$ ./.dotfiles/editors/terminal.sh
+$ ./.dotfiles/editors/.terminal
 ```
 
 **OSX Terminal**
