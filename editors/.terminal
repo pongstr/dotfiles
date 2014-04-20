@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
 # Development Directory
-DOT="$HOME/Projects/github/dotfiles"
-# DOT="$HOME/.dotfiles"
+# DOT="$HOME/Projects/github/dotfiles"
+
+DOT="$HOME/.dotfiles"
 ST3="$HOME/Library/Application Support/Sublime Text 3/Packages"
 
 

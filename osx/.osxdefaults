@@ -3,7 +3,7 @@
 # Set custom OS X defaults
 # See: github.com/mathiasbynens/dotfiles
 # ---------------------------------------------------------------------------
-DOT="$HOME/dotfiles"
+DOT="$HOME/.dotfiles"
 LIB="$HOME/Library/Preferences/"
 
 # Ask for the administrator password upfront

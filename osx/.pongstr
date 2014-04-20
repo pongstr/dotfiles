@@ -10,7 +10,7 @@
 
 # Development Directory
 # DOT="$HOME/Projects/github/dotifles"
-DOT="$HOME/dotfiles"
+DOT="$HOME/.dotfiles"
 USR="Pongstr"
 
 # OSX Preferences
@@ -22,19 +22,19 @@ sudo scutil --set HostName      "$USR"
 sudo scutil --set LocalHostName "$USR"
 sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "$USR"
 
-cp -f "$DOT/osx/finder/com.apple.dock.plist"         "$HOME/Library/Preferences/"
-cp -f "$DOT/osx/finder/com.apple.sidebarlists.plist" "$HOME/Library/Preferences/"
+cp -f $DOT/osx/finder/com.apple.dock.plist $HOME/Library/Preferences/
+cp -f $DOT/osx/finder/com.apple.sidebarlists.plist $HOME/Library/Preferences/
 
 # Add Shortcuts from secondary drive
 # ---------------------------------------------------------------------------
 
-ln -sf "/Volumes/$USR/Backup/Movies"        "$HOME/Movies"
-ln -sf "/Volumes/$USR/Backup/Pictures"      "$HOME/Pictures"
-ln -sf "/Volumes/$USR/Backup/Documents"     "$HOME/Documents"
-ln -sf "/Volumes/$USR/Backup/Music/iTunes"  "$HOME/Music/iTunes"
+# ln -sf "/Volumes/$USR/Backup/Movies"        "$HOME/Movies"
+# ln -sf "/Volumes/$USR/Backup/Pictures"      "$HOME/Pictures"
+# ln -sf "/Volumes/$USR/Backup/Documents"     "$HOME/Documents"
+# ln -sf "/Volumes/$USR/Backup/Music/iTunes"  "$HOME/Music/iTunes"
 
-ln -sf "/Volumes/$USR/Backup/Pictures/Pongstr.photolibrary" "$HOME/Pictures/iPhoto.photolibrary"
-ln -sf "/Volumes/$USR/Backup/Pictures/Photo Booth Library"  "$HOME/Pictures/Photo Booth Library"
+# ln -sf "/Volumes/$USR/Backup/Pictures/Pongstr.photolibrary" "$HOME/Pictures/iPhoto.photolibrary"
+# ln -sf "/Volumes/$USR/Backup/Pictures/Photo Booth Library"  "$HOME/Pictures/Photo Booth Library"
 
 # Git credentials
 # ---------------------------------------------------------------------------

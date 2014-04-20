@@ -29,7 +29,7 @@ install_formula () {
 
   # Cleanup
   echo "Cleaning up Homebrew intallation..."
-  brew cleanup  
+  brew cleanup
 }
 
 
@@ -38,7 +38,7 @@ echo "Install hushlogin"
 echo "  - Disable the system copyright notice, the date and time of the last login."
 echo "    more info at @mathiasbynens/dotfiles http://goo.gl/wZBM80"
 echo ""
-cp -r ".hushlogin" $HOME/.hushlogin
+cp -f "$HOME/.dotfiles/.hushlogin" $HOME/.hushlogin
 
 
 # Install Homebrew
@@ -72,18 +72,10 @@ done
 
 # Install RVM
 # ---------------------------------------------------------------------------
-if check rvm; then
-  echo "Awesome! RVM is installed! Now updating..."
-  rvm get head
-  rvm reload
-  rvm get stable
-fi
 
-if ! check rvm; then
-  echo "Installing RVM..."
-  \curl -L https://get.rvm.io | bash
+echo "Installing RVM..."
+\curl -L https://get.rvm.io | bash
 
-  # Restart Terminal for RVM to take effect
-  echo "bootstrapping complete! quitting terminal..."
-  killall Terminal
-fi
+# Restart Terminal for RVM to take effect
+echo "bootstrapping complete! quitting terminal..."
+killall Terminal
