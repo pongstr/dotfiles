@@ -23,7 +23,7 @@ alias documents="~/Documents"
 alias movies="~/Movies/"
 alias music="~/Music/"
 alias pictures="~/Pictures/"
-alias dropbox="/Volumes/Pongstr/Dropbox/"
+ix="/Volumes/Pongstr/Dropbox/"
 
 # Projects Directory
 # ---------------------------------------------------------------------------
@@ -38,12 +38,6 @@ alias apache="~/Projects/apache"
 
 # Jekyll: must be in the same working directory
 alias jekyllstart="jekyll serve --watch --baseurl=/"
-
-# Bootstrap AngularJS Project
-alias bootstrap-angular="curl -L -O https://github.com/pongstr/boilerplate/archive/0.1.4-angularjs.zip && unzip 0.1.4-angularjs.zip && rm -rf 0.1.4-angularjs.zip"
-
-# Bootstra Jekyll Project
-alias bootstrap-jekyll="curl -L -O https://github.com/pongstr/boilerplate/archive/0.1.0-jekyll.zip && unzip 0.1.0-jekyll.zip && rm -rf 0.1.0-jekyll.zip"
 
 # Set to this to use case-sensitive completion
 CASE_SENSITIVE="true"
