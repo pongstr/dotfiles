@@ -53,7 +53,7 @@ fi
 
 if ! check brew; then
   # Download and install homebrew
-  ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go/install)"
+  ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 
   # Run Brew doctor before anything else
   brew doctor
