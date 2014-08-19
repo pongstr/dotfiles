@@ -16,7 +16,7 @@ function installgem () {
 }
 
 installgem bundler
-installgem jekyll
+installgem github-pages
 installgem compass
 installgem foundation
 installgem bootstrap-sass

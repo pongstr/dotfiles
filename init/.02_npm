@@ -15,14 +15,3 @@ npm install -g express
 npm install -g grunt-cli
 npm install -g jshint
 npm install -g less
-npm install -g yo
-
-# Yeoman Generators
-# npm install -g generator-karma
-# npm install -g generator-angular
-# npm install -g generator-angular-ui-router
-
-
-# Lastly, install karma because somehow
-# it fucks up the entire operation.
-# npm install -g karma

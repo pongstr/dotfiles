@@ -44,6 +44,13 @@ cp -f $DOT/editors/config/.bash_profile $HOME/.bash_profile
 # # ---------------------------------------------------------------------------
 
 if [ ! -d "$HOME/.vim" ]; then
+  mkdir -p $HOME/.vim
+  mkdir -p $HOME/.vim/.vminfo
+  mkdir -p $HOME/.vim/backups
+  mkdir -p $HOME/.vim/colors
+  mkdir -p $HOME/.vim/swaps
+  mkdir -p $HOME/.vim/undo
+else
   mkdir -p $HOME/.vim/.vminfo
   mkdir -p $HOME/.vim/backups
   mkdir -p $HOME/.vim/colors
