@@ -27,8 +27,8 @@ open "$DOT/editors/colors/Pongstr Base-16.terminal"
 sleep 1 # Wait a bit to make sure the theme is loaded
 
 # Set Terminal Custom Theme
-# defaults write com.apple.terminal "Default Window Settings" -string "Pongstr Base-16.terminal"
-# defaults write com.apple.terminal "Startup Window Settings" -string "Pongstr Base-16.terminal"
+defaults write com.apple.terminal "Default Window Settings" -string "Pongstr Base-16.terminal"
+defaults write com.apple.terminal "Startup Window Settings" -string "Pongstr Base-16.terminal"
 
 # # Link .zshrc
 cp -f "$DOT/editors/colors/Pongstr Base-16.zsh-theme" "$HOME/.oh-my-zsh/themes/pongstr.zsh-theme"

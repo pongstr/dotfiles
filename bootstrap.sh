@@ -10,8 +10,12 @@ check () { type -t "${@}" > /dev/null 2>&1; }
 # Function to install Homebrew Formulas:
 install_formula () {
   echo "Installing Homebrew Packages:"
+
   echo "  ➜ libyaml"
   brew install libyaml
+
+  echo "  ➜ Install GNU Scientific Library, for `rb-gsl`"
+  brew install gsl
 
   echo "  ➜ openssl"
   brew install openssl
@@ -24,6 +28,7 @@ install_formula () {
 
   echo "  ➜ zsh"
   brew install zsh
+
   echo "  ➜ vim (overriding system vim)"
   brew install vim --override-system-vi
 
