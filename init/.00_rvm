@@ -7,6 +7,7 @@
 
 # install openssl, libyaml dependancies is installed via .brew
 rvm install 2.1.1 --disable-binary
+rvm reload
 rvm use 2.1.1 --default
 
 # Update OSX SSL Certs

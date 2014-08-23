@@ -15,6 +15,7 @@ function installgem () {
   fi
 }
 
+installgem rb-gsl
 installgem bundler
 installgem github-pages
 installgem compass

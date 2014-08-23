@@ -3,6 +3,7 @@
 # Install Native Apps
 # ---------------------------------------------------------------------------
 brew install caskroom/cask/brew-cask
+brew tap caskroom/versions
 
 # Make /Applications the default location of apps
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
@@ -16,7 +17,7 @@ function cask() {
 }
 
 cask appcleaner
-cask brackets
+cask atom
 cask dropbox
 cask firefox
 cask github
