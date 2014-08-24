@@ -8,39 +8,25 @@
 #   - Launchpad
 # ---------------------------------------------------------------------------
 
-# Development Directory
-# DOT="$HOME/Projects/github/dotifles"
-DOT="$HOME/.dotfiles"
-USR="Pongstr"
+DOTFILES="$HOME/.dotfiles"
+GIT_AUTHOR_NAME="Pongstr"
+GIT_AUTHOR_EMAIL="twiz.tickler@gmail.com"
 
 # OSX Preferences
 # ---------------------------------------------------------------------------
 
 # Set computer name (as done via System Preferences → Sharing)
-sudo scutil --set ComputerName  "$USR"
-sudo scutil --set HostName      "$USR"
-sudo scutil --set LocalHostName "$USR"
-sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "$USR"
+sudo scutil --set ComputerName  "$GIT_AUTHOR_NAME"
+sudo scutil --set HostName      "$GIT_AUTHOR_NAME"
+sudo scutil --set LocalHostName "$GIT_AUTHOR_NAME"
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "$GIT_AUTHOR_NAME"
 
-cp -f $DOT/osx/finder/com.apple.dock.plist $HOME/Library/Preferences/
-cp -f $DOT/osx/finder/com.apple.sidebarlists.plist $HOME/Library/Preferences/
-
-# Add Shortcuts from secondary drive
-# ---------------------------------------------------------------------------
-
-# ln -sf "/Volumes/$USR/Backup/Movies"        "$HOME/Movies"
-# ln -sf "/Volumes/$USR/Backup/Pictures"      "$HOME/Pictures"
-# ln -sf "/Volumes/$USR/Backup/Documents"     "$HOME/Documents"
-# ln -sf "/Volumes/$USR/Backup/Music/iTunes"  "$HOME/Music/iTunes"
-
-# ln -sf "/Volumes/$USR/Backup/Pictures/Pongstr.photolibrary" "$HOME/Pictures/iPhoto.photolibrary"
-# ln -sf "/Volumes/$USR/Backup/Pictures/Photo Booth Library"  "$HOME/Pictures/Photo Booth Library"
+cp -f $DOTFILES/osx/finder/com.apple.dock.plist $HOME/Library/Preferences/
+cp -f $DOTFILES/osx/finder/com.apple.sidebarlists.plist $HOME/Library/Preferences/
 
 # Git credentials
 # ---------------------------------------------------------------------------
 
-GIT_AUTHOR_NAME="$USR"
-GIT_AUTHOR_EMAIL="twiz.tickler@gmail.com"
 GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
 GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
 

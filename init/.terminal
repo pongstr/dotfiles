@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-# Development Directory
-# DOT="$HOME/Projects/github/dotfiles"
-
 DOT="$HOME/.dotfiles"
 ST3="$HOME/Library/Application Support/Sublime Text 3/Packages"
 
@@ -31,14 +28,13 @@ defaults write com.apple.terminal "Default Window Settings" -string "Pongstr Bas
 defaults write com.apple.terminal "Startup Window Settings" -string "Pongstr Base-16.terminal"
 
 # # Link .zshrc
-cp -f "$DOT/editors/colors/Pongstr Base-16.zsh-theme" "$HOME/.oh-my-zsh/themes/pongstr.zsh-theme"
-# breaking bug
-# cp -f "$DOT/editors/config/.zshrc" "$HOME/.zshrc" && source $HOME/.zshrc
+cp -RfXv "$DOT/editors/colors/Pongstr Base-16.zsh-theme" "$HOME/.oh-my-zsh/themes/pongstr.zsh-theme"
+cp -RfXv "$DOT/editors/config/.zshrc" "$HOME/.zshrc" && source $HOME/.zshrc
 
 # # Bash Stuff
 # # ---------------------------------------------------------------------------
-cp -f $DOT/editors/config/.bash_aliases $HOME/.bash_aliases
-cp -f $DOT/editors/config/.bash_profile $HOME/.bash_profile
+cp -RfXv $DOT/editors/config/.bash_aliases $HOME/.bash_aliases
+cp -RfXv $DOT/editors/config/.bash_profile $HOME/.bash_profile
 
 # # Vim Stuff
 # # ---------------------------------------------------------------------------
@@ -59,8 +55,8 @@ else
 fi
 
 echo "Linking Vim run commands"
-cp -f "$DOT/editors/colors/Pongstr Base-16.vim" "$HOME/.vim/colors/Pongstr Base-16.vim"
-cp -f "$DOT/editors/config/.vimrc" "$HOME/.vimrc"
+cp -RfXv "$DOT/editors/colors/Pongstr Base-16.vim" "$HOME/.vim/colors/Pongstr Base-16.vim"
+cp -RfXv "$DOT/editors/config/.vimrc" "$HOME/.vimrc"
 
 
 # # Sublime Text 3 Stuff

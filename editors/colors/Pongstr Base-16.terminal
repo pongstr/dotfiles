@@ -203,7 +203,7 @@
 	<key>ShouldLimitScrollback</key>
 	<integer>0</integer>
 	<key>ShowActiveProcessInTitle</key>
-	<true/>
+	<false/>
 	<key>ShowCommandKeyInTitle</key>
 	<false/>
 	<key>ShowDimensionsInTitle</key>

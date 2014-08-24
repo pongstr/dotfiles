@@ -17,3 +17,25 @@ rvm osx-ssl-certs update all
 
 # Stay Healthy, automate updating of certs
 rvm osx-ssl-certs cron install
+
+# Update Gem System
+gem update --system
+
+# Install Gems Tools
+# ----------------------------------------------------------------------
+
+function installgem () {
+  if ! gem spec "${@}" > /dev/null 2>&1; then
+    echo "Installing ${@}..."
+    gem install "${@}"
+  else
+    echo "${@} is already installed"
+  fi
+}
+
+installgem rb-gsl
+installgem bundler
+installgem github-pages
+installgem compass
+installgem foundation
+installgem bootstrap-sass

@@ -22,30 +22,30 @@ Once bootstrapped, you may run these dotfiles in this specific order:
 ```bash
 # Install `ruby-2.1.1` and set it as default
 # Update `osx-ssl-certs` & install cron to auto-update it.
-
-$ ./.dotfiles/init/.00_rvm
-
-
 # Update `gem` system
 # Install gems [ rb-gsl, bundler, github-pages, compass, foundation, boostrap-sass]
 
-$ ./.dotfiles/init/.01_gems
+$ ./.dotfiles/init/.ruby
 
 
 # Install `npm` and packages [bower, express, grunt-cli, jshint, less]
 
-$ ./.dotfiles/init/.02_npm
+$ ./.dotfiles/init/.npm
 
 
 # Install `casks` and tap to `caskroom-versions`
 # Set `/Applications` dir as the default location of aliases
 
-$ ./.dotfiles/init/.03_casks
+$ ./.dotfiles/init/.casks
 ```
 
-> Actually, you may run them in any order except for `.00_rvm` and `.01_gems` since `rvm` will be the one declaring which ruby version.
-
 ### Terminal, Vim &amp; Sublime Text
+
+To unify the look of the Apps that are heavily used, you may run:
+
+```bash
+$ ./.dotfiles/init/.terminal
+```
 
 **OSX Terminal**
 
