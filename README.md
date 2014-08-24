@@ -1,31 +1,51 @@
 Dotfiles (Pongstr)
-==================
+----------
 
-My Dotfiles for setting up OSX Workspace.
+No need to use `sudo` when running these dotfiles, Just install by running the command:
 
-## Requirements:
-
-  - You need to have **[Xcode](https://developer.apple.com/xcode/)** &amp; **[Xcode Command Line Tools](https://developer.apple.com/downloads)** installed.
-  - You need to be an administrator (for ```sudo```).
-
-## Usage:
-
-Open up Terminal: **Application > Utilities > Terminal.app** and download the zipball with this command, don't include the ```$``` sign.
-
-```shell
-# Copy+Paste the curl command, this will confirm if you have Xcode and Commandline Tools installed.
-# Also, it will run bootstrap.sh
-$ curl -O -# https://raw.github.com/pongstr/dotfiles/wizard/install.sh && sh install.sh
+```bash
+$ curl -L -O https://raw.githubusercontent.com/pongstr/dotfiles/wizard/install.sh && sh install.sh
 ```
 
-## Editors
 
-Mods for Terminal, Vim and Sublime Text 3
-Installs Base-16 syntax highlighting color scheme and Spacegray theme for ST3
+### Requirements
 
-```shell
-$ ./.dotfiles/editors/.terminal
+> **[Xcode](https://developer.apple.com/xcode/)** &amp; **[Xcode Command Line Tools](https://developer.apple.com/downloads)**
+
+> `sudo` isn't necessary but it will be asked for Homebrew to be installed.
+
+
+### Initialize Dotfiles
+
+Once bootstrapped, you may run these dotfiles in this specific order:
+
+```bash
+# Install `ruby-2.1.1` and set it as default
+# Update `osx-ssl-certs` & install cron to auto-update it.
+
+$ ./.dotfiles/init/.00_rvm
+
+
+# Update `gem` system
+# Install gems [ rb-gsl, bundler, github-pages, compass, foundation, boostrap-sass]
+
+$ ./.dotfiles/init/.01_gems
+
+
+# Install `npm` and packages [bower, express, grunt-cli, jshint, less]
+
+$ ./.dotfiles/init/.02_npm
+
+
+# Install `casks` and tap to `caskroom-versions`
+# Set `/Applications` dir as the default location of aliases
+
+$ ./.dotfiles/init/.03_casks
 ```
+
+> Actually, you may run them in any order except for `.00_rvm` and `.01_gems` since `rvm` will be the one declaring which ruby version.
+
+### Terminal, Vim &amp; Sublime Text
 
 **OSX Terminal**
 
@@ -39,11 +59,12 @@ $ ./.dotfiles/editors/.terminal
 
 ![Sublime Text 3 with Theme - Spacegray ](http://farm4.staticflickr.com/3831/11663224596_107ca73f95_o.png)
 
-## Acknowledgements
+#### Acknowledgements
 
 Inspiration and code was taken from may sources, including:
 
-  - **[@mathiasbynens](https://github.com/mathiasbynens/) [dotfiles](https://github.com/mathiasbynens/dotfiles)**
-  - **[@necolas](https://github.com/necolas/) [dotfiles](https://github.com/necolas/dotfiles)**
-  - **[@cowboy](https://twitter.com/cowboy/) [dotfiles](https://github.com/cowboy/dotfiles)**
-  - **[@ptb](https://github.com/ptb/) [OS X Lion Setup](https://github.com/ptb/Mac-OS-X-Lion-Setup)**
+  - [@mathiasbynens](https://github.com/mathiasbynens/) [dotfiles](https://github.com/mathiasbynens/dotfiles)
+  - [@necolas](https://github.com/necolas/) [dotfiles](https://github.com/necolas/dotfiles)
+  - [@cowboy](https://twitter.com/cowboy/) [dotfiles](https://github.com/cowboy/dotfiles)
+  - [@ptb](https://github.com/ptb/) [OS X Lion Setup](https://github.com/ptb/Mac-OS-X-Lion-Setup)
+
