@@ -34,8 +34,9 @@ function installgem () {
 }
 
 installgem rb-gsl
+installgem bootstrap-sass
 installgem bundler
-installgem github-pages
 installgem compass
 installgem foundation
-installgem bootstrap-sass
+installgem github-pages
+installgem rails
