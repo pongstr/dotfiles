@@ -23,6 +23,9 @@ install_formula () {
   echo "  ➜ git"
   brew install git
 
+  echo "  ➜ python"
+  brew install python
+
   echo "  ➜ node"
   brew install node
 
