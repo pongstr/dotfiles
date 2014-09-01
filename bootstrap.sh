@@ -29,6 +29,9 @@ install_formula () {
   echo "  ➜ node"
   brew install node
 
+  echo "  ➜ mongodb"
+  brew install mongo
+
   echo "  ➜ zsh"
   brew install zsh
 
