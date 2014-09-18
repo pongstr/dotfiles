@@ -7,4 +7,5 @@ npm install -g grunt-cli
 npm install -g jshint
 npm install -g karma-cli
 npm install -g less
+npm install -g meanio
 npm install -g mongoose
