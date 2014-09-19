@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/usr/bin/env bash
 
 # To run this, you must download & install the latest Xcode and Commandline Tools
 # https://developer.apple.com/xcode/
@@ -41,6 +41,13 @@ install_formula () {
   # Cleanup
   echo "Cleaning up Homebrew intallation..."
   brew cleanup
+
+  echo "Install Caskroom and Caskroom versions"
+  brew install caskroom/cask/brew-cask
+  brew tap caskroom/versions
+
+  # Make /Applications the default location of apps
+  export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 }
 
 

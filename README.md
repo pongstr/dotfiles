@@ -34,18 +34,33 @@ $ ./.dotfiles/init/.npm
 
 
 # Install `casks` and tap to `caskroom-versions`
-# Set `/Applications` dir as the default location of aliases
 
 $ ./.dotfiles/init/.casks
+
+# Install Sublime Text 3, Package Control, Spacegray Theme and Sublime Text Packages
+
+$ ./.dotfiles/init/.sublime
+
+# Guide that helps you setup your git configuration and ssh-key setup for Github and Bitbucket
+
+$ ./.dotfiles/init/.git
+
+# Install oh-my-zsh, Pongstr Base-16.terminal theme, oh-my-zsh theme and configs
+
+$ ./.dotfiles/init/.terminal
+
+# Setup vim
+
+$ ./.dotfiles/init/.vim
+
+# Make OSX awesome
+
+$ ./.dotfiles/init/.osx
 ```
 
 ### Terminal, Vim &amp; Sublime Text
 
 To unify the look of the Apps that are heavily used, you may run:
-
-```bash
-$ ./.dotfiles/init/.terminal
-```
 
 **OSX Terminal**
 
@@ -67,4 +82,3 @@ Inspiration and code was taken from may sources, including:
   - [@necolas](https://github.com/necolas/) [dotfiles](https://github.com/necolas/dotfiles)
   - [@cowboy](https://twitter.com/cowboy/) [dotfiles](https://github.com/cowboy/dotfiles)
   - [@ptb](https://github.com/ptb/) [OS X Lion Setup](https://github.com/ptb/Mac-OS-X-Lion-Setup)
-

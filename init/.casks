@@ -1,12 +1,5 @@
 #!/usr/bin/env bash
 
-# Install Native Apps
-# ---------------------------------------------------------------------------
-brew install caskroom/cask/brew-cask
-brew tap caskroom/versions
-
-# Make /Applications the default location of apps
-export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 function cask() {
   if brew cask info "${@}" | grep "Not installed" > /dev/null; then
@@ -26,6 +19,5 @@ cask google-chrome-canary
 cask kaleidoscope
 cask mamp
 cask skype
-cask sublime-text3
 cask vlc
 cask virtualbox
