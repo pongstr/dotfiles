@@ -13,7 +13,7 @@ fi
 
 if [ ! -d "$ST3/Theme - Spacegray" ]; then
   echo "Installing Customized Spacegray"
-  cd "$ST3" && git clone https://github.com/pongstr/spacegray.git "Theme - Spacegray"
+  git clone https://github.com/pongstr/spacegray.git "$ST3/Theme - Spacegray"
 fi
 
 echo "Copy Sublime Text 3 Preferences, Keymap and Package Control + Packages"

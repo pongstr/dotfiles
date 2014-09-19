@@ -1,0 +1,101 @@
+#!/usr/bin/env bash
+
+SSHCONFIG="$HOME/.ssh/config"
+
+read -p "Please enter your Git Author Name: " GIT_AUTHOR_NAME
+git config --global user.name "$GIT_AUTHOR_NAME"
+
+read -p "Please enter your Git Author Email: " GIT_AUTHOR_EMAIL
+git config --global user.email "$GIT_AUTHOR_EMAIL"
+
+echo "Setting push action to simple"
+git config --global push.default simple
+
+# Add SSH Config file
+echo ""
+echo "Adding config file for ssh-keys"
+
+cat <<EOM >$SSHCONFIG
+Host bitbucket.org
+  Hostname bitbucket.org
+  IdentityFile $HOME/.ssh/bitbucket_rsa
+
+Host github.com
+  Hostname github.com
+  IdentityFile $HOME/.ssh/github_rsa
+EOM
+
+function github_sshkey () {
+  echo ""
+  read -p "Please enter your github email: " GITHUB_EMAIL
+  echo ""
+  echo ">   !IMPORTANT:"
+  echo ">   You must save your key to this file: $HOME/.ssh/github_rsa"
+  echo ""
+  ssh-keygen -t rsa -C $GITHUB_EMAIL
+
+  echo ""
+  echo ">   Adding your ssh key, please enter your passphrase one more time"
+  echo ""
+  ssh-add $HOME/.ssh/bitbucket_rsa
+  pbcopy < $HOME/.ssh/github_rsa.pub
+
+  echo ""
+  echo "# -------------------------- !IMPORTANT: ------------------------- "
+  echo "# All done! Your SSH-key is copied to your clipboard!"
+  echo "#"
+  echo "#  To make sure everything is working, you can now try SSHing to GitHub."
+  echo "#  When you do this, you will be asked to authenticate this action using"
+  echo "#  your password, which was the passphrase you created earlier."
+  echo "#"
+  echo "# >   $ ssh -T git@github.com"
+  echo "# ---------------------------------------------------------------- "
+  echo ""
+}
+
+while true; do
+  read -p "Would you like to Generate Github SSH key? " GITHUB_SSH
+  case $GITHUB_SSH in
+    [y]*) github_sshkey; break;;
+    [n]*) break;;
+       *) echo "Please answer y or n";;
+  esac
+done
+
+function bitbucket_sshkey () {
+  echo ""
+  echo "Creating your Bitbucket SSH Key"
+  echo ""
+  echo ">   !IMPORTANT:"
+  echo ">   You must save your key to this file: $HOME/.ssh/bitbucket_rsa"
+  echo ""
+  ssh-keygen
+
+  echo ""
+  echo ">   Adding your ssh key, please enter your passphrase one more time"
+  echo ""
+  ssh-add $HOME/.ssh/bitbucket_rsa
+  pbcopy < $HOME/.ssh/bitbucket_rsa.pub
+
+  echo ""
+  echo "# -------------------------- !IMPORTANT: ------------------------- "
+  echo "# All done! Your SSH-key is copied to your clipboard!"
+  echo "#"
+  echo "# You need to manually add your SSH key to your Bitbucket account,"
+  echo "# by pointing your browser to your Bitbucket Account Settings"
+  echo "# https://bitbucket.org/account/user/YOUR_USERNAME/ssh-keys/ "
+  echo "# after that, you may now try SSHing to Bitbucket:"
+  echo "#"
+  echo "# >   $ ssh -T git@bitbucket.org"
+  echo "# ---------------------------------------------------------------- "
+  echo ""
+}
+
+while true; do
+  read -p "Would you like to Generate Bitbucket SSH key? " BITBUCKET_SSH
+  case $BITBUCKET_SSH in
+    [y]*) bitbucket_sshkey; break;;
+    [n]*) break;;
+       *) echo "Please answer y or n";;
+  esac
+done

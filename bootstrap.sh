@@ -42,9 +42,10 @@ install_formula () {
   echo "Cleaning up Homebrew intallation..."
   brew cleanup
 
-  echo "Install Caskroom and Caskroom versions"
+  echo "Install Caskroom, Caskroom versions and Caskroom Fonts"
   brew install caskroom/cask/brew-cask
   brew tap caskroom/versions
+  brew tap caskroom/fonts
 
   # Make /Applications the default location of apps
   export HOMEBREW_CASK_OPTS="--appdir=/Applications"

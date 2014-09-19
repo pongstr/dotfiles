@@ -24,37 +24,34 @@ Once bootstrapped, you may run these dotfiles in this specific order:
 # Update `osx-ssl-certs` & install cron to auto-update it.
 # Update `gem` system
 # Install gems [ rb-gsl, bundler, github-pages, compass, foundation, boostrap-sass]
-
 $ ./.dotfiles/init/.ruby
 
 
 # Install `npm` and packages [bower, express, grunt-cli, jshint, less]
-
 $ ./.dotfiles/init/.npm
 
 
 # Install `casks` and tap to `caskroom-versions`
-
 $ ./.dotfiles/init/.casks
 
-# Install Sublime Text 3, Package Control, Spacegray Theme and Sublime Text Packages
 
+# Install Sublime Text 3, Package Control, Spacegray Theme and Sublime Text Packages
 $ ./.dotfiles/init/.sublime
 
-# Guide that helps you setup your git configuration and ssh-key setup for Github and Bitbucket
 
+# Guide that helps you setup your git configuration and ssh-key setup for Github and Bitbucket
 $ ./.dotfiles/init/.git
 
-# Install oh-my-zsh, Pongstr Base-16.terminal theme, oh-my-zsh theme and configs
 
+# Install oh-my-zsh, Pongstr Base-16.terminal theme, oh-my-zsh theme and configs
 $ ./.dotfiles/init/.terminal
 
-# Setup vim
 
+# Setup vim
 $ ./.dotfiles/init/.vim
 
-# Make OSX awesome
 
+# Make OSX awesome
 $ ./.dotfiles/init/.osx
 ```
 
