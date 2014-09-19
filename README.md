@@ -1,5 +1,5 @@
 Dotfiles (Pongstr)
-----------
+========
 
 No need to use `sudo` when running these dotfiles, Just install by running the command:
 
@@ -58,9 +58,8 @@ $ ./.dotfiles/init/.vim
 $ ./.dotfiles/init/.osx
 ```
 
-### Terminal, Vim &amp; Sublime Text
-
-To unify the look of the Apps that are heavily used, you may run:
+Terminal, Vim &amp; Sublime Text
+-------
 
 **OSX Terminal**
 
