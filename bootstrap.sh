@@ -53,6 +53,7 @@ install_formula () {
 
 
 # Install Hushlogin
+echo ""
 echo "Install hushlogin"
 echo "  - Disable the system copyright notice, the date and time of the last login."
 echo "    more info at @mathiasbynens/dotfiles http://goo.gl/wZBM80"
@@ -62,16 +63,19 @@ cp -f "$HOME/.dotfiles/.hushlogin" $HOME/.hushlogin
 
 # Install Homebrew
 # ---------------------------------------------------------------------------
+echo ""
 echo "Checking if Homebrew is installed..."
 
 if check brew; then
   echo "Awesome! Homebrew is installed! Now updating..."
+  echo ""
   brew upgrade
   brew update
 fi
 
 if ! check brew; then
-  # Download and install homebrew
+  echo "Download and install homebrew"
+  echo ""
   ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 
   # Run Brew doctor before anything else
@@ -81,6 +85,7 @@ fi
 # Install Homebrew Formulas
 while true; do
   read -p "Would you like to install Homebrew formulas? [y/n] " answer
+  echo ""
   case $answer in
     [y]* ) install_formula; break;;
     [n]* ) break;;
@@ -92,9 +97,11 @@ done
 # Install RVM
 # ---------------------------------------------------------------------------
 
+echo ""
 echo "Installing RVM..."
 \curl -L https://get.rvm.io | bash
 
 # Restart Terminal for RVM to take effect
+echo ""
 echo "bootstrapping complete! quitting terminal..."
 killall Terminal

@@ -1,4 +1,7 @@
-#!/bin/bash
+#!/usr/bin/sh
+
+# Autocorrect typos in path names when using `cd`
+shopt -s cdspell;
 
 # Export PATH after RVM installation
 export PATH="/usr/local/bin:/Users/Pongstr/.rvm/gems/ruby-2.1.1@global/bin:$PATH"

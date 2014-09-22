@@ -6,19 +6,36 @@
 # https://twitter.com/mpapis/status/447926386314186752
 
 # install openssl, libyaml dependancies is installed via .brew
+echo ""
+echo "Installing Ruby 2.1.1"
 rvm install 2.1.1 --disable-binary
+
+sleep 1
 rvm reload
+
+echo ""
+echo "  >   Set 2.1.1 as the default version"
 rvm use 2.1.1 --default
+
 
 # Update OSX SSL Certs
 # ---------------------------------------------------------------------
+
+sleep 1
 rvm reload
+
+echo ""
+echo "  >   Update OSX SSL Certificates"
 rvm osx-ssl-certs update all
 
-# Stay Healthy, automate updating of certs
+echo "  >   Auto update SSL Certificates"
 rvm osx-ssl-certs cron install
 
-# Update Gem System
+sleep 1
+
+
+echo ""
+echo "Updating Ruby Gems"
 gem update --system
 
 # Install Gems Tools

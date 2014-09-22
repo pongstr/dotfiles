@@ -1,4 +1,0 @@
-
-[submodule "editors/colors/spacegray"]
-	path = editors/colors/spacegray
-	url = git@github.com:pongstr/spacegray.git

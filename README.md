@@ -40,7 +40,7 @@ $ ./.dotfiles/init/.sublime
 
 
 # Guide that helps you setup your git configuration and ssh-key setup for Github and Bitbucket
-$ ./.dotfiles/init/.git
+$ ./.dotfiles/init/.gituser
 
 
 # Install oh-my-zsh, Pongstr Base-16.terminal theme, oh-my-zsh theme and configs

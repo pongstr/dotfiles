@@ -17,9 +17,9 @@ if [ ! -d "$ST3/Theme - Spacegray" ]; then
 fi
 
 echo "Copy Sublime Text 3 Preferences, Keymap and Package Control + Packages"
-cp -f "$DOT/editors/config/Preferences.sublime-settings" "$ST3/User/Preferences.sublime-settings"
-cp -f "$DOT/editors/config/Default (OSX).sublime-keymap" "$ST3/User/Default (OSX).sublime-keymap"
-cp -f "$DOT/editors/config/Package Control.sublime-settings" "$ST3/User/Package Control.sublime-settings"
+cp -f "$DOT/bin/subl/Preferences.sublime-settings" "$ST3/User/Preferences.sublime-settings"
+cp -f "$DOT/bin/subl/Default (OSX).sublime-keymap" "$ST3/User/Default (OSX).sublime-keymap"
+cp -f "$DOT/bin/subl/Package Control.sublime-settings" "$ST3/User/Package Control.sublime-settings"
 
 echo "Reload Sublime Text 3 Settings"
 open -a /Applications/Sublime\ Text.app

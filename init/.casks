@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-
 function cask() {
   if brew cask info "${@}" | grep "Not installed" > /dev/null; then
     brew cask install "${@}"

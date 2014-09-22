@@ -2,11 +2,6 @@
 
 DOT="$HOME/.dotfiles"
 
-echo ""
-echo ">   Linking Vim run commands"
-cp -RfXv "$DOT/editors/colors/Pongstr Base-16.vim" "$HOME/.vim/colors/Pongstr Base-16.vim"
-cp -RfXv "$DOT/editors/config/.vimrc" "$HOME/.vimrc"
-
 if [ ! -d "$HOME/.vim" ]; then
   echo ""
   echo "Adding vim directory and sub-directories for backups, colors, swaps and undo"
@@ -25,3 +20,8 @@ else
   mkdir -p $HOME/.vim/swaps
   mkdir -p $HOME/.vim/undo
 fi
+
+echo ""
+echo ">   Linking Vim run commands"
+cp -RfXv "$DOT/bin/vim/Pongstr Base-16.vim" "$HOME/.vim/colors/Pongstr Base-16.vim"
+cp -RfXv "$DOT/bin/vim/.vimrc" "$HOME/.vimrc"
