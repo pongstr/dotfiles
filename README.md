@@ -36,7 +36,7 @@ $ ./.dotfiles/init/.casks
 
 
 # Install Sublime Text 3, Package Control, Spacegray Theme and Sublime Text Packages
-$ ./.dotfiles/init/.sublime
+$ ./.dotfiles/init/.subl
 
 
 # Guide that helps you setup your git configuration and ssh-key setup for Github and Bitbucket
@@ -44,7 +44,7 @@ $ ./.dotfiles/init/.gituser
 
 
 # Install oh-my-zsh, Pongstr Base-16.terminal theme, oh-my-zsh theme and configs
-$ ./.dotfiles/init/.terminal
+$ ./.dotfiles/init/.shell
 
 
 # Setup vim
