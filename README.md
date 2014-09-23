@@ -53,6 +53,9 @@ $ ./.dotfiles/init/.vim
 
 # Make OSX awesome
 $ ./.dotfiles/init/.osx
+
+# Install fonts for coding and docs
+$ ./.dotfiles/init/.fonts
 ```
 
 Terminal, Vim &amp; Sublime Text

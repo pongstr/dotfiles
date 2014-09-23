@@ -4,6 +4,11 @@
 # https://developer.apple.com/xcode/
 # https://developer.apple.com/downloads/
 
+echo ""
+echo "  Installing Xcode and Command line tools..."
+echo "  You may have to follow on-screen dialogs to proceed."
+xcode-select --install
+
 # Function to check if a package exists
 check () { type -t "${@}" > /dev/null 2>&1; }
 
