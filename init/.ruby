@@ -57,3 +57,8 @@ installgem compass
 installgem foundation
 installgem github-pages
 installgem rails
+
+echo ""
+echo "Cleaning up..."
+gem cleanup
+
