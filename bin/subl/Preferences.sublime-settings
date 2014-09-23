@@ -8,11 +8,11 @@
   // specific settings file, for example, "Base File (Linux).sublime-settings".
   // Because of this, setting them here will have no effect: you must set them
   // in your User File Preferences.
-  "font_face": "Droid Sans Mono",
-  "font_size": 12,
+  "font_face": "Ubuntu Mono",
+  "font_size": 13.5,
 
   "font_options": [
-    "no_round",
+    "no_bold",
     "subpixel_antialias"
   ],
 
