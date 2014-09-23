@@ -20,3 +20,7 @@ cask mamp
 cask skype
 cask vlc
 cask virtualbox
+
+echo ""
+echo "Cleaning up installation files..."
+brew cask cleanup
