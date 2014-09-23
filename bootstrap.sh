@@ -14,36 +14,47 @@ check () { type -t "${@}" > /dev/null 2>&1; }
 
 # Function to install Homebrew Formulas:
 install_formula () {
+  echo ""
   echo "Installing Homebrew Packages:"
 
+  echo ""
   echo "  ➜ libyaml"
   brew install libyaml
 
+  echo ""
   echo "  ➜ Install GNU Scientific Library for `rb-gsl` "
   brew install gsl
-
+  
+  echo ""
   echo "  ➜ openssl"
   brew install openssl
 
+  echo ""
   echo "  ➜ git"
   brew install git
 
+  echo ""
   echo "  ➜ python"
   brew install python
 
+  echo ""
   echo "  ➜ node"
   brew install node
 
+  echo ""
   echo "  ➜ mongodb"
   brew install mongo
 
+  echo ""
   echo "  ➜ zsh"
   brew install zsh
 
+  echo ""
   echo "  ➜ vim (overriding system vim)"
   brew install vim --override-system-vi
 
   # Cleanup
+  echo ""
   echo "Cleaning up Homebrew intallation..."
   brew cleanup
 
