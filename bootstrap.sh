@@ -81,7 +81,7 @@ fi
 if ! check brew; then
   echo "Download and install homebrew"
   echo ""
-  ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
   # Run Brew doctor before anything else
   brew doctor
