@@ -87,13 +87,15 @@ install_formula () {
   brew install caskroom/cask/brew-cask
   brew tap caskroom/versions
   brew tap caskroom/fonts
+  
+  # Make /Applications the default location of apps
+  export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
   echo ""
   echo "Installing monospace fonts... "
   brew cask install font-droid-sans-mono
   brew cask install font-ubuntu
-  # Make /Applications the default location of apps
-  export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+  brew cleanup
 }
 
 
