@@ -1,0 +1,15 @@
+{
+  "installed_packages":
+  [
+    "AngularJS",
+    "GitGutter",
+    "HTML5",
+    "Jekyll",
+    "LESS",
+    "Package Control",
+    "Pretty JSON",
+    "Pretty YAML",
+    "Sass",
+    "SCSS"
+  ]
+}

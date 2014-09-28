@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+DOT="$HOME/.dotfiles"
+
+echo "Initializing .bash_aliases"
+cp -RfXv $DOT/bin/shell/.bash_aliases $HOME/.bash_aliases
+
+echo "Initializing .bash_profile"
+cp -RfXv $DOT/bin/shell/.bash_profile $HOME/.bash_profile
+
+# Install zsh & oh-my-zsh
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+  echo "Installing oh-my-zsh"
+  curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
+fi
+
+# Open Terminal Settings
+echo ""
+echo "Install Pongstr Base-16 Theme"
+open "$DOT/bin/shell/Pongstr Base-16.terminal"
+sleep 1 # Wait a bit to make sure the theme is loaded
+
+# Set Terminal Custom Theme
+echo ""
+echo "Setting Pongstr Base-16.terminal as the default theme."
+defaults write com.apple.terminal "Default Window Settings" -string "Pongstr Base-16.terminal"
+defaults write com.apple.terminal "Startup Window Settings" -string "Pongstr Base-16.terminal"
+
+# Link .zshrc
+echo ""
+echo "Install Pongstr zsh-theme"
+cp -RfXv "$DOT/bin/shell/Pongstr Base-16.zsh-theme" "$HOME/.oh-my-zsh/themes/pongstr.zsh-theme"
+cp -RfXv "$DOT/bin/shell/.zshrc" "$HOME/.zshrc" && source $HOME/.zshrc
+
+sleep 1
+killall Terminal
