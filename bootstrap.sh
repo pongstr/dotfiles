@@ -83,17 +83,20 @@ install_formula () {
   cp -R $HOME/.dotfiles/bin/shell/.bash_alias $HOME/.bash_alias
   cp -R $HOME/.dotfiles/bin/shell/.bash_profile $HOME/.bash_profile
 
+  echo ""
   echo "Installing Caskroom, Caskroom versions and Caskroom Fonts..."
   brew install caskroom/cask/brew-cask
   brew tap caskroom/versions
   brew tap caskroom/fonts
 
+  # Make /Applications the default location of apps
+  export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
   echo ""
   echo "Installing monospace fonts... "
   brew cask install font-droid-sans-mono
   brew cask install font-ubuntu
-  # Make /Applications the default location of apps
-  export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+  brew cask cleanup
 }
 
 
