@@ -5,9 +5,20 @@ version `0.1.0`
 
 ### Requirements
 
-> **[Xcode](https://developer.apple.com/xcode/)** &amp; **[Xcode Command Line Tools](https://developer.apple.com/downloads)**
+> **[Xcode](https://developer.apple.com/xcode/)** &amp; **[Command Line Tools](https://developer.apple.com/downloads)**
 
-> `sudo` isn't necessary but it will be asked for Homebrew to be installed.
+> `sudo` isn't necessary but it will be asked for Homebrew to be installed. To get started run these commands:
+
+```bash
+# download latest from Ggithub
+$ curl -L -O https://github.com/pongstr/dotfiles/archive/0.1.0.zip
+
+# unzip the file and move to $HOME directory
+unzip 0.1.0.zip && mv dotfiles-0.1.0 ~/.dotfiles
+
+# run bootstrap!
+sh ~/.dotfiles/bootstrap.sh
+```
 
 
 ### Initialize Dotfiles
