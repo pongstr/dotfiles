@@ -41,6 +41,9 @@ alias apache="~/Projects/apache"
 # Jekyll: must be in the same working directory
 alias jekyllstart="jekyll serve --watch --baseurl=/"
 
+# MongoDB
+alias mongostart="mongod --dbpath .mongodb-data"
+
 # Set to this to use case-sensitive completion
 CASE_SENSITIVE="true"
 
@@ -48,7 +51,7 @@ CASE_SENSITIVE="true"
 DISABLE_AUTO_UPDATE="false"
 
 # Uncomment to change how often before auto-updates occur? (in days)
-export UPDATE_ZSH_DAYS=5
+export UPDATE_ZSH_DAYS=10
 
 # Uncomment following line if you want to disable autosetting terminal title.
 DISABLE_AUTO_TITLE="true"
@@ -56,16 +59,16 @@ DISABLE_AUTO_TITLE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git osx terminalapp)
+plugins=(git osx ruby terminalapp)
 
 source $ZSH/oh-my-zsh.sh
 
 
-# Pongstr Configuration
+# Configs
 # -----------------------------------------------------------------------------
 
 # Export PATH after RVM installation
-export PATH="/usr/local/bin:/Users/Pongstr/.rvm/gems/ruby-2.1.1@global/bin:$PATH"
+export PATH="/usr/local/bin:$HOME/.rvm/gems/ruby-2.1.1@global/bin:$PATH"
 
 # Make /Applications the default location of apps
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"

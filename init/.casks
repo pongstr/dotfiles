@@ -8,17 +8,53 @@ function cask() {
   fi
 }
 
+
+echo ""
+echo "Installing AppCleaner"
 cask appcleaner
+
+echo ""
+echo "Installing Atom"
 cask atom
+
+echo ""
+echo "Installing Dropbox"
 cask dropbox
+
+echo ""
+echo "Installing Firefox"
 cask firefox
+
+echo ""
+echo "Installing Github"
 cask github
+
+echo ""
+echo "Installing Google Chrome"
 cask google-chrome
+
+echo ""
+echo "Installing Google Chrome Canary"
 cask google-chrome-canary
+
+echo ""
+echo "Installing Kaleidoscope"
 cask kaleidoscope
+
+echo ""
+echo "Installing MAMP Pro"
 cask mamp
+
+echo ""
+echo "Installing Skype"
 cask skype
+
+echo ""
+echo "Installing VLC"
 cask vlc
+
+echo ""
+echo "Installing Virutalbox"
 cask virtualbox
 
 echo ""

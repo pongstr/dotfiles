@@ -29,7 +29,8 @@ defaults write com.apple.terminal "Startup Window Settings" -string "Pongstr Bas
 # Link .zshrc
 echo ""
 echo "Install Pongstr zsh-theme"
-cp -RfXv "$DOT/apps/shell/Pongstr Base-16.zsh-theme" "$HOME/.oh-my-zsh/themes/pongstr.zsh-theme"
-cp -RfXv "$DOT/apps/shell/.zshrc" "$HOME/.zshrc" && source $HOME/.zshrc
+cp -RfXv "$DOT/bin/shell/Pongstr Base-16.zsh-theme" "$HOME/.oh-my-zsh/themes/pongstr.zsh-theme"
+cp -RfXv "$DOT/bin/shell/.zshrc" "$HOME/.zshrc" && source $HOME/.zshrc
 
+sleep 1
 killall Terminal

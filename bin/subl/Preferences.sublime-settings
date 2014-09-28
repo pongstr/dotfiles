@@ -9,7 +9,7 @@
   // Because of this, setting them here will have no effect: you must set them
   // in your User File Preferences.
   "font_face": "Ubuntu Mono",
-  "font_size": 13.5,
+  "font_size": 14,
 
   "font_options": [
     "no_bold",
@@ -102,10 +102,10 @@
   "match_tags": true,
 
   // Additional spacing at the top of each line, in pixels
-  "line_padding_top": 0,
+  "line_padding_top": 1,
 
   // Additional spacing at the bottom of each line, in pixels
-  "line_padding_bottom": 0,
+  "line_padding_bottom": 1,
 
   // Set to false to disable scrolling past the end of the buffer.
   // On OS X, this value is overridden in the platform specific settings, so

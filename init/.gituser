@@ -14,6 +14,7 @@ git config --global push.default simple
 # Add SSH Config file
 echo ""
 echo "Adding config file for ssh-keys"
+mkdir -p $HOME/.ssh/
 
 cat <<EOM >$SSHCONFIG
 Host bitbucket.org

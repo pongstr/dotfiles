@@ -1,18 +1,24 @@
 Dotfiles (Pongstr)
 ========
 
-No need to use `sudo` when running these dotfiles, Just install by running the command:
-
-```bash
-$ curl -L -O https://raw.githubusercontent.com/pongstr/dotfiles/wizard/install.sh && sh install.sh
-```
-
+version `0.1.0`
 
 ### Requirements
 
-> **[Xcode](https://developer.apple.com/xcode/)** &amp; **[Xcode Command Line Tools](https://developer.apple.com/downloads)**
+> **[Xcode](https://developer.apple.com/xcode/)** &amp; **[Command Line Tools](https://developer.apple.com/downloads)**
 
-> `sudo` isn't necessary but it will be asked for Homebrew to be installed.
+> `sudo` isn't necessary but it will be asked for Homebrew to be installed. To get started run these commands:
+
+```bash
+# download latest from Ggithub
+$ curl -L -O https://github.com/pongstr/dotfiles/archive/0.1.0.zip
+
+# unzip the file and move to $HOME directory
+unzip 0.1.0.zip && mv dotfiles-0.1.0 ~/.dotfiles
+
+# run bootstrap!
+sh ~/.dotfiles/bootstrap.sh
+```
 
 
 ### Initialize Dotfiles
@@ -22,9 +28,12 @@ Once bootstrapped, you may run these dotfiles in this specific order:
 ```bash
 # Install `ruby-2.1.1` and set it as default
 # Update `osx-ssl-certs` & install cron to auto-update it.
-# Update `gem` system
-# Install gems [ rb-gsl, bundler, github-pages, compass, foundation, boostrap-sass]
-$ ./.dotfiles/init/.ruby
+$ ./.dotfiles/init/.rvm
+
+# You may need to execute `.rvm` first before `.gems` as it
+# will set the default version of ruby and all that stuff in
+# order to install your gems
+$ ./.dotfiles/init/.gems
 
 
 # Install `npm` and packages [bower, express, grunt-cli, jshint, less]
@@ -37,6 +46,10 @@ $ ./.dotfiles/init/.casks
 
 # Install Sublime Text 3, Package Control, Spacegray Theme and Sublime Text Packages
 $ ./.dotfiles/init/.subl
+
+
+# Install Atom and Packages
+$ ./.dotfiles/init/.atom
 
 
 # Guide that helps you setup your git configuration and ssh-key setup for Github and Bitbucket
@@ -58,26 +71,26 @@ $ ./.dotfiles/init/.osx
 $ ./.dotfiles/init/.fonts
 ```
 
-Terminal, Vim &amp; Sublime Text
--------
+### Sublime, Vim, ZShell
 
-**OSX Terminal**
+Modified version of [spacegray](http://github.com/kkga/spacegray.git)
 
-![OSX Terminal with Zshell &amp; oh-my-zsh framework](http://farm4.staticflickr.com/3757/11662443365_f23de1f965_o.png)
+![Pongstr Spacegray](http://i.imgur.com/ejGME1z.png)
 
-**Vim** with Base-16 Ocean Dark color scheme
 
-![Vim with Base-16 Ocean Dark color scheme](http://farm8.staticflickr.com/7337/11662693013_1f7e0ec158_o.png)
+Terminal and Zshell Theme
 
-**Sublime Text 3** with [Theme - Spacegray](https://github.com/kkga/spacegray) by [@kkga](https://github.com/kkga)
+![Terminal and Zshell Theme](http://i.imgur.com/Wc9hZiw.png)
 
-![Sublime Text 3 with Theme - Spacegray ](http://farm4.staticflickr.com/3831/11663224596_107ca73f95_o.png)
+Vim Base-16 Color scheme
+
+![Vim Base-16 Color scheme](http://i.imgur.com/ZORdYxI.png)
 
 #### Acknowledgements
 
 Inspiration and code was taken from may sources, including:
 
-  - [@mathiasbynens](https://github.com/mathiasbynens/) [dotfiles](https://github.com/mathiasbynens/dotfiles)
-  - [@necolas](https://github.com/necolas/) [dotfiles](https://github.com/necolas/dotfiles)
-  - [@cowboy](https://twitter.com/cowboy/) [dotfiles](https://github.com/cowboy/dotfiles)
-  - [@ptb](https://github.com/ptb/) [OS X Lion Setup](https://github.com/ptb/Mac-OS-X-Lion-Setup)
+  - [@mathiasbynens](https://github.com/mathiasbynens/dotfiles)
+  - [@necolas](https://github.com/necolas/dotfiles)
+  - [@cowboy](https://twitter.com/cowboy/dotfiles/)
+  - [@ptb](https://github.com/ptb/Mac-OS-X-Lion-Setup)

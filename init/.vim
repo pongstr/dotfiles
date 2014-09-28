@@ -13,7 +13,7 @@ if [ ! -d "$HOME/.vim" ]; then
   mkdir -p $HOME/.vim/undo
 else
   echo ""
-  echo ">   Adding vim sub-directories for backups, colors, swaps and undo"
+  echo "Adding vim sub-directories for backups, colors, swaps and undo"
   mkdir -p $HOME/.vim/.vminfo
   mkdir -p $HOME/.vim/backups
   mkdir -p $HOME/.vim/colors
@@ -22,6 +22,8 @@ else
 fi
 
 echo ""
-echo ">   Linking Vim run commands"
+echo "Linking Vim run commands"
 cp -RfXv "$DOT/bin/vim/Pongstr Base-16.vim" "$HOME/.vim/colors/Pongstr Base-16.vim"
 cp -RfXv "$DOT/bin/vim/.vimrc" "$HOME/.vimrc"
+
+echo "Done!"
