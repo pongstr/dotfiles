@@ -10,7 +10,7 @@ version `0.1.0`
 > `sudo` isn't necessary but it will be asked for Homebrew to be installed. To get started run these commands:
 
 ```bash
-# download latest from Ggithub
+# download latest from Github
 $ curl -L -O https://github.com/pongstr/dotfiles/archive/0.1.0.zip
 
 # unzip the file and move to $HOME directory
@@ -23,7 +23,11 @@ sh ~/.dotfiles/bootstrap.sh
 
 ### Initialize Dotfiles
 
-Once bootstrapped, you may run these dotfiles in this specific order:
+Once bootstrapped, you may run these dotfiles in any order except for:
+
+1. `.rvm`: installs and sets the specific version of ruby.
+2. `.gems`: if installed before `.rvm` it will fail because it will install to
+    the system's default path and you will need to `sudo` to install into it.
 
 ```bash
 # Install `ruby-2.1.1` and set it as default
@@ -34,8 +38,11 @@ $ ./.dotfiles/init/.rvm
 # will set the default version of ruby and all that stuff in
 # order to install your gems
 $ ./.dotfiles/init/.gems
+```
 
+Other than what's mentioned above, you may install the dotfiles below in any order:
 
+```bash
 # Install `npm` and packages [bower, express, grunt-cli, jshint, less]
 $ ./.dotfiles/init/.npm
 

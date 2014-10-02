@@ -21,4 +21,3 @@ apm install angularjs
 echo ""
 echo "Done! Relaunching Atom, exiting Terminal..."
 open -a /Applications/Atom.app
-killall Terminal
