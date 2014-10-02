@@ -14,7 +14,7 @@ echo "    \  \:\    \  \:\       \  \::/       /__/:/         \__\/ \  \:\     "
 echo "     \__\/     \__\/        \__\/        \__\/                 \__\/     "
 echo ""
 echo "        ..........................................................       "
-echo "        . Dotfiles 0.1.0 (Pongstr) for setting up OSX Workspace  .        "
+echo "        . Dotfiles 0.1.1 (Pongstr) for setting up OSX Workspace  .       "
 echo "        .      https://github.com/pongstr/dotfiles.git           .       "
 echo "        ..........................................................       "
 echo ""
@@ -87,7 +87,7 @@ install_formula () {
   brew install caskroom/cask/brew-cask
   brew tap caskroom/versions
   brew tap caskroom/fonts
-  
+
   # Make /Applications the default location of apps
   export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
