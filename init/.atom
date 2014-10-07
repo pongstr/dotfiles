@@ -18,6 +18,23 @@ apm install term2
 apm install jshint
 apm install angularjs
 
+ATOMCONF="$HOME/.atom/config.cson"
+
+cat <<EOM >$ATOMCONF
+'editor':
+  'fontFamily': 'Ubuntu Mono'
+  'fontSize': 14
+  'scrollPastEnd': true
+  'lineHeight': 1.5
+  'invisibles': {}
+  'showIndentGuide': true
+'core':
+  'themes': [
+    'spacegray-dark-ui'
+    'base16-ocean-dark'
+  ]
+EOM
+
 echo ""
 echo "Done! Relaunching Atom, exiting Terminal..."
 open -a /Applications/Atom.app
