@@ -5,7 +5,7 @@ version `0.1.1`
 
 ### Requirements
 
-> **[Xcode](https://developer.apple.com/xcode/)** &amp; **[Command Line Tools](https://developer.apple.com/downloads)**
+**[Xcode](https://developer.apple.com/xcode/)** &amp; **[Command Line Tools](https://developer.apple.com/downloads)**
 
 > `sudo` isn't necessary but it will be asked for Homebrew to be installed. To get started run these commands:
 

@@ -19,21 +19,22 @@ alias ohmyzsh="cd $HOME/.oh-my-zsh"
 # Home Folders
 # ---------------------------------------------------------------------------
 
-alias home="cd ~ && clear"
+alias home="$HOME && clear"
 alias apps="/Applications"
-alias documents="~/Documents"
-alias movies="~/Movies/"
-alias music="~/Music/"
-alias pictures="~/Pictures/"
-ix="/Volumes/Pongstr/Dropbox/"
+alias music="$HOME/Music/"
+alias movies="$HOME/Movies/"
+alias dropbox="/Volumes/Pongstr/Dropbox/"
+alias pictures="$HOME/Pictures/"
+alias documents="$HOME/Documents"
 
 # Projects Directory
 # ---------------------------------------------------------------------------
 
-alias projects="~/Projects"
-alias github="~/Projects/github"
-alias sandbox="~/Projects/sandbox"
-alias apache="~/Projects/apache"
+PROJECTS="$HOME/Projects"
+
+alias github="$PROJECTS/github"
+alias sandbox="$PROJECTS/sandbox"
+alias projects="$PROJECTS"
 
 # Dev Stuff
 # ---------------------------------------------------------------------------
@@ -42,7 +43,7 @@ alias apache="~/Projects/apache"
 alias jekyllstart="jekyll serve --watch --baseurl=/"
 
 # MongoDB
-alias mongostart="mongod --dbpath .mongodb-data"
+alias mongostart="mongod --dbpath $HOME/.mongodb-data"
 
 # Set to this to use case-sensitive completion
 CASE_SENSITIVE="true"
