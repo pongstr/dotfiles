@@ -14,10 +14,6 @@ echo "Installing AppCleaner"
 cask appcleaner
 
 echo ""
-echo "Installing Atom"
-cask atom
-
-echo ""
 echo "Installing Dropbox"
 cask dropbox
 
@@ -48,6 +44,10 @@ cask mamp
 echo ""
 echo "Installing Skype"
 cask skype
+
+echo ""
+echo "Installing The Unarchiver"
+cask the-unarchiver
 
 echo ""
 echo "Installing VLC"

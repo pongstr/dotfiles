@@ -241,7 +241,7 @@
 	<key>UseBoldFonts</key>
 	<false/>
 	<key>columnCount</key>
-	<integer>118</integer>
+	<integer>100</integer>
 	<key>name</key>
 	<string>Pongstr Base-16</string>
 	<key>noWarnProcesses</key>
@@ -256,7 +256,7 @@
 		</dict>
 	</array>
 	<key>rowCount</key>
-	<integer>30</integer>
+	<integer>25</integer>
 	<key>shellExitAction</key>
 	<integer>0</integer>
 	<key>type</key>

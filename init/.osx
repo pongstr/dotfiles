@@ -401,6 +401,11 @@ defaults write com.apple.Safari IncludeDevelopMenu -bool true
 defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
 defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
 
+echo ""
+echo "Enable Safari Continuous Spellchecking and Disabled Auto-correction"
+defaults write com.apple.Safari WebContinuousSpellCheckingEnabled -bool true
+defaults write com.apple.Safari WebAutomaticSpellingCorrectionEnabled -bool false
+
 logout() {
   osascript -e 'tell application "System Events" to log out'
   builtin logout
