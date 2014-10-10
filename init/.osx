@@ -14,12 +14,14 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 # General UI/UX
 # ---------------------------------------------------------------------------
 
-# Gist from @brandonb927: https://gist.github.com/brandonb927/3195465
+echo ""
+echo "General UI/UX setup"
+echo ""
 
+# Gist from @brandonb927: https://gist.github.com/brandonb927/3195465
 echo ""
 echo "Setting your computer name (as done via System Preferences → Sharing)"
-echo "What would you like it to be?"
-read COMPUTER_NAME
+read -p ">  What would you like it to be? " COMPUTER_NAME
 sudo scutil --set ComputerName $COMPUTER_NAME
 sudo scutil --set HostName $COMPUTER_NAME
 sudo scutil --set LocalHostName $COMPUTER_NAME
@@ -57,6 +59,7 @@ echo ""
 echo "Saving to disk (not to iCloud) by default"
 defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 
+echo ""
 echo "Reveal IP address, hostname, OS version, etc. when clicking the clock in the login window"
 sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
 
