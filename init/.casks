@@ -50,6 +50,10 @@ echo "Installing The Unarchiver"
 cask the-unarchiver
 
 echo ""
+echo "Installing uTorrent"
+cask utorrent
+
+echo ""
 echo "Installing VLC"
 cask vlc
 

@@ -19,6 +19,7 @@ apm install jshint
 apm install angularjs
 
 ATOMCONF="$HOME/.atom/config.cson"
+ATOMCSS="$HOME/.atom/styles.less"
 
 cat <<EOM >$ATOMCONF
 'editor':
@@ -33,6 +34,14 @@ cat <<EOM >$ATOMCONF
     'spacegray-dark-ui'
     'base16-ocean-dark'
   ]
+EOM
+
+cat <<EOM >$ATOMCSS
+.editor.is-focused {
+  .line.cursor-line {
+    background-color: fade(#4f5b66, 45%);
+  }
+}
 EOM
 
 echo ""
