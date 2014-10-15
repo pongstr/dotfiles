@@ -38,7 +38,7 @@ function github_sshkey () {
   echo ""
   echo ">   Adding your ssh key, please enter your passphrase one more time"
   echo ""
-  ssh-add $HOME/.ssh/bitbucket_rsa
+  ssh-add $HOME/.ssh/github_rsa
   pbcopy < $HOME/.ssh/github_rsa.pub
 
   echo ""

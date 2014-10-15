@@ -7,15 +7,15 @@
 
 # install openssl, libyaml dependancies is installed via .brew
 echo ""
-echo "Installing Ruby 2.1.1"
-rvm install 2.1.1 --disable-binary
+echo "Installing Ruby 2.1.3"
+rvm install 2.1.3 --disable-binary
 
 sleep 1
 rvm reload
 
 echo ""
-echo "  >   Set 2.1.1 as the default version"
-rvm use 2.1.1 --default
+echo "  >   Set 2.1.3 as the default version"
+rvm use 2.1.3 --default
 
 
 # Update OSX SSL Certs
