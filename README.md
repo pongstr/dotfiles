@@ -1,20 +1,20 @@
 Dotfiles (Pongstr)
 ========
 
-version `0.1.2`
+version `0.1.3`
 
 ### Requirements
 
 **[Xcode](https://developer.apple.com/xcode/)** &amp; **[Command Line Tools](https://developer.apple.com/downloads)**
 
-> `sudo` isn't necessary but it will be asked for Homebrew to be installed. To get started run these commands:
+> `sudo` is necessary for Homebrew to be installed and for some others. To get started run these commands:
 
 ```bash
 # download latest from Github
-$ curl -L -O https://github.com/pongstr/dotfiles/archive/0.1.2.zip
+$ curl -L -O https://github.com/pongstr/dotfiles/archive/0.1.3.zip
 
 # unzip the file and move to $HOME directory
-unzip 0.1.2.zip && mv dotfiles-0.1.2 ~/.dotfiles
+unzip 0.1.3.zip && mv dotfiles-0.1.3 ~/.dotfiles
 
 # run bootstrap!
 sh ~/.dotfiles/bootstrap.sh
@@ -71,7 +71,7 @@ $ ./.dotfiles/init/.shell
 $ ./.dotfiles/init/.vim
 
 
-# Make OSX awesome
+# Make OSX awesome, `sudo` is necessary for this to run.
 $ ./.dotfiles/init/.osx
 
 # Install fonts for coding and docs
