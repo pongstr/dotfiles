@@ -69,7 +69,7 @@ source $ZSH/oh-my-zsh.sh
 # -----------------------------------------------------------------------------
 
 # Export PATH after RVM installation
-export PATH="/usr/local/bin:$HOME/.rvm/gems/ruby-2.1.1@global/bin:$PATH"
+export PATH="/usr/local/bin:$HOME/.rvm/gems/ruby-2.1.3@global/bin:$PATH"
 
 # Make /Applications the default location of apps
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"

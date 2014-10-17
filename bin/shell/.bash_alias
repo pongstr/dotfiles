@@ -5,12 +5,12 @@
 # Home Folders
 alias home="cd ~ && clear"
 alias apps="cd /Applications/"
-alias documents="cd ~/Documents/"
-alias movies="cd ~/Movies/"
-alias music="cd ~/Music/"
-alias pictures="cd ~/Pictures/"
-alias dropbox="cd /Volumes/Pongstr/Dropbox/"
+alias music="cd $HOME/Music/"
+alias movies="cd $HOME/Movies/"
+alias dropbox="cd $HOME/Dropbox/"
+alias pictures="cd $HOME/Pictures/"
+alias documents="cd $HOME/Documents/"
 
 # Projects Directory
-alias projects="~/Projects/"
-alias github="~/Projects/github"
+alias github="$HOME/Projects/github"
+alias projects="$HOME/Projects/"
