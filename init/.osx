@@ -82,7 +82,7 @@ defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 1
 
 echo ""
 echo "Remove duplicates in the “Open With” menu (also see `lscleanup` alias)"
-/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user
+# /System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user
 
 echo ""
 echo "Show item info near icons on the desktop and in other icon views"
