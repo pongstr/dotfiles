@@ -17,6 +17,7 @@ apm install base16-ocean-dark
 apm install term2
 apm install jshint
 apm install angularjs
+apm install minimap
 
 ATOMCONF="$HOME/.atom/config.cson"
 ATOMCSS="$HOME/.atom/styles.less"

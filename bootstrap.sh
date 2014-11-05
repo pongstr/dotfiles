@@ -76,7 +76,7 @@ install_formula () {
 
   # Cleanup
   echo ""
-  echo "Cleaning up Homebrew intallation..."
+  echo "Cleaning up Homebrew installation..."
   brew cleanup
 
   cp -R $HOME/.dotfiles/bin/shell/.bashrc $HOME/.bashrc
