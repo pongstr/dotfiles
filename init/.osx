@@ -191,7 +191,7 @@ defaults write com.apple.screencapture location -string "$HOME/Desktop"
 echo "Set screenshot format to PNG"
 defaults write com.apple.screencapture type -string "png"
 
-echo "Enabling subpixel font rendering on non-Apple LCDs"
+echo "Enabling subpixel foznt rendering on non-Apple LCDs"
 defaults write NSGlobalDomain AppleFontSmoothing -int 2
 
 echo ""
