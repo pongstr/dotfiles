@@ -1,15 +1,20 @@
 #!/usr/bin/env bash
 
-# Install NPM Packages
-npm install -g bower
-npm install -g coffee-script
-npm install -g express
-npm install -g grunt-cli
-npm install -g jshint
-npm install -g karma-cli
-npm install -g less
-npm install -g strongloop && slc update
-npm install -g meanio
-npm install -g mongoose
-npm install -g nodemon
-npm install -g shelljs
+# List Packages that will be installed
+node_modules=(
+  bower
+  coffee-script
+  express
+  grunt-cli
+  jshint
+  karma-cli
+  less
+  strongloop
+  meanio
+  mongoose
+  nodemon
+  shelljs
+)
+
+# Install Node Packages
+npm install -g  ${node_modules[@]}

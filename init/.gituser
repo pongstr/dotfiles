@@ -11,6 +11,9 @@ git config --global user.email "$GIT_AUTHOR_EMAIL"
 echo "Setting push action to simple"
 git config --global push.default simple
 
+echo "Add prettyfied alias of log: $ git lg"
+git config --global alias.lg "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+
 # Add SSH Config file
 echo ""
 echo "Adding config file for ssh-keys"
