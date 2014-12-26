@@ -1,7 +1,7 @@
 Dotfiles (Pongstr)
 ========
 
-version `0.1.4`
+version `0.1.5`
 
 ### Requirements
 
@@ -11,10 +11,10 @@ version `0.1.4`
 
 ```bash
 # download latest from Github
-$ curl -L -O https://github.com/pongstr/dotfiles/archive/0.1.4.zip
+$ curl -L -O https://github.com/pongstr/dotfiles/archive/0.1.5.zip
 
 # unzip the file and move to $HOME directory
-unzip 0.1.4.zip && mv dotfiles-0.1.4 ~/.dotfiles
+unzip 0.1.5.zip && mv dotfiles-0.1.5 ~/.dotfiles
 
 # run bootstrap!
 sh ~/.dotfiles/bootstrap.sh
