@@ -10,7 +10,7 @@ node_modules=(
   karma-cli
   less
   strongloop
-  meanio
+  mean-cli
   mongoose
   nodemon
   shelljs
