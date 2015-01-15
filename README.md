@@ -75,6 +75,7 @@ $ ./.dotfiles/init/.vim
 # OSX optimal awesome settings
 $ ./.dotfiles/init/.osx
 
+
 # Install fonts for coding and docs
 $ ./.dotfiles/init/.fonts
 ```
