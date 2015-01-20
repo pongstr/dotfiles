@@ -19,33 +19,6 @@ sudo scutil --set HostName $COMPUTER_NAME
 sudo scutil --set LocalHostName $COMPUTER_NAME
 sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string $COMPUTER_NAME
 
-fileVaultOn () {
-  echo ""
-  echo "Enabling FileVault..."
-  echo "> The next steps will guide you through setting up the encryption."
-  echo "> Write down the key as it will enable you to recover your disk incase"
-  echo "> you forget your password. Lastyl, you'll need to reboot your mac for"
-  echo "> changes to take effect."
-  echo ""
-  sudo fdesetup enable
-}
-
-echo "Checking if FileVault Disk Encryption is enabled"
-fileVaultStatus="fdesetup isactive"
-if ! $fileVaultStatus; then
-  while true; do
-    echo ""
-    read -p "Enable Disk Encryption: Turn FileVault On? [y/n] " FILEVAULT
-    case $FILEVAULT in
-      [y/Y]* ) fileVaultOn; break;;
-      [n/N]* ) echo "Skipping Disk Encryption"; break;;
-      * ) echo "Please answer Y or N";;
-    esac
-  done
-else
-  echo "FileVault is Activated"
-fi
-
 # General UI/UX
 # ---------------------------------------------------------------------------
 
@@ -430,9 +403,36 @@ echo "Enable Safari Continuous Spellchecking and Disabled Auto-correction"
 defaults write com.apple.Safari WebContinuousSpellCheckingEnabled -bool true
 defaults write com.apple.Safari WebAutomaticSpellingCorrectionEnabled -bool false
 
+fileVaultOn () {
+  echo ""
+  echo "Enabling FileVault..."
+  echo "> The next steps will guide you through setting up the encryption."
+  echo "> Write down the key as it will enable you to recover your disk incase"
+  echo "> you forget your password. Lastyl, you'll need to reboot your mac for"
+  echo "> changes to take effect."
+  echo ""
+  sudo fdesetup enable
+}
+
 logout() {
+  echo "Skipping Disk Encryption, logging you out for changes to take effect."
+  sleep 1
   osascript -e 'tell application "System Events" to log out'
   builtin logout
 }
 
-logout
+echo "Checking if FileVault Disk Encryption is enabled"
+fileVaultStatus="fdesetup isactive"
+if ! $fileVaultStatus; then
+  while true; do
+    echo ""
+    read -p "Enable Disk Encryption: Turn FileVault On? [y/n] " FILEVAULT
+    case $FILEVAULT in
+      [y/Y]* ) fileVaultOn; break;;
+      [n/N]* ) logout; break;;
+      * ) echo "Please answer Y or N";;
+    esac
+  done
+else
+  echo "FileVault is Activated"
+fi
