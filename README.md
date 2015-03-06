@@ -1,7 +1,7 @@
 Dotfiles (Pongstr)
 ========
 
-version `0.1.7`
+version `0.1.8`
 
 ### Requirements
 
@@ -14,7 +14,7 @@ version `0.1.7`
 $ curl -L -O https://github.com/pongstr/dotfiles/archive/0.1.7.zip
 
 # unzip the file and move to $HOME directory
-unzip 0.1.7.zip && mv dotfiles-0.1.7 ~/.dotfiles
+unzip 0.1.8.zip && mv dotfiles-0.1.8 ~/.dotfiles
 
 # run bootstrap!
 sh ~/.dotfiles/bootstrap.sh
@@ -31,7 +31,7 @@ Once bootstrapped, you may run these dotfiles in any order except for:
     purpose of not using it everytime.
 
 ```bash
-# Install `ruby-2.1.3` and set it as default
+# Install `ruby-2.2.0` and set it as default
 # Update `osx-ssl-certs` & install cron to auto-update it.
 $ ./.dotfiles/init/.rvm
 
