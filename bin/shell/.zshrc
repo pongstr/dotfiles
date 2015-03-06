@@ -41,6 +41,7 @@ alias projects="$PROJECTS"
 
 # Jekyll: must be in the same working directory
 alias jekyllstart="jekyll serve --watch --baseurl=/"
+alias pywebstart="python -m SimpleHTTPServer"
 
 # MongoDB
 alias mongostart="mongod --dbpath $HOME/.mongodb-data"
