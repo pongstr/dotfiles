@@ -4,8 +4,10 @@
 node_modules=(
   bower
   coffee-script
+  cordova
   express
   grunt-cli
+  ionic
   jshint
   karma-cli
   less

@@ -11,3 +11,9 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+# Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
+# Android SDK
+export ANDROID_SDK=/usr/local/Cellar/android-sdk/24.0.2

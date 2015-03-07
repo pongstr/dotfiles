@@ -14,7 +14,7 @@ echo "    \  \:\    \  \:\       \  \::/       /__/:/         \__\/ \  \:\     "
 echo "     \__\/     \__\/        \__\/        \__\/                 \__\/     "
 echo ""
 echo "        ..........................................................       "
-echo "        . Dotfiles 0.1.8 (Pongstr) for setting up OSX Workspace  .       "
+echo "        . Dotfiles 0.1.9 (Pongstr) for setting up OSX Workspace  .       "
 echo "        .      https://github.com/pongstr/dotfiles.git           .       "
 echo "        ..........................................................       "
 echo ""
@@ -36,6 +36,10 @@ check () { type -t "${@}" > /dev/null 2>&1; }
 install_formula () {
   echo ""
   echo "Installing Homebrew Packages:"
+
+  echo ""
+  echo "  ➜ Android SDK"
+  brew install android-sdk
 
   echo ""
   echo "  ➜ libyaml"

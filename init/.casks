@@ -34,8 +34,12 @@ echo "Installing Google Chrome Canary"
 cask google-chrome-canary
 
 echo ""
-echo "Heroku Toolbelt"
+echo "Installing Heroku Toolbelt"
 cask heroku-toolbelt
+
+echo ""
+echo "Installing Java"
+cask install java
 
 echo ""
 echo "Installing Kaleidoscope"
