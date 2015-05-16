@@ -32,5 +32,8 @@ echo "Install Pongstr zsh-theme"
 cp -RfXv "$DOT/bin/shell/Pongstr Base-16.zsh-theme" "$HOME/.oh-my-zsh/themes/pongstr.zsh-theme"
 cp -RfXv "$DOT/bin/shell/.zshrc" "$HOME/.zshrc" && source $HOME/.zshrc
 
+# Set all sessions to zsh from here moving forward
+chsh -s /bin/zsh
+
 sleep 1
 killall Terminal

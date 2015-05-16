@@ -14,7 +14,7 @@ echo "    \  \:\    \  \:\       \  \::/       /__/:/         \__\/ \  \:\     "
 echo "     \__\/     \__\/        \__\/        \__\/                 \__\/     "
 echo ""
 echo "        ..........................................................       "
-echo "        . Dotfiles 0.1.9 (Pongstr) for setting up OSX Workspace  .       "
+echo "        . Dotfiles 0.1.10 (Pongstr) for setting up OSX Workspace .       "
 echo "        .      https://github.com/pongstr/dotfiles.git           .       "
 echo "        ..........................................................       "
 echo ""
@@ -121,7 +121,7 @@ if check brew; then
   echo "Awesome! Homebrew is installed! Now updating..."
   echo ""
   brew upgrade
-  brew update
+  brew update --all
 fi
 
 if ! check brew; then
@@ -149,8 +149,18 @@ done
 # ---------------------------------------------------------------------------
 
 echo ""
-echo "Installing RVM..."
-\curl -L https://get.rvm.io | bash
+echo "Installing RVM and latest version of Ruby"
+\curl -sSL https://get.rvm.io | bash -s stable --ruby
+
+echo ""
+echo "  >   Update OSX SSL Certificates"
+rvm osx-ssl-certs update all
+
+echo "  >   Auto update SSL Certificates"
+rvm osx-ssl-certs cron install
+
+sleep 1
+rvm reload
 
 # Restart Terminal for RVM to take effect
 echo ""

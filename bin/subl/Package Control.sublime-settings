@@ -1,11 +1,11 @@
 {
-  "installed_packages":
-  [
+  "in_process_packages": [],
+  "installed_packages": [
     "AngularJS",
     "GitGutter",
+    "Handlebars",
     "HTML5",
     "Jekyll",
-    "LESS",
     "Package Control",
     "Pretty JSON",
     "Pretty YAML",

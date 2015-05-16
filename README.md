@@ -1,7 +1,7 @@
 Dotfiles (Pongstr)
 ========
 
-version `0.1.9`
+version `0.1.10`
 
 ### Requirements
 
@@ -11,10 +11,10 @@ version `0.1.9`
 
 ```bash
 # download latest from Github
-$ curl -L -O https://github.com/pongstr/dotfiles/archive/0.1.9.zip
+$ curl -L -O https://github.com/pongstr/dotfiles/archive/0.1.10.zip
 
 # unzip the file and move to $HOME directory
-unzip 0.1.9.zip && mv dotfiles-0.1.9 ~/.dotfiles
+unzip 0.1.10.zip && mv dotfiles-0.1.10 ~/.dotfiles
 
 # run bootstrap!
 sh ~/.dotfiles/bootstrap.sh
@@ -23,30 +23,12 @@ sh ~/.dotfiles/bootstrap.sh
 
 ### Initialize Dotfiles
 
-Once bootstrapped, you may run these dotfiles in any order except for:
-
-1. `.rvm`: installs and sets the specific version of ruby.
-2. `.gems`: if installed before `.rvm` it will fail because it will install to
-    the system's default path which will require you to `sudo` and defeats the
-    purpose of not using it everytime.
-
-```bash
-# Install `ruby-2.2.0` and set it as default
-# Update `osx-ssl-certs` & install cron to auto-update it.
-$ ./.dotfiles/init/.rvm
-
-# You may need to execute `.rvm` first before `.gems` as it
-# will set the default version of ruby and all that stuff in
-# order to install your specific-ruby-version gems
-$ ./.dotfiles/init/.gems
-```
-
-Other than what's mentioned above, you may install the dotfiles below in any order:
-
 ```bash
 # Install `npm` and packages [bower, express, grunt-cli, jshint, less]
 $ ./.dotfiles/init/.npm
 
+# Update `gem` and install gems [rails, bundler, github-pages]
+$ ./.dotfiles/init/.gems
 
 # Install `casks` and tap to `caskroom-versions`
 $ ./.dotfiles/init/.casks
@@ -88,6 +70,11 @@ Modified version of [spacegray](http://github.com/kkga/spacegray.git)
 
 
 Terminal and Zshell Theme
+
+> #### HEADS UP!
+> Once the theme has loaded, you might want to replace the shell's startup command
+> from `login -fpql pongstr /bin/zsh` to `login -fpql YOURNAME /bin/zsh`
+> from Preferences, under Profiles > Shell tab
 
 ![Terminal and Zshell Theme](http://i.imgur.com/Wc9hZiw.png)
 
