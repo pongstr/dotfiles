@@ -2,18 +2,6 @@
 
 SSHCONFIG="$HOME/.ssh/config"
 
-read -p "Please enter your Git Author Name: " GIT_AUTHOR_NAME
-git config --global user.name "$GIT_AUTHOR_NAME"
-
-read -p "Please enter your Git Author Email: " GIT_AUTHOR_EMAIL
-git config --global user.email "$GIT_AUTHOR_EMAIL"
-
-echo "Setting push action to simple"
-git config --global push.default simple
-
-echo "Add prettyfied alias of log: $ git lg"
-git config --global alias.lg "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
-
 # Add SSH Config file
 echo ""
 echo "Adding config file for ssh-keys"
@@ -28,6 +16,29 @@ Host github.com
   Hostname github.com
   IdentityFile $HOME/.ssh/github_rsa
 EOM
+
+echo "Please select which task you would like to perform"
+echo ""
+echo "[1] Configure Global Git Settings"
+echo "[2] Generate Github SSH Key"
+echo "[3] Generate Bitbucket SSH Key"
+echo "[4] All of the above"
+echo "[Q/q] Quit"
+echo ""
+
+function gitconfig () {
+  read -p "Please enter your Git Author Name: " GIT_AUTHOR_NAME
+  git config --global user.name "$GIT_AUTHOR_NAME"
+
+  read -p "Please enter your Git Author Email: " GIT_AUTHOR_EMAIL
+  git config --global user.email "$GIT_AUTHOR_EMAIL"
+
+  echo "Setting push action to simple"
+  git config --global push.default simple
+
+  echo "Add prettyfied alias of log: $ git lg"
+  git config --global alias.lg "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+}
 
 function github_sshkey () {
   echo ""
@@ -56,15 +67,6 @@ function github_sshkey () {
   echo "# ---------------------------------------------------------------- "
   echo ""
 }
-
-while true; do
-  read -p "Would you like to Generate Github SSH key? " GITHUB_SSH
-  case $GITHUB_SSH in
-    [y]*) github_sshkey; break;;
-    [n]*) break;;
-       *) echo "Please answer y or n";;
-  esac
-done
 
 function bitbucket_sshkey () {
   echo ""
@@ -95,11 +97,20 @@ function bitbucket_sshkey () {
   echo ""
 }
 
+function exec_all () {
+  gitconfig;
+  github_sshkey;
+  bitbucket_sshkey;
+}
+
 while true; do
-  read -p "Would you like to Generate Bitbucket SSH key? " BITBUCKET_SSH
-  case $BITBUCKET_SSH in
-    [y]*) bitbucket_sshkey; break;;
-    [n]*) break;;
-       *) echo "Please answer y or n";;
+  read -p "Select an answer and press return " $ANSWER
+  case $ANSWER in
+    [1]*) gitconfig; break;;
+    [2]*) github_sshkey; break;;
+    [3]*) bitbucket_sshkey; break;;
+    [4]*) exec_all; break;;
+    [Q/q]*) exit;;
+    *) echo "Please select from the options above"
   esac
 done
