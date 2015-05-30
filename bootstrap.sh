@@ -89,8 +89,9 @@ install_formula () {
   cp -R $HOME/.dotfiles/bin/shell/.bash_alias $HOME/.bash_alias
   cp -R $HOME/.dotfiles/bin/shell/.bash_profile $HOME/.bash_profile
 
-  echo "Installing Caskroom, Caskroom versions and Caskroom Fonts..."
+  echo "Installing Caskroom, Caskroom versions, Caskroom Fonts and Brew Services"
   brew install caskroom/cask/brew-cask
+  brew tap homebrew/services
   brew tap caskroom/versions
   brew tap caskroom/fonts
 
