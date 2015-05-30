@@ -55,6 +55,10 @@ cask kaleidoscope
 # cask mamp
 
 echo ""
+echo "Installing RoboMongo"
+cask robomongo
+
+echo ""
 echo "Installing Skype"
 cask skype
 
