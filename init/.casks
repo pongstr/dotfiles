@@ -47,9 +47,12 @@ echo ""
 echo "Installing Kaleidoscope"
 cask kaleidoscope
 
-echo ""
-echo "Installing MAMP Pro"
-cask mamp
+# I might be removing MAMP Stack
+# from my workflow, I haven't used
+# this app for more than a year now
+# echo ""
+# echo "Installing MAMP Pro"
+# cask mamp
 
 echo ""
 echo "Installing Skype"
