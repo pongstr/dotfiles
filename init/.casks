@@ -37,9 +37,11 @@ echo ""
 echo "Installing Heroku Toolbelt"
 cask heroku-toolbelt
 
-echo ""
-echo "Installing Java"
-cask install java
+# Excluding this for now, not really a
+# fan of installing Java in my machine
+# echo ""
+# echo "Installing Java"
+# cask install java
 
 echo ""
 echo "Installing Kaleidoscope"

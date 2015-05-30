@@ -37,9 +37,11 @@ install_formula () {
   echo ""
   echo "Installing Homebrew Packages:"
 
-  echo ""
-  echo "  ➜ Android SDK"
-  brew install android-sdk
+  # Excluding this for now, not really a
+  # fan of installing Java in my machine
+  # echo ""
+  # echo "  ➜ Android SDK"
+  # brew install android-sdk
 
   echo ""
   echo "  ➜ libyaml"
@@ -138,8 +140,8 @@ while true; do
   read -p "Would you like to install Homebrew formulas? [y/n] " answer
   echo ""
   case $answer in
-    [y]* ) install_formula; break;;
-    [n]* ) break;;
+    [y/Y]* ) install_formula; break;;
+    [n/N]* ) break;;
     * ) echo "Please answer Y or N.";;
   esac
 done
