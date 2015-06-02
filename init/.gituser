@@ -104,7 +104,7 @@ function exec_all () {
 }
 
 while true; do
-  read -p "Select an answer and press return " $ANSWER
+  read -p "Select an answer and press return " ANSWER
   case $ANSWER in
     [1]*) gitconfig; break;;
     [2]*) github_sshkey; break;;
