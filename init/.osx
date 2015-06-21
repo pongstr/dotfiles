@@ -317,7 +317,7 @@ find "${HOME}/Library/Application Support/Dock" -name "*-*.db" -maxdepth 1 -dele
 
 echo ""
 echo "Adding iOS Simulator to Launchpad"
-ln -sf /Applications/Xcode.app/Contents/Applications/iPhone\ Simulator.app /Applications/iOS\ Simulator.app
+ln -sf /Applications/Xcode.app/Contents/Developer/Applications/iOS Simulator.app /Applications/iOS\ Simulator.app
 
 
 # Time Machine
@@ -365,7 +365,7 @@ echo "Show Safari’s bookmarks bar by default"
 defaults write com.apple.Safari ShowFavoritesBar -bool true
 
 echo ""
-echo "Set Safari’s home page to `about:blank` for faster loading"
+echo "Set Safari’s home page to about:blank for faster loading"
 defaults write com.apple.Safari HomePage -string "about:blank"
 
 echo ""

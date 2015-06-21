@@ -48,7 +48,7 @@ install_formula () {
   brew install libyaml
 
   echo ""
-  echo "  ➜ Install GNU Scientific Library for `rb-gsl` "
+  echo "  ➜ Install GNU Scientific Library for rb-gsl"
   brew install gsl
 
   echo ""
