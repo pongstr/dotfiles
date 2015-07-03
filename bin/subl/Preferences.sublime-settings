@@ -2,7 +2,7 @@
   // Set Theme and Color Scheme
   // ==========================
   "theme": "Spacegray.sublime-theme",
-  "color_scheme": "Packages/Theme - Spacegray/base16-ocean.dark.tmTheme",
+  "color_scheme": "Packages/One Dark Color Scheme/One Dark.tmTheme",
 
   // Note that the font_face and font_size are overriden in the platform
   // specific settings file, for example, "Base File (Linux).sublime-settings".
