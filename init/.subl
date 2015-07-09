@@ -5,7 +5,7 @@ ST3="$HOME/Library/Application Support/Sublime Text 3/Packages"
 
 echo ""
 echo "Installing Sublime Text"
-brew cask install sublime-text3
+# brew cask install sublime-text3
 
 echo ""
 echo "Opening Sublimte Text"
@@ -15,7 +15,7 @@ sleep 1
 if [ ! -d "$ST3/Package Control" ]; then
   echo ""
   echo "Installing Sublime Text 3 Package Control"
-  git clone https://github.com/wbond/sublime_package_control.git "$ST3/Package Control"
+  curl -o "$ST3/Installed\ Packages/Package%20Control.sublime-package https://packagecontrol.io/Package%20Control.sublime-package"
 fi
 
 if [ ! -d "$ST3/Theme - Spacegray" ]; then
@@ -34,10 +34,10 @@ echo "Install Sublime Text 3 Keymaps:"
 echo "Default (OSX).sublime-keymap"
 cp -f "$DOT/bin/subl/Default (OSX).sublime-keymap" "$ST3/User/Default (OSX).sublime-keymap"
 
-echo ""
-echo "Install Sublime Text 3 Packages:"
-echo "Package Control.sublime-settings"
-cp -f "$DOT/bin/subl/Package Control.sublime-settings" "$ST3/User/Package Control.sublime-settings"
+# echo ""
+# echo "Install Sublime Text 3 Packages:"
+# echo "Package Control.sublime-settings"
+# cp -f "$DOT/bin/subl/Package Control.sublime-settings" "$ST3/User/Package Control.sublime-settings"
 
 echo ""
 echo "Restarting Subliime Text..."
@@ -47,4 +47,3 @@ open -a /Applications/Sublime\ Text.app
 
 echo ""
 brew cask cleanup
-

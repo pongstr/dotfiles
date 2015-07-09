@@ -47,7 +47,7 @@ function github_sshkey () {
   echo ">   !IMPORTANT:"
   echo ">   You must save your key to this file: $HOME/.ssh/github_rsa"
   echo ""
-  ssh-keygen -t rsa -C $GITHUB_EMAIL
+  ssh-keygen -t rsa -C $GITHUB_EMAIL -f $HOME/.ssh/github_rsa
 
   echo ""
   echo ">   Adding your ssh key, please enter your passphrase one more time"
@@ -75,7 +75,7 @@ function bitbucket_sshkey () {
   echo ">   !IMPORTANT:"
   echo ">   You must save your key to this file: $HOME/.ssh/bitbucket_rsa"
   echo ""
-  ssh-keygen
+  ssh-keygen -f $HOME/.ssh/bitbucket_rsa
 
   echo ""
   echo ">   Adding your ssh key, please enter your passphrase one more time"
