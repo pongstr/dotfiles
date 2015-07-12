@@ -18,6 +18,10 @@ echo "Installing Dropbox"
 cask dropbox
 
 echo ""
+echo "Installing Deluge"
+cask deluge
+
+echo ""
 echo "Installing Firefox"
 cask firefox
 
@@ -37,26 +41,17 @@ echo ""
 echo "Installing Heroku Toolbelt"
 cask heroku-toolbelt
 
-# Excluding this for now, not really a
-# fan of installing Java in my machine
-# echo ""
-# echo "Installing Java"
-# cask install java
-
 echo ""
 echo "Installing Kaleidoscope"
 cask kaleidoscope
 
-# I might be removing MAMP Stack
-# from my workflow, I haven't used
-# this app for more than a year now
-# echo ""
-# echo "Installing MAMP Pro"
-# cask mamp
-
 echo ""
 echo "Installing RoboMongo"
 cask robomongo
+
+echo ""
+echo "Installing Spotify"
+cask spotify
 
 echo ""
 echo "Installing Skype"
@@ -65,10 +60,6 @@ cask skype
 echo ""
 echo "Installing The Unarchiver"
 cask the-unarchiver
-
-echo ""
-echo "Installing uTorrent"
-cask utorrent
 
 echo ""
 echo "Installing VLC"
