@@ -11,10 +11,10 @@ version `0.1.12`
 
 ```bash
 # download latest from Github
-$ curl -L -O https://github.com/pongstr/dotfiles/archive/0.1.12.zip
+$ curl -L -O https://github.com/pongstr/dotfiles/archive/0.1.13.zip
 
 # unzip the file and move to $HOME directory
-unzip 0.1.12.zip && mv dotfiles-0.1.12 ~/.dotfiles
+unzip 0.1.13.zip && mv dotfiles-0.1.13 ~/.dotfiles
 
 # run bootstrap!
 sh ~/.dotfiles/bootstrap.sh
@@ -27,8 +27,10 @@ sh ~/.dotfiles/bootstrap.sh
 # Install `npm` and packages [bower, express, grunt-cli, jshint, less]
 $ ./.dotfiles/init/.npm
 
+
 # Update `gem` and install gems [rails, bundler, github-pages]
 $ ./.dotfiles/init/.gems
+
 
 # Install `casks` and tap to `caskroom-versions`
 $ ./.dotfiles/init/.casks
