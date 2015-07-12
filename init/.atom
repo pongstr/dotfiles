@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if brew cask info "${@}" | grep "Not installed" > /dev/null; then
+if brew cask info "atom" | grep "Not installed" > /dev/null; then
   echo ""
   echo "Installing Atom: The hackable text editor for the 21st Century."
   brew cask install atom

@@ -3,9 +3,11 @@
 DOT="$HOME/.dotfiles"
 ST3="$HOME/Library/Application Support/Sublime Text 3/Packages"
 
-echo ""
-echo "Installing Sublime Text"
-# brew cask install sublime-text3
+if brew cask info "sublime-text3" | grep "Not installed" > /dev/null; then
+  echo ""
+  echo "Installing Sublime Text 3"
+  brew cask install atom
+fi
 
 echo ""
 echo "Opening Sublimte Text"
