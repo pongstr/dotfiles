@@ -3,9 +3,11 @@
 DOT="$HOME/.dotfiles"
 ST3="$HOME/Library/Application Support/Sublime Text 3/Packages"
 
-echo ""
-echo "Installing Sublime Text"
-brew cask install sublime-text3
+if brew cask info "sublime-text3" | grep "Not installed" > /dev/null; then
+  echo ""
+  echo "Installing Sublime Text 3"
+  brew cask install atom
+fi
 
 echo ""
 echo "Opening Sublimte Text"
@@ -15,7 +17,7 @@ sleep 1
 if [ ! -d "$ST3/Package Control" ]; then
   echo ""
   echo "Installing Sublime Text 3 Package Control"
-  git clone https://github.com/wbond/sublime_package_control.git "$ST3/Package Control"
+  curl -o "$ST3/Installed\ Packages/Package%20Control.sublime-package https://packagecontrol.io/Package%20Control.sublime-package"
 fi
 
 if [ ! -d "$ST3/Theme - Spacegray" ]; then
@@ -47,4 +49,3 @@ open -a /Applications/Sublime\ Text.app
 
 echo ""
 brew cask cleanup
-
