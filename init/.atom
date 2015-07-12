@@ -1,9 +1,12 @@
 #!/usr/bin/env bash
 
-echo ""
-echo "Installing Atom: The hackable text editor for the 21st Century."
-# brew cask install atom
-# sleep 1
+if brew cask info "atom" | grep "Not installed" > /dev/null; then
+  echo ""
+  echo "Installing Atom: The hackable text editor for the 21st Century."
+  brew cask install atom
+fi
+
+sleep 1
 
 echo ""
 open -a /Applications/Atom.app
@@ -11,9 +14,7 @@ sleep 1
 killall Atom
 
 echo "Installing Atom Packages:"
-echo "========================="
-# apm install spacegray-dark-ui
-# apm install base16-ocean-dark
+echo ""
 apm install term2
 apm install jshint
 apm install angularjs
@@ -23,6 +24,7 @@ ATOMCONF="$HOME/.atom/config.cson"
 ATOMCSS="$HOME/.atom/styles.less"
 
 cat <<EOM >$ATOMCONF
+'editor':
 'atom-text-editor':
   'fontFamily': 'Menlo'
   'fontSize': 13
@@ -30,10 +32,15 @@ cat <<EOM >$ATOMCONF
   'lineHeight': 1.5
   'invisibles': {}
   'showIndentGuide': true
+  editor:
+    invisibles: {}
+    fontFamily: "Menlo"
+    showIndentGuide: true
+    useShadowDOM: false
+    scrollPastEnd: true
   welcome:
     showOnStartup: true
 EOM
-
 
 echo ""
 echo "Done! Relaunching Atom, exiting Terminal..."
