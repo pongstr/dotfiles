@@ -2,14 +2,14 @@
   // Set Theme and Color Scheme
   // ==========================
   "theme": "Spacegray.sublime-theme",
-  "color_scheme": "Packages/One Dark Color Scheme/One Dark.tmTheme",
+  "color_scheme": "Packages/Theme - Spacegray/One Dark.tmTheme",
 
   // Note that the font_face and font_size are overriden in the platform
   // specific settings file, for example, "Base File (Linux).sublime-settings".
   // Because of this, setting them here will have no effect: you must set them
   // in your User File Preferences.
   "font_face": "Menlo",
-  "font_size": 12,
+  "font_size": 13,
 
   "font_options": [
     "no_bold",
