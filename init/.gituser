@@ -43,58 +43,50 @@ function gitconfig () {
 function github_sshkey () {
   echo ""
   read -p "Please enter your github email: " GITHUB_EMAIL
-  echo ""
-  echo ">   !IMPORTANT:"
-  echo ">   You must save your key to this file: $HOME/.ssh/github_rsa"
-  echo ""
-  ssh-keygen -t rsa -C $GITHUB_EMAIL
+  read -p "Please add a title to your key: " GITHUB_TITLE
+  ssh-keygen -t rsa -C $GITHUB_EMAIL -f $HOME/.ssh/github_rsa
 
-  echo ""
   echo ">   Adding your ssh key, please enter your passphrase one more time"
   echo ""
-  ssh-add $HOME/.ssh/github_rsa
-  pbcopy < $HOME/.ssh/github_rsa.pub
+  ssh-add $HOME/.ssh/github_rsa && pbcopy < $HOME/.ssh/github_rsa.pub
 
+  GITHUB_KEY=`pbpaste`
+  GITHUB_PAYLOAD="{ \"title\": \"$GITHUB_TITLE\", \"key\": \"$GITHUB_KEY\" }"
+
+  echo "Login to your github account"
+  read -p "Github Username: " GH_USERNAME
+  echo -n "Github Password: "
+  read -s GH_PASSWORD
   echo ""
-  echo "# -------------------------- !IMPORTANT: ------------------------- "
-  echo "# All done! Your SSH-key is copied to your clipboard!"
-  echo "#"
-  echo "#  To make sure everything is working, you can now try SSHing to GitHub."
-  echo "#  When you do this, you will be asked to authenticate this action using"
-  echo "#  your password, which was the passphrase you created earlier."
-  echo "#"
-  echo "# >   $ ssh -T git@github.com"
-  echo "# ---------------------------------------------------------------- "
+
+  echo "Saving SSH-Key to Github"
   echo ""
+  curl --user "$GH_USERNAME:$GH_PASSWORD" -X POST --data "$GITHUB_PAYLOAD" https://api.github.com/user/keys
+
+  echo "Github SSH-Key Verification"
+  ssh -T git@github.com
 }
 
 function bitbucket_sshkey () {
   echo ""
-  echo "Creating your Bitbucket SSH Key"
-  echo ""
-  echo ">   !IMPORTANT:"
-  echo ">   You must save your key to this file: $HOME/.ssh/bitbucket_rsa"
-  echo ""
-  ssh-keygen
+  read -p "Please enter your Bitbucket Username: " BITBUCKET_USERNAME
+  echo -n "Please enter your Bitbucket Password: "
+  read -s BITBUCKET_PASSWORD
 
   echo ""
-  echo ">   Adding your ssh key, please enter your passphrase one more time"
-  echo ""
-  ssh-add $HOME/.ssh/bitbucket_rsa
-  pbcopy < $HOME/.ssh/bitbucket_rsa.pub
+  read -p "Please add a title to your key: " BITBUCKET_TITLE
+  ssh-keygen -f $HOME/.ssh/bitbucket_rsa && pbcopy < $HOME/.ssh/bitbucket_rsa.pub
 
+  BITBUCKET_KEY=`pbpaste`
+  BITBUCKET_PAYLOAD="{ \"label\": \"$BITBUCKET_TITLE\", \"key\": \"$BITBUCKET_KEY\" }"
+
+  echo $BITBUCKET_PAYLOAD
+  echo "Saving SSH-Key to Bitbucket"
   echo ""
-  echo "# -------------------------- !IMPORTANT: ------------------------- "
-  echo "# All done! Your SSH-key is copied to your clipboard!"
-  echo "#"
-  echo "# You need to manually add your SSH key to your Bitbucket account,"
-  echo "# by pointing your browser to your Bitbucket Account Settings"
-  echo "# https://bitbucket.org/account/user/YOUR_USERNAME/ssh-keys/ "
-  echo "# after that, you may now try SSHing to Bitbucket:"
-  echo "#"
-  echo "# >   $ ssh -T git@bitbucket.org"
-  echo "# ---------------------------------------------------------------- "
-  echo ""
+  curl --user "$BITBUCKET_USERNAME:$BITBUCKET_PASSWORD" -X POST --data "$BITBUCKET_PAYLOAD" "https://bitbucket.org/api/1.0/users/$BITBUCKET_USERNAME/ssh-keys/" -H "Content-Type: application/json"
+
+  echo "Bitbucket SSH-Key Verification"
+  ssh -T git@bitbucket.org
 }
 
 function exec_all () {

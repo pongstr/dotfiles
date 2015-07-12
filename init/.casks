@@ -47,13 +47,6 @@ echo ""
 echo "Installing Kaleidoscope"
 cask kaleidoscope
 
-# I might be removing MAMP Stack
-# from my workflow, I haven't used
-# this app for more than a year now
-# echo ""
-# echo "Installing MAMP Pro"
-# cask mamp
-
 echo ""
 echo "Installing RoboMongo"
 cask robomongo
@@ -65,6 +58,10 @@ cask skype
 echo ""
 echo "Installing The Unarchiver"
 cask the-unarchiver
+
+echo ""
+echo "Installing Virutalbox"
+cask spotify
 
 echo ""
 echo "Installing uTorrent"
