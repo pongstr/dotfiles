@@ -72,6 +72,9 @@ source $ZSH/oh-my-zsh.sh
 # Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
+# Homebrew
+export PATH=/usr/local/bin:$PATH
+
 # Make /Applications the default location of apps
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 

@@ -4,11 +4,9 @@
 node_modules=(
   bower
   coffee-script
-  cordova
   express
   grunt-cli
   gulp
-  ionic
   jshint
   karma-cli
   less
@@ -16,6 +14,7 @@ node_modules=(
   mean-cli
   mongoose
   nodemon
+  sails
   shelljs
 )
 

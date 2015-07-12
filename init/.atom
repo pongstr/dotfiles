@@ -14,7 +14,7 @@ sleep 1
 killall Atom
 
 echo "Installing Atom Packages:"
-echo "========================="
+echo ""
 apm install term2
 apm install jshint
 apm install angularjs
@@ -25,6 +25,7 @@ ATOMCSS="$HOME/.atom/styles.less"
 
 cat <<EOM >$ATOMCONF
 'editor':
+'atom-text-editor':
   'fontFamily': 'Menlo'
   'fontSize': 13
   'scrollPastEnd': true
@@ -39,14 +40,6 @@ cat <<EOM >$ATOMCONF
     scrollPastEnd: true
   welcome:
     showOnStartup: true
-EOM
-
-cat <<EOM >$ATOMCSS
-.editor.is-focused {
-  .line.cursor-line {
-    background-color: fade(#4f5b66, 45%);
-  }
-}
 EOM
 
 echo ""
