@@ -6,6 +6,7 @@ shopt -s cdspell;
 # Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
+<<<<<<< HEAD
 # Homebrew
 export PATH=/usr/local/bin:$PATH
 
@@ -30,3 +31,7 @@ function gemdir {
 if [[ -d /opt/boxen ]] ; then
   [ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
 fi
+=======
+# Boxen
+[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
+>>>>>>> boxen
