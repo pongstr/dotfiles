@@ -20,18 +20,26 @@ function install_preferences () {
 
   echo ""
   brew cask cleanup
+  killall Sublime\ Text
+  sleep 1
+  open -a Sublime\ Text
 }
 
 if brew cask info "sublime-text3" | grep "Not installed" > /dev/null ; then
   echo ""
   echo "Installing Sublime Text 3"
   brew cask install sublime-text3
+  sleep 1
+  open -a "Sublime\ Text"
 fi
 
 if [ ! -d "$ST3/Installed Packages" ]; then
   echo "Package Control: Creating Package Control Directory, downloading..."
-  mkdir "$ST3/Installed Packages"
-  curl -o "$ST3/Installed Packages/Package Control.sublime-package" $PKG
+  mkdir -p "$ST3/Installed Packages"
+  curl -o "$ST3/Installed Packages/Package Control.sublime-package" "$PKG"
+else
+  echo "Installing Package Manager"
+  curl -o "$ST3/Installed Packages/Package Control.sublime-package" "$PKG"
 fi
 
 if [ ! -d "$ST3/Packages/Theme - Spacegray" ]; then
@@ -48,5 +56,8 @@ fi
 if [ -d "$ST3/Packages/User" ]; then
   echo "Install Sublime Text 3 Preferences:"
   echo ""
+  mkdir -p "$ST3/Packages/User"
+  install_preferences
+else
   install_preferences
 fi
