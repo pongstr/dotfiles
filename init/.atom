@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
 
-echo ""
-echo "Installing Atom: The hackable text editor for the 21st Century."
-brew cask install atom
+if brew cask info "atom" | grep "Not installed" > /dev/null; then
+  echo ""
+  echo "Installing Atom: The hackable text editor for the 21st Century."
+  brew cask install atom
+fi
+
 sleep 1
 
 echo ""
@@ -11,9 +14,7 @@ sleep 1
 killall Atom
 
 echo "Installing Atom Packages:"
-echo "========================="
-apm install spacegray-dark-ui
-apm install base16-ocean-dark
+echo ""
 apm install term2
 apm install jshint
 apm install angularjs
@@ -24,25 +25,21 @@ ATOMCSS="$HOME/.atom/styles.less"
 
 cat <<EOM >$ATOMCONF
 'editor':
-  'fontFamily': 'Ubuntu Mono'
-  'fontSize': 14
+'atom-text-editor':
+  'fontFamily': 'Menlo'
+  'fontSize': 13
   'scrollPastEnd': true
   'lineHeight': 1.5
   'invisibles': {}
   'showIndentGuide': true
-'core':
-  'themes': [
-    'spacegray-dark-ui'
-    'base16-ocean-dark'
-  ]
-EOM
-
-cat <<EOM >$ATOMCSS
-.editor.is-focused {
-  .line.cursor-line {
-    background-color: fade(#4f5b66, 45%);
-  }
-}
+  editor:
+    invisibles: {}
+    fontFamily: "Menlo"
+    showIndentGuide: true
+    useShadowDOM: false
+    scrollPastEnd: true
+  welcome:
+    showOnStartup: true
 EOM
 
 echo ""
