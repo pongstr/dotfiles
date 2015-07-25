@@ -34,38 +34,22 @@ check () { type -t "${@}" > /dev/null 2>&1; }
 
 # Function to install Homebrew Formulas:
 install_formula () {
+  DOTFILE=$(pwd)
+
   echo ""
   echo "Installing Homebrew Packages:"
 
-  # Excluding this for now, not really a
-  # fan of installing Java in my machine
-  # echo ""
-  # echo "  ➜ Android SDK"
-  # brew install android-sdk
-
   echo ""
-  echo "  ➜ libyaml"
-  brew install libyaml
-
-  echo ""
-  echo "  ➜ Install GNU Scientific Library for rb-gsl"
-  brew install gsl
-
-  echo ""
-  echo "  ➜ openssl"
-  brew install openssl
+  echo "  ➜ dnsmasq"
+  brew install dnsmasq
 
   echo ""
   echo "  ➜ git"
   brew install git
 
   echo ""
-  echo "  ➜ python"
-  brew install python
-
-  echo ""
-  echo "  ➜ node"
-  brew install node
+  echo "  ➜ libyaml"
+  brew install libyaml
 
   echo ""
   echo "  ➜ mongodb"
@@ -73,21 +57,37 @@ install_formula () {
   mkdir $HOME/.mongodb-data
 
   echo ""
-  echo "  ➜ zsh"
-  brew install zsh
+  echo "  ➜ nginx"
+  brew install nginx
+
+  echo ""
+  echo "  ➜ node"
+  brew install node
+
+  echo ""
+  echo "  ➜ openssl"
+  brew install openssl
+
+  echo ""
+  echo "  ➜ python"
+  brew install python
 
   echo ""
   echo "  ➜ vim (overriding system vim)"
   brew install vim --override-system-vi
+
+  echo ""
+  echo "  ➜ zsh"
+  brew install zsh
 
   # Cleanup
   echo ""
   echo "Cleaning up Homebrew installation..."
   brew cleanup
 
-  cp -R $HOME/.dotfiles/bin/shell/.bashrc $HOME/.bashrc
-  cp -R $HOME/.dotfiles/bin/shell/.bash_alias $HOME/.bash_alias
-  cp -R $HOME/.dotfiles/bin/shell/.bash_profile $HOME/.bash_profile
+  yes | cp -rf $DOTFILE/bin/shell/.bashrc $HOME/.bashrc
+  yes | cp -rf $DOTFILE/bin/shell/.bash_alias $HOME/.bash_alias
+  yes | cp -rf $DOTFILE/bin/shell/.bash_profile $HOME/.bash_profile
 
   echo "Installing Caskroom, Caskroom versions, Caskroom Fonts and Brew Services"
   brew install caskroom/cask/brew-cask
@@ -112,7 +112,7 @@ echo "Install hushlogin"
 echo "  - Disable the system copyright notice, the date and time of the last login."
 echo "    more info at @mathiasbynens/dotfiles http://goo.gl/wZBM80"
 echo ""
-cp -f "$HOME/.dotfiles/.hushlogin" $HOME/.hushlogin
+yes | cp -rf "$DOTFILE/.hushlogin" $HOME/.hushlogin
 
 
 # Install Homebrew
