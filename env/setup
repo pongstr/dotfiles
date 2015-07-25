@@ -1,0 +1,39 @@
+
+DOTFILE=$(pwd)
+
+mkdir -p $HOME/Projects/.env
+
+# Create Nginx Paths
+nginx_root=$HOME/Projects/.env/nginx
+nginx_path=(
+  $nginx_root/cache
+  $nginx_root/config
+  $nginx_root/logs
+  $nginx_root/pid
+  $nginx_root/temp
+)
+
+mkdir -p ${nginx_path[@]}
+
+yes | cp -rf $DOTFILE/nginx/nodejs.conf $nginx_root/config/
+
+# Create MongoDB Paths
+mongodb_root=$HOME/Projects/.env/mongodb
+mongodb_path=(
+  $mongodb_root/logs
+  $mongodb_root/data
+)
+
+mkdir -p ${mongodb_path[@]}
+
+yes | cp -rf $DOTFILE/dnsmasq/dnsmasq.conf /usr/local/etc
+yes | cp -rf $DOTFILE/mongodb/mongodb.conf /usr/local/etc
+yes | cp -rf $DOTFILE/nginx/nginx.conf /usr/local/etc/nginx/
+
+sudo mkdir -p /etc/resolver
+sudo yes | cp -rf $DOTFILE/dnsmasq/dev /etc/resolver
+
+sleep 1
+sudo brew services start dnsmasq
+sudo brew services start mongodb
+sudo brew services start nginx
