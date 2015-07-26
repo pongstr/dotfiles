@@ -1,6 +1,10 @@
 
 DOTFILE=$(pwd)
 
+sudo -v
+
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
 mkdir -p $HOME/Projects/.env
 
 # Create Nginx Paths
@@ -15,7 +19,7 @@ nginx_path=(
 
 mkdir -p ${nginx_path[@]}
 
-yes | cp -rf $DOTFILE/nginx/nodejs.conf $nginx_root/config/
+yes | cp -rf $DOTFILE/env/nginx/nodejs.conf $nginx_root/config/
 
 # Create MongoDB Paths
 mongodb_root=$HOME/Projects/.env/mongodb
@@ -26,14 +30,20 @@ mongodb_path=(
 
 mkdir -p ${mongodb_path[@]}
 
-yes | cp -rf $DOTFILE/dnsmasq/dnsmasq.conf /usr/local/etc
-yes | cp -rf $DOTFILE/mongodb/mongodb.conf /usr/local/etc
-yes | cp -rf $DOTFILE/nginx/nginx.conf /usr/local/etc/nginx/
+yes | cp -rf $DOTFILE/env/dnsmasq/dnsmasq.conf /usr/local/etc/
+yes | cp -rf $DOTFILE/env/mongodb/mongodb.conf /usr/local/etc/
+yes | cp -rf $DOTFILE/env/nginx/nginx.conf /usr/local/etc/nginx/
 
-sudo mkdir -p /etc/resolver
-sudo yes | cp -rf $DOTFILE/dnsmasq/dev /etc/resolver
+
+if [ ! -d /etc/resolver ]; then
+  mkdir -p /etc/resolver
+  sudo yes | cp -rf $DOTFILE/env/dnsmasq/dev /etc/resolver/
+else
+  sudo yes | cp -rf $DOTFILE/env/dnsmasq/dev /etc/resolver/
+fi
+
 
 sleep 1
-sudo brew services start dnsmasq
-sudo brew services start mongodb
-sudo brew services start nginx
+brew services start dnsmasq
+brew services start mongodb
+brew services start nginx
