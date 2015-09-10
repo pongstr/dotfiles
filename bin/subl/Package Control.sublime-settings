@@ -5,10 +5,14 @@
     "GitGutter",
     "Handlebars",
     "HTML5",
+    "HTML-CSS-JS-Prettify",
+    "JSCS-Formatter",
     "LESS",
+    "nginx"
     "Package Control",
     "Pretty JSON",
     "Pretty YAML",
+    "Puppet",
     "Sass",
     "SCSS",
     "SideBarEnhancements"
