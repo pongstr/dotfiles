@@ -2,7 +2,6 @@
 install.sh
 _gh_pages
 _site
-.ruby-version
 
 Numerous always-ignore extensions
 *.diff
