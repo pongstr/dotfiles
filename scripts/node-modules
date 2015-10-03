@@ -1,7 +1,8 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # List Packages that will be installed
 node_modules=(
+  node-gyp
   bower
   coffee-script
   express
@@ -12,12 +13,11 @@ node_modules=(
   less
   strongloop
   mean-cli
-  mongoose
   nodemon
   pm2
-  sails
   shelljs
 )
 
 # Install Node Packages
+printf "\e[0;34m  --> Installing npm global modules for node $(nodenv global) \n\e[0m"
 npm install -g  ${node_modules[@]}

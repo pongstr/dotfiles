@@ -8,7 +8,14 @@ printf "%s" $'\e[1;32m
   ██║     ╚██████╔╝██║ ╚████║╚██████╔╝███████║   ██║   ██║  ██║
   ╚═╝      ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝ ╚══════╝   ╚═╝   ╚═╝  ╚═╝\e[1;31m
       Dotfiles v0.1.16 https://github.com/pongstr/dotfiles\e[0m\n
-'
+
+  \e[0;34m--> Dotfiles bruh, we need access to your shit... \n\n\e[0m'
+
+sudo -v
+
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
+echo
 
 # Add your favorite homebrew taps here
 # @string: accepts `brew tap` arguments wrapped in quotes
@@ -148,9 +155,9 @@ printf "\e[0;1m  --> Checking to see if Homebrew is installed..."
 if hash brew 2>/dev/null; then
   printf "
       Awesome! Homebrew is installed! Now updating...\n\e[0m"
-  brew update
+  # brew update
   install_formula
-  brew upgrade --all
+  # brew upgrade --all
 else
   printf "\e[0;1m      Did not find Homebrew installation, installing it now...\e[0m\n"
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -210,3 +217,13 @@ printf "\e[0;34m
   Bootstrapping your  Mac is now complete, you now have the necessary tools
   to control your development enviroment.
 \n\e[0m"
+
+while true; do
+case "${@}" in
+  ('--fonts') exec "scripts/fonts"; break;;
+  ('--casks') exec "scripts/casks"; break;;
+  ('--gem') exec "scripts/gem"; break;;
+  ('--npm') exec "scripts/npm"; break;;
+  ('--osx') exec "scripts/osx"; break;;
+esac
+done
