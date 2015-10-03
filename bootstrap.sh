@@ -1,173 +1,229 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-echo ""
-echo "      ___       ___          ___          ___                   ___      "
-echo "     /  /\     /__/\        /  /\        /  /\         ___     /  /\     "
-echo "    /  /::\    \  \:\      /  /:/_      /  /:/_       /  /\   /  /::\    "
-echo "   /  /:/\:\    \  \:\    /  /:/ /\    /  /:/ /\     /  /:/  /  /:/\:\   "
-echo "  /  /:/~/:/_____\__\:\  /  /:/_/::\  /  /:/ /::\   /  /:/  /  /:/~/:/   "
-echo " /__/:/ /://__/::::::::\/__/:/__\/\:\/__/:/ /:/\:\ /  /::\ /__/:/ /:/___ "
-echo " \  \:\/:/ \  \:\~~\~~\/\  \:\ /~~/:/\  \:\/:/~/://__/:/\:\\  \:\/:::::/ "
-echo "  \  \::/   \  \:\  ~~~  \  \:\  /:/  \  \::/ /:/ \__\/  \:\\  \::/~~~~  "
-echo "   \  \:\    \  \:\       \  \:\/:/    \__\/ /:/       \  \:\\  \:\      "
-echo "    \  \:\    \  \:\       \  \::/       /__/:/         \__\/ \  \:\     "
-echo "     \__\/     \__\/        \__\/        \__\/                 \__\/     "
-echo ""
-echo "        ..........................................................       "
-echo "        . Dotfiles 0.1.15 (Pongstr) for setting up OSX Workspace .       "
-echo "        .      https://github.com/pongstr/dotfiles.git           .       "
-echo "        ..........................................................       "
-echo ""
+printf "%s" $'\e[1;32m
+  ██████╗  ██████╗ ███╗   ██╗ ██████╗ ███████╗████████╗██████╗
+  ██╔══██╗██╔═══██╗████╗  ██║██╔════╝ ██╔════╝╚══██╔══╝██╔══██╗
+  ██████╔╝██║   ██║██╔██╗ ██║██║  ███╗███████╗   ██║   ██████╔╝
+  ██╔═══╝ ██║   ██║██║╚██╗██║██║   ██║╚════██║   ██║   ██╔══██╗
+  ██║     ╚██████╔╝██║ ╚████║╚██████╔╝███████║   ██║   ██║  ██║
+  ╚═╝      ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝ ╚══════╝   ╚═╝   ╚═╝  ╚═╝\e[1;31m
+      Dotfiles v0.1.16 https://github.com/pongstr/dotfiles\e[0m\n
 
-# To run this, you must download & install the latest Xcode and Commandline Tools
-# https://developer.apple.com/xcode/
-# https://developer.apple.com/downloads/
+  \e[0;34m--> Dotfiles bruh, we need access to your shit... \n\n\e[0m'
 
-echo ""
-echo "  To run this, you must download & install the latest Xcode and Commandline Tools"
-echo "    > https://developer.apple.com/xcode/"
-echo "    > https://developer.apple.com/downloads/"
-xcode-select --install
+sudo -v
 
-# Function to check if a package exists
-check () { type -t "${@}" > /dev/null 2>&1; }
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
-# Function to install Homebrew Formulas:
-install_formula () {
-  DOTFILE=$(pwd)
+echo
 
-  echo ""
-  echo "Installing Homebrew Packages:"
+# Add your favorite homebrew taps here
+# @string: accepts `brew tap` arguments wrapped in quotes
+# @examples:
+#     '<user/repo>'
+#     '<user/repo> <URL>'
+#
+brewtaps=()
 
-  echo ""
-  echo "  ➜ dnsmasq"
-  brew install dnsmasq
+# Add your homebrew packages here
+# @string: accepts `brew install` arguments wrapped in quotes
+# @examples:
+#     'PACKAGE_NAME --ARGUMENTS_HERE'
+#                   --debug | --ignore-dependencies | --only-dependencies
+#                   --cc=[compiler] | --build-from-source | --force-botle
+#                   --devel | --HEAD
+#
+brewpkgs=(
+  'sassc'
+  'wget'
+)
 
-  echo ""
-  echo "  ➜ git"
-  brew install git
+# Add node.js or io.js versions here
+# @string: accepts nodejs or iojs sematic version
+# @examples:
+#     - node.js: '0.10.11'
+#     - io.js:   'iojs-3.3.1'
+#
+nodes=(
+  '4.1.1'
+  '0.12.7'
+  '0.10.11'
+)
 
-  echo ""
-  echo "  ➜ libyaml"
-  brew install libyaml
-
-  echo ""
-  echo "  ➜ mongodb"
-  brew install mongo
-  mkdir $HOME/.mongodb-data
-
-  echo ""
-  echo "  ➜ nginx"
-  brew install nginx
-
-  echo ""
-  echo "  ➜ node"
-  brew install node
-
-  echo ""
-  echo "  ➜ openssl"
-  brew install openssl
-
-  echo ""
-  echo "  ➜ python"
-  brew install python
-
-  echo ""
-  echo "  ➜ vim (overriding system vim)"
-  brew install vim --override-system-vi
-
-  echo ""
-  echo "  ➜ zsh"
-  brew install zsh
-
-  # Cleanup
-  echo ""
-  echo "Cleaning up Homebrew installation..."
-  brew cleanup
-
-  yes | cp -rf $DOTFILE/bin/shell/.bashrc $HOME/.bashrc
-  yes | cp -rf $DOTFILE/bin/shell/.bash_alias $HOME/.bash_alias
-  yes | cp -rf $DOTFILE/bin/shell/.bash_profile $HOME/.bash_profile
-
-  echo "Installing Caskroom, Caskroom versions, Caskroom Fonts and Brew Services"
-  brew install caskroom/cask/brew-cask
-  brew tap homebrew/services
-  brew tap caskroom/versions
-  brew tap caskroom/fonts
-
-  # Make /Applications the default location of apps
-  export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-
-  echo ""
-  echo "Installing monospace fonts... "
-  brew cask install font-droid-sans-mono
-  brew cask install font-ubuntu
-  brew cleanup
+# Add preferred Ruby version here
+# @string: accepts ruby versions
+# @examples:
+#    - '1.9.3-p551'
+#    - 'mruby-1.1.0'
+#    - 'jruby-9.0.1.0'
+rubies=(
+  '2.2.3'
+  '1.9.3-p551'
+)
 
 
+
+brew_install () {
+  local brew_install=$(brew install "${@}")
+  echo $brew_install
+}
+
+brew_tap () {
+  local brew_tap=$(brew tap "${@}")
+  echo $brew_tap
 }
 
 
-# Install Hushlogin
-echo ""
-echo "Install hushlogin"
-echo "  - Disable the system copyright notice, the date and time of the last login."
-echo "    more info at @mathiasbynens/dotfiles http://goo.gl/wZBM80"
-echo ""
-yes | cp -rf "$DOTFILE/.hushlogin" $HOME/.hushlogin
+install_formula () {
+  printf "\n\e[0;34m  --> Initializing Homebrew Taps\n\e[0m"
+  default_taps=(
+    'homebrew/services'
+    'jawshooah/nodenv'
+    'caskroom/versions'
+    'caskroom/fonts'
+  )
 
+  # Default Homebrew Taps
+  for tap in ${default_taps[@]}
+  do
+    if [ "$(brew tap | grep -io ${tap})" == ${tap} ]; then
+      printf "\e[0;32m       * Already tapped: ${tap}\n\e[0m"
+    else
+      printf "\e[0;32m       * Tapping [ ${tap} ]\n\e[0m"
+      brew_tap ${tap}
+    fi
+  done
 
-# Install Homebrew
-# ---------------------------------------------------------------------------
-echo ""
-echo "Checking if Homebrew is installed..."
+  # Custom Homebrew Taps
+  if [ "${#brewtaps[@]}" -gt 0 ]; then
+    for tap in "${brewtaps[@]}"
+    do
+      if [ "$(brew tap | grep -io ${tap})" == ${tap} ]; then
+        printf "\e[0;32m       * Already tapped: ${tap}\n\e[0m"
+      else
+        printf "\e[0;32m       * Tapping [ ${tap} ]\n\e[0m"
+        brew_tap ${tap}
+      fi
+    done
+  fi
 
-if check brew; then
-  echo "Awesome! Homebrew is installed! Now updating..."
-  echo ""
-  brew upgrade
-  brew update --all
-fi
+  printf "\n\e[0;34m  --> Installing Homebrew Formulas \n\e[0m"
+  default_pkgs=(
+    'caskroom/cask/brew-cask'
+    'dnsmasq'
+    'git'
+    'libyaml'
+    'mongo'
+    'nginx'
+    'jawshooah/nodenv/nodenv'
+    '--HEAD node-build'
+    'openssl'
+    'python'
+    'rbenv'
+    'redis'
+    'vim --override-system-vi'
+    'zsh'
+  )
 
-if ! check brew; then
-  echo "Download and install homebrew"
-  echo ""
+  # Default Homebrew Packages
+  for package in "${default_pkgs[@]}"
+  do
+    if brew info $package | grep "Not installed" > /dev/null; then
+      printf "\e[0;32m       * Installing ${package}, please wait... \e[0m"
+      brew_install $package
+    else
+      printf  "\e[0;32m       * ${package} is already installed. \n\e[0m"
+    fi
+  done
+
+  # Custom Homebrew Packages
+  if [ "${#brewpkgs[@]}" -gt 0 ]; then
+    for package in "${brewpkgs[@]}"
+    do
+      if brew info $package | grep "Not installed" > /dev/null; then
+        printf "\e[0;32m       * Installing ${package}, please wait... \e[0m"
+        brew_install $package
+      else
+        printf "\e[0;32m       * ${package} is already installed. \n\e[0m"
+      fi
+    done
+  fi
+}
+
+printf "\e[0;1m  --> Checking to see if Homebrew is installed..."
+
+if hash brew 2>/dev/null; then
+  printf "
+      Awesome! Homebrew is installed! Now updating...\n\e[0m"
+  # brew update
+  install_formula
+  # brew upgrade --all
+else
+  printf "\e[0;1m      Did not find Homebrew installation, installing it now...\e[0m\n"
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
-  # Run Brew doctor before anything else
   brew doctor
+  install_formula
 fi
 
-# Install Homebrew Formulas
+printf "\n  --> Reloading run commands $(source ${HOME}/.profile)\n"
+
+install_nodes () {
+  for node in "${nodes[@]}"
+  do
+    if [ "$(nodenv versions | grep -Eio $node)" == $node ]; then
+      printf "\e[0;32m       * node.js v$node is already installed...\n\e[0m"
+    fi
+
+    if [ "$(nodenv versions | grep -Eio $node)" == "" ]; then
+      printf "\e[0;32m       * Installing node.js v${node}, sit back & relax\n"
+      printf "         this may take a few minutes to complete..\n\e[0m"
+      nodenv install $node
+    fi
+  done
+
+  printf "\n\e[0;33m    Setting node.js v${nodes} as the default global version.\n"
+  nodenv global "${nodes}"
+}
+
+printf "\n\e[0;34m  --> Installing Node.js versions \n\e[0m"
+if hash nodenv 2>/dev/null; then
+  install_nodes
+fi
+
+install_rubies () {
+  for rb in "${rubies[@]}"
+  do
+    if [ "$(rbenv versions | grep -Eio $rb)" == $rb ]; then
+      printf "\e[0;32m       * ruby $rb is already installed...\n\e[0m"
+    fi
+
+    if [ "$(rbenv versions | grep -Eio $rb)" == "" ]; then
+      printf "\e[0;32m       * Installing ruby $rb}, sit back & relax\n"
+      printf "         this may take a few minutes to complete..\n\e[0m"
+      rbenv install $rb
+    fi
+  done
+
+  printf "\n\e[0;33m    Setting Ruby ${rubies} as the default global version.\n"
+  rbenv global "${rubies}"
+}
+
+printf "\n\e[0;34m  --> Installing Ruby versions \n\e[0m"
+if hash rbenv 2>/dev/null; then
+  install_rubies
+fi
+
+printf "\e[0;34m
+  Bootstrapping your  Mac is now complete, you now have the necessary tools
+  to control your development enviroment.
+\n\e[0m"
+
 while true; do
-  read -p "Would you like to install Homebrew formulas? [y/n] " answer
-  echo ""
-  case $answer in
-    [y/Y]* ) install_formula; break;;
-    [n/N]* ) break;;
-    * ) echo "Please answer Y or N.";;
-  esac
+case "${@}" in
+  ('--fonts') exec "scripts/fonts"; break;;
+  ('--casks') exec "scripts/casks"; break;;
+  ('--gem') exec "scripts/gem"; break;;
+  ('--npm') exec "scripts/npm"; break;;
+  ('--osx') exec "scripts/osx"; break;;
+esac
 done
-
-
-# Install RVM
-# ---------------------------------------------------------------------------
-
-echo ""
-echo "Installing RVM and latest version of Ruby"
-\curl -sSL https://get.rvm.io | bash -s stable --ruby
-
-echo ""
-echo "  >   Update OSX SSL Certificates"
-rvm osx-ssl-certs update all
-
-echo "  >   Auto update SSL Certificates"
-rvm osx-ssl-certs cron install
-
-sleep 1
-rvm reload
-
-# Restart Terminal for RVM to take effect
-echo ""
-echo "bootstrapping complete! quitting terminal..."
-killall Terminal
