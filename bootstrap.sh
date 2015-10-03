@@ -213,17 +213,48 @@ if hash rbenv 2>/dev/null; then
   install_rubies
 fi
 
+vim_setup () {
+  vim_dirs=(
+    'backups'
+    'colors'
+    'swaps'
+    'undo'
+  )
+
+  for dir in "${vim_dirs[@]}"
+  do
+    printf "\e[0;32m       * ${dir} created for ${dir}\n\e[0m"
+    mkdir -p "${HOME}/${dir}"
+  done
+
+  printf "\e[0;32m       * setup Vim run commands\n\e[0m"
+  cp -f "$(pwd)/config/.vimrc" "${HOME}"
+
+  printf "\e[0;32m       * setup Vim Pongstr Base-16 theme\n\e[0m"
+  cp -f "$(pwd)/config/themes/Pongstr Base-16.vim" "${HOME}/.vim/colors"
+}
+
+printf "\n\e[0;34m  --> Setting up Vim workspace\n\e[0m"
+if [ ! -d "${HOME}/.vim" ]; then
+  mkdir -p "${HOME}/.vim/"
+  vim_setup
+else
+  vim_setup
+fi
+
 printf "\e[0;34m
   Bootstrapping your  Mac is now complete, you now have the necessary tools
   to control your development enviroment.
 \n\e[0m"
 
-while true; do
-case "${@}" in
-  ('--fonts') exec "scripts/fonts"; break;;
-  ('--casks') exec "scripts/casks"; break;;
-  ('--gem') exec "scripts/gem"; break;;
-  ('--npm') exec "scripts/npm"; break;;
-  ('--osx') exec "scripts/osx"; break;;
-esac
-done
+if [ "${#@}" -gt 0 ]; then
+  while true; do
+    case "${@}" in
+      ('--fonts') exec "scripts/fonts"; break;;
+      ('--casks') exec "scripts/casks"; break;;
+      ('--gem') exec "scripts/gem"; break;;
+      ('--npm') exec "scripts/npm"; break;;
+      ('--osx') exec "scripts/osx"; break;;
+    esac
+  done
+fi
