@@ -116,7 +116,7 @@ install_formula () {
     'mongo'
     'nginx'
     'jawshooah/nodenv/nodenv'
-    '--HEAD node-build'
+    'node-build --HEAD'
     'openssl'
     'python'
     'rbenv'
@@ -255,6 +255,7 @@ if [ "${#@}" -gt 0 ]; then
       ('--gem') exec "scripts/gem"; break;;
       ('--npm') exec "scripts/npm"; break;;
       ('--osx') exec "scripts/osx"; break;;
+      ('--git') exec "scripts/gitsetup"; break;;
     esac
   done
 fi
