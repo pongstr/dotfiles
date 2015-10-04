@@ -252,6 +252,7 @@ if [ "${#@}" -gt 0 ]; then
     case "${@}" in
       ('--fonts') exec "scripts/fonts"; break;;
       ('--casks') exec "scripts/casks"; break;;
+      ('--iterm') exec "scripts/iterm"; break;;
       ('--gem') exec "scripts/gem"; break;;
       ('--npm') exec "scripts/npm"; break;;
       ('--osx') exec "scripts/osx"; break;;

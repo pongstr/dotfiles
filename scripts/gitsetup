@@ -39,29 +39,60 @@ setup_github_ssh () {
   read -s PASSPHRASE
 
   echo ""
-
-  ssh-keygen -t rsa -C "${GITHUB_EMAIL}" -f "${sshdir}/github_rsa" -P "${PASSPHRASE}" -q1
+  ssh-keygen -t rsa -C "${GITHUB_EMAIL}" -f "${sshdir}/github_rsa" -P "${PASSPHRASE}" -q
   ssh-add "${sshdir}/github_rsa" && pbcopy < "${sshdir}/github_rsa.pub"
 
   GITHUB_KEY=`pbpaste`
   GITHUB_PAYLOAD="{ \"title\": \"$GITHUB_TITLE\", \"key\": \"$GITHUB_KEY\" }"
 
-  printf "\n\e[1;33m  --> Okay, now I will need you to login to Github and authorize
-      me to add these SSH Key under your account\n\e[0m"
+  printf "\n\e[1;33m  --> Okay, now I will need you to login to Github and
+      authorize me to add these SSH Key under your account\n\e[0m"
+
   read -p "      * Github Username: " GH_USERNAME
   echo -n "      * Github Password: "
   read -s GH_PASSWORD
 
   printf "\n\n\e[0;1m   --> Adding the SSH Key to your Github Account
-       Hang Tight! this won't be long..\n\e[0m"
-  curl --user "${GH_USERNAME}:${GH_PASSWORD}" -X POST --data "${GITHUB_PAYLOAD}" \
-    https://api.github.com/user/keys -#o /dev/null
+       Hang Tight! this won't be long..\n\n\e[0m"
+
+  echo $(curl --user "${GH_USERNAME}:${GH_PASSWORD}" -X POST --data "${GITHUB_PAYLOAD}" https://api.github.com/user/keys -#o /dev/null)
 
   printf "\n\e[0;32m  --> SSH Key has been successfully added!
-  --> Accessing Github to verify the SSH Keys\e[0m\n"
+  --> Accessing Github to verify the SSH Keys\e[0m\n\n"
+  ssh -T git@github.com
 
-  local gitcheck=$(ssh -T git@github.com)
-  printf "\n ${gitcheck}"
+  echo ""
+  exit 0
+}
+
+setup_bitbucket_ssh () {
+  printf "\e[1;33m  --> Setting up your Bitbucket SSH Keys\e[0m\n"
+  read -p "      * Please enter your Bitbucket Username: " BITBUCKET_USERNAME
+  echo -n "      * Please enter your Bitbucket Password: "
+  read -s BITBUCKET_PASSWORD
+  echo ""
+
+
+  read -p "      * Please add a title to your key: " BITBUCKET_TITLE
+  echo -n "      * Please enter a new Passphrase:  "
+  read -s PASSPHRASE
+
+  ssh-keygen -q -f "${sshdir}/bitbucket_rsa" -P "${PASSPHRASE}" && pbcopy < "${sshdir}/bitbucket_rsa.pub"
+
+  BITBUCKET_KEY=`pbpaste`
+  BITBUCKET_PAYLOAD="{ \"label\": \"${BITBUCKET_TITLE}\", \"key\": \"${BITBUCKET_KEY}\" }"
+
+  printf "\n\e[1;33m  --> Okay, since you've entered your Bitbucket credentials,
+      I will now use the authorization to add these SSH Keys to your account.
+      Hang tight! this won't be long \n\n\e[0m"
+
+  echo $(curl --user "${BITBUCKET_USERNAME}:${BITBUCKET_PASSWORD}" -X POST --data "${BITBUCKET_PAYLOAD}" "https://bitbucket.org/api/1.0/users/${BITBUCKET_USERNAME}/ssh-keys/" -H "Content-Type: application/json" -#o /dev/null)
+  printf "\n\e[0;32m  --> SSH Key has been successfully added!
+  --> Accessing Bitbucket to verify the SSH Keys\e[0m\n\n"
+  ssh -T git@bitbucket.org
+
+  echo ""
+  exit 0
 }
 
 printf "\e[0;1m
@@ -86,7 +117,7 @@ while true; do
   case $ANSWER in
     [1]*) setup_gitconfig; break;;
     [2]*) setup_github_ssh; break;;
-    # [3]*) setup_bitbucket_ssh; break;;c
+    [3]*) setup_bitbucket_ssh; break;;
     # [4]*) setup_all; break;;
     [Q/q]*) exit;;
     # *) printf "\n\e[Please select from the options above"
