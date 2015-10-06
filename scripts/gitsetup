@@ -20,13 +20,13 @@ setup_gitconfig () {
     [3] Bitbucket: Create and Add SSH Keys
     [Q/q] Type Quit to cancel
   \e[0m"
+
   read -p "
   --> Answer: " selected
 
     case "${selected}" in
-      [2]*) setup_github_ssh; break;;
-      # [3]*) setup_bitbucket_ssh; break;;
-      # [4]*) setup_both; break;;
+      [g]*) setup_github_ssh; break;;
+      [b]*) setup_bitbucket_ssh; break;;
       [Q/q]*) exit;;
     esac
 }
@@ -52,7 +52,7 @@ setup_github_ssh () {
   echo -n "      * Github Password: "
   read -s GH_PASSWORD
 
-  printf "\n\n\e[0;1m   --> Adding the SSH Key to your Github Account
+  printf "\n\e[0;1m   --> Adding the SSH Key to your Github Account
        Hang Tight! this won't be long..\n\n\e[0m"
 
   echo $(curl --user "${GH_USERNAME}:${GH_PASSWORD}" -X POST --data "${GITHUB_PAYLOAD}" https://api.github.com/user/keys -#o /dev/null)
@@ -120,6 +120,6 @@ while true; do
     [3]*) setup_bitbucket_ssh; break;;
     # [4]*) setup_all; break;;
     [Q/q]*) exit;;
-    # *) printf "\n\e[Please select from the options above"
+    *) echo -e "  Please select from the options above"
   esac
 done
