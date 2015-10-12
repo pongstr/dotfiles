@@ -50,7 +50,7 @@ alias mongostart="mongod --dbpath $HOME/.mongodb-data"
 CASE_SENSITIVE="true"
 
 # Uncomment this to disable bi-weekly auto-update checks
-DISABLE_AUTO_UPDATE="false"
+DISABLE_AUTO_UPDATE="false"s
 
 # Uncomment to change how often before auto-updates occur? (in days)
 export UPDATE_ZSH_DAYS=10
@@ -79,21 +79,16 @@ export PATH="$PATH:/usr/sbin"
 # Make /Applications the default location of apps
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
-# Thanks for the awesome idea batasrki
-function gemdir {
-  if [[ -z "$1" ]] ; then
-    echo "gemdir expects a parameter, which should be a valid RVM Ruby selector"
-  else
-    rvm "$1"
-    cd $(rvm gemdir)
-    pwd
-  fi
-}
+# To use Homebrew's directories rather than ~/.rbenv
+export RBENV_ROOT="/usr/local/var/rbenv"
 
-# Load RVM into a shell session *as a function*
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+# Enable Rbenv shims and autocompletion
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
-# Boxen
+# Enable Nodenv shims and autocompletion
+if which nodenv > /dev/null; then eval "$(nodenv init -)"; fi
+
+# Boxen Compatibility
 if [[ -d /opt/boxen ]] ; then
   [ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
 fi
