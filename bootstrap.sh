@@ -1,19 +1,39 @@
 #!/bin/bash
 
-printf "%s" $'\e[1;32m
-  ██████╗  ██████╗ ███╗   ██╗ ██████╗ ███████╗████████╗██████╗
-  ██╔══██╗██╔═══██╗████╗  ██║██╔════╝ ██╔════╝╚══██╔══╝██╔══██╗
-  ██████╔╝██║   ██║██╔██╗ ██║██║  ███╗███████╗   ██║   ██████╔╝
-  ██╔═══╝ ██║   ██║██║╚██╗██║██║   ██║╚════██║   ██║   ██╔══██╗
-  ██║     ╚██████╔╝██║ ╚████║╚██████╔╝███████║   ██║   ██║  ██║
-  ╚═╝      ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝ ╚══════╝   ╚═╝   ╚═╝  ╚═╝\e[1;31m
-      Dotfiles v0.1.16 https://github.com/pongstr/dotfiles\e[0m\n
+help () {
 
-  \e[0;34m--> Dotfiles bruh, we need access to your shit... \n\n\e[0m'
+  printf "%s" $'\e[1;32m
+    ██████╗  ██████╗ ███╗   ██╗ ██████╗ ███████╗████████╗██████╗
+    ██╔══██╗██╔═══██╗████╗  ██║██╔════╝ ██╔════╝╚══██╔══╝██╔══██╗
+    ██████╔╝██║   ██║██╔██╗ ██║██║  ███╗███████╗   ██║   ██████╔╝
+    ██╔═══╝ ██║   ██║██║╚██╗██║██║   ██║╚════██║   ██║   ██╔══██╗
+    ██║     ╚██████╔╝██║ ╚████║╚██████╔╝███████║   ██║   ██║  ██║
+    ╚═╝      ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝ ╚══════╝   ╚═╝   ╚═╝  ╚═╝\e[1;31m
+        Dotfiles v0.1.16 https://github.com/pongstr/dotfiles\e[0m\n
 
-sudo -v
+    \e[0;34m--> Dotfiles bruh, we need your password access to your shit... \n\e[0m'
 
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+  printf "
+    Usage:
+
+      dotfiles [parameters] [--arguments]
+
+      Parameters:
+        - casks      :installs default native apps via brew-cask
+        - fonts      :installs default fonts declared from scripts/fonts
+        - gitsetup   :setup for glolbal git config and setup for Github & Bitbucket SSH Keys
+        - nodepkgs   :installs npm packages for the default node version
+        - osxdefault :default setup for osx (for OS X >= 10.8)
+        - rubygems   :installs gems for web development
+        - terminal   :setup terminal to use zshell and oh-my-zshell plugin
+
+
+  "
+
+}
+
+help
+
 
 echo
 
@@ -45,9 +65,8 @@ brewpkgs=(
 #     - io.js:   'iojs-3.3.1'
 #
 nodes=(
-  '4.1.1'
+  '4.1.2'
   '0.12.7'
-  '0.10.11'
 )
 
 # Add preferred Ruby version here
@@ -60,8 +79,6 @@ rubies=(
   '2.2.3'
   '1.9.3-p551'
 )
-
-
 
 brew_install () {
   local brew_install=$(brew install "${@}")
@@ -252,11 +269,11 @@ if [ "${#@}" -gt 0 ]; then
     case "${@}" in
       ('--fonts') exec "scripts/fonts"; break;;
       ('--casks') exec "scripts/casks"; break;;
-      ('--iterm') exec "scripts/iterm"; break;;
-      ('--gem') exec "scripts/gem"; break;;
-      ('--npm') exec "scripts/npm"; break;;
-      ('--osx') exec "scripts/osx"; break;;
-      ('--git') exec "scripts/gitsetup"; break;;
+      ('--gitsetup') exec "scripts/gitsetup"; break;;
+      ('--rubygems') exec "scripts/gem"; break;;
+      ('--nodepkgs') exec "scripts/npm"; break;;
+      ('--osxmods') exec "scripts/osx"; break;;
+      ('--terminal') exec "scripts/iterm"; break;;
     esac
   done
 fi
