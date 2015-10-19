@@ -67,8 +67,8 @@ class Nginx < Formula
       --http-fastcgi-temp-path=/opt/dotfiles/settings/nginx/run/fastcgi_temp
       --http-uwsgi-temp-path=/opt/dotfiles/settings/nginx/run/uwsgi_temp
       --http-scgi-temp-path=/opt/dotfiles/settings/nginx/run/scgi_temp
-      --http-log-path=/opt/dotfiles/settings/nginx/log/nginx/access.log
-      --error-log-path=/opt/dotfiles/settings/nginx/log/nginx/error.log
+      --http-log-path=/opt/dotfiles/settings/nginx/log/access.log
+      --error-log-path=/opt/dotfiles/settings/nginx/log/error.log
       --with-http_gzip_static_module
     ]
 
@@ -107,6 +107,57 @@ class Nginx < Formula
 
     (etc/"nginx/servers").mkpath
     (var/"run/nginx").mkpath
+    ("/opt/dotfiles/settings/nginx/sites").mkpath
+    ("/opt/dotfiles/settings/nginx/nginx.conf").write nginx_conf
+  end
+
+  def nginx_conf; <<-EOS.undent
+    worker_processes  2;
+    pid /opt/dotfiles/settings/nginx/run/nginx.pid;
+
+    events {
+      worker_connections  1024;
+    }
+
+    http {
+      include       mime.types;
+      default_type  application/octet-stream;
+
+      log_format  main '$remote_addr - $remote_user [$time_local] "$request" '
+                       '$status $body_bytes_sent "$http_referer" '
+                       '"$http_user_agent" "$http_x_forwarded_for"';
+
+      access_log  /opt/dotfiles/settings/nginx/log/access.log  main;
+      error_log   /opt/dotfiles/settings/nginx/log/error.log  debug;
+
+      sendfile    on;
+      tcp_nopush  on;
+      tcp_nodelay off;
+
+      gzip              on;
+      gzip_http_version 1.0;
+      gzip_comp_level   2;
+      gzip_proxied      any;
+
+      server_names_hash_bucket_size 128;
+      server_names_hash_max_size 20000;
+      proxy_headers_hash_bucket_size 128;
+      proxy_headers_hash_max_size 20000;
+
+      underscores_in_headers on;
+
+      server {
+        listen      80 default_server;
+        server_name localhost;
+
+        location / {
+          root #{var}/www;
+        }
+      }
+
+      include /Users/Pongstr/Projects/.env/nginx/config/*;
+    }
+    EOS
   end
 
   def post_install

@@ -94,7 +94,7 @@ class Mongodb < Formula
 
     scons "install", *args
 
-    (buildpath+"mongod.conf").write mongodb_conf
+    ("/opt/dotfiles/settings/mongodb/mongod.conf").write mongodb_conf
     etc.install "mongod.conf"
 
     (var+"mongodb").mkpath
@@ -104,16 +104,17 @@ class Mongodb < Formula
   def mongodb_conf; <<-EOS.undent
     systemLog:
       destination: file
-      path: #{var}/log/mongodb/mongo.log
+      path: /opt/dotfiles/settings/mongodb/log/mongodb/mongo.log
       logAppend: true
     storage:
-      dbPath: #{var}/mongodb
+      dbPath: /opt/dotfiles/settings/mongodb/databases
     net:
+      port: 27017
       bindIp: 127.0.0.1
     EOS
   end
 
-  plist_options :manual => "mongod --config #{HOMEBREW_PREFIX}/etc/mongod.conf"
+  plist_options :manual => "mongod --config /opt/dotfiles/settings/mongodb/mongod.conf"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
