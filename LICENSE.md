@@ -1,5 +1,4 @@
-Copyright 2014 &copy; Pongstr Ordillo. MIT License.
-===================================================
+Copyright 2015 &copy; Pongstr Ordillo. MIT License.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
