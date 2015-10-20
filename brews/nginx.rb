@@ -101,9 +101,59 @@ class Nginx < Formula
       man8.install "man/nginx.8"
     end
 
+    system "rm -rf /opt/dotfiles/settings/nginx/nginx.conf"
+
     (etc/"nginx/servers").mkpath
     (var/"run/nginx").mkpath
     (var/"/opt/dotfiles/settings/nginx/sites").mkpath
+    (var/"/opt/dotfiles/settings/nginx/www").mkpath
+    (var/"/opt/dotfiles/settings/nginx/nginx.conf").write <<-EOS.undent
+      worker_processes  2;
+      pid /opt/dotfiles/settings/nginx/run/nginx.pid;
+
+      events {
+        worker_connections  1024;
+      }
+
+      http {
+        include       mime.types;
+        default_type  application/octet-stream;
+
+        log_format  main '$remote_addr - $remote_user [$time_local] "$request" '
+                         '$status $body_bytes_sent "$http_referer" '
+                         '"$http_user_agent" "$http_x_forwarded_for"';
+
+        access_log  /opt/dotfiles/settings/nginx/log/access.log  main;
+        error_log   /opt/dotfiles/settings/nginx/log/error.log  debug;
+
+        sendfile    on;
+        tcp_nopush  on;
+        tcp_nodelay off;
+
+        gzip              on;
+        gzip_http_version 1.0;
+        gzip_comp_level   2;
+        gzip_proxied      any;
+
+        server_names_hash_bucket_size 128;
+        server_names_hash_max_size 20000;
+        proxy_headers_hash_bucket_size 128;
+        proxy_headers_hash_max_size 20000;
+
+        underscores_in_headers on;
+
+        server {
+          listen      80 default_server;
+          server_name localhost;
+
+          location / {
+            root /usr/local/var/www;
+          }
+        }
+
+        include /opt/dotfiles/settings/nginx/sites/*;
+      }
+    EOS
   end
 
   def post_install
@@ -130,9 +180,6 @@ class Nginx < Formula
     if rack.subdirs.any? { |d| d.join("sbin").directory? }
       sbin.install_symlink bin/"nginx"
     end
-
-
-    # system "/opt/dotfiles/settings/nginx", "-t", "-c", "/opt/dotfiles/settings/nginx.conf"
   end
 
   def passenger_caveats; <<-EOS.undent
@@ -144,12 +191,10 @@ class Nginx < Formula
 
   def caveats
     s = <<-EOS.undent
-    Docroot is: #{var}/www
 
-    The default port has been set in #{etc}/nginx/nginx.conf to 8080 so that
-    nginx can run without sudo.
-
-    nginx will load all files in #{etc}/nginx/servers/.
+      - Document root is /opt/dotfiles/settings/nginx/www
+      - Nginx will load all configs from /opt/dotfiles/settings/nginx/sites
+      
     EOS
     s << "\n" << passenger_caveats if build.with? "passenger"
     s

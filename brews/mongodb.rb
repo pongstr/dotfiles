@@ -93,23 +93,22 @@ class Mongodb < Formula
     end
 
     scons "install", *args
-
-    ("/opt/dotfiles/settings/mongodb/mongod.conf").write mongodb_conf
-
-    (var+"mongodb").mkpath
-    (var+"log/mongodb").mkpath
+    (var+"/opt/dotfiles/settings/mongodb").mkpath
+    (var+"/opt/dotfiles/settings/mongodb/log").mkpath
+    (var+"/opt/dotfiles/settings/mongodb/databases").mkpath
+    (buildpath+"/opt/dotfiles/settings/mongodb/mongod.conf").write mongodb_conf
   end
 
   def mongodb_conf; <<-EOS.undent
     systemLog:
       destination: file
-      path: /opt/dotfiles/settings/mongodb/log/mongodb/mongo.log
+      path: /opt/dotfiles/settings/mongodb/log/mongo.log
       logAppend: true
     storage:
       dbPath: /opt/dotfiles/settings/mongodb/databases
     net:
-      port: 27017
       bindIp: 127.0.0.1
+      port: 27017
     EOS
   end
 

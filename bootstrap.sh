@@ -9,7 +9,7 @@ help () {
     ██╔═══╝ ██║   ██║██║╚██╗██║██║   ██║╚════██║   ██║   ██╔══██╗
     ██║     ╚██████╔╝██║ ╚████║╚██████╔╝███████║   ██║   ██║  ██║
     ╚═╝      ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝ ╚══════╝   ╚═╝   ╚═╝  ╚═╝\e[1;31m
-        Dotfiles v0.1.16 https://github.com/pongstr/dotfiles\e[0m\n
+        Dotfiles v0.2.0 https://github.com/pongstr/dotfiles\e[0m\n
 
     \e[0;34m--> Dotfiles bruh, we need your password access to your shit... \n\e[0m'
 
@@ -19,13 +19,13 @@ help () {
       dotfiles [parameters] [--arguments]
 
       Parameters:
-        - casks      :installs default native apps via brew-cask
-        - fonts      :installs default fonts declared from scripts/fonts
-        - gitsetup   :setup for glolbal git config and setup for Github & Bitbucket SSH Keys
-        - nodepkgs   :installs npm packages for the default node version
-        - osxdefault :default setup for osx (for OS X >= 10.8)
-        - rubygems   :installs gems for web development
-        - terminal   :setup terminal to use zshell and oh-my-zshell plugin
+        - casks      : installs default native apps via brew-cask
+        - fonts      : installs default fonts declared from scripts/fonts
+        - gitsetup   : setup for glolbal git config and setup for Github & Bitbucket SSH Keys
+        - nodepkgs   : installs npm packages for the default node version
+        - osxdefault : default setup for osx (for OS X >= 10.8)
+        - rubygems   : installs gems for web development
+        - terminal   : setup terminal to use zshell and oh-my-zshell plugin
 
   "
 
@@ -129,8 +129,8 @@ install_formula () {
     'dnsmasq'
     'git'
     'libyaml'
-    'mongo'
-    'nginx'
+    'brews/mongodb.rb --build-from-source'
+    'brews/nginx.rb --build-from-source'
     'jawshooah/nodenv/nodenv'
     'node-build --HEAD'
     'openssl'
