@@ -27,3 +27,6 @@ Thumbs.db
 nbproject
 *.sublime-project
 *.sublime-workspace
+
+# Ignore stuff in settings
+settings/**

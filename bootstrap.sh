@@ -26,8 +26,7 @@ help () {
         - osxdefault :default setup for osx (for OS X >= 10.8)
         - rubygems   :installs gems for web development
         - terminal   :setup terminal to use zshell and oh-my-zshell plugin
-
-
+        
   "
 
 }
