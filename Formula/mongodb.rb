@@ -95,7 +95,6 @@ class Mongodb < Formula
     scons "install", *args
 
     ("/opt/dotfiles/settings/mongodb/mongod.conf").write mongodb_conf
-    etc.install "mongod.conf"
 
     (var+"mongodb").mkpath
     (var+"log/mongodb").mkpath
