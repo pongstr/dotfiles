@@ -42,6 +42,35 @@ class Redis < Formula
 
     etc.install "redis.conf"
     etc.install "sentinel.conf" => "redis-sentinel.conf"
+
+    (var/"/opt/dotfiles/settings/redis").mkpath
+    (var/"/opt/dotfiles/settings/redis/pid").mkpath
+    (var/"/opt/dotfiles/settings/redis/data").mkpath
+    (var/"/opt/dotfiles/settings/redis/redis.conf").write <<-EOS.undent
+      activerehashing yes
+      appendfsync everysec
+      appendonly no
+      bind 127.0.0.1
+      daemonize no
+      databases 16
+      dbfilename dump.rdb
+      dir /opt/dotfiles/settings/redis/data
+      list-max-ziplist-entries 512
+      list-max-ziplist-value 64
+      logfile stdout
+      loglevel verbose
+      no-appendfsync-on-rewrite no
+      pidfile /opt/dotfiles/settings/redis/pid
+      port 16379
+      rdbcompression yes
+      save 900 1
+      save 300 10
+      save 60 10000
+      set-max-intset-entries 512
+      slowlog-log-slower-than 10000
+      slowlog-max-len 1024
+      timeout 0
+    EOS
   end
 
   plist_options :manual => "redis-server #{HOMEBREW_PREFIX}/etc/redis.conf"
@@ -61,16 +90,16 @@ class Redis < Formula
         <key>ProgramArguments</key>
         <array>
           <string>#{opt_bin}/redis-server</string>
-          <string>#{etc}/redis.conf</string>
+          <string>/opt/dotfiles/settings/redis/redis.conf</string>
         </array>
         <key>RunAtLoad</key>
         <true/>
         <key>WorkingDirectory</key>
         <string>#{var}</string>
         <key>StandardErrorPath</key>
-        <string>#{var}/log/redis.log</string>
+        <string>/opt/dotfiles/settings/redis/log/redis.log</string>
         <key>StandardOutPath</key>
-        <string>#{var}/log/redis.log</string>
+        <string>/opt/dotfiles/settings/redis/log/redis.log</string>
       </dict>
     </plist>
     EOS
