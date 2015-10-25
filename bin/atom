@@ -1,0 +1,103 @@
+#!/bin/bash
+
+if brew cask info "atom" | grep "Not Installed" > /dev/null; then
+  printf "    --> Installing Atom: The hackable text editor for the 21st Century."
+fi
+
+packages=(
+  angularjs
+  gist-it
+  jshint
+  language-docker
+  language-nginx
+  language-puppet
+  merge-conflicts
+  sass-compiler
+  term2
+)
+
+for i in "${packages[@]}"
+do
+  echo ""
+  apm install "${i}"
+done
+
+cat <<EOM >"${HOME}/.atom/config.cson"
+"*":
+  "exception-reporting":
+    userId: "ca555e8d-6640-8983-046b-4dcf0a29a906"
+  welcome:
+    showOnStartup: false
+  core:
+    ignoredNames: [
+      ".DS_Store"
+      "Thumbs.db"
+      "*~"
+      "._*"
+      ".cache"
+      ".git"
+      ".idea"
+      ".project"
+      ".settings"
+      ".tmproj"
+      "*.diff"
+      "*.err"
+      "*.orig"
+      "*.log"
+      "*.rej"
+      "*.swo"
+      "*.swp"
+      "*.zip"
+      "*.vi"
+      "*.esproj"
+      "*.sublime-project"
+      "*.sublime-workspace"
+      ".komodotools"
+      "*.komodoproject"
+      "bower_components"
+      "node_modules"
+    ]
+    destroyEmptyPanes: false
+    editor: {}
+    term2: {}
+  editor:
+    invisibles: {}
+    fontFamily: "Menlo, Consolas"
+    showIndentGuide: true
+    lineHeight: 1.6
+    scrollPastEnd: true
+    autoIndentOnPaste: false
+    backUpBeforeSaving: true
+    tabType: "soft"
+    fontSize: 12
+    zoomFontWhenCtrlScrolling: true
+  "one-dark-ui": {}
+  "*":
+    whitespace:
+      removeTrailingWhitespace: true
+      ignoreWhitespaceOnCurrentLine: false
+  term2:
+    fontFamily: "Menlo"
+    fontSize: "11"
+    openPanesInSameSplit: true
+    titleTemplate: "/usr/local/bin/zsh"
+  whitespace:
+    ignoreWhitespaceOnCurrentLine: false
+EOM
+
+
+cat <<EOM >"${HOME}/.atom/styles.less"
+.editor,
+.tree-view {
+  -webkit-font-smoothing: antialiased;
+}
+
+.tree-view {
+  font-family: "San Francisco Text Thin", "Helvetica Neue";
+  font-weight: 300;
+  font-size: 12px;
+}
+EOM
+
+echo "Done! Relaunching Atom, exiting Terminal..."
+open -a /Applications/Atom.app
