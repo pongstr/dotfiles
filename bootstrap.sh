@@ -136,7 +136,7 @@ install_formula () {
     'openssl'
     'python'
     'rbenv'
-    'redis'
+    'brews/redis.rb --build-from-source'
     'vim --override-system-vi'
     'zsh'
   )
