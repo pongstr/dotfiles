@@ -64,6 +64,7 @@ brewpkgs=(
 #     - io.js:   'iojs-3.3.1'
 #
 nodes=(
+  '5.0.0'
   '4.2.1'
   '0.12.7'
 )
@@ -240,7 +241,7 @@ vim_setup () {
   for dir in "${vim_dirs[@]}"
   do
     printf "\e[0;32m       * ${dir} created for ${dir}\n\e[0m"
-    mkdir -p "${HOME}/${dir}"
+    mkdir -p "${HOME}/.vim/${dir}"
   done
 
   printf "\e[0;32m       * setup Vim run commands\n\e[0m"
@@ -266,6 +267,7 @@ printf "\e[0;34m
 if [ "${#@}" -gt 0 ]; then
   while true; do
     case "${@}" in
+      ('--atom') exec "bin/atom"; break;;
       ('--fonts') exec "bin/fonts"; break;;
       ('--casks') exec "bin/casks"; break;;
       ('--gitsetup') exec "bin/gitsetup"; break;;

@@ -1,33 +1,39 @@
 #!/bin/bash
 
+printf "\n\e[0;34m  --> Installing Atom: The hackable text editor for the 21st Century.\n\e[0m"
 if brew cask info "atom" | grep "Not Installed" > /dev/null; then
-  printf "    --> Installing Atom: The hackable text editor for the 21st Century."
+  brew cask install atom
 fi
 
-packages=(
-  angularjs
-  gist-it
-  jshint
-  language-docker
-  language-nginx
-  language-puppet
-  merge-conflicts
-  sass-compiler
-  term2
-)
+pkg () {
+  packages=(
+    angularjs
+    file-icons
+    gist-it
+    jshint
+    language-docker
+    language-nginx
+    language-puppet
+    merge-conflicts
+    sass-compiler
+    term2
+  )
 
-for i in "${packages[@]}"
-do
-  echo ""
-  apm install "${i}"
-done
+  for i in "${packages[@]}"
+  do
+    local output=$(apm install $i)
+    printf "\e[0;32m      * Atom Package Manager: ${output}\e[0m"
+  done
+}
+
+pkg
 
 cat <<EOM >"${HOME}/.atom/config.cson"
 "*":
   "exception-reporting":
     userId: "ca555e8d-6640-8983-046b-4dcf0a29a906"
   welcome:
-    showOnStartup: false
+    showOnStartup: true
   core:
     ignoredNames: [
       ".DS_Store"
@@ -65,13 +71,14 @@ cat <<EOM >"${HOME}/.atom/config.cson"
     fontFamily: "Menlo, Consolas"
     showIndentGuide: true
     lineHeight: 1.6
-    scrollPastEnd: true
     autoIndentOnPaste: false
     backUpBeforeSaving: true
     tabType: "soft"
     fontSize: 12
-    zoomFontWhenCtrlScrolling: true
-  "one-dark-ui": {}
+    useShadowDOM: false
+  "one-dark-ui":
+    fontSize: 11
+    layoutMode: "Compact"
   "*":
     whitespace:
       removeTrailingWhitespace: true
@@ -83,6 +90,11 @@ cat <<EOM >"${HOME}/.atom/config.cson"
     titleTemplate: "/usr/local/bin/zsh"
   whitespace:
     ignoreWhitespaceOnCurrentLine: false
+  "file-icons":
+    forceShow: true
+    onChanges: true
+    coloured: false
+  "gist-it": {}
 EOM
 
 
@@ -99,5 +111,4 @@ cat <<EOM >"${HOME}/.atom/styles.less"
 }
 EOM
 
-echo "Done! Relaunching Atom, exiting Terminal..."
-open -a /Applications/Atom.app
+printf "\n\e[0;33m  Done! You may launch Atom anytime you please.\n\n"
