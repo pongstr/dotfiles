@@ -27,13 +27,9 @@ class Dnsmasq < Formula
     # Create Config Path
     (var+"/opt/dotfiles/settings/dnsmasq").mkpath
     (buildpath+"/opt/dotfiles/settings/dnsmasq/dnsmasq.conf").write dnsmasq_conf
-    (var+"#{etc}/resolver/dev").write <<-EOS.undent
-      nameserver 127.0.0.1
-    EOS
 
     # Fix etc location
     inreplace "src/config.h", "/etc/dnsmasq.conf", "/opt/dotfiles/settings/dnsmasq/dnsmasq.conf"
-
 
     # Optional IDN support
     if build.with? "libidn"
@@ -86,9 +82,7 @@ class Dnsmasq < Formula
         <key>ProgramArguments</key>
         <array>
           <string>#{opt_sbin}/dnsmasq</string>
-          <string>--keep-in-foreground</string>
-          <string>-C</string>
-          <string>#{etc}/dnsmasq.conf</string>
+          <string>--conf-file=/opt/dotfiles/settings/dnsmasq/dnsmasq.conf</string>
         </array>
         <key>RunAtLoad</key>
         <true/>

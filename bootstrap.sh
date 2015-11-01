@@ -1,7 +1,13 @@
 #!/bin/bash
 
-help () {
+  # Ask for the administrator password upfront
+  sudo -v
 
+  # Keep-alive: update existing `sudo` time stamp until `.osx` has finished
+  while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
+init () {
+  echo ""
   printf "%s" $'\e[1;32m
     ██████╗  ██████╗ ███╗   ██╗ ██████╗ ███████╗████████╗██████╗
     ██╔══██╗██╔═══██╗████╗  ██║██╔════╝ ██╔════╝╚══██╔══╝██╔══██╗
@@ -28,57 +34,119 @@ help () {
         - terminal   : setup terminal to use zshell and oh-my-zshell plugin
 
   "
-
 }
 
-help
+init
 
-
-echo
-
-# Add your favorite homebrew taps here
-# @string: accepts `brew tap` arguments wrapped in quotes
-# @examples:
-#     '<user/repo>'
-#     '<user/repo> <URL>'
+##
+# @var {Array}
+# @desc
+#   Add your favorite homebrew taps here
+#   accepts `brew tap` arguments wrapped in quotes
+# example:
+#   '<user/repo>'
+#   '<user/repo> <URL>'
 #
 brewtaps=()
 
-# Add your homebrew packages here
-# @string: accepts `brew install` arguments wrapped in quotes
-# @examples:
-#     'PACKAGE_NAME --ARGUMENTS_HERE'
-#                   --debug | --ignore-dependencies | --only-dependencies
-#                   --cc=[compiler] | --build-from-source | --force-botle
-#                   --devel | --HEAD
-#
+##
+# @var {Array}
+# @description Add your homebrew packages here
+# accepts `brew install` arguments wrapped in quotes
+# example:
+#   'PACKAGE_NAME --ARGUMENTS_HERE'
+#     --debug | --ignore-dependencies | --only-dependencies
+#     --cc=[compiler] | --build-from-source | --force-botle
+#     --devel | --HEAD
 brewpkgs=(
   'sassc'
   'wget'
 )
 
-# Add node.js or io.js versions here
-# @string: accepts nodejs or iojs sematic version
-# @examples:
-#     - node.js: '0.10.11'
-#     - io.js:   'iojs-3.3.1'
-#
+# @var {Array}
+# @desc
+#   Add node.js or io.js versions here
+#   accepts nodejs or iojs sematic version
+# example:
+#   - node.js: '0.10.11'
+#   - io.js:   'iojs-3.3.1'
 nodes=(
   '5.0.0'
   '4.2.1'
   '0.12.7'
 )
 
-# Add preferred Ruby version here
-# @string: accepts ruby versions
-# @examples:
-#    - '1.9.3-p551'
-#    - 'mruby-1.1.0'
-#    - 'jruby-9.0.1.0'
+# @var {Array}
+# @desc
+#   Add preferred Ruby version here
+#   accepts ruby versions
+# example:
+#   - '1.9.3-p551'
+#   - 'mruby-1.1.0'
+#   - 'jruby-9.0.1.0'
 rubies=(
   '2.2.3'
   '1.9.3-p551'
 )
+
+#
+initial_setup () {
+  vimdirs () {
+    dirs=(
+      'backups'
+      'colors'
+      'swaps'
+      'undo'
+    )
+
+    for dir in "${dirs[@]}"
+    do
+      printf "\e[0;32m       * ${dir} created for ${dir}\n\e[0m"
+      mkdir -p "${HOME}/.vim/${dir}"
+    done
+
+    printf "\e[0;32m       * setup Vim run commands\n\e[0m"
+    cp -f "$(pwd)/config/.vimrc" "${HOME}"
+
+    printf "\e[0;32m       * setup Vim Pongstr Base-16 theme\n\e[0m"
+    cp -f "$(pwd)/config/themes/Pongstr Base-16.vim" "${HOME}/.vim/colors"
+  }
+
+  printf "\n\e[0;34m  --> Setting up Vim workspace\n\e[0m"
+  if [[ ! -d "${HOME}/.vim" ]]; then
+    mkdir "${HOME}/.vim"
+    vimdirs
+  else
+    vimdirs
+  fi
+  echo
+
+  dnsresolver () {
+    if [[ ! -f "/etc/resolver/dev" ]]; then
+      sudo touch "/etc/resolver/dev"
+      printf "\e[0;32m       * $(echo 'nameserver 127.0.0.1' | sudo tee -a '/etc/resolver/dev')\n"
+      echo
+    else
+      sudo rm -rf "/etc/resolver/dev"
+      sudo touch "/etc/resolver/dev"
+      printf "\e[0;32m       * $(echo 'nameserver 127.0.0.1' | sudo tee -a '/etc/resolver/dev')\n"
+      echo
+    fi
+
+  }
+
+  printf "\n\e[0;34m  --> Setting up Reolver for dnsmasq\n\e[0m"
+  if [[ ! -d "/etc/resolver" ]]; then
+    sudo mkdir "/etc/resolver"
+    dnsresolver
+  else
+    dnsresolver
+  fi
+}
+
+
+initial_setup
+
 
 brew_install () {
   local brew_install=$(brew install "${@}")
@@ -112,7 +180,7 @@ install_formula () {
   done
 
   # Custom Homebrew Taps
-  if [ "${#brewtaps[@]}" -gt 0 ]; then
+  if [[ "${#brewtaps[@]}" -gt 0 ]]; then
     for tap in "${brewtaps[@]}"
     do
       if [ "$(brew tap | grep -io ${tap})" == ${tap} ]; then
@@ -127,7 +195,7 @@ install_formula () {
   printf "\n\e[0;34m  --> Installing Homebrew Formulas \n\e[0m"
   default_pkgs=(
     'caskroom/cask/brew-cask'
-    'dnsmasq'
+    'brews/dnsmasq.rb --build-from-source'
     'git'
     'libyaml'
     'brews/mongodb.rb --build-from-source'
@@ -154,7 +222,7 @@ install_formula () {
   done
 
   # Custom Homebrew Packages
-  if [ "${#brewpkgs[@]}" -gt 0 ]; then
+  if [[ "${#brewpkgs[@]}" -gt 0 ]]; then
     for package in "${brewpkgs[@]}"
     do
       if brew info $package | grep "Not installed" > /dev/null; then
@@ -182,7 +250,7 @@ else
   install_formula
 fi
 
-printf "\n  --> Reloading run commands $(source ${HOME}/.profile)\n"
+printf "\n\e[0;34m  --> Reloading run commands $(source ${HOME}/.profile)\n"
 
 install_nodes () {
   for node in "${nodes[@]}"
@@ -230,41 +298,12 @@ if hash rbenv 2>/dev/null; then
   install_rubies
 fi
 
-vim_setup () {
-  vim_dirs=(
-    'backups'
-    'colors'
-    'swaps'
-    'undo'
-  )
-
-  for dir in "${vim_dirs[@]}"
-  do
-    printf "\e[0;32m       * ${dir} created for ${dir}\n\e[0m"
-    mkdir -p "${HOME}/.vim/${dir}"
-  done
-
-  printf "\e[0;32m       * setup Vim run commands\n\e[0m"
-  cp -f "$(pwd)/config/.vimrc" "${HOME}"
-
-  printf "\e[0;32m       * setup Vim Pongstr Base-16 theme\n\e[0m"
-  cp -f "$(pwd)/config/themes/Pongstr Base-16.vim" "${HOME}/.vim/colors"
-}
-
-printf "\n\e[0;34m  --> Setting up Vim workspace\n\e[0m"
-if [ ! -d "${HOME}/.vim" ]; then
-  mkdir -p "${HOME}/.vim/"
-  vim_setup
-else
-  vim_setup
-fi
-
 printf "\e[0;34m
   Bootstrapping your  Mac is now complete, you now have the necessary tools
   to control your development enviroment.
 \n\e[0m"
 
-if [ "${#@}" -gt 0 ]; then
+if [[ "${#@}" -gt 0 ]]; then
   while true; do
     case "${@}" in
       ('--atom') exec "bin/atom"; break;;
