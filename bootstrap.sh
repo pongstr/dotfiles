@@ -194,18 +194,19 @@ install_formula () {
 
   printf "\n\e[0;34m  --> Installing Homebrew Formulas \n\e[0m"
   default_pkgs=(
-    'caskroom/cask/brew-cask'
     'brews/dnsmasq.rb --build-from-source'
-    'git'
-    'libyaml'
     'brews/mongodb.rb --build-from-source'
     'brews/nginx.rb --build-from-source'
+    'brews/redis.rb --build-from-source'
+    'caskroom/cask/brew-cask'
+    'curl --with-openssl'
+    'git'
+    'libyaml'
     'jawshooah/nodenv/nodenv'
     'node-build --HEAD'
     'openssl'
     'python'
     'rbenv'
-    'brews/redis.rb --build-from-source'
     'vim --override-system-vi'
     'zsh'
   )

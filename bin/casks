@@ -6,6 +6,7 @@ apps=(
   'dockertoolbox'
   'dropbox'
   'deluge'
+  'encryptr'
   'firefox'
   'firefoxdeveloperedition'
   'github-desktop'
