@@ -1,39 +1,8 @@
-#!/bin/bash
-
-printf "\n\e[0;34m  --> Installing Atom: The hackable text editor for the 21st Century.\n\e[0m"
-if brew cask info "atom" | grep "Not Installed" > /dev/null; then
-  brew cask install atom
-fi
-
-pkg () {
-  packages=(
-    angularjs
-    file-icons
-    gist-it
-    jshint
-    language-docker
-    language-nginx
-    language-puppet
-    merge-conflicts
-    sass-compiler
-    term2
-  )
-
-  for i in "${packages[@]}"
-  do
-    local output=$(apm install $i)
-    printf "\e[0;32m      * Atom Package Manager: ${output}\e[0m"
-  done
-}
-
-pkg
-
-cat <<EOM >"${HOME}/.atom/config.cson"
 "*":
   "exception-reporting":
     userId: "ca555e8d-6640-8983-046b-4dcf0a29a906"
   welcome:
-    showOnStartup: true
+    showOnStartup: false
   core:
     ignoredNames: [
       ".DS_Store"
@@ -71,14 +40,15 @@ cat <<EOM >"${HOME}/.atom/config.cson"
     fontFamily: "Menlo, Consolas"
     showIndentGuide: true
     lineHeight: 1.6
+    scrollPastEnd: true
     autoIndentOnPaste: false
     backUpBeforeSaving: true
     tabType: "soft"
     fontSize: 12
-    useShadowDOM: false
+    zoomFontWhenCtrlScrolling: true
   "one-dark-ui":
-    fontSize: 11
     layoutMode: "Compact"
+    fontSize: 11
   "*":
     whitespace:
       removeTrailingWhitespace: true
@@ -94,21 +64,3 @@ cat <<EOM >"${HOME}/.atom/config.cson"
     forceShow: true
     onChanges: true
     coloured: false
-  "gist-it": {}
-EOM
-
-
-cat <<EOM >"${HOME}/.atom/styles.less"
-.editor,
-.tree-view {
-  -webkit-font-smoothing: antialiased;
-}
-
-.tree-view {
-  font-family: "San Francisco Text Thin", "Helvetica Neue";
-  font-weight: 300;
-  font-size: 12px;
-}
-EOM
-
-printf "\n\e[0;33m  Done! You may launch Atom anytime you please.\n\n"
