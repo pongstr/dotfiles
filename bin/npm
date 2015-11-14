@@ -20,4 +20,4 @@ node_modules=(
 
 # Install Node Packages
 printf "\e[0;34m  --> Installing npm global modules for node $(nodenv global) \n\n\e[0m"
-npm install -g  ${node_modules[@]}
+npm install -g "${node_modules[@]}"
