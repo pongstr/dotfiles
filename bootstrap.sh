@@ -71,9 +71,9 @@ brewpkgs=(
 #   - node.js: '0.10.11'
 #   - io.js:   'iojs-3.3.1'
 nodes=(
-  '0.12.8'
   '4.2.3'
   '5.2.0'
+  '0.12.8'
 )
 
 # @var {Array}
@@ -242,9 +242,9 @@ printf "\e[0;1m  --> Checking to see if Homebrew is installed..."
 if hash brew 2>/dev/null; then
   printf "
       Awesome! Homebrew is installed! Now updating...\n\e[0m"
-  # brew update
+  brew update
   install_formula
-  # brew upgrade --all
+  brew upgrade --all
 else
   printf "\e[0;1m      Did not find Homebrew installation, installing it now...\e[0m\n"
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -254,13 +254,9 @@ fi
 
 printf "\n\e[0;34m  --> Reloading run commands $(source ${HOME}/.profile)\n"
 
-git clone https://github.com/OiNutter/node-build.git $(nodenv root)/plugins/node-build
-
 install_nodes () {
   if [ ! -d "$(nodenv root)" ]; then
     git clone https://github.com/OiNutter/node-build.git $(nodenv root)/plugins/node-build
-    # source $HOME/.zshrc
-    # source $HOME/.bashrc
   fi
 
   for node in "${nodes[@]}"
