@@ -71,9 +71,9 @@ brewpkgs=(
 #   - node.js: '0.10.11'
 #   - io.js:   'iojs-3.3.1'
 nodes=(
-  '5.1.0'
-  '4.2.2'
-  '0.12.7'
+  '0.12.8'
+  '4.2.3'
+  '5.2.0'
 )
 
 # @var {Array}
@@ -86,7 +86,7 @@ nodes=(
 #   - 'jruby-9.0.1.0'
 rubies=(
   '2.2.3'
-  '1.9.3-p551'
+  '2.0.0-p647'
 )
 
 #
@@ -203,7 +203,6 @@ install_formula () {
     'git'
     'libyaml'
     'nodenv'
-    'node-build'
     'openssl'
     'python'
     'rbenv'
@@ -215,8 +214,10 @@ install_formula () {
   for package in "${default_pkgs[@]}"
   do
     if brew info $package | grep "Not installed" > /dev/null; then
-      printf "\e[0;32m       * Installing ${package}, please wait... \e[0m"
+      printf "\e[0;32m       * Installing ${package}, please wait... \e[0m\n\n"
       brew_install $package
+      echo
+      echo
     else
       printf  "\e[0;32m       * ${package} is already installed. \n\e[0m"
     fi
@@ -253,7 +254,15 @@ fi
 
 printf "\n\e[0;34m  --> Reloading run commands $(source ${HOME}/.profile)\n"
 
+git clone https://github.com/OiNutter/node-build.git $(nodenv root)/plugins/node-build
+
 install_nodes () {
+  if [ ! -d "$(nodenv root)" ]; then
+    git clone https://github.com/OiNutter/node-build.git $(nodenv root)/plugins/node-build
+    # source $HOME/.zshrc
+    # source $HOME/.bashrc
+  fi
+
   for node in "${nodes[@]}"
   do
     if [ "$(nodenv versions | grep -Eio $node)" == $node ]; then

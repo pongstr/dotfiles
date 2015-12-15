@@ -89,6 +89,6 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 if which nodenv > /dev/null; then eval "$(nodenv init -)"; fi
 
 # Boxen Compatibility
-if [[ -d /opt/boxen ]] ; then
-  [ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
-fi
+# if [[ -d /opt/boxen ]] ; then
+#   [ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
+# fi
