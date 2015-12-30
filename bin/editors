@@ -43,6 +43,8 @@ atom () {
     "language-nunjucks"
     "language-puppet"
     "merge-conflicts"
+    "tool-bar"
+    "tool-bar-almighty"
   )
   atomConf=(
     "config.cson"
@@ -50,7 +52,18 @@ atom () {
   )
 
   brew cask install atom
+
+  for package in "${atomPkgs[@]}"
+  do
+    apm install $package
+  done
+
+  for conf in "${atomConf[@]}"
+  do
+    cp -f "${configs}${conf}" "${HOME}/.atom"
+  done
 }
 
 
-sublimetext
+# sublimetext
+atom
