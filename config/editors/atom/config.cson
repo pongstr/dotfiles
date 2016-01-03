@@ -37,15 +37,15 @@
     term2: {}
   editor:
     invisibles: {}
-    fontFamily: "Menlo, Consolas"
+    fontFamily: "Consolas"
     showIndentGuide: true
     lineHeight: 1.6
     scrollPastEnd: true
     autoIndentOnPaste: false
     backUpBeforeSaving: true
     tabType: "soft"
-    fontSize: 12
     zoomFontWhenCtrlScrolling: true
+    fontSize: 13
   "one-dark-ui":
     layoutMode: "Compact"
     fontSize: 11
@@ -64,3 +64,9 @@
     forceShow: true
     onChanges: true
     coloured: false
+  "tool-bar-almighty":
+    custom: "toolbar.coffee"
+    override: true
+  "tool-bar":
+    position: "Left"
+    iconSize: "14px"
