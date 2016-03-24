@@ -56,10 +56,10 @@ atom () {
 
   brew cask install atom
 
-  for package in "${atomPkgs[@]}"
-  do
-    apm install $package
-  done
+  # for package in "${atomPkgs[@]}"
+  # do
+  #   apm install $package
+  # done
 
   for conf in "${atomConf[@]}"
   do
