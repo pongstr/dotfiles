@@ -38,17 +38,20 @@ atom () {
   atomHome="${HOME}/.atom"
   atomPkgs=(
     "emmet"
+    "git-control"
     "language-docker"
     "language-nginx"
     "language-nunjucks"
     "language-puppet"
     "merge-conflicts"
+    "terminal-plus"
     "tool-bar"
     "tool-bar-almighty"
   )
   atomConf=(
     "config.cson"
     "styles.less"
+    "toolbar.coffee"
   )
 
   brew cask install atom
@@ -60,10 +63,17 @@ atom () {
 
   for conf in "${atomConf[@]}"
   do
-    cp -f "${configs}${conf}" "${HOME}/.atom"
+    echo
+    cp -f "${configs}atom/${conf}" "${HOME}/.atom"
   done
+
+  # if [[ ! -d "${HOME}/.atom/packages/term2" ]]; then
+  #   git clone https://github.com/svenax/atom-term2.git "${HOME}/.atom/packages/term2"
+  #   cd "${HOME}/.atom/packages/term2" && git checkout update-pty.js
+  #   apm install
+  # fi
 }
 
 
-# sublimetext
+sublimetext
 atom
