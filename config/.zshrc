@@ -16,17 +16,6 @@ ZSH_THEME="pongstr"
 alias zshconfig="vi $HOME/.zshrc"
 alias ohmyzsh="cd $HOME/.oh-my-zsh"
 
-# Home Folders
-# ---------------------------------------------------------------------------
-
-alias home="$HOME && clear"
-alias apps="/Applications"
-alias music="$HOME/Music/"
-alias movies="$HOME/Movies/"
-alias dropbox="/Volumes/Pongstr/Dropbox/"
-alias pictures="$HOME/Pictures/"
-alias documents="$HOME/Documents"
-
 # Projects Directory
 # ---------------------------------------------------------------------------
 
@@ -39,8 +28,7 @@ alias projects="$PROJECTS"
 # Dev Stuff
 # ---------------------------------------------------------------------------
 
-# Jekyll: must be in the same working directory
-alias jekyllstart="jekyll serve --watch --baseurl=/"
+# Python SimpleHTTPServer
 alias pywebstart="python -m SimpleHTTPServer"
 
 # MongoDB
@@ -77,7 +65,7 @@ export PATH=/usr/local/bin:$PATH
 export PATH="$PATH:/usr/sbin"
 
 # Make /Applications the default location of apps
-export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+export HOMEBREW_CASK_OPTS="--appdir=/Applications --caskroom=/opt/homebrew-cask/Caskroom"
 
 # To use Homebrew's directories rather than ~/.rbenv
 export RBENV_ROOT="/usr/local/var/rbenv"
@@ -87,8 +75,3 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # Enable Nodenv shims and autocompletion
 if which nodenv > /dev/null; then eval "$(nodenv init -)"; fi
-
-# Boxen Compatibility
-# if [[ -d /opt/boxen ]] ; then
-#   [ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
-# fi

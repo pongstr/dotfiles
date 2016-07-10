@@ -71,9 +71,8 @@ brewpkgs=(
 #   - node.js: '0.10.11'
 #   - io.js:   'iojs-3.3.1'
 nodes=(
-  '4.4.1'
-  '5.9.1'
-  '0.12.9'
+  '4.4.6'
+  '6.2.2'
 )
 
 # @var {Array}
@@ -162,7 +161,10 @@ brew_tap () {
 install_formula () {
   printf "\n\e[0;34m  --> Initializing Homebrew Taps\n\e[0m"
   default_taps=(
+    'homebrew/dupes'
+    'homebrew/homebrew-php'
     'homebrew/services'
+    'homebrew/versions'
     'jawshooah/nodenv'
     'caskroom/versions'
     'caskroom/fonts'
@@ -194,16 +196,17 @@ install_formula () {
 
   printf "\n\e[0;34m  --> Installing Homebrew Formulas \n\e[0m"
   default_pkgs=(
-    'brews/dnsmasq.rb --build-from-source'
-    'brews/mongodb.rb --build-from-source'
-    'brews/nginx.rb --build-from-source'
-    'brews/redis.rb --build-from-source'
-    'caskroom/cask/brew-cask'
+    'dnsmasq'
+    'mongodb'
+    'nginx'
+    'redis'
+    'caskroom/brew-cask'
     'curl --with-openssl'
     'git'
     'libyaml'
     'nodenv'
     'openssl'
+    'php56 --with-fpm  --with-imap  --without-apache --with-debug'
     'python'
     'rbenv'
     'vim --override-system-vi'

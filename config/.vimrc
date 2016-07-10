@@ -37,7 +37,7 @@ set expandtab
 
 " Enable line numbers
 set number
-:highlight LineNr guibg=base03 guifg=base0
+:highlight LineNr guibg=green guifg=black
 
 " Highlight current line
 :highlight CursorLine cterm=NONE ctermbg=green ctermfg=black guibg=darkred guifg=white
