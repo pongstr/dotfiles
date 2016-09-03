@@ -1,220 +1,46 @@
 #!/bin/bash
 
-  # Ask for the administrator password upfront
-  sudo -v
-
-  # Keep-alive: update existing `sudo` time stamp until `.osx` has finished
-  while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
-
-init () {
-  echo ""
-  printf "%s" $'\e[1;32m
-    ██████╗  ██████╗ ███╗   ██╗ ██████╗ ███████╗████████╗██████╗
-    ██╔══██╗██╔═══██╗████╗  ██║██╔════╝ ██╔════╝╚══██╔══╝██╔══██╗
-    ██████╔╝██║   ██║██╔██╗ ██║██║  ███╗███████╗   ██║   ██████╔╝
-    ██╔═══╝ ██║   ██║██║╚██╗██║██║   ██║╚════██║   ██║   ██╔══██╗
-    ██║     ╚██████╔╝██║ ╚████║╚██████╔╝███████║   ██║   ██║  ██║
-    ╚═╝      ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝ ╚══════╝   ╚═╝   ╚═╝  ╚═╝\e[1;31m
-        Dotfiles v0.2.0 https://github.com/pongstr/dotfiles\e[0m\n
-
-    \e[0;34m--> Dotfiles bruh, we need your password access to your shit... \n\e[0m'
-
-  printf "
-    Usage:
-
-      dotfiles [parameters] [--arguments]
-
-      Parameters:
-        - casks : installs default native apps via brew-cask
-        - fonts : installs default fonts declared from scripts/fonts
-        - git   : setup for glolbal git config and setup for Github & Bitbucket SSH Keys
-        - npm   : installs npm packages for the default node version
-        - osx   : default setup for osx (for OS X >= 10.8)
-        - gem   : installs gems for web development
-        - term  : setup terminal to use zshell and oh-my-zshell plugin
-
-  "
-}
-
-init
-
-##
-# @var {Array}
-# @desc
-#   Add your favorite homebrew taps here
-#   accepts `brew tap` arguments wrapped in quotes
-# example:
-#   '<user/repo>'
-#   '<user/repo> <URL>'
-#
-brewtaps=()
-
-##
-# @var {Array}
-# @description Add your homebrew packages here
-# accepts `brew install` arguments wrapped in quotes
-# example:
-#   'PACKAGE_NAME --ARGUMENTS_HERE'
-#     --debug | --ignore-dependencies | --only-dependencies
-#     --cc=[compiler] | --build-from-source | --force-botle
-#     --devel | --HEAD
-brewpkgs=(
-  'sassc'
-  'wget'
+brew_taps=(
+  'homebrew/dupes'
+  'homebrew/homebrew-php'
+  'homebrew/services'
+  'homebrew/versions'
+  'caskroom/versions'
+  'caskroom/fonts'
 )
 
-# @var {Array}
-# @desc
-#   Add node.js or io.js versions here
-#   accepts nodejs or iojs sematic version
-# example:
-#   - node.js: '0.10.11'
-#   - io.js:   'iojs-3.3.1'
+brew_formulas=(
+  'nodenv'
+  'rbenv'
+)
+
 nodes=(
-  '4.4.6'
-  '6.2.2'
+  '4.5.0'
+  '6.5.0'
+  '0.12.15'
 )
 
-# @var {Array}
-# @desc
-#   Add preferred Ruby version here
-#   accepts ruby versions
-# example:
-#   - '1.9.3-p551'
-#   - 'mruby-1.1.0'
-#   - 'jruby-9.0.1.0'
 rubies=(
-  '2.2.4'
-  '1.9.3-p551'
+  '2.2.5'
+  '2.3.1'
 )
 
-#
-initial_setup () {
-  vimdirs () {
-    dirs=(
-      'backups'
-      'colors'
-      'swaps'
-      'undo'
-    )
-
-    for dir in "${dirs[@]}"
-    do
-      printf "\e[0;32m       * ${dir} created for ${dir}\n\e[0m"
-      mkdir -p "${HOME}/.vim/${dir}"
-    done
-
-    printf "\e[0;32m       * setup Vim run commands\n\e[0m"
-    cp -f "$(pwd)/config/.vimrc" "${HOME}"
-
-    printf "\e[0;32m       * setup Vim Pongstr Base-16 theme\n\e[0m"
-    cp -f "$(pwd)/config/themes/Pongstr Base-16.vim" "${HOME}/.vim/colors"
-  }
-
-  printf "\n\e[0;34m  --> Setting up Vim workspace\n\e[0m"
-  if [[ ! -d "${HOME}/.vim" ]]; then
-    mkdir "${HOME}/.vim"
-    vimdirs
-  else
-    vimdirs
-  fi
-  echo
-
-  dnsresolver () {
-    if [[ ! -f "/etc/resolver/dev" ]]; then
-      sudo touch "/etc/resolver/dev"
-      printf "\e[0;32m       * $(echo 'nameserver 127.0.0.1' | sudo tee -a '/etc/resolver/dev')\n"
-      echo
-    else
-      sudo rm -rf "/etc/resolver/dev"
-      sudo touch "/etc/resolver/dev"
-      printf "\e[0;32m       * $(echo 'nameserver 127.0.0.1' | sudo tee -a '/etc/resolver/dev')\n"
-      echo
-    fi
-
-  }
-
-  printf "\n\e[0;34m  --> Setting up Reolver for dnsmasq\n\e[0m"
-  if [[ ! -d "/etc/resolver" ]]; then
-    sudo mkdir "/etc/resolver"
-    dnsresolver
-  else
-    dnsresolver
-  fi
-}
-
-
-initial_setup
-
-
-brew_install () {
-  local brew_install=$(brew install "${@}")
-  echo $brew_install
-}
-
-brew_tap () {
-  local brew_tap=$(brew tap "${@}")
-  echo $brew_tap
-}
-
-
-install_formula () {
-  printf "\n\e[0;34m  --> Initializing Homebrew Taps\n\e[0m"
-  default_taps=(
-    'homebrew/dupes'
-    'homebrew/homebrew-php'
-    'homebrew/services'
-    'homebrew/versions'
-    'jawshooah/nodenv'
-    'caskroom/versions'
-    'caskroom/fonts'
-  )
-
-  # Default Homebrew Taps
-  for tap in ${default_taps[@]}
+# Homebrew Tap Installation
+install_taps () {
+  for tap in ${brew_taps[@]}
   do
     if [ "$(brew tap | grep -io ${tap})" == ${tap} ]; then
       printf "\e[0;32m       * Already tapped: ${tap}\n\e[0m"
     else
       printf "\e[0;32m       * Tapping [ ${tap} ]\n\e[0m"
-      brew_tap ${tap}
+      brew tap ${tap}
     fi
   done
+}
 
-  # Custom Homebrew Taps
-  if [[ "${#brewtaps[@]}" -gt 0 ]]; then
-    for tap in "${brewtaps[@]}"
-    do
-      if [ "$(brew tap | grep -io ${tap})" == ${tap} ]; then
-        printf "\e[0;32m       * Already tapped: ${tap}\n\e[0m"
-      else
-        printf "\e[0;32m       * Tapping [ ${tap} ]\n\e[0m"
-        brew_tap ${tap}
-      fi
-    done
-  fi
-
-  printf "\n\e[0;34m  --> Installing Homebrew Formulas \n\e[0m"
-  default_pkgs=(
-    'dnsmasq'
-    'mongodb'
-    'nginx'
-    'redis'
-    'caskroom/brew-cask'
-    'curl --with-openssl'
-    'git'
-    'libyaml'
-    'nodenv'
-    'openssl'
-    'php56 --with-fpm  --with-imap  --without-apache --with-debug'
-    'python'
-    'rbenv'
-    'vim --override-system-vi'
-    'zsh'
-  )
-
-  # Default Homebrew Packages
-  for package in "${default_pkgs[@]}"
+# Homebrew Formula Installation
+install_formulas () {
+  for package in "${brew_formulas[@]}"
   do
     if brew info $package | grep "Not installed" > /dev/null; then
       printf "\e[0;32m       * Installing ${package}, please wait... \e[0m\n\n"
@@ -225,104 +51,145 @@ install_formula () {
       printf  "\e[0;32m       * ${package} is already installed. \n\e[0m"
     fi
   done
+}
 
-  # Custom Homebrew Packages
-  if [[ "${#brewpkgs[@]}" -gt 0 ]]; then
-    for package in "${brewpkgs[@]}"
+# Node.js Installation
+install_node () {
+  if hash nodenv 2>/dev/null; then
+    for node in "${nodes[@]}"
     do
-      if brew info $package | grep "Not installed" > /dev/null; then
-        printf "\e[0;32m       * Installing ${package}, please wait... \e[0m"
-        brew_install $package
-      else
-        printf "\e[0;32m       * ${package} is already installed. \n\e[0m"
+      if [ "$(nodenv versions | grep -Eio $node)" == $node ]; then
+        printf "\e[0;32m       * node.js v$node is already installed...\n\e[0m"
+      fi
+
+      if [ "$(nodenv versions | grep -Eio $node)" == "" ]; then
+        printf "\e[0;32m       * Installing node.js v${node}, sit back & relax\n"
+        printf "         this may take a few minutes to complete..\n\e[0m"
+        nodenv install $node
       fi
     done
   fi
+
+  printf "\n\e[0;33m    Setting node.js v${nodes} as the default global version.\n"
+  nodenv global "${nodes}"
+
+  sleep 1
+
+  npm update -g npm
+  npm install shelljs coffee-script cson chalk commander
 }
 
-printf "\e[0;1m  --> Checking to see if Homebrew is installed..."
+# Ruby Installation
+install_ruby () {
+  if hash rbenv 2>/dev/null; then
+    for rb in "${rubies[@]}"
+    do
+      if [ "$(rbenv versions | grep -Eio $rb)" == $rb ]; then
+        printf "\e[0;32m       * ruby $rb is already installed...\n\e[0m"
+      fi
+
+      if [ "$(rbenv versions | grep -Eio $rb)" == "" ]; then
+        printf "\e[0;32m       * Installing ruby ${rb}, sit back & relax\n"
+        printf "         this may take a few minutes to complete..\n\e[0m"
+        rbenv install $rb
+      fi
+    done
+
+    printf "\n\e[0;33m    Setting Ruby ${rubies} as the default global version.\n\e[0m"
+    rbenv global "${rubies}"
+
+    sleep 1
+
+    gem update --system
+    gem install bundler
+  fi
+}
+
+
+init () {
+  echo ""
+  printf "%s" $'\e[1;32m
+    ██████╗  ██████╗ ███╗   ██╗ ██████╗ ███████╗████████╗██████╗
+    ██╔══██╗██╔═══██╗████╗  ██║██╔════╝ ██╔════╝╚══██╔══╝██╔══██╗
+    ██████╔╝██║   ██║██╔██╗ ██║██║  ███╗███████╗   ██║   ██████╔╝
+    ██╔═══╝ ██║   ██║██║╚██╗██║██║   ██║╚════██║   ██║   ██╔══██╗
+    ██║     ╚██████╔╝██║ ╚████║╚██████╔╝███████║   ██║   ██║  ██║
+    ╚═╝      ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝ ╚══════╝   ╚═╝   ╚═╝  ╚═╝\e[1;31m
+        Dotfiles v0.3.0 https://github.com/pongstr/dotfiles\e[0m\n
+    \e[0;34m--> Dotfiles bruh, we need your password access to your shit... \n\e[0m'
+
+  printf "
+  "
+}
+
+###############################################################################
+#                     >>>>> Begin Here <<<<<
+###############################################################################
+
+init
+
+echo "
+
+  --> For added privacy invasion I'll need your local account's password.
+"
+
+# Ask for the administrator password upfront
+# This prompt is taken from `boxen-web`, see https://github.com/boxen/boxen-web
+sudo -p "     Password for sudo: " echo "     Thanks! See you in vegas sucker!"
+
+# Keep-alive: update existing `sudo` time stamp until `.osx` has finished
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
+# Create Installation Directory
+echo "
+  --> Where would you like to install the setup files? "
+read -p  "      defaults to /opt/pongstr " install_dir
+
+if [ -z "$install_dir"]; then
+  sudo mkdir -p /opt/pongstr
+else
+  sudo mkdir -p $install_dir
+fi
+
+
+# Let the bootstrapping begin!
+# Tools and dependencies has to be installed in to get commands to run.
+printf "\n\e[0;1m  --> Checking to see if Homebrew is installed..."
+
+install () {
+  fn () {
+    sudo npm install
+    sudo chmod +x pongstr.sh
+    ./pongstr.sh install -a
+  }
+
+  install_taps
+  install_formulas
+  install_node
+  install_ruby
+
+  if [ ! -d "/opt/pongstr" ]; then
+    git clone --branch=dev https://github.com/pongstr/dotfiles.git /opt/$install_dir;
+  fi
+
+  if ([ -z $install_dir ] && [ -d "/opt/${install_dir}" ]); then
+    cd /opt/$install_dir; fn
+  fi
+
+  if [ -d "/opt/pongstr" ]; then
+    cd /opt/pongstr; fn
+  fi
+}
 
 if hash brew 2>/dev/null; then
   printf "
       Awesome! Homebrew is installed! Now updating...\n\e[0m"
   brew update
-  install_formula
   brew upgrade --all
+  install
 else
   printf "\e[0;1m      Did not find Homebrew installation, installing it now...\e[0m\n"
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   brew doctor
-  install_formula
-fi
-
-printf "\n\e[0;34m  --> Reloading run commands $(source ${HOME}/.profile)\n"
-
-install_nodes () {
-  if [ ! -d "$(nodenv root)" ]; then
-    git clone https://github.com/OiNutter/node-build.git $(nodenv root)/plugins/node-build
-  fi
-
-  for node in "${nodes[@]}"
-  do
-    if [ "$(nodenv versions | grep -Eio $node)" == $node ]; then
-      printf "\e[0;32m       * node.js v$node is already installed...\n\e[0m"
-    fi
-
-    if [ "$(nodenv versions | grep -Eio $node)" == "" ]; then
-      printf "\e[0;32m       * Installing node.js v${node}, sit back & relax\n"
-      printf "         this may take a few minutes to complete..\n\e[0m"
-      nodenv install $node
-    fi
-  done
-
-  printf "\n\e[0;33m    Setting node.js v${nodes} as the default global version.\n"
-  nodenv global "${nodes}"
-}
-
-printf "\n\e[0;34m  --> Installing Node.js versions \n\e[0m"
-if hash nodenv 2>/dev/null; then
-  install_nodes
-fi
-
-install_rubies () {
-  for rb in "${rubies[@]}"
-  do
-    if [ "$(rbenv versions | grep -Eio $rb)" == $rb ]; then
-      printf "\e[0;32m       * ruby $rb is already installed...\n\e[0m"
-    fi
-
-    if [ "$(rbenv versions | grep -Eio $rb)" == "" ]; then
-      printf "\e[0;32m       * Installing ruby $rb}, sit back & relax\n"
-      printf "         this may take a few minutes to complete..\n\e[0m"
-      rbenv install $rb
-    fi
-  done
-
-  printf "\n\e[0;33m    Setting Ruby ${rubies} as the default global version.\n"
-  rbenv global "${rubies}"
-}
-
-printf "\n\e[0;34m  --> Installing Ruby versions \n\e[0m"
-if hash rbenv 2>/dev/null; then
-  install_rubies
-fi
-
-printf "\e[0;34m
-  Bootstrapping your  Mac is now complete, you now have the necessary tools
-  to control your development enviroment.
-\n\e[0m"
-
-if [[ "${#@}" -gt 0 ]]; then
-  while true; do
-    case "${@}" in
-      ('--casks')   exec "bin/casks"; break;;
-      ('--fonts')   exec "bin/fonts"; break;;
-      ('--git')     exec "bin/git";   break;;
-      ('--gem')     exec "bin/gem";   break;;
-      ('--ide')     exec "bin/ide";   break;;
-      ('--npm')     exec "bin/npm";   break;;
-      ('--osx')     exec "bin/osx";   break;;
-      ('--term')    exec "bin/term";  break;;
-    esac
-  done
+  install
 fi

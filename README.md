@@ -2,8 +2,7 @@ Dotfiles (Pongstr)
 ===
 
 ```bash
-$ sudo mkdir -p /opt/dotfiles
-$ sudo chown ${USER}:staff /opt/dotfiles
-$ git clone git@github.com:pongstr/dotfiles.git; cd dotfiles
-$ ./boostrap.sh
+$ curl -L -o bootstrap.sh https://raw.githubusercontent.com/pongstr/dotfiles/dev/bootstrap.sh;
+$ chmod +x bootstrap.sh
+$ ./bootstrap.sh
 ```

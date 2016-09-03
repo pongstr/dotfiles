@@ -1,0 +1,161 @@
+dotfiles: '.'
+
+brew:
+  taps: [
+    "homebrew/dupes"
+    "homebrew/homebrew-php"
+    "homebrew/services"
+    "homebrew/versions"
+    "jawshooah/nodenv"
+    "caskroom/cask"
+    "caskroom/fonts"
+    "caskroom/versions"
+  ]
+  packages: [
+    "dnsmasq"
+    "mongodb"
+    "nginx"
+    "redis"
+    "curl --with-openssl"
+    "git"
+    "heroku-toolbelt"
+    "libyaml"
+    "nodenv"
+    "openssl"
+    "php56 --with-fpm  --with-imap  --without-apache --with-debug"
+    "python"
+    "rbenv"
+    "vim --override-system-vi"
+    "wget"
+    "zsh"
+  ]
+
+cask: [
+  "appcleaner"
+  "atom"
+  "docker"
+  "dropbox"
+  "firefox"
+  "firefoxdeveloperedition"
+  "github-desktop"
+  "google-chrome"
+  "google-chrome-canary"
+  "kaleidoscope"
+  "lantern"
+  "rdm"
+  "robomongo"
+  "spotify"
+  "skype"
+  "sublime-text3"
+  "torbrowser"
+  "vlc"
+  "virtualbox"
+]
+
+fonts: [
+  "font-lato"
+  "font-open-sans"
+  "font-roboto"
+  "font-source-code-pro"
+]
+
+npm: [
+  "bower"
+  "coffee-script"
+  "grunt-cli"
+  "gulp"
+  "eslint"
+  "karma-cli"
+  "strongloop"
+  "nodemon"
+  "pm2"
+  "shelljs"
+]
+
+gem: [
+  "bourbon"
+  "bundler"
+  "jekyll"
+]
+
+editor:
+  atom:
+    config: [
+      "config.cson"
+      "styles.less"
+      "toolbar.coffee"
+    ]
+    plugins: [
+      "angularjs"
+      "atom-term"
+      "emmet"
+      "git-control"
+      "language-docker"
+      "language-nginx"
+      "language-nunjucks"
+      "language-puppet"
+      "linter"
+      "linter-eslint"
+      "markdown-preview"
+      "merge-conflicts"
+      "minimap"
+      "terminal-plus"
+      "tool-bar"
+      "tool-bar-almighty"
+      "wordpress-api"
+    ]
+  sublime:
+    config: [
+      "Default (OSX).sublime-keymap"
+      "Preferences.sublime-settings"
+    ]
+    plugins: [
+      "AngularJS"
+      "Dockerfile Syntax Highlighting"
+      "Emmet"
+      "ESLint"
+      "GitGutter"
+      "Gitignore"
+      "Handlebars"
+      "HTML5"
+      "nginx"
+      "Nunjucks Syntax"
+      "Package Control"
+      "Puppet"
+      "SideBarEnhancements"
+    ]
+  vim:
+    folders: [
+      "backups"
+      "colors"
+      "plugins"
+      "swaps"
+      "undo"
+    ]
+    config: [
+      "config.vim"
+      "Pongstr Base-16.vim",
+    ]
+    plugins: []
+
+dnsmasq:
+  host: '127.0.0.1'
+  ext: 'dev'
+
+nginx:
+  config_dir: 'config/nginx'
+
+mongodb:
+  host: '127.0.0.1'
+  port: 37017
+  config_dir: 'config/mongodb'
+
+mysql:
+  host: '127.0.0.1'
+  port: 33061
+  config_dir: 'config/mysql'
+
+redis:
+  host: '127.0.0.1'
+  port: 16379
+  config_dir: 'config/redis'
