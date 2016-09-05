@@ -1,0 +1,151 @@
+dotfiles: '.'
+
+brew:
+  taps: [
+    "homebrew/dupes"
+    "homebrew/homebrew-php"
+    "homebrew/services"
+    "homebrew/versions"
+    "jawshooah/nodenv"
+    "caskroom/cask"
+    "caskroom/fonts"
+    "caskroom/versions"
+  ]
+  packages: [
+    "dnsmasq"
+    "mongodb"
+    "nginx"
+    "redis"
+    "curl --with-openssl"
+    "git"
+    "heroku-toolbelt"
+    "libyaml"
+    "nodenv"
+    "openssl"
+    "php56 --with-fpm  --with-imap  --without-apache --with-debug"
+    "python"
+    "rbenv"
+    "vim --override-system-vi"
+    "wget"
+    "zsh"
+  ]
+
+cask: [
+  "appcleaner"
+  "atom"
+  "docker"
+  "dropbox"
+  "firefox"
+  "firefoxdeveloperedition"
+  "github-desktop"
+  "google-chrome"
+  "google-chrome-canary"
+  "kaleidoscope"
+  "lantern"
+  "rdm"
+  "robomongo"
+  "spotify"
+  "skype"
+  "sublime-text3"
+  "torbrowser"
+  "vlc"
+  "virtualbox"
+]
+
+fonts: [
+  "font-lato"
+  "font-open-sans"
+  "font-roboto"
+  "font-source-code-pro"
+]
+
+npm: [
+  "bower"
+  "coffee-script"
+  "grunt-cli"
+  "gulp"
+  "eslint"
+  "karma-cli"
+  "strongloop"
+  "nodemon"
+  "pm2"
+  "shelljs"
+]
+
+gem: [
+  "bourbon"
+  "bundler"
+  "jekyll"
+]
+
+editor:
+  atom:
+    home_dir: ""
+    config: [
+      { name: ".atom-config",  target: "config.cson" }
+      { name: ".atom-styles",  target: "styles.less" }
+      { name: ".atom-toolbar", target: "toolbar.coffee" }
+    ]
+    plugins: [
+      "angularjs"
+      "emmet"
+      "git-control"
+      "language-docker"
+      "language-nginx"
+      "language-nunjucks"
+      "language-puppet"
+      "linter"
+      "linter-eslint"
+      "merge-conflicts"
+      "minimap"
+      "terminal-plus"
+      "tool-bar"
+      "tool-bar-almighty"
+      "wordpress-api"
+    ]
+  terminal:
+    home_dir: "../config/terminal"
+    config: [
+      { name: ".bash_alias",    target: "" }
+      { name: ".bash_profile",  target: "" }
+      { name: ".bashrc",        target: "" }
+      { name: ".curlrc",        target: "" }
+      { name: ".zshrc",         target: "" }
+    ]
+  vim:
+    home_dir: ""
+    folders: [
+      "backups"
+      "colors"
+      "plugins"
+      "swaps"
+      "undo"
+    ]
+    config: [
+      { name: ".vim-config", path: "/Users/Pongstr/Projects/github/dotfiles/config/vim", target: ".vimrc" }
+      { name: ".vim-styles", target: "Pongstr Base-16.vim" }
+    ]
+    plugins: []
+
+dnsmasq:
+  host: '127.0.0.1'
+  ext: 'dev'
+  config_dir: 'config/dnsmasq'
+
+nginx:
+  config_dir: 'config/nginx'
+
+mongodb:
+  host: '127.0.0.1'
+  port: 37017
+  config_dir: 'config/mongodb'
+
+mysql:
+  host: '127.0.0.1'
+  port: 33061
+  config_dir: 'config/mysql'
+
+redis:
+  host: '127.0.0.1'
+  port: 16379
+  config_dir: 'config/redis'

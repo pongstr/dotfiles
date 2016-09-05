@@ -29,4 +29,5 @@ nbproject
 *.sublime-workspace
 
 # Ignore stuff in settings
-settings
+config
+node_modules
