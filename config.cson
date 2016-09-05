@@ -80,14 +80,14 @@ gem: [
 
 editor:
   atom:
+    home_dir: ""
     config: [
-      "config.cson"
-      "styles.less"
-      "toolbar.coffee"
+      { name: ".atom-config",  target: "config.cson" }
+      { name: ".atom-styles",  target: "styles.less" }
+      { name: ".atom-toolbar", target: "toolbar.coffee" }
     ]
     plugins: [
       "angularjs"
-      "atom-term"
       "emmet"
       "git-control"
       "language-docker"
@@ -96,7 +96,6 @@ editor:
       "language-puppet"
       "linter"
       "linter-eslint"
-      "markdown-preview"
       "merge-conflicts"
       "minimap"
       "terminal-plus"
@@ -104,27 +103,17 @@ editor:
       "tool-bar-almighty"
       "wordpress-api"
     ]
-  sublime:
+  terminal:
+    home_dir: "../config/terminal"
     config: [
-      "Default (OSX).sublime-keymap"
-      "Preferences.sublime-settings"
-    ]
-    plugins: [
-      "AngularJS"
-      "Dockerfile Syntax Highlighting"
-      "Emmet"
-      "ESLint"
-      "GitGutter"
-      "Gitignore"
-      "Handlebars"
-      "HTML5"
-      "nginx"
-      "Nunjucks Syntax"
-      "Package Control"
-      "Puppet"
-      "SideBarEnhancements"
+      { name: ".bash_alias",    target: "" }
+      { name: ".bash_profile",  target: "" }
+      { name: ".bashrc",        target: "" }
+      { name: ".curlrc",        target: "" }
+      { name: ".zshrc",         target: "" }
     ]
   vim:
+    home_dir: ""
     folders: [
       "backups"
       "colors"
@@ -133,14 +122,15 @@ editor:
       "undo"
     ]
     config: [
-      "config.vim"
-      "Pongstr Base-16.vim",
+      { name: ".vim-config", path: "/Users/Pongstr/Projects/github/dotfiles/config/vim", target: ".vimrc" }
+      { name: ".vim-styles", target: "Pongstr Base-16.vim" }
     ]
     plugins: []
 
 dnsmasq:
   host: '127.0.0.1'
   ext: 'dev'
+  config_dir: 'config/dnsmasq'
 
 nginx:
   config_dir: 'config/nginx'

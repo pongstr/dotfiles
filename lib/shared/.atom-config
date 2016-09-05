@@ -1,0 +1,89 @@
+"*":
+  "*":
+    whitespace:
+      ignoreWhitespaceOnCurrentLine: false
+      removeTrailingWhitespace: true
+  "atom-terminal":
+    MacWinRunDirectly: true
+  core:
+    destroyEmptyPanes: false
+    editor: {}
+    ignoredNames: [
+      ".DS_Store"
+      "Thumbs.db"
+      "*~"
+      "._*"
+      ".cache"
+      ".git"
+      ".idea"
+      ".project"
+      ".settings"
+      ".tmproj"
+      "*.diff"
+      "*.err"
+      "*.orig"
+      "*.log"
+      "*.rej"
+      "*.swo"
+      "*.swp"
+      "*.zip"
+      "*.vi"
+      "*.esproj"
+      "*.sublime-project"
+      "*.sublime-workspace"
+      ".komodotools"
+      "*.komodoproject"
+      "bower_components"
+      "node_modules"
+    ]
+    packagesWithKeymapsDisabled: [
+      "terminal-plus"
+    ]
+    term2: {}
+  editor:
+    autoIndentOnPaste: false
+    backUpBeforeSaving: true
+    fontFamily: "Consolas"
+    fontSize: 13
+    invisibles: {}
+    lineHeight: 1.6
+    scrollPastEnd: true
+    showIndentGuide: true
+    tabType: "soft"
+    zoomFontWhenCtrlScrolling: true
+  "exception-reporting":
+    userId: "ca555e8d-6640-8983-046b-4dcf0a29a906"
+  "file-icons":
+    coloured: false
+    forceShow: true
+    onChanges: true
+  "one-dark-ui":
+    fontSize: 11
+    layoutMode: "Compact"
+  term2:
+    fontFamily: "Menlo"
+    fontSize: "11"
+    openPanesInSameSplit: true
+    titleTemplate: "/usr/local/bin/zsh"
+  "terminal-plus":
+    core:
+      mapTerminalsTo: "Folder"
+      shell: "/bin/bash"
+    style:
+      defaultPanelHeight: "250px"
+      fontFamily: "Consolas"
+      fontSize: "10px"
+      theme: "pro"
+    toggles:
+      autoClose: true
+      runInsertedText: false
+  "tool-bar":
+    iconSize: "12px"
+    position: "Left"
+  "tool-bar-almighty":
+    custom: "toolbar.coffee"
+    override: true
+  welcome:
+    showOnStartup: false
+  whitespace:
+    ignoreWhitespaceOnCurrentLine: false

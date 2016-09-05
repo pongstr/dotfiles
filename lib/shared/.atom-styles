@@ -1,0 +1,10 @@
+.editor,
+.tree-view {
+  -webkit-font-smoothing: antialiased;
+}
+
+.tree-view {
+  font-family: "San Francisco Text Thin", "Helvetica Neue";
+  font-weight: 300;
+  font-size: 12px;
+}

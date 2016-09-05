@@ -25,18 +25,25 @@ module.exports =
         \n    Contributor  Name: #{res.username}
         \n    Contributor Email: #{res.email}\n"
     return
+
   bitbucket: () ->
     prmpt.start()
     prmpt.get [
-      { name: 'bitbucket_title',      require: true }
-      { name: 'bitbucket_passphrase', require: true, hidden: true }
-      { name: 'bitbucket_username',   require: true }
-      { name: 'bitbucket_password',   require: true, hidden: true }
+      { name: 'bitbucket_label',      require: false }
+      { name: 'bitbucket_passphrase', require: false, hidden: true }
+      { name: 'bitbucket_username',   require: false }
+      { name: 'bitbucket_password',   require: false, hidden: true }
     ], (err, res) ->
       if res
-        payload =
-          label: res.bitbucket_title
-          key: exec "cat $HOME/.ssh/bitbucket_rsa.pub"
+        console.info chlk.green "Generating SSH Key for your Bitbucket account, please wait..."
+
+        exec "rm -rf ~/.ssh/bitbucket_rsa ~/.ssh/bitbucket_rsa.pub", silent: true
+        exec "ssh-keygen -q -f ~/.ssh/bitbucket_rsa -P #{res.bitbucket_passphrase}; ssh-add $HOME/.ssh/bitbucket_rsa"
+
+        payload = JSON.stringify(
+          label: res.bitbucket_label
+          key: exec "cat ~/.ssh/bitbucket_rsa.pub", silent: true
+        ).replace(/[\\"']/g, '\\$&').replace(/\u0000/g, '\\0')
 
         console.info chlk.blue "
         \n    --> Okay, since you've entered your Bitbucket credentials,
@@ -44,32 +51,36 @@ module.exports =
         \n        Hang tight! this won't be long.
         \n"
 
-        exec "curl --user #{res.bitbucket_username}:#{res.bitbucket_password} -X POST --data #{JSON.stringify(payload)} https://bitbucket.org/api/1.0/users/#{res.bitbucket_username}/ssh-keys/ -H Content-Type: application/json -#o /dev/null"
+        exec "curl --user #{res.bitbucket_username}:#{res.bitbucket_password} -X POST --data \"#{payload}\" \"https://bitbucket.org/api/1.0/users/#{res.bitbucket_username}/ssh-keys/\" -H \"Content-Type: application/json\" -#o /dev/null"
         exec "ssh -T git@bitbucket.org"
 
         console.info chlk.green "
         \n    --> SSH Key has been successfully added!
         \n    --> Accessing Bitbucket to verify the SSH Keys\n"
-
+        exec "ssh -T git@bitbucket.org"
     return
 
   github: () ->
     prmpt.start()
     prmpt.get [
       { name: 'github_email',       required: true }
-      { name: 'github_passphrase',  required: true, hidden: true }
-      { name: 'github_title',       required: true }
-      { name: 'github_name',        required: true }
+      { name: 'github_username',    required: true }
       { name: 'github_password',    required: true, hidden: true }
+      { name: 'github_title',       required: true }
+      { name: 'github_passphrase',  required: true, hidden: true }
     ], (err, res) ->
       if res
-        payload =
-          title: res['ssh-title']
-          key: exec "cat $HOME/.ssh/github_rsa.pub"
+        console.info chlk.green "Generating SSH Key for your Github account, please wait..."
 
-        exec "ssh-keygen -t rsa -C #{res.gh_email} -f $HOME/.ssh/github_rsa -p #{res.passphrase} -q; ssh-add $HOME/.ssh/github_rsa"
-        exec "curl --user #{res.gh_name}:#{res.gh_pass} -X POST --data #{JSON.stringify(payload)} https://api.github.com/user/keys -#o /dev/null"
+        exec "rm -rf ~/.ssh/github_rsa ~/.ssh/github_rsa.pub", silent: true
+        exec "ssh-keygen -t rsa -C \"#{res.github_email}\" -f \"$HOME/.ssh/github_rsa\" -P \"#{res.github_passphrase}\" -q; ssh-add $HOME/.ssh/github_rsa"
 
+        payload = JSON.stringify(
+          title: res.github_title
+          key: exec "cat $HOME/.ssh/github_rsa.pub", silent: true
+        ).replace(/[\\"']/g, '\\$&').replace(/\u0000/g, '\\0')
+
+        exec "curl --user #{res.github_username}:#{res.github_password} -X POST --data \"#{payload}\" https://api.github.com/user/keys -#o /dev/null"
         console.info chlk.green "
           \n    --> SSH Key has been successfully added!
           \n    --> Accessing Github to verify the SSH Keys\n"

@@ -60,11 +60,26 @@ cmd
 
 cmd
   .command 'git [setup]'
-  .description ''
+  .description 'Setup global Git configuration and Git provider SSH Keys'
   .option '-u, --username <name>', ''
   .option '-e, --email <email>', ''
   .action (setup, options) ->
-    gituser = require './gituser'
+    gituser  = require './gituser'
+    home_dir = echo '~'
+    config_template = "
+    \nHost github.com
+    \n  HostName github.com
+    \n  IdentityFile #{home_dir}/.ssh/github_rsa\n
+    \nHost bitbucket.org
+    \n  HostName bitbucket.org
+    \n  IdentityFile #{home_dir}/.ssh/bitbucket_rsa\n
+    \nHost gitlab.com
+    \n  HostName gitlab.com
+    \n  IdentityFile #{home_dir}/.ssh/gitlab_rsa\n"
+
+    exec "rm -rf $(echo $HOME)/.ssh/config; touch $(echo $HOME)/.ssh/config"
+    fs.appendFileSync "#{home_dir}/.ssh/config", config_template, 'utf8'
+
 
     if setup == 'config' and options.username and options.email
       exec "git config --global user.name #{options.username}; git config --global #{options.email}"
@@ -98,6 +113,7 @@ cmd
       \n  [1] Bitbucket: Create and Add SSH Keys
       \n  [2] Github: Create and Add SSH Keys
       \n  [3] GitLab: Create and Add SSH Keys
+      \n  [Q/q] Quit this menu
       \n"
 
       prmpt.get 'select_number', (err, res) ->
@@ -111,8 +127,61 @@ cmd
           gituser.github()
         else if res and parseInt(res.select_number) == 3
           gituser.gitlab()
-        else
-          console.err(chlk.red 'Either the option is not available or is invalid.')
+        else if res and res.select_number == 'Q' or res and res.select_number == 'q'
+          console.info(chlk.green '\nOkay! Bailing Out!... (ノಠ益ಠ)ノ\n')
           return
+        else
+          console.error(chlk.red 'Either the option is not available or is invalid.')
+          return
+    return
+
+cmd
+  .command 'editor [config]'
+  .description ''
+  .action (config) ->
+
+    if config == 'atom'
+      atom_config = conf.editor.atom
+      atom_home   = path.join __dirname, atom_config.home_dir
+
+      if atom_config.plugins.length > 0
+        console.info(chlk.blue "  --> Installing Atom plugins, please wait...")
+        atom_config.plugins.forEach (plugin) ->
+          exec "apm install #{plugin}"
+
+      if atom_config.config.length > 0
+        console.info(chlk.blue "  --> Installing Atom configs, please wait...")
+        atom_config.config.forEach (conf) ->
+          if conf.path
+            exec "cp #{path.join(__dirname, 'shared')}/#{conf.name} #{conf.path}/#{conf.target}", silent: true
+          else
+            exec "cp #{path.join(__dirname, 'shared')}/#{conf.name} #{atom_home}/#{conf.target}", silent: true
+      return
+
+    if config == 'terminal'
+      term_config = conf.editor.terminal
+      term_home   = path.join(__dirname, term_config.home_dir)
+      return
+
+    if config == 'vim'
+      vim_config = conf.editor.vim
+      vim_home   = path.join __dirname, vim_config.home_dir
+
+      if !test('-d', "#{vim_home}")
+        mkdir '-p', "#{vim_home}"
+
+      if vim_config.folders.length > 0
+        vim_config.folders.forEach (dir) ->
+          mkdir '-p', "#{vim_home}/#{dir}"
+          return
+
+      if vim_config.config.length > 0
+        vim_config.config.forEach (conf) ->
+          if conf.path
+            exec "cp #{path.join(__dirname, 'shared')}/#{conf.name} #{conf.path}#{conf.target}"
+          else
+            exec "cp #{path.join(__dirname, 'shared')}/#{conf.name} #{vim_home}/#{conf.target}", silent: true
+          return
+      return
 
 cmd.parse process.argv
