@@ -1,4 +1,4 @@
-dotfiles: '.'
+dotfiles: '/opt/pongstr'
 
 brew:
   taps: [
@@ -80,7 +80,7 @@ gem: [
 
 editor:
   atom:
-    home_dir: ""
+    home_dir: "../config/atom"
     config: [
       { name: ".atom-config",  target: "config.cson" }
       { name: ".atom-styles",  target: "styles.less" }
@@ -113,7 +113,7 @@ editor:
       { name: ".zshrc",         target: "" }
     ]
   vim:
-    home_dir: ""
+    home_dir: "../config/vim"
     folders: [
       "backups"
       "colors"
@@ -122,8 +122,8 @@ editor:
       "undo"
     ]
     config: [
-      { name: ".vim-config", path: "/Users/Pongstr/Projects/github/dotfiles/config/vim", target: ".vimrc" }
-      { name: ".vim-styles", target: "Pongstr Base-16.vim" }
+      { name: ".vim-config", target: ".vimrc" }
+      { name: ".vim-styles", path: "/Users/Pongstr/Projects/github/dotfiles/config/vim/colors", target: "Pongstr\\ Base-16.vim" }
     ]
     plugins: []
 
@@ -149,3 +149,4 @@ redis:
   host: '127.0.0.1'
   port: 16379
   config_dir: 'config/redis'
+

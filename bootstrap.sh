@@ -44,7 +44,7 @@ install_formulas () {
   do
     if brew info $package | grep "Not installed" > /dev/null; then
       printf "\e[0;32m       * Installing ${package}, please wait... \e[0m\n\n"
-      brew_install $package
+      brew install $package
       echo
       echo
     else
@@ -147,8 +147,14 @@ read -p  "      defaults to /opt/pongstr " install_dir
 
 if [ -z "$install_dir"]; then
   sudo mkdir -p /opt/pongstr
+  sudo chown ${USER}:staff /opt/pongstr
+  git clone --depth=1 https://github.com/pongstr/dotfiles.git /opt/pongstr
+  cd /opt/pongstr
 else
   sudo mkdir -p $install_dir
+  sudo chown ${USER}:staff /opt/$install_dir
+  git clone --depth=1 https://github.com/pongstr/dotfiles.git /opt/$install_dir;
+  cd /opt/$install_dir
 fi
 
 
@@ -158,27 +164,19 @@ printf "\n\e[0;1m  --> Checking to see if Homebrew is installed..."
 
 install () {
   fn () {
-    sudo npm install
+    npm install
     sudo chmod +x pongstr.sh
     ./pongstr.sh install -a
+    ./pongstr.sh config -a
+    ./pongstr.sh editor -a
+    ./lib/shared/.osx
   }
 
   install_taps
   install_formulas
   install_node
   install_ruby
-
-  if [ ! -d "/opt/pongstr" ]; then
-    git clone --branch=dev https://github.com/pongstr/dotfiles.git /opt/$install_dir;
-  fi
-
-  if ([ -z $install_dir ] && [ -d "/opt/${install_dir}" ]); then
-    cd /opt/$install_dir; fn
-  fi
-
-  if [ -d "/opt/pongstr" ]; then
-    cd /opt/pongstr; fn
-  fi
+  fn
 }
 
 if hash brew 2>/dev/null; then

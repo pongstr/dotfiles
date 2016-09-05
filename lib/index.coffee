@@ -138,50 +138,96 @@ cmd
 cmd
   .command 'editor [config]'
   .description ''
-  .action (config) ->
+  .option '-a, --all', 'Install all configs for editors.'
+  .action (config, options) ->
 
-    if config == 'atom'
-      atom_config = conf.editor.atom
-      atom_home   = path.join __dirname, atom_config.home_dir
+    init =
+      atom: () ->
+        atom_config = conf.editor.atom
+        atom_home   = path.join __dirname, atom_config.home_dir
 
-      if atom_config.plugins.length > 0
-        console.info(chlk.blue "  --> Installing Atom plugins, please wait...")
-        atom_config.plugins.forEach (plugin) ->
-          exec "apm install #{plugin}"
+        if !test('-d', "#{atom_home}")
+          mkdir '-p', "#{atom_home}"
 
-      if atom_config.config.length > 0
-        console.info(chlk.blue "  --> Installing Atom configs, please wait...")
-        atom_config.config.forEach (conf) ->
-          if conf.path
-            exec "cp #{path.join(__dirname, 'shared')}/#{conf.name} #{conf.path}/#{conf.target}", silent: true
-          else
-            exec "cp #{path.join(__dirname, 'shared')}/#{conf.name} #{atom_home}/#{conf.target}", silent: true
-      return
+        if atom_config.plugins.length > 0
+          console.info(chlk.blue "  --> Installing Atom plugins, please wait...\n")
+          atom_config.plugins.forEach (plugin) ->
+            exec "apm install #{plugin}"
+            console.info "    ✓ installed: #{plugin}"
+          console.info chlk.green "\n  --> Done!\n"
 
-    if config == 'terminal'
-      term_config = conf.editor.terminal
-      term_home   = path.join(__dirname, term_config.home_dir)
-      return
+        if atom_config.config.length > 0
+          console.info(chlk.blue "\n  --> Installing Atom configs, please wait...\n")
+          atom_config.config.forEach (conf) ->
+            if conf.path
+              exec "cp #{path.join(__dirname, 'shared')}/#{conf.name} #{conf.path}/#{conf.target}", silent: true
+              console.info "    ✓ created: #{conf.path}/#{conf.target}"
+            else
+              exec "cp #{path.join(__dirname, 'shared')}/#{conf.name} #{atom_home}/#{conf.target}", silent: true
+              console.info "    ✓ created: #{atom_home}/#{conf.target}"
+          console.info chlk.green "\n  --> Done!\n"
+        return
 
-    if config == 'vim'
-      vim_config = conf.editor.vim
-      vim_home   = path.join __dirname, vim_config.home_dir
+      terminal: () ->
+        term_config = conf.editor.terminal
+        term_home   = path.join(__dirname, term_config.home_dir)
 
-      if !test('-d', "#{vim_home}")
-        mkdir '-p', "#{vim_home}"
+        if !test('-d', "#{term_home}")
+          mkdir '-p', "#{term_home}"
 
-      if vim_config.folders.length > 0
-        vim_config.folders.forEach (dir) ->
-          mkdir '-p', "#{vim_home}/#{dir}"
+        if !test '-d', "#{term_home}/.oh-my-zsh"
+          console.info "\n  --> Installing oh-my-zsh"
+          exec "curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh"
+
+        if term_config.config.length > 0
+          console.info(chlk.blue "\n  --> Installing Terminal stuff, please wait...\n")
+          term_config.config.forEach (conf) ->
+            if conf.path
+              exec "cp #{path.join(__dirname, 'shared')}/#{conf.name} #{conf.path}/#{conf.target}"
+              console.info "    ✓ created: #{conf.path}/#{conf.target}"
+            else
+              exec "cp #{path.join(__dirname, 'shared')}/#{conf.name} #{term_home}/#{conf.target}"
+              console.info "    ✓ created: #{term_home}/#{conf.target}"
+          console.info chlk.green "\n  --> Done!\n"
+        return
+
+      vim: () ->
+        vim_config = conf.editor.vim
+        vim_home   = path.join __dirname, vim_config.home_dir
+
+        if !test('-d', "#{vim_home}")
+          mkdir '-p', "#{vim_home}"
+
+        console.info(chlk.blue "  --> Installing Vim configs, please wait...\n")
+        if vim_config.folders.length > 0
+          vim_config.folders.forEach (dir) ->
+            mkdir '-p', "#{vim_home}/#{dir}"
+            return
+
+        if vim_config.config.length > 0
+          vim_config.config.forEach (conf) ->
+            if conf.path
+              exec "cp #{path.join(__dirname, 'shared')}/#{conf.name} #{conf.path}/#{conf.target}"
+              console.info "    ✓ created: #{conf.path}/#{conf.target}"
+            else
+              exec "cp #{path.join(__dirname, 'shared')}/#{conf.name} #{vim_home}/#{conf.target}", silent: true
+              console.info "    ✓ created: #{vim_home}/#{conf.target}"
+            console.info chlk.green "\n  --> Done!\n"
           return
 
-      if vim_config.config.length > 0
-        vim_config.config.forEach (conf) ->
-          if conf.path
-            exec "cp #{path.join(__dirname, 'shared')}/#{conf.name} #{conf.path}#{conf.target}"
-          else
-            exec "cp #{path.join(__dirname, 'shared')}/#{conf.name} #{vim_home}/#{conf.target}", silent: true
-          return
+        console.info "\n  --> Done!"
+        return
+
+      all: () ->
+        @vim()
+        @atom()
+        @terminal()
+        return
+
+    if !config or !config and options and options.all
+      init.all()
       return
+
+    if init[config] then init[config]() else init.all()
 
 cmd.parse process.argv
