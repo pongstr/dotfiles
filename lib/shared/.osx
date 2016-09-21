@@ -162,13 +162,13 @@ echo "Set keyboard illumination when computer is not use for 5 minutes"
 defaults write com.apple.BezelServices kDimTime -int 300
 
 echo ""
-echo "Setting the timezone to Asia/Manila"
-systemsetup -settimezone "Asia/Manila" > /dev/null
+echo "Setting the timezone Europe/Tallinn"
+systemsetup -settimezone "Europe/Tallinn" > /dev/null
 
 echo ""
 echo "Setting default language to (US) English, currency to Philippine Peso and metric unit to inches"
 defaults write NSGlobalDomain AppleLanguages -array "en_US"
-defaults write NSGlobalDomain AppleLocale -string "en_US@currency=PHP"
+defaults write NSGlobalDomain AppleLocale -string "en_US@currency=EUR"
 defaults write NSGlobalDomain AppleMeasurementUnits -string "Inches"
 defaults write NSGlobalDomain AppleMetricUnits -bool true
 

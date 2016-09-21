@@ -73,10 +73,10 @@ install_node () {
   printf "\n\e[0;33m    Setting node.js v${nodes} as the default global version.\n"
   nodenv global "${nodes}"
 
-  sleep 1
-
-  npm update -g npm
-  npm install shelljs coffee-script cson chalk commander
+  cat > $HOME/.bash_profile <<EOF
+# Enable nodenv shims and autocompletion
+if which nodenv > /dev/null; then eval "$(nodenv init -)"; fi\n
+EOF
 }
 
 # Ruby Installation
@@ -98,10 +98,10 @@ install_ruby () {
     printf "\n\e[0;33m    Setting Ruby ${rubies} as the default global version.\n\e[0m"
     rbenv global "${rubies}"
 
-    sleep 1
-
-    gem update --system
-    gem install bundler
+  cat > $HOME/.bash_profile <<EOF
+# Enable rbenv shims and autocompletion
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+EOF
   fi
 }
 
@@ -149,12 +149,12 @@ if [ -z "$install_dir"]; then
   sudo mkdir -p /opt/pongstr
   sudo chown ${USER}:staff /opt/pongstr
   git clone --depth=1 https://github.com/pongstr/dotfiles.git /opt/pongstr
-  cd /opt/pongstr
+  cd /opt/pongstr; pwd
 else
   sudo mkdir -p $install_dir
   sudo chown ${USER}:staff /opt/$install_dir
   git clone --depth=1 https://github.com/pongstr/dotfiles.git /opt/$install_dir;
-  cd /opt/$install_dir
+  cd /opt/$install_dir; pwd
 fi
 
 
@@ -170,6 +170,7 @@ install () {
     ./pongstr.sh config -a
     ./pongstr.sh editor -a
     ./lib/shared/.osx
+
   }
 
   install_taps
@@ -191,3 +192,9 @@ else
   brew doctor
   install
 fi
+
+echo "
+
+  --> Cleaning up to save disk space..."
+brew cleanup
+brew cask cleanup

@@ -195,14 +195,9 @@ cmd
         vim_config = conf.editor.vim
         vim_home   = path.join __dirname, vim_config.home_dir
 
-        if !test('-d', "#{vim_home}")
-          mkdir '-p', "#{vim_home}"
-
         console.info(chlk.blue "  --> Installing Vim configs, please wait...\n")
-        if vim_config.folders.length > 0
-          vim_config.folders.forEach (dir) ->
-            mkdir '-p', "#{vim_home}/#{dir}"
-            return
+        if !test('-d', "#{vim_home}")
+          mkdir '-p', "#{vim_home}/{backups,colors,plugins,swaps,undo}"
 
         if vim_config.config.length > 0
           vim_config.config.forEach (conf) ->

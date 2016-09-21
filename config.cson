@@ -13,6 +13,8 @@ brew:
   ]
   packages: [
     "dnsmasq"
+    "gnupg"
+    "gpg-agent"
     "mongodb"
     "nginx"
     "redis"
@@ -23,6 +25,7 @@ brew:
     "nodenv"
     "openssl"
     "php56 --with-fpm  --with-imap  --without-apache --with-debug"
+    "pinentry-mac"
     "python"
     "rbenv"
     "vim --override-system-vi"
@@ -149,4 +152,3 @@ redis:
   host: '127.0.0.1'
   port: 16379
   config_dir: 'config/redis'
-
