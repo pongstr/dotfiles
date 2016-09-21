@@ -162,13 +162,13 @@ echo "Set keyboard illumination when computer is not use for 5 minutes"
 defaults write com.apple.BezelServices kDimTime -int 300
 
 echo ""
-echo "Setting the timezone to Asia/Manila"
-systemsetup -settimezone "Asia/Manila" > /dev/null
+echo "Setting the timezone Europe/Tallinn"
+systemsetup -settimezone "Europe/Tallinn" > /dev/null
 
 echo ""
 echo "Setting default language to (US) English, currency to Philippine Peso and metric unit to inches"
 defaults write NSGlobalDomain AppleLanguages -array "en_US"
-defaults write NSGlobalDomain AppleLocale -string "en_US@currency=PHP"
+defaults write NSGlobalDomain AppleLocale -string "en_US@currency=EUR"
 defaults write NSGlobalDomain AppleMeasurementUnits -string "Inches"
 defaults write NSGlobalDomain AppleMetricUnits -bool true
 
@@ -309,7 +309,15 @@ defaults write com.apple.dock autohide-time-modifier -float 0
 
 echo ""
 echo "Speed up Mission Control animations"
-defaults write com.apple.dock expose-animation-duration -float 0.3
+defaults write com.apple.dock expose-animation-duration -float 0
+
+echo ""
+echo "Re-layout Launchpad"
+defaults write com.apple.dock springboard-rows -int 8
+defaults write com.apple.dock springboard-columns -int 8
+defaults write com.apple.dock ResetLaunchPad -bool TRUE
+killall Dock
+
 
 echo ""
 echo "Reset Launchpad, but keep the desktop wallpaper intact"
