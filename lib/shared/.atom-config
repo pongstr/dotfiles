@@ -60,23 +60,6 @@
   "one-dark-ui":
     fontSize: 11
     layoutMode: "Compact"
-  term2:
-    fontFamily: "Menlo"
-    fontSize: "11"
-    openPanesInSameSplit: true
-    titleTemplate: "/usr/local/bin/zsh"
-  "terminal-plus":
-    core:
-      mapTerminalsTo: "Folder"
-      shell: "/bin/bash"
-    style:
-      defaultPanelHeight: "250px"
-      fontFamily: "Consolas"
-      fontSize: "10px"
-      theme: "pro"
-    toggles:
-      autoClose: true
-      runInsertedText: false
   "tool-bar":
     iconSize: "12px"
     position: "Left"
@@ -87,3 +70,86 @@
     showOnStartup: false
   whitespace:
     ignoreWhitespaceOnCurrentLine: false
+  "platformio-ide-terminal":
+    ansiColors:
+      normal:
+        black:
+          red: 27
+          green: 27
+          blue: 27
+          alpha: 1
+        blue:
+          red: 108
+          green: 176
+          blue: 197
+          alpha: 1
+        cyan:
+          red: 114
+          green: 196
+          blue: 185
+          alpha: 1
+        green:
+          red: 152
+          green: 186
+          blue: 98
+          alpha: 1
+        magenta:
+          red: 196
+          green: 132
+          blue: 176
+          alpha: 1
+        red:
+          red: 204
+          green: 73
+          blue: 73
+          alpha: 1
+        white:
+          red: 217
+          green: 217
+          blue: 217
+          alpha: 1
+        yellow:
+          red: 255
+          green: 202
+          blue: 122
+          alpha: 1
+      zBright:
+        brightBlack:
+          red: 99
+          green: 99
+          blue: 99
+          alpha: 1
+        brightBlue:
+          red: 55
+          green: 185
+          blue: 235
+          alpha: 1
+        brightCyan:
+          red: 112
+          green: 193
+          blue: 183
+          alpha: 1
+        brightGreen:
+          red: 174
+          green: 215
+          blue: 115
+          alpha: 1
+        brightMagenta:
+          red: 204
+          green: 133
+          blue: 184
+          alpha: 1
+        brightRed:
+          red: 226
+          green: 82
+          blue: 83
+          alpha: 1
+        brightYellow:
+          red: 232
+          green: 148
+          blue: 64
+          alpha: 1
+    style:
+      defaultPanelHeight: "350px"
+      fontFamily: "Consolas"
+      fontSize: "11px"

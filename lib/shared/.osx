@@ -309,7 +309,15 @@ defaults write com.apple.dock autohide-time-modifier -float 0
 
 echo ""
 echo "Speed up Mission Control animations"
-defaults write com.apple.dock expose-animation-duration -float 0.3
+defaults write com.apple.dock expose-animation-duration -float 0
+
+echo ""
+echo "Re-layout Launchpad"
+defaults write com.apple.dock springboard-rows -int 8
+defaults write com.apple.dock springboard-columns -int 8
+defaults write com.apple.dock ResetLaunchPad -bool TRUE
+killall Dock
+
 
 echo ""
 echo "Reset Launchpad, but keep the desktop wallpaper intact"

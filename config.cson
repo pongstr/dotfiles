@@ -101,7 +101,8 @@ editor:
       "linter-eslint"
       "merge-conflicts"
       "minimap"
-      "terminal-plus"
+      "platformio-ide-terminal"
+      # "terminal-plus" # is currently broken
       "tool-bar"
       "tool-bar-almighty"
       "wordpress-api"
