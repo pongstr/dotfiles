@@ -140,89 +140,115 @@ cmd
   .description ''
   .option '-a, --all', 'Install all configs for editors.'
   .action (config, options) ->
+    context = "#{path.join(__dirname, 'shared')}/"
+    editor  = {}
 
-    init =
-      atom: () ->
-        atom_config = conf.editor.atom
-        atom_home   = path.join __dirname, atom_config.home_dir
+    console.log ""
 
-        if !test('-d', "#{atom_home}")
-          mkdir '-p', "#{atom_home}"
+    # Atom Editor Setup
+    #
+    # - installs plugins declared on `config.cson`
+    #   config.cson > editor > atom > plugins
+    #
+    # - installs configs from templates, see `config.cson`
+    #   config.cson > editor > atom > config
+    #
+    editor.atom = () ->
+      atom_conf = conf.editor.atom
+      atom_home = "#{atom_conf.home_dir}/"
 
-        if atom_config.plugins.length > 0
-          console.info(chlk.blue "  --> Installing Atom plugins, please wait...\n")
-          atom_config.plugins.forEach (plugin) ->
-            exec "apm install #{plugin}"
-            console.info "    ✓ installed: #{plugin}"
-          console.info chlk.green "\n  --> Done!\n"
+      if !test '-d', atom_home
+        mkdir '-p', atom_home
 
-        if atom_config.config.length > 0
-          console.info(chlk.blue "\n  --> Installing Atom configs, please wait...\n")
-          atom_config.config.forEach (conf) ->
-            if conf.path
-              exec "cp #{path.join(__dirname, 'shared')}/#{conf.name} #{conf.path}/#{conf.target}", silent: true
-              console.info "    ✓ created: #{conf.path}/#{conf.target}"
-            else
-              exec "cp #{path.join(__dirname, 'shared')}/#{conf.name} #{atom_home}/#{conf.target}", silent: true
-              console.info "    ✓ created: #{atom_home}/#{conf.target}"
-          console.info chlk.green "\n  --> Done!\n"
-        return
+      # Install Atom Plugins
+      console.info chlk.blue "\t--> Installing Atom Plugins, please wait...\n"
+      if atom_conf.plugins.length > 0
+        atom_conf.plugins.forEach (plugin) ->
+          exec "apm install #{plugin}"
+      else
+        console.info chlk.gray "\t--> No plugins declared, skipping this process\n"
+      console.info chlk.green "\t--> Done!\n"
 
-      terminal: () ->
-        term_config = conf.editor.terminal
-        term_home   = path.join(__dirname, term_config.home_dir)
-
-        if !test('-d', "#{term_home}")
-          mkdir '-p', "#{term_home}"
-
-        if !test '-d', "#{term_home}/.oh-my-zsh"
-          console.info "\n  --> Installing oh-my-zsh"
-          exec "curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh"
-
-        if term_config.config.length > 0
-          console.info(chlk.blue "\n  --> Installing Terminal stuff, please wait...\n")
-          term_config.config.forEach (conf) ->
-            if conf.path
-              exec "cp #{path.join(__dirname, 'shared')}/#{conf.name} #{conf.path}/#{conf.target}"
-              console.info "    ✓ created: #{conf.path}/#{conf.target}"
-            else
-              exec "cp #{path.join(__dirname, 'shared')}/#{conf.name} #{term_home}/#{conf.target}"
-              console.info "    ✓ created: #{term_home}/#{conf.target}"
-          console.info chlk.green "\n  --> Done!\n"
-        return
-
-      vim: () ->
-        vim_config = conf.editor.vim
-        vim_home   = path.join __dirname, vim_config.home_dir
-
-        console.info(chlk.blue "  --> Installing Vim configs, please wait...\n")
-        if !test('-d', "#{vim_home}")
-          mkdir '-p', "#{vim_home}/{backups,colors,plugins,swaps,undo}"
-
-        if vim_config.config.length > 0
-          vim_config.config.forEach (conf) ->
-            if conf.path
-              exec "cp #{path.join(__dirname, 'shared')}/#{conf.name} #{conf.path}/#{conf.target}"
-              console.info "    ✓ created: #{conf.path}/#{conf.target}"
-            else
-              exec "cp #{path.join(__dirname, 'shared')}/#{conf.name} #{vim_home}/#{conf.target}", silent: true
-              console.info "    ✓ created: #{vim_home}/#{conf.target}"
-            console.info chlk.green "\n  --> Done!\n"
-          return
-
-        console.info "\n  --> Done!"
-        return
-
-      all: () ->
-        @vim()
-        @atom()
-        @terminal()
-        return
-
-    if !config or !config and options and options.all
-      init.all()
+      # Install Atom Configs
+      console.info chlk.blue "\t--> Installing Atom configs, please wait..."
+      if atom_conf.config.length > 0
+        atom_conf.config.forEach (config) ->
+          cp '-f', "#{context}#{config.source}", "#{atom_home}#{config.target}"
+        console.info chlk.green "\t--> Done!\n"
+      else
+        console.info chlk.gray "\t--> No configs declared, skipping this process\n"
       return
 
-    if init[config] then init[config]() else init.all()
+    # Vim Editor Setup
+    #
+    # - installs plugins declared on `config.cson`
+    #   config.cson > editor > vim > plugins
+    #
+    # - installs configs declared on `config.cson`
+    #   config.cson > editor > vim > config
+    #
+    editor.vim = () ->
+      vim_conf = conf.editor.vim
+      vim_home = "#{vim_conf.home_dir}/"
+
+      if !test '-d', vim_home
+        mkdir '-p', "#{vim_home}backups"
+        mkdir '-p', "#{vim_home}colors"
+        mkdir '-p', "#{vim_home}plugins"
+        mkdir '-p', "#{vim_home}swaps"
+        mkdir '-p', "#{vim_home}undo"
+
+      # Install Vim Plugins
+      console.info chlk.blue "\t--> Installing Vim plugins, please wait..."
+      if vim_conf.plugins.length > 0
+        vim_conf.plugins.forEach (plugin) ->
+          exec "cp #{context}#{plugin} #{vim_home}plugins/#{plugin}"
+      else
+        console.info chlk.gray "\t--> No Vim plugins declared, skipping this process.\n"
+
+      # Install Vim Configs
+      console.info chlk.blue "\t--> Installing Vim configs, please wait..."
+      if vim_conf.config.length > 0
+        vim_conf.config.forEach (config) ->
+          cp '-f', "#{context}#{config.source}", "#{vim_home}#{config.target}"
+        console.info chlk.green "\t--> Done!\n"
+      else
+        console.info chlk.gray "\t--> No configs declared, skipping this process.\n"
+      return
+
+    # Terminal + oh-my-zsh setup
+    #
+    # - installs .oh-my-zsh and custom theme
+    # - installs dotfiles
+    #
+    editor.term = () ->
+      term_conf = conf.editor.term
+      term_home = "#{term_conf.home_dir}/"
+
+      # if !test '-d', "#{term_home}/.oh-my-zsh"
+      #   console.info chlk.green "\t--> Installing oh-my-zsh plugin"
+      #   exec "curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh"
+
+      if !test '-d', "#{term_home}/.oh-my-zsh"
+        console.info chlk.green "\t--> Installing oh-my-zsh plugin"
+        mkdir '-p', "#{term_home}/.oh-my-zsh"
+
+
+      if term_conf.config.length > 0
+        console.info chlk.green "\t--> Installing Terminal configs, please wait..."
+        term_conf.config.forEach (config) ->
+          cp '-f', "#{context}#{config.source}", "#{term_home}#{config.target}"
+        console.info chlk.green "\t--> Done!"
+      else
+        console.info chlk.gray "\t--> No configs declared, skipping this process."
+      return
+
+    editor.all = () ->
+      @vim()
+      @atom()
+      @term()
+      return
+
+    if editor[config] then editor[config]() else editor.all()
 
 cmd.parse process.argv

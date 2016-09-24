@@ -83,51 +83,45 @@ gem: [
 
 editor:
   atom:
-    home_dir: "../config/atom"
+    home_dir: "~/.atom"
     config: [
-      { name: ".atom-config",  target: "config.cson" }
-      { name: ".atom-styles",  target: "styles.less" }
-      { name: ".atom-toolbar", target: "toolbar.coffee" }
+      { source: ".atom-config",  target: "config.cson" }
+      { source: ".atom-styles",  target: "styles.less" }
+      { source: ".atom-toolbar", target: "toolbar.coffee" }
     ]
     plugins: [
-      "angularjs"
-      "emmet"
-      "git-control"
-      "language-docker"
-      "language-nginx"
-      "language-nunjucks"
-      "language-puppet"
-      "linter"
-      "linter-eslint"
-      "merge-conflicts"
-      "minimap"
-      "platformio-ide-terminal"
-      # "terminal-plus" # is currently broken
-      "tool-bar"
-      "tool-bar-almighty"
-      "wordpress-api"
+      # "angularjs"
+      # "emmet"
+      # "git-control"
+      # "language-docker"
+      # "language-nginx"
+      # "language-nunjucks"
+      # "language-puppet"
+      # "linter"
+      # "linter-eslint"
+      # "merge-conflicts"
+      # "minimap"
+      # "platformio-ide-terminal"
+      # "tool-bar"
+      # "tool-bar-almighty"
+      # "wordpress-api"
+      # # "terminal-plus" # is currently broken
     ]
-  terminal:
-    home_dir: "../config/terminal"
+  term:
+    home_dir: "~"
     config: [
-      { name: ".bash_alias",    target: "" }
-      { name: ".bash_profile",  target: "" }
-      { name: ".bashrc",        target: "" }
-      { name: ".curlrc",        target: "" }
-      { name: ".zshrc",         target: "" }
+      { source: ".bash_alias",    target: ".bash_alias" }
+      { source: ".bash_profile",  target: ".bash_profile" }
+      { source: ".bashrc",        target: ".bashrc" }
+      { source: ".curlrc",        target: ".curlrc" }
+      { source: ".zshrc",         target: ".zshrc" }
+      { source: ".zsh-theme",     target: ".oh-my-zsh/themes/pongstr.zsh-theme" }
     ]
   vim:
-    home_dir: "../config/vim"
-    folders: [
-      "backups"
-      "colors"
-      "plugins"
-      "swaps"
-      "undo"
-    ]
+    home_dir: "~/.vim"
     config: [
-      { name: ".vim-config", target: ".vimrc" }
-      { name: ".vim-styles", path: "/Users/Pongstr/Projects/github/dotfiles/config/vim/colors", target: "Pongstr\\ Base-16.vim" }
+      { source: ".vim-config", target: ".vimrc" }
+      { source: ".vim-styles", target: "colors/pongstr.vim" }
     ]
     plugins: []
 
