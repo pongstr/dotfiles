@@ -28,7 +28,7 @@ brew:
     "pinentry-mac"
     "python"
     "rbenv"
-    "vim --override-system-vi"
+    "vim --with-override-system-vi"
     "wget"
     "zsh"
   ]
@@ -90,22 +90,22 @@ editor:
       { source: ".atom-toolbar", target: "toolbar.coffee" }
     ]
     plugins: [
-      # "angularjs"
-      # "emmet"
-      # "git-control"
-      # "language-docker"
-      # "language-nginx"
-      # "language-nunjucks"
-      # "language-puppet"
-      # "linter"
-      # "linter-eslint"
-      # "merge-conflicts"
-      # "minimap"
-      # "platformio-ide-terminal"
-      # "tool-bar"
-      # "tool-bar-almighty"
-      # "wordpress-api"
-      # # "terminal-plus" # is currently broken
+      "angularjs"
+      "emmet"
+      "git-control"
+      "language-docker"
+      "language-nginx"
+      "language-nunjucks"
+      "language-puppet"
+      "linter"
+      "linter-eslint"
+      "merge-conflicts"
+      "minimap"
+      "platformio-ide-terminal"
+      "tool-bar"
+      "tool-bar-almighty"
+      "wordpress-api"
+      # "terminal-plus" # is currently broken
     ]
   term:
     home_dir: "~"

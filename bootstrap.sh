@@ -15,8 +15,8 @@ brew_formulas=(
 )
 
 nodes=(
-  '4.5.0'
-  '6.5.0'
+  '4.6.0'
+  '6.7.0'
   '0.12.15'
 )
 
@@ -166,9 +166,9 @@ install () {
   fn () {
     npm install
     sudo chmod +x pongstr.sh
-    ./pongstr.sh install -a
-    ./pongstr.sh config -a
-    ./pongstr.sh editor -a
+    ./pongstr install -a
+    ./pongstr config -a
+    ./pongstr editor -a
     ./lib/shared/.osx
 
   }
