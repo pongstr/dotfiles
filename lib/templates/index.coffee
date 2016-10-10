@@ -48,11 +48,10 @@ module.exports = (pkg) ->
     if !test '-d', dir
       mkdir '-p', dir
 
-  console.log pkg
-
   switch pkg
     when 'dnsmasq'
       proc(pkg)
+      ln('-sf', "#{root}/dnsmasq/dnsmasq.conf", '/usr/local/etc/dnsmasq.conf')
     when 'redis'
       proc(pkg)
     when 'mysql'

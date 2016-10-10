@@ -7,7 +7,7 @@ pkg =
   update:
     brew: () ->
       console.info('😇 ', chlk.blue "Updating Homebrew and upgrading outdated packages to latest versions.")
-      exec "brew update; brew upgrade --all"
+      exec "brew update; brew upgrade"
     gem: () ->
       console.info('😇 ', chlk.blue "Updating Ruby Gem and upgrading outdated packages to latest versions.")
       exec "gem update --system; gem update --list"

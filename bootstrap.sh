@@ -177,14 +177,19 @@ install () {
   install_formulas
   install_node
   install_ruby
-  fn
+
+  if [[ ! -d "/etc/resolver" ]]; then
+    mkdir -p /etc/resolver && $(echo 'nameserver 127.0.0.1' | sudo tee -a '/etc/resolver/dev')
+  fi
+
+  # fn
 }
 
 if hash brew 2>/dev/null; then
   printf "
       Awesome! Homebrew is installed! Now updating...\n\e[0m"
   brew update
-  brew upgrade --all
+  brew upgrade
   install
 else
   printf "\e[0;1m      Did not find Homebrew installation, installing it now...\e[0m\n"
