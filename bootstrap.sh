@@ -170,7 +170,6 @@ install () {
     ./pongstr config -a
     ./pongstr editor -a
     ./lib/shared/.osx
-
   }
 
   install_taps
@@ -179,10 +178,10 @@ install () {
   install_ruby
 
   if [[ ! -d "/etc/resolver" ]]; then
-    mkdir -p /etc/resolver && $(echo 'nameserver 127.0.0.1' | sudo tee -a '/etc/resolver/dev')
+    sudo mkdir -p /etc/resolver && "\$(echo 'nameserver 127.0.0.1' | sudo tee -a '/etc/resolver/dev')"
   fi
 
-  # fn
+  fn
 }
 
 if hash brew 2>/dev/null; then

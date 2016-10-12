@@ -51,7 +51,7 @@ module.exports = (pkg) ->
   switch pkg
     when 'dnsmasq'
       proc(pkg)
-      ln('-sf', "#{root}/dnsmasq/dnsmasq.conf", '/usr/local/etc/dnsmasq.conf')
+      ln('-sf', "#{root}/config/dnsmasq/dnsmasq.conf", '/usr/local/etc/dnsmasq.conf')
     when 'redis'
       proc(pkg)
     when 'mysql'
@@ -59,7 +59,8 @@ module.exports = (pkg) ->
     when 'mongodb'
       proc(pkg, ['log', 'databases'])
     when 'nginx'
-      proc(pkg, ['logs', 'pid', 'sites', 'www'])
+      proc(pkg, ['cache', 'logs', 'pid', 'sites', 'temp', 'www'])
+      ln('-sf', "#{root}/config/nginx/nginx.conf", '/usr/local/etc/nginx/nginx.conf')
     when 'all'
       Promise.all([
         proc('dnsmasq')

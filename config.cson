@@ -16,7 +16,7 @@ brew:
     "gnupg"
     "gpg-agent"
     "mongodb"
-    "nginx"
+    "nginx --with-http2 --with-gunzip"
     "redis"
     "curl --with-openssl"
     "git"
