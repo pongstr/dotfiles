@@ -5,24 +5,25 @@ brew_taps=(
   'homebrew/homebrew-php'
   'homebrew/services'
   'homebrew/versions'
+  'caskroom/cask',
   'caskroom/versions'
   'caskroom/fonts'
 )
 
 brew_formulas=(
+  'openssl'
   'nodenv'
   'rbenv'
 )
 
 nodes=(
-  '4.6.0'
-  '6.7.0'
-  '0.12.15'
+  '6.9.4'
+  '7.4.0'
 )
 
 rubies=(
-  '2.2.5'
-  '2.3.1'
+  '2.3.3'
+  '2.4.0'
 )
 
 # Homebrew Tap Installation
@@ -68,15 +69,13 @@ install_node () {
         nodenv install $node
       fi
     done
+
+    source $HOME/.bash_profile
+    sleep 1
+
+    printf "\n\e[0;33m    Setting node.js v${nodes} as the default global version.\n\e[0m"
+    nodenv global "${nodes}"
   fi
-
-  printf "\n\e[0;33m    Setting node.js v${nodes} as the default global version.\n"
-  nodenv global "${nodes}"
-
-  cat > $HOME/.bash_profile <<EOF
-# Enable nodenv shims and autocompletion
-if which nodenv > /dev/null; then eval "$(nodenv init -)"; fi\n
-EOF
 }
 
 # Ruby Installation
@@ -95,47 +94,40 @@ install_ruby () {
       fi
     done
 
+    source $HOME/.bash_profile
+    sleep 1
+
     printf "\n\e[0;33m    Setting Ruby ${rubies} as the default global version.\n\e[0m"
     rbenv global "${rubies}"
-
-  cat > $HOME/.bash_profile <<EOF
-# Enable rbenv shims and autocompletion
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-EOF
   fi
 }
 
-
-init () {
-  echo ""
-  printf "%s" $'\e[1;32m
-    ██████╗  ██████╗ ███╗   ██╗ ██████╗ ███████╗████████╗██████╗
-    ██╔══██╗██╔═══██╗████╗  ██║██╔════╝ ██╔════╝╚══██╔══╝██╔══██╗
-    ██████╔╝██║   ██║██╔██╗ ██║██║  ███╗███████╗   ██║   ██████╔╝
-    ██╔═══╝ ██║   ██║██║╚██╗██║██║   ██║╚════██║   ██║   ██╔══██╗
-    ██║     ╚██████╔╝██║ ╚████║╚██████╔╝███████║   ██║   ██║  ██║
-    ╚═╝      ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝ ╚══════╝   ╚═╝   ╚═╝  ╚═╝\e[1;31m
-        Dotfiles v0.3.0 https://github.com/pongstr/dotfiles\e[0m\n
-    \e[0;34m--> Dotfiles bruh, we need your password access to your shit... \n\e[0m'
-
-  printf "
-  "
-}
 
 ###############################################################################
 #                     >>>>> Begin Here <<<<<
 ###############################################################################
 
-init
+echo ""
+printf "%s" $'\e[1;32m
+  ██████╗  ██████╗ ███╗   ██╗ ██████╗ ███████╗████████╗██████╗
+  ██╔══██╗██╔═══██╗████╗  ██║██╔════╝ ██╔════╝╚══██╔══╝██╔══██╗
+  ██████╔╝██║   ██║██╔██╗ ██║██║  ███╗███████╗   ██║   ██████╔╝
+  ██╔═══╝ ██║   ██║██║╚██╗██║██║   ██║╚════██║   ██║   ██╔══██╗
+  ██║     ╚██████╔╝██║ ╚████║╚██████╔╝███████║   ██║   ██║  ██║
+  ╚═╝      ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝ ╚══════╝   ╚═╝   ╚═╝  ╚═╝\e[1;31m
+      Dotfiles v0.3.0 https://github.com/pongstr/dotfiles\e[0m\n'
 
 echo "
-
   --> For added privacy invasion I'll need your local account's password.
 "
 
+# Close any open System Preferences panes, to prevent them from overriding
+# settings we’re about to change
+osascript -e 'tell application "System Preferences" to quit'
+
 # Ask for the administrator password upfront
 # This prompt is taken from `boxen-web`, see https://github.com/boxen/boxen-web
-sudo -p "     Password for sudo: " echo "     Thanks! See you in vegas sucker!"
+sudo -p "      Password for sudo: " echo "     Thanks! See you in vegas sucker!"
 
 # Keep-alive: update existing `sudo` time stamp until `.osx` has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
@@ -143,62 +135,65 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 # Create Installation Directory
 echo "
   --> Where would you like to install the setup files? "
-read -p  "      defaults to /opt/pongstr " install_dir
+read -p  "      defaults to /opt/dotfiles
+" INSTALL_DIR
 
-if [ -z "$install_dir"]; then
-  sudo mkdir -p /opt/pongstr
-  sudo chown ${USER}:staff /opt/pongstr
-  git clone --depth=1 https://github.com/pongstr/dotfiles.git /opt/pongstr
-  cd /opt/pongstr; pwd
-else
-  sudo mkdir -p $install_dir
-  sudo chown ${USER}:staff /opt/$install_dir
-  git clone --depth=1 https://github.com/pongstr/dotfiles.git /opt/$install_dir;
-  cd /opt/$install_dir; pwd
+if [ -z $INSTALL_DIR ]; then
+  INSTALL_DIR="dotfiles"
 fi
 
+sudo mkdir -p /opt/$INSTALL_DIR
+sudo chown ${USER}:staff /opt/$INSTALL_DIR
+git clone --depth=1 https://github.com/pongstr/dotfiles.git /opt/$INSTALL_DIR
 
 # Let the bootstrapping begin!
 # Tools and dependencies has to be installed in to get commands to run.
 printf "\n\e[0;1m  --> Checking to see if Homebrew is installed..."
-
-install () {
-  fn () {
-    npm install
-    sudo chmod +x pongstr.sh
-    ./pongstr install -a
-    ./pongstr config -a
-    ./pongstr editor -a
-    ./lib/shared/.osx
-  }
-
-  install_taps
-  install_formulas
-  install_node
-  install_ruby
-
-  if [[ ! -d "/etc/resolver" ]]; then
-    sudo mkdir -p /etc/resolver && "\$(echo 'nameserver 127.0.0.1' | sudo tee -a '/etc/resolver/dev')"
-  fi
-
-  fn
-}
-
 if hash brew 2>/dev/null; then
   printf "
-      Awesome! Homebrew is installed! Now updating...\n\e[0m"
-  brew update
-  brew upgrade
-  install
+      Awesome! Homebrew is installed! Now updating...\n\n\e[0m"
+  brew doctor && brew update && brew upgrade && brew cleanup
+  sleep 1
+
+  install_ruby
+  sleep 1
+
+  install_node
+  sleep 1
+
+  nodenv local ${nodes}
+  rbenv local ${rubies}
+  sleep 1
+
+  source $HOME/.bash_profile
+  osascript -e 'tell application "System Events" to log out'
+  builtin logout
 else
-  printf "\e[0;1m      Did not find Homebrew installation, installing it now...\e[0m\n"
+  printf "\e[0;1m
+      Did not find Homebrew installation, installing it now...\e[0m\n\n"
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   brew doctor
-  install
+
+  echo "
+    --> Installing homebrew taps"
+  install_taps
+  install_formulas
+
+  cp /opt/$INSTALL_DIR/lib/shared/.bashrc $HOME/.bashrc
+  cp /opt/$INSTALL_DIR/lib/shared/.bash_profile $HOME/.bash_profile
+
+  source $HOME/.bash_profile
+  sleep 1
+
+  install_node
+  sleep 1
+
+  install_ruby
+  sleep 1
+
+  nodenv local ${nodes}
+  rbenv local ${rubies}
+
+  osascript -e 'tell application "System Events" to log out'
+  builtin logout
 fi
-
-echo "
-
-  --> Cleaning up to save disk space..."
-brew cleanup
-brew cask cleanup

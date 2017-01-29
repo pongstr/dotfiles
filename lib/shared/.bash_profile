@@ -8,25 +8,13 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 # Homebrew
 export PATH=/usr/local/bin:$PATH
+export PATH="$PATH:/usr/sbin"
 
 # Make /Applications the default location of apps
-export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+export HOMEBREW_CASK_OPTS="--appdir=/Applications --caskroom=/opt/homebrew-cask/Caskroom"
 
-# Thanks for the awesome idea batasrki
-function gemdir {
-  if [[ -z "$1" ]] ; then
-    echo "gemdir expects a parameter, which should be a valid RVM Ruby selector"
-  else
-    rvm "$1"
-    cd $(rvm gemdir)
-    pwd
-  fi
-}
+# Enable Rbenv shims and autocompletion
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
-# Load RVM into a shell session *as a function*
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
-# Boxen
-if [[ -d /opt/boxen ]] ; then
-  [ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
-fi
+# Enable Nodenv shims and autocompletion
+if which nodenv > /dev/null; then eval "$(nodenv init -)"; fi
