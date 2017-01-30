@@ -99,6 +99,8 @@ install_ruby () {
 
     printf "\n\e[0;33m    Setting Ruby ${rubies} as the default global version.\n\e[0m"
     rbenv global "${rubies}"
+    sleep 1
+    sudo gem install bundler
   fi
 }
 

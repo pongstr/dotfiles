@@ -7,9 +7,6 @@ brew:
     "homebrew/services"
     "homebrew/versions"
     "jawshooah/nodenv"
-    "caskroom/cask"
-    "caskroom/fonts"
-    "caskroom/versions"
   ]
   packages: [
     "dnsmasq"
@@ -38,21 +35,22 @@ cask: [
   "atom"
   "docker"
   "dropbox"
-  "firefox"
-  "firefoxdeveloperedition"
   "github-desktop"
   "google-chrome"
   "google-chrome-canary"
   "kaleidoscope"
+  "kitematic"
   "lantern"
   "rdm"
   "robomongo"
   "spotify"
   "skype"
-  "sublime-text3"
-  "torbrowser"
+  "sublime-text"
   "vlc"
   "virtualbox"
+  # "firefox"                   # currently broken
+  # "firefoxdeveloperedition"   # currently broken
+  # "torbrowser"                # currently broken
 ]
 
 fonts: [
@@ -75,11 +73,7 @@ npm: [
   "shelljs"
 ]
 
-gem: [
-  "bourbon"
-  "bundler"
-  "jekyll"
-]
+gem: []
 
 editor:
   atom:
@@ -91,7 +85,6 @@ editor:
     ]
     plugins: [
       "angularjs"
-      "emmet"
       "git-control"
       "language-docker"
       "language-nginx"
