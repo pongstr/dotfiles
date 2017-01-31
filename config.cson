@@ -103,18 +103,18 @@ editor:
   term:
     home_dir: "~"
     config: [
-      { source: ".bash_alias",    target: ".bash_alias" }
-      { source: ".bash_profile",  target: ".bash_profile" }
-      { source: ".bashrc",        target: ".bashrc" }
-      { source: ".curlrc",        target: ".curlrc" }
-      { source: ".zshrc",         target: ".zshrc" }
-      { source: ".zsh-theme",     target: ".oh-my-zsh/themes/pongstr.zsh-theme" }
+      { source: ".bash_alias",    target: "~/.bash_alias" }
+      { source: ".bash_profile",  target: "~/.bash_profile" }
+      { source: ".bashrc",        target: "~/.bashrc" }
+      { source: ".zshrc",         target: "~/.zshrc" }
+      { source: ".zsh-theme",     target: "~/.oh-my-zsh/themes/pongstr.zsh-theme" }
+      # { source: ".curlrc",        target: "~/.curlrc" }
     ]
   vim:
     home_dir: "~/.vim"
     config: [
-      { source: ".vim-config", target: ".vimrc" }
-      { source: ".vim-styles", target: "colors/pongstr.vim" }
+      { source: ".vim-config", target: "~/.vimrc" }
+      { source: ".vim-styles", target: "~/.vim/colors/pongstr.vim" }
     ]
     plugins: []
 
