@@ -119,17 +119,46 @@ editor:
     plugins: []
 
 dnsmasq:
-  host: '127.0.0.1'
-  ext: 'dev'
-  config_dir: 'config/dnsmasq'
+  meta:
+    file: 'dnsmasq.conf'
+    dirs: []
+  context:
+    host: '127.0.0.1'
+    ext: 'dev'
 
 nginx:
-  config_dir: 'config/nginx'
+  meta:
+    path: 'nginx'
+    file: 'nginx.conf'
+    dirs: [
+      'cache'
+      'logs'
+      'pid'
+      'sites'
+      'ssl'
+      'temp'
+      'www'
+    ]
+  context:
+    host:     'localhost'
+    port:     80
+    sites:    '/opt/pongstr/config/nginx/sites'
+    root:     '/opt/pongstr/config/nginx/www'
+    php_root: '/opt/pongstr/config/nginx/www/wordpress'
+    logs:     '/opt/pongstr/config/nginx/logs'
 
 mongodb:
-  host: '127.0.0.1'
-  port: 37017
-  config_dir: 'config/mongodb'
+  meta:
+    file: 'mongod.conf'
+    dirs: [
+      'databases'
+      'log'
+    ]
+  context:
+    port:   37017
+    host:   '127.0.0.1'
+    logs:   '/opt/pongstr/config/mongodb/log/mongo.log'
+    dbPath: '/opt/pongstr/config/mongodb/databases'
 
 mysql:
   host: '127.0.0.1'
@@ -137,6 +166,9 @@ mysql:
   config_dir: 'config/mysql'
 
 redis:
-  host: '127.0.0.1'
-  port: 16379
-  config_dir: 'config/redis'
+  meta:
+    file: 'redis.conf'
+    dirs: []
+  context:
+    host: '127.0.0.1'
+    port: 16379

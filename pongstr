@@ -1,4 +1,7 @@
 #!/usr/bin/env node
 'use strict'
 
-module.exports = require('./lib/index')
+const pkg = require('./package.json')
+const app = require('./lib/index')
+
+module.exports = app(pkg)
