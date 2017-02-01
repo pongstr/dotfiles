@@ -196,6 +196,11 @@ else
   nodenv local ${nodes}
   rbenv local ${rubies}
 
+  if [ ! -d "/etc/resolver" ]; then
+    sudo mkdir -p /etc/resolver
+    sudo bash -c 'echo "nameserver 127.0.0.1" > /etc/resolver/dev'
+  fi
+
   osascript -e 'tell application "System Events" to log out'
   builtin logout
 fi
