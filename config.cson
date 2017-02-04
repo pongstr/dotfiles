@@ -79,9 +79,9 @@ editor:
   atom:
     home_dir: "~/.atom"
     config: [
-      { source: ".atom-config",  target: "config.cson" }
-      { source: ".atom-styles",  target: "styles.less" }
-      { source: ".atom-toolbar", target: "toolbar.coffee" }
+      { source: "lib/shared/.atom-config",  target: "config.cson" }
+      { source: "lib/shared/.atom-styles",  target: "styles.less" }
+      { source: "lib/shared/.atom-toolbar", target: "toolbar.coffee" }
     ]
     plugins: [
       "angularjs"
