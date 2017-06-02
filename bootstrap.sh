@@ -17,8 +17,8 @@ brew_formulas=(
 )
 
 nodes=(
-  '6.10.1'
-  '7.4.0'
+  '6.11.0'
+  '8.1.3'
 )
 
 rubies=(
@@ -201,6 +201,9 @@ else
     sudo bash -c 'echo "nameserver 127.0.0.1" > /etc/resolver/dev'
   fi
 
+  ./lib/shared/.macos
+  sleep 1
+
   osascript -e 'tell application "System Events" to log out'
-  builtin logout
+  builtin exit
 fi

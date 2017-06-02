@@ -40,7 +40,6 @@ cask: [
   "google-chrome-canary"
   "kaleidoscope"
   "kitematic"
-  "lantern"
   "rdm"
   "robomongo"
   "spotify"
@@ -62,12 +61,10 @@ fonts: [
 
 npm: [
   "bower"
-  "coffee-script"
-  "grunt-cli"
   "gulp"
   "eslint"
-  "karma-cli"
-  "strongloop"
+  "express-generator"
+  "loopback-cli"
   "nodemon"
   "pm2"
   "shelljs"
