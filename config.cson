@@ -21,7 +21,6 @@ brew:
     "libyaml"
     "nodenv"
     "openssl"
-    "php56 --with-fpm  --with-imap  --without-apache --with-debug"
     "pinentry-mac"
     "python"
     "rbenv"
@@ -35,6 +34,8 @@ cask: [
   "atom"
   "docker"
   "dropbox"
+  "firefox"
+  "firefoxdeveloperedition"
   "github-desktop"
   "google-chrome"
   "google-chrome-canary"
@@ -47,9 +48,7 @@ cask: [
   "sublime-text"
   "vlc"
   "virtualbox"
-  # "firefox"                   # currently broken
-  # "firefoxdeveloperedition"   # currently broken
-  # "torbrowser"                # currently broken
+  "torbrowser"
 ]
 
 fonts: [
@@ -103,6 +102,7 @@ editor:
       { source: ".bash_alias",    target: "~/.bash_alias" }
       { source: ".bash_profile",  target: "~/.bash_profile" }
       { source: ".bashrc",        target: "~/.bashrc" }
+      { source: ".tmu-config",    target: "~/.tmux.config" }
       { source: ".zshrc",         target: "~/.zshrc" }
       { source: ".zsh-theme",     target: "~/.oh-my-zsh/themes/pongstr.zsh-theme" }
       # { source: ".curlrc",        target: "~/.curlrc" }
