@@ -11,19 +11,19 @@ brew_taps=(
 )
 
 brew_formulas=(
+  'tmux'
   'openssl'
   'nodenv'
   'rbenv'
 )
 
 nodes=(
-  '6.11.0'
-  '8.1.3'
+  '6.11.2'
+  '8.2.1'
 )
 
 rubies=(
-  '2.3.3'
-  '2.4.0'
+  '2.4.1'
 )
 
 # Homebrew Tap Installation
@@ -76,6 +76,8 @@ install_node () {
     printf "\n\e[0;33m    Setting node.js v${nodes} as the default global version.\n\e[0m"
     nodenv global "${nodes}"
   fi
+
+  global
 }
 
 # Ruby Installation
@@ -163,8 +165,9 @@ if hash brew 2>/dev/null; then
   install_node
   sleep 1
 
-  nodenv local ${nodes}
-  rbenv local ${rubies}
+  nodenv global ${nodes}
+  cd /opt/$INSTALL_DIR && npm install
+  rbenv global ${rubies}
   sleep 1
 
   source $HOME/.bash_profile
@@ -183,6 +186,7 @@ else
 
   cp /opt/$INSTALL_DIR/lib/shared/.bashrc $HOME/.bashrc
   cp /opt/$INSTALL_DIR/lib/shared/.bash_profile $HOME/.bash_profile
+  cp /opt/$INSTALL_DIR/lib/shared/.tmux-config $HOME/.tmux.config
 
   source $HOME/.bash_profile
   sleep 1
@@ -193,15 +197,16 @@ else
   install_ruby
   sleep 1
 
-  nodenv local ${nodes}
-  rbenv local ${rubies}
+  nodenv global ${nodes}
+  cd /opt/$INSTALL_DIR && npm install
+  rbenv global ${rubies}
 
   if [ ! -d "/etc/resolver" ]; then
     sudo mkdir -p /etc/resolver
     sudo bash -c 'echo "nameserver 127.0.0.1" > /etc/resolver/dev'
   fi
 
-  ./lib/shared/.macos
+  /opt/$INSTALL_DIR/lib/shared/.macos
   sleep 1
 
   osascript -e 'tell application "System Events" to log out'
