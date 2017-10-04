@@ -1,7 +1,7 @@
 --- !dotfiles:npm
 
 packages:
-  - "bower"
+  - "npm"
   - "gulp"
   - "eslint"
   - "express-generator"
