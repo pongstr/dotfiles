@@ -1,4 +1,33 @@
 #!/bin/bash
+
+##
+#
+# MockSSL: This tool creates a local self-signed certificate (SubjAltName not available)
+# for Developing webapps locally.
+#
+# HEADS UP!
+# SANs have never been required but now that Chrome 58 has been released, several of our internal
+# SHA2 sites are coming up as insecure because they do not use SANs.
+#
+# Subject Alternative Names have always been optional and only to be used when your site requires
+# more that just one name to be associated with your certificate.
+#
+# See for more info:
+# - https://stackoverflow.com/questions/7580508/getting-chrome-to-accept-self-signed-localhost-certificate
+#
+### macOS
+# defaults write com.google.Chrome EnableCommonNameFallbackForLocalAnchors -bool true
+#
+### Linux
+# open: /etc/opt/chrome/policies/managed/EnableCommonNameFallbackFor‌​LocalAnchors.json
+# Set { "EnableCommonNameFallbackForLocalAnchors": true }
+#
+### Windows
+# reg add HKLM\Software\Policies\Google\Chrome /v EnableCommonNameFallbackForLocalAnchors /t REG_DWORD /d 1
+#
+#
+#
+##
 set -u
 set -e
 
