@@ -1,5 +1,14 @@
 #!/usr/bin/bash
 
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+alias ll='ls -lsa'
+alias hh='history'
+alias dirs='dirs -v'
+alias push='pushd'
+alias pop='popd'
+
 # Autocorrect typos in path names when using `cd`
 shopt -s cdspell;
 
