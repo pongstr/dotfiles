@@ -1,0 +1,7 @@
+--- !dotfiles:fonts
+
+packages:
+  - "font-lato"
+  - "font-open-sans"
+  - "font-roboto"
+  - "font-source-code-pro"

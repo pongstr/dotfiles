@@ -1,0 +1,28 @@
+--- !dotfiles:brew
+
+taps:
+  - "homebrew/dupes"
+  - "homebrew/homebrew-php"
+  - "homebrew/services"
+  - "homebrew/versions"
+  - "jawshooah/nodenv"
+
+packages:
+  - "dnsmasq"
+  - "gnupg"
+  - "gpg-agent"
+  - "mongodb"
+  - "nginx --with-http2 --with-gunzip"
+  - "redis"
+  - "curl --with-openssl"
+  - "git"
+  - "heroku-toolbelt"
+  - "libyaml"
+  - "nodenv"
+  - "openssl"
+  - "pinentry-mac"
+  - "python"
+  - "rbenv"
+  - "vim --with-override-system-vi"
+  - "wget"
+  - "zsh"

@@ -1,4 +1,5 @@
 extends: standard
-plugins:
-  - standard
-  - promise
+
+rules:
+  no-multi-spaces: ["error", { exceptions: { "VariableDeclarator": true, "ImportDeclaration": true, "AssignmentExpression": true } }]
+  key-spacing: ["error", { "align": "colon" }]

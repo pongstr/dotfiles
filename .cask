@@ -1,0 +1,22 @@
+--- !dotfiles:cask
+
+packages:
+  - "appcleaner"
+  - "atom"
+  - "docker"
+  - "dropbox"
+  - "firefox"
+  - "firefoxdeveloperedition"
+  - "github-desktop"
+  - "google-chrome"
+  - "google-chrome-canary"
+  - "kaleidoscope"
+  - "kitematic"
+  - "rdm"
+  - "robomongo"
+  - "spotify"
+  - "skype"
+  - "sublime-text"
+  - "vlc"
+  - "virtualbox"
+  - "torbrowser"

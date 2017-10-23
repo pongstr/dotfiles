@@ -1,0 +1,12 @@
+--- !dotfiles:npm
+
+packages:
+  - "bower"
+  - "gulp"
+  - "eslint"
+  - "express-generator"
+  - "loopback-cli"
+  - "nodemon"
+  - "pm2"
+  - "shelljs"
+  - "webpack"

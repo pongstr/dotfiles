@@ -1,7 +1,15 @@
 #!/usr/bin/env node
 'use strict'
 
-const pkg = require('./package.json')
-const app = require('./lib/index')
+const yml  = require('yamljs')
+const pkg  = require('./package.json')
+const app  = require('./lib/index')
 
-module.exports = app(pkg)
+module.exports = app(pkg, {
+  root: yml.load('.config'),
+  brew: yml.load('.brew'),
+  cask: yml.load('.cask'),
+  npm : yml.load('.npm'),
+  gem : yml.load('.gem'),
+  font: yml.load('.fonts')
+})
