@@ -76,9 +76,6 @@ export PATH="/usr/local/heroku/bin:$PATH"
 export PATH=/usr/local/bin:$PATH
 export PATH="$PATH:/usr/sbin"
 
-# Make /Applications the default location of apps
-export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-
 # To use Homebrew's directories rather than ~/.rbenv
 export RBENV_ROOT="/usr/local/var/rbenv"
 

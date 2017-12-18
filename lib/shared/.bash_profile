@@ -19,9 +19,6 @@ export PATH="/usr/local/heroku/bin:$PATH"
 export PATH=/usr/local/bin:$PATH
 export PATH="$PATH:/usr/sbin"
 
-# Make /Applications the default location of apps
-export HOMEBREW_CASK_OPTS="--appdir=/Applications --caskroom=/opt/homebrew-cask/Caskroom"
-
 # Enable Rbenv shims and autocompletion
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 

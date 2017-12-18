@@ -18,12 +18,12 @@ brew_formulas=(
 )
 
 nodes=(
-  '6.12.0'
-  '8.9.1'
+  '8.9.3',
+  '9.3.0'
 )
 
 rubies=(
-  '2.4.1'
+  '2.4.3'
 )
 
 # Homebrew Tap Installation
@@ -139,7 +139,7 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 # Create Installation Directory
 echo "
   --> Where would you like to install the setup files? "
-read -p  "      defaults to /opt/dotfiles
+read -p  "      defaults to `/opt/dotfiles`
 " INSTALL_DIR
 
 if [ -z $INSTALL_DIR ]; then
