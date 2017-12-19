@@ -18,8 +18,8 @@ brew_formulas=(
 )
 
 nodes=(
-  '6.11.3'
-  '8.5.0'
+  '6.12.0'
+  '8.9.1'
 )
 
 rubies=(
@@ -170,6 +170,12 @@ if hash brew 2>/dev/null; then
   rbenv global ${rubies}
   sleep 1
 
+  cp /opt/$INSTALL_DIR/lib/shared/.bashrc $HOME/.bashrc
+  cp /opt/$INSTALL_DIR/lib/shared/.bash_profile $HOME/.bash_profile
+  cp /opt/$INSTALL_DIR/lib/shared/.tmux-config $HOME/.tmux.config
+
+  sleep 1
+
   source $HOME/.bash_profile
   osascript -e 'tell application "System Events" to log out'
   builtin logout
@@ -189,8 +195,6 @@ else
   cp /opt/$INSTALL_DIR/lib/shared/.tmux-config $HOME/.tmux.config
 
   source $HOME/.bash_profile
-  sleep 1
-
   install_node
   sleep 1
 

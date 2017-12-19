@@ -10,6 +10,5 @@ module.exports = app(pkg, {
   brew: yml.load('.brew'),
   cask: yml.load('.cask'),
   npm : yml.load('.npm'),
-  gem : yml.load('.gem'),
-  font: yml.load('.fonts')
+  gem : yml.load('.gem')
 })
