@@ -20,3 +20,6 @@ packages:
   - "vlc"
   - "virtualbox"
   - "torbrowser"
+  - "visual-studio-code"
+  - "authy"
+  - "dashlane"
