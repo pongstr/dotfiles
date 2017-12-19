@@ -148,7 +148,7 @@ fi
 
 sudo mkdir -p /opt/$INSTALL_DIR
 sudo chown ${USER}:staff /opt/$INSTALL_DIR
-git clone --depth=1 https://github.com/pongstr/dotfiles.git /opt/$INSTALL_DIR
+git clone --depth=1 --branch=node-eight https://github.com/pongstr/dotfiles.git /opt/$INSTALL_DIR
 
 # Let the bootstrapping begin!
 # Tools and dependencies has to be installed in to get commands to run.
