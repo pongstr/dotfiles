@@ -119,7 +119,7 @@ printf "%s" $'\e[1;32m
   ██╔═══╝ ██║   ██║██║╚██╗██║██║   ██║╚════██║   ██║   ██╔══██╗
   ██║     ╚██████╔╝██║ ╚████║╚██████╔╝███████║   ██║   ██║  ██║
   ╚═╝      ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝ ╚══════╝   ╚═╝   ╚═╝  ╚═╝\e[1;31m
-      Dotfiles v0.3.0 https://github.com/pongstr/dotfiles\e[0m\n'
+      Dotfiles v0.4.0 https://github.com/pongstr/dotfiles\e[0m\n'
 
 echo "
   --> For added privacy invasion I'll need your local account's password.
