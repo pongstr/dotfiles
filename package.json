@@ -1,8 +1,8 @@
 {
-  "name": "commander-js",
+  "name": "dotfiles",
   "version": "0.4.0",
   "description": "",
-  "main": "pongstr.sh",
+  "main": "./pongstr",
   "author": "Pongstr Ordillo <talk@pongstr.io>",
   "license": "MIT",
   "dependencies": {
@@ -11,11 +11,17 @@
     "coffee-script": "^1.10.0",
     "commander": "^2.9.0",
     "cson": "^3.0.2",
-    "eslint": "^4.11.0",
+    "eslint": "^4.16.0",
+    "express-generator": "^4.15.5",
     "github": "^11.0.0",
+    "gulp": "^3.9.1",
+    "loopback-cli": "^4.1.0",
+    "nodemon": "^1.14.11",
+    "npm": "^5.6.0",
+    "pm2": "^2.9.3",
     "prompt": "^1.0.0",
     "shelljs": "^0.7.8",
-    "webpack": "^3.8.1",
+    "webpack": "^3.10.0",
     "yamljs": "^0.3.0"
   },
   "devDependencies": {
