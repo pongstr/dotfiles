@@ -207,7 +207,7 @@ else
 
   if [ ! -d "/etc/resolver" ]; then
     sudo mkdir -p /etc/resolver
-    sudo bash -c 'echo "nameserver 127.0.0.1" > /etc/resolver/dev'
+    sudo bash -c 'echo "nameserver 127.0.0.1" > /etc/resolver/test'
   fi
 
   /opt/$INSTALL_DIR/lib/shared/.macos
