@@ -1,7 +1,6 @@
 --- !dotfiles:npm
 
 packages:
-  - "npm"
   - "gulp"
   - "eslint"
   - "express-generator"
