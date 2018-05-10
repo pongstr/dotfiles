@@ -1,0 +1,50 @@
+[
+  {
+    "key": "cmd+t",
+    "command": "workbench.action.terminal.new"
+  },
+  {
+    "key": "ctrl+shift+`",
+    "command": "-workbench.action.terminal.new"
+  },
+  {
+    "key": "cmd+\\",
+    "command": "workbench.action.toggleSidebarVisibility"
+  },
+  {
+    "key": "cmd+b",
+    "command": "-workbench.action.toggleSidebarVisibility"
+  },
+  {
+    "key": "ctrl+`",
+    "command": "workbench.action.toggleActivityBarVisibility"
+  },
+  {
+    "key": "shift+cmd+t",
+    "command": "workbench.action.terminal.toggleTerminal"
+  },
+  {
+    "key": "ctrl+alt+t",
+    "command": "-workbench.action.terminal.toggleTerminal"
+  },
+  {
+    "key": "alt+t",
+    "command": "workbench.action.terminal.focus"
+  },
+  {
+    "key": "shift+cmd+1",
+    "command": "workbench.action.terminal.focusAtIndex1"
+  },
+  {
+    "key": "shift+cmd+2",
+    "command": "workbench.action.terminal.focusAtIndex2"
+  },
+  {
+    "key": "shift+cmd+3",
+    "command": "workbench.action.terminal.focusAtIndex3"
+  },
+  {
+    "key": "shift+cmd+4",
+    "command": "workbench.action.terminal.focusAtIndex4"
+  }
+]

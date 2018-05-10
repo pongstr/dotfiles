@@ -1,14 +1,36 @@
 #!/usr/bin/env node
+
 'use strict'
 
-const yml  = require('yamljs')
-const pkg  = require('./package.json')
-const app  = require('./lib/index')
+const yml = require('yamljs')
+const pkg = require('./package.json')
+const {
+  idesetup,
+  pkgsetup
+} = require('./lib/index')
 
-module.exports = app(pkg, {
+const cmd = require('commander')
+const cfg = Object.assign({}, pkg, {
   root: yml.load('.config'),
   brew: yml.load('.brew'),
   cask: yml.load('.cask'),
   npm: yml.load('.npm'),
   gem: yml.load('.gem')
 })
+
+cmd.version(cfg.version)
+cmd.description(cfg.desc)
+
+cmd
+  .command('install <manager> [pkg]')
+  .description('Install a package using brew, cask, fonts, gem or npm')
+  .option('-s, --save', 'Saves the installed package to the config file.')
+  .option('-r, --review', 'Prints out the packages that will be installed.')
+  .action(pkgsetup(cfg))
+
+cmd
+  .command('editor <ide>')
+  .description('Setup Terminal, Vim and Visual Studio Code.')
+  .action(idesetup(cfg))
+
+cmd.parse(process.argv)

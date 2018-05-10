@@ -1,10 +1,7 @@
 #!/bin/bash
 
 brew_taps=(
-  'homebrew/dupes'
-  'homebrew/homebrew-php'
   'homebrew/services'
-  'homebrew/versions'
   'caskroom/cask',
   'caskroom/versions'
   'caskroom/fonts'
@@ -15,11 +12,12 @@ brew_formulas=(
   'openssl'
   'nodenv'
   'rbenv'
+  'zsh'
 )
 
 nodes=(
-  '8.9.4',
-  '9.4.0'
+  '8.11.1'
+  '10.0.0'
 )
 
 rubies=(
@@ -76,8 +74,6 @@ install_node () {
     printf "\n\e[0;33m    Setting node.js v${nodes} as the default global version.\n\e[0m"
     nodenv global "${nodes}"
   fi
-
-  global
 }
 
 # Ruby Installation
@@ -131,7 +127,7 @@ osascript -e 'tell application "System Preferences" to quit'
 
 # Ask for the administrator password upfront
 # This prompt is taken from `boxen-web`, see https://github.com/boxen/boxen-web
-sudo -p "      Password for sudo: " echo "     Thanks! See you in vegas sucker!"
+sudo -p "      Password for sudo: " echo "      Thanks! See you in vegas sucker!"
 
 # Keep-alive: update existing `sudo` time stamp until `.osx` has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
@@ -148,7 +144,7 @@ fi
 
 sudo mkdir -p /opt/$INSTALL_DIR
 sudo chown ${USER}:staff /opt/$INSTALL_DIR
-git clone --depth=1 --branch=master https://github.com/pongstr/dotfiles.git /opt/$INSTALL_DIR
+git clone --depth=1 --branch='0.4.1' https://github.com/pongstr/dotfiles.git /opt/$INSTALL_DIR
 
 # Let the bootstrapping begin!
 # Tools and dependencies has to be installed in to get commands to run.
@@ -165,20 +161,22 @@ if hash brew 2>/dev/null; then
   install_node
   sleep 1
 
-  nodenv global ${nodes}
-  cd /opt/$INSTALL_DIR && npm install
   rbenv global ${rubies}
   sleep 1
+
+  nodenv global ${nodes}
+  cd /opt/$INSTALL_DIR && npm install
 
   cp /opt/$INSTALL_DIR/lib/shared/.bashrc $HOME/.bashrc
   cp /opt/$INSTALL_DIR/lib/shared/.bash_profile $HOME/.bash_profile
   cp /opt/$INSTALL_DIR/lib/shared/.tmux-config $HOME/.tmux.config
 
   sleep 1
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
   source $HOME/.bash_profile
   osascript -e 'tell application "System Events" to log out'
-  builtin logout
+  builtin exit
 else
   printf "\e[0;1m
       Did not find Homebrew installation, installing it now...\e[0m\n\n"
@@ -201,9 +199,14 @@ else
   install_ruby
   sleep 1
 
+  source $HOME/.bash_profile
   nodenv global ${nodes}
   cd /opt/$INSTALL_DIR && npm install
   rbenv global ${rubies}
+
+  sleep 1
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
 
   if [ ! -d "/etc/resolver" ]; then
     sudo mkdir -p /etc/resolver
