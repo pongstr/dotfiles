@@ -6,7 +6,8 @@ const yml = require('yamljs')
 const pkg = require('./package.json')
 const {
   idesetup,
-  pkgsetup
+  pkgsetup,
+  srvsetup
 } = require('./lib/index')
 
 const cmd = require('commander')
@@ -32,5 +33,10 @@ cmd
   .command('editor <ide>')
   .description('Setup Terminal, Vim and Visual Studio Code.')
   .action(idesetup(cfg))
+
+cmd
+  .command('services <service>')
+  .description('Install services configuration.')
+  .action(srvsetup(cfg.root))
 
 cmd.parse(process.argv)

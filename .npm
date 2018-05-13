@@ -8,5 +8,5 @@ packages:
   - "nodemon"
   - "pm2"
   - "shelljs"
-  - "vue-cli"
+  - "@vue/cli"
   - "webpack"
