@@ -5,6 +5,7 @@
 const yml = require('yamljs')
 const pkg = require('./package.json')
 const {
+  gitsetup,
   idesetup,
   pkgsetup,
   srvsetup
@@ -38,5 +39,10 @@ cmd
   .command('services <service>')
   .description('Install services configuration.')
   .action(srvsetup(cfg.root))
+
+cmd
+  .command('gitsetup <service>')
+  .description('Automate Git Setup')
+  .action(gitsetup)
 
 cmd.parse(process.argv)
