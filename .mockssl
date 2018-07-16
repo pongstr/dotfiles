@@ -206,9 +206,11 @@ build() {
 
 checkVariables
 build
-# showVals
+showVals
 sleep 1
 
+rm -rf .srl
+sleep 1
 
 PLATFORM=`uname`
 
