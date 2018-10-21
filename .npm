@@ -1,12 +1,9 @@
 --- !dotfiles:npm
 
 packages:
-  - "gulp"
+  - "@vue/cli"
   - "eslint"
   - "express-generator"
-  - "loopback-cli"
   - "nodemon"
   - "pm2"
-  - "shelljs"
-  - "@vue/cli"
-  - "webpack"
+  - "typescript"
