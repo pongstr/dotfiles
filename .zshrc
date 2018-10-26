@@ -51,6 +51,7 @@ alias zsclear=''
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
+
 alias ll='ls -lsa'
 alias hh='history'
 alias dirs='dirs -v'
@@ -65,6 +66,9 @@ alias dotfiles='/opt/pongstr'
 alias pywebstart='python -m SimpleHTTPServer'
 alias mongostart='mongod --dbpath $HOME/Desktop/mongodb'
 alias services='brew services list'
+
+alias npmlist='npm list -g --depth=0 2>/dev/null'
+alias npmclean='find . -name "node_modules" -type d -prune -exec rm -rf '{}' +'
 
 # Configs
 # -----------------------------------------------------------------------------
@@ -84,3 +88,8 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # Enable Nodenv shims and autocompletion
 if which nodenv > /dev/null; then eval "$(nodenv init -)"; fi
+
+# GPG
+export GPG_TTY=$(tty)
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
