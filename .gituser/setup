@@ -1,0 +1,9 @@
+#!/bin/bash
+
+read -p "Your Git username: " GIT_USERNAME
+read -p "   Your Git email: " GIT_EMAIL
+
+git config --global user.name $GIT_USERNAME
+git config --global user.email $GIT_EMAIL
+git config --global push.default simple
+git config --global alias.lg "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
