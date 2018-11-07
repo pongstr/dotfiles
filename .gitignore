@@ -29,5 +29,25 @@ nbproject
 *.sublime-workspace
 
 # Ignore stuff in settings
-config
 node_modules
+
+## MongoDB Configs
+!config/mongodb/databases/.gitkeep
+!config/mongodb/logs/.gitkeep
+config/mongodb/databases/*
+config/mongodb/logs/*
+
+## Nginx Configs
+!config/nginx/cache/.gitkeep
+!config/nginx/logs/.gitkeep
+!config/nginx/sites/.gitkeep
+!config/nginx/ssl/.gitkeep
+!config/nginx/temp/.gitkeep
+!config/nginx/www/.gitkeep
+
+config/nginx/cache/*
+config/nginx/logs/*
+config/nginx/sites/*
+config/nginx/ssl/*
+config/nginx/temp/*
+config/nginx/www/*
