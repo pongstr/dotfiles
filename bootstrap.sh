@@ -17,7 +17,7 @@ brew_formulas=(
 
 nodes=(
   '10.13.0'
-  '6.11.5'
+  '6.14.4'
 )
 
 rubies=(

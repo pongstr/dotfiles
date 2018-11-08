@@ -1,1 +1,13 @@
 #!/bin/bash
+
+printf "\n\e[0;34mBrew Taps+Packages\n\e[0m"
+exec "bin/brew"
+
+printf "\n\e[0;34mBrew Casks\n\e[0m"
+exec "bin/cask"
+
+printf "\n\e[0;34mRuby Gems\n\e[0m"
+exec "bin/gem"
+
+printf "\n\e[0;34mNode Packages\n\e[0m"
+exec "bin/npm"

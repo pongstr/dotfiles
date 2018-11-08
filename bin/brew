@@ -1,7 +1,6 @@
 #!/bin/bash
 
 taps=(
-  "homebrew/dupes"
   "homebrew/services"
   "homebrew/versions"
 )
