@@ -1,13 +1,105 @@
 #!/bin/bash
+source pongstr.packages
 
-printf "\n\e[0;34mBrew Taps+Packages\n\e[0m"
-exec "bin/brew"
+## Install Homebrew taps and packages
+brews() {
+  brew update
+  brew upgrade
 
-printf "\n\e[0;34mBrew Casks\n\e[0m"
-exec "bin/cask"
+  for tap in "${brew_taps[@]}"
+  do
+    echo ""
+    printf "\e[1;32m\nInstalling \e[1;34m$tap\e[0m\n"
+    brew tap $tap
+  done
 
-printf "\n\e[0;34mRuby Gems\n\e[0m"
-exec "bin/gem"
+  for package in "${brew_formulas[@]}"
+  do
+    printf "\e[1;32m\nInstalling \e[1;34m$package\e[0m\n"
+    echo ""
+    brew install $package
+  done
+}
 
-printf "\n\e[0;34mNode Packages\n\e[0m"
-exec "bin/npm"
+# Install Homebrew casks
+casks() {
+  for package in "${brew_casks[@]}"
+  do
+    printf "\e[1;32m\nInstalling \e[1;34m$package\e[0m\n"
+    echo ""
+    brew cask install $package
+  done
+}
+
+# Install Ruby gems
+rgems() {
+  for package in "${ruby_gems[@]}"
+  do
+    printf "\e[1;32m\nInstalling \e[1;34m$package\e[0m\n"
+    echo ""
+    brew cask install $package
+  done
+}
+
+# Install Node Modules
+npms() {
+  for package in "${node_packages[@]}"
+  do
+    printf "\e[1;32m\nInstalling \e[1;34m$package\e[0m\n"
+    echo ""
+    npm i -g $package
+  done
+}
+
+
+echo ""
+printf "%s" $'\e[1;32m
+  ██████╗  ██████╗ ███╗   ██╗ ██████╗ ███████╗████████╗██████╗
+  ██╔══██╗██╔═══██╗████╗  ██║██╔════╝ ██╔════╝╚══██╔══╝██╔══██╗
+  ██████╔╝██║   ██║██╔██╗ ██║██║  ███╗███████╗   ██║   ██████╔╝
+  ██╔═══╝ ██║   ██║██║╚██╗██║██║   ██║╚════██║   ██║   ██╔══██╗
+  ██║     ╚██████╔╝██║ ╚████║╚██████╔╝███████║   ██║   ██║  ██║
+  ╚═╝      ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝ ╚══════╝   ╚═╝   ╚═╝  ╚═╝\e[1;31m
+      Dotfiles v0.5.0 https://github.com/pongstr/dotfiles\e[0m\n'
+
+printf "\n\e[1;32m
+  📦  Please select which packages to install.
+  \e[1;30m
+  [*] Install brew, cask, gem and npm modules.\e[1;36m
+  [1] brew  :install homebrew taps and formulas .
+  [2] cask  :install macos apps via homebrew cask.
+  [3] gem   :install ruby gems
+  [4] npm   :install node modules
+\n\e[0m"
+
+read -p "  so, which one? " PKG
+
+while true; do
+  case $PKG in
+    1|brew)
+      printf "\n\e[0;34mBrew Taps+Packages\n\e[0m"
+      brews
+      break;;
+    2|cask)
+      printf "\n\e[0;34mBrew Casks\n\e[0m"
+      casks
+      break;;
+    3|gem)
+      printf "\n\e[0;34mRuby Gems\n\e[0m"
+      rgems
+      break;;
+    4|npm)
+      printf "\n\e[0;34mNode Packages\n\e[0m"
+      npms
+      break;;
+    *)
+      echo "Installing all packages..."
+      brews
+      casks
+      rgems
+      npms
+      break;;
+  esac
+done
+
+exit 0

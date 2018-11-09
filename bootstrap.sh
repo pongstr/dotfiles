@@ -8,10 +8,12 @@ brew_taps=(
 )
 
 brew_formulas=(
-  'tmux'
-  'openssl'
+  'golang'
   'nodenv'
+  'openssl'
+  'pyenv'
   'rbenv'
+  'tmux'
   'zsh'
 )
 
@@ -115,7 +117,7 @@ printf "%s" $'\e[1;32m
   ██╔═══╝ ██║   ██║██║╚██╗██║██║   ██║╚════██║   ██║   ██╔══██╗
   ██║     ╚██████╔╝██║ ╚████║╚██████╔╝███████║   ██║   ██║  ██║
   ╚═╝      ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝ ╚══════╝   ╚═╝   ╚═╝  ╚═╝\e[1;31m
-      Dotfiles v0.4.0 https://github.com/pongstr/dotfiles\e[0m\n'
+      Dotfiles v0.5.0 https://github.com/pongstr/dotfiles\e[0m\n'
 
 echo "
   --> For added privacy invasion I'll need your local account's password.
@@ -144,7 +146,7 @@ fi
 
 sudo mkdir -p /opt/$INSTALL_DIR
 sudo chown ${USER}:staff /opt/$INSTALL_DIR
-git clone --depth=1 --branch='0.4.1' https://github.com/pongstr/dotfiles.git /opt/$INSTALL_DIR
+git clone --depth=1 --branch=master https://github.com/pongstr/dotfiles.git /opt/$INSTALL_DIR
 
 # Let the bootstrapping begin!
 # Tools and dependencies has to be installed in to get commands to run.
@@ -165,11 +167,10 @@ if hash brew 2>/dev/null; then
   sleep 1
 
   nodenv global ${nodes}
-  cd /opt/$INSTALL_DIR && npm install
 
-  cp /opt/$INSTALL_DIR/lib/shared/.bashrc $HOME/.bashrc
-  cp /opt/$INSTALL_DIR/lib/shared/.bash_profile $HOME/.bash_profile
-  cp /opt/$INSTALL_DIR/lib/shared/.tmux-config $HOME/.tmux.config
+  cp /opt/$INSTALL_DIR/.bashrc $HOME/.bashrc
+  cp /opt/$INSTALL_DIR/.bash_profile $HOME/.bash_profile
+  cp /opt/$INSTALL_DIR/.tmux-config $HOME/.tmux.config
 
   sleep 1
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -188,9 +189,9 @@ else
   install_taps
   install_formulas
 
-  cp /opt/$INSTALL_DIR/lib/shared/.bashrc $HOME/.bashrc
-  cp /opt/$INSTALL_DIR/lib/shared/.bash_profile $HOME/.bash_profile
-  cp /opt/$INSTALL_DIR/lib/shared/.tmux-config $HOME/.tmux.config
+  cp /opt/$INSTALL_DIR/.bashrc $HOME/.bashrc
+  cp /opt/$INSTALL_DIR/.bash_profile $HOME/.bash_profile
+  cp /opt/$INSTALL_DIR/.tmux-config $HOME/.tmux.config
 
   source $HOME/.bash_profile
   install_node

@@ -1,0 +1,71 @@
+#!/bin/bash
+
+brew_taps=(
+  "homebrew/services"
+  "homebrew/versions"
+)
+
+brew_formulas=(
+  "dnsmasq"
+  "gnupg"
+  "gpg-agent"
+  "mongodb"
+  "nginx --with-http2 --with-gunzip"
+  "redis"
+  "curl --with-openssl"
+  "git"
+  "heroku-toolbelt"
+  "libyaml"
+  "nodenv"
+  "openssl"
+  "pinentry-mac"
+  "python"
+  "rbenv"
+  "vim --with-override-system-vi"
+  "wget"
+  "zsh"
+)
+
+brew_casks=(
+  "appcleaner"
+  "atom"
+  "authy"
+  "caprine"
+  "dashlane"
+  "docker"
+  "dropbox"
+  "firefox"
+  "firefox-developer-edition"
+  "github-desktop"
+  "google-chrome"
+  "google-chrome-canary"
+  "gpg-suite"
+  "iina"
+  "istat-menus"
+  "iterm2"
+  "kaleidoscope"
+  "kitematic"
+  "plex-media-player"
+  "rdm"
+  "robo-3t"
+  "slack"
+  "spotify"
+  "sublime-text"
+  "vlc"
+  "virtualbox"
+  "torbrowser"
+  "visual-studio-code"
+)
+
+ruby_gems=(
+  "bundler"
+)
+
+node_packages=(
+  "@vue/cli"
+  "eslint"
+  "express-generator"
+  "nodemon"
+  "pm2"
+  "typescript"
+)
