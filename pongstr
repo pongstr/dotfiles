@@ -65,11 +65,12 @@ printf "%s" $'\e[1;32m
 printf "\n\e[1;32m
   📦  Please select which packages to install.
   \e[1;30m
-  [*] Install brew, cask, gem and npm modules.\e[1;36m
+  [*] Skip installation\e[1;36m
   [1] brew  :install homebrew taps and formulas .
   [2] cask  :install macos apps via homebrew cask.
   [3] gem   :install ruby gems
   [4] npm   :install node modules
+  [5] all   :install all of the above.
 \n\e[0m"
 
 read -p "  so, which one? " PKG
@@ -92,14 +93,55 @@ while true; do
       printf "\n\e[0;34mNode Packages\n\e[0m"
       npms
       break;;
-    *)
+    5|all)
       echo "Installing all packages..."
       brews
       casks
       rgems
       npms
       break;;
+    *)
+      echo "  None selected, skipping installation..."
+      break;;
   esac
 done
+
+echo "
+"
+
+HOME_PATH=$HOME
+
+printf "  \e[1;32mInstall Vim settings? [Y/n]\e[0m"
+read -p "  " VIM
+
+if [ ! -z $VIM ]; then
+  if [ $VIM == "Y" ] || [ $VIM == "y" ]; then
+    echo "  Installing Vim settings"
+    ln -sf $(pwd)/.vim $HOME_PATH/.vim
+    ln -sf $(pwd)/.vimrc $HOME_PATH/.vimrc
+    echo "  Done!"
+  else
+    echo "  Skipping Vim settings...
+    "
+  fi
+else
+  echo "  Skipping Vim settings...
+  "
+fi
+
+printf "  \e[1;32mInstall VSCode settings? [Y/n]\e[0m"
+read -p " " VSCODE
+
+if [ ! -z $VSCODE ]; then
+  if [ $VSCODE == "Y" ] || [ $VSCODE == "y" ]; then
+    exec $(pwd)/.vscode/setup
+  else
+    echo "  Skipping VSCode settings...
+    "
+  fi
+else
+  echo "  Skipping VSCode settings...
+  "
+fi
 
 exit 0

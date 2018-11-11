@@ -1,6 +1,7 @@
 #!/bin/bash
 
-echo "Checking if VisualStudioCode is currently installed...
+echo "
+  Checking if VisualStudioCode is currently installed...
 "
 
 install() {
@@ -13,16 +14,13 @@ install() {
   fi
 
   cp $(pwd)/.vscode/extensions.json $HOME/Library/Application\ Support/Code/User/extensions.json
-  echo "Copied VisualStudioCode Extensions JSON
-  "
+  echo "  Copied VisualStudioCode Extensions JSON"
 
   cp $(pwd)/.vscode/keybindings.json $HOME/Library/Application\ Support/Code/User/keybindings.json
-  echo "Copied VisualStudioCode Keybindings JSON
-  "
+  echo "  Copied VisualStudioCode Keybindings JSON"
 
   cp $(pwd)/.vscode/settings.json $HOME/Library/Application\ Support/Code/User/settings.json
-  echo "Copied VisualStudioCode Settings JSON
-  "
+  echo "  Copied VisualStudioCode Settings JSON"
 
   EXTENSIONS=($(code --list-extensions))
   for extension in "${EXTENSIONS[@]}"
