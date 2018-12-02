@@ -111,6 +111,25 @@ echo "
 
 HOME_PATH=$HOME
 
+printf "  \e[1;32mInstall omZSH customisations? [Y/n]\e[0m"
+read -p "  " omZSH
+
+if [ ! -z $omZSH ]; then
+  if [ $omZSH == "Y" ] || [ $omZSH == "y" ]; then
+    cp $(pwd)/.omzsh/pongstr.zsh-theme $HOME_PATH/.oh-my-zsh/themes/pongstr.zsh-theme
+    cp $(pwd)/.zshrc $HOME/.zshrc
+    sleep 1
+    source $HOME_PATH/.zshrc
+  else
+    echo "  Skipping omZSH settings...
+    "
+  fi
+else
+  echo "  Skipping omZSH settings...
+  "
+fi
+
+
 printf "  \e[1;32mInstall Vim settings? [Y/n]\e[0m"
 read -p "  " VIM
 

@@ -1,4 +1,4 @@
-Dotfiles (Pongstr) `0.5.0a`
+Dotfiles (Pongstr) `0.5.0b`
 ===
 
 Please make sure **Xcode** and **Xcode Command line tools** are installed and have been initialized.
@@ -70,7 +70,7 @@ rubies=(
 You may edit [this line](https://github.com/pongstr/dotfiles/blob/master/bootstrap.sh#L23) to
 add/remove ruby versions.
 
-In addition to bootstrapping, it also installs the config file for bash shell to get
+In addition to bootstrapping, it also installs these run commands for bash shell to get
 nodenv and rbenv working:
 
 - `.bashrc`

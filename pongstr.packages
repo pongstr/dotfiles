@@ -2,7 +2,6 @@
 
 brew_taps=(
   "homebrew/services"
-  "homebrew/versions"
 )
 
 brew_formulas=(

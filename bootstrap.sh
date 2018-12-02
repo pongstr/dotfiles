@@ -18,12 +18,12 @@ brew_formulas=(
 )
 
 nodes=(
-  '10.13.0'
-  '6.14.4'
+  '10.14.1'
+  '6.15.0'
 )
 
 rubies=(
-  '2.5.1'
+  '2.5.3'
 )
 
 # Homebrew Tap Installation

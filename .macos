@@ -242,6 +242,9 @@ echo "
 ###############################################################################
 "
 
+echo "  --> Don’t show recent applications in Dock"
+defaults write com.apple.dock show-recents -bool false
+
 echo "  --> Enable highlight hover effect for the grid view of a stack (Dock)"
 defaults write com.apple.dock mouse-over-hilite-stack -bool true
 
@@ -350,8 +353,8 @@ echo "
 ###############################################################################
 "
 
-echo "  --> Finder: allow quitting via ⌘ + Q; doing so will also hide desktop icons"
-defaults write com.apple.finder QuitMenuItem -bool true
+# echo "  --> Finder: allow quitting via ⌘ + Q; doing so will also hide desktop icons"
+# defaults write com.apple.finder QuitMenuItem -bool true
 
 echo "  --> Finder: disable window animations and Get Info animations"
 defaults write com.apple.finder DisableAllAnimations -bool true
