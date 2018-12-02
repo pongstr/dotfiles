@@ -136,7 +136,7 @@ read -p "  " VIM
 if [ ! -z $VIM ]; then
   if [ $VIM == "Y" ] || [ $VIM == "y" ]; then
     echo "  Installing Vim settings"
-    ln -sf $(pwd)/.vim $HOME_PATH/.vim
+    cp -R $(pwd)/.vim $HOME_PATH/.vim
     ln -sf $(pwd)/.vimrc $HOME_PATH/.vimrc
     echo "  Done!"
   else
