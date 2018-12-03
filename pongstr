@@ -65,7 +65,7 @@ omzsh() {
 # Install Vim Settings
 vimsettings() {
   echo "  Installing Vim settings"
-  cp -R $(pwd)/.vim $HOME_PATH/.vim
+  cp -R $(pwd)/.vim $HOME_PATH
   ln -sf $(pwd)/.vimrc $HOME_PATH/.vimrc
   echo "  Done!"
 }
