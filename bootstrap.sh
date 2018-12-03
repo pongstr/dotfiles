@@ -172,8 +172,15 @@ if hash brew 2>/dev/null; then
   cp /opt/$INSTALL_DIR/.bash_profile $HOME/.bash_profile
   cp /opt/$INSTALL_DIR/.tmux-config $HOME/.tmux.config
 
-  sleep 1
+  if [ ! -d "/etc/resolver" ]; then
+    sudo mkdir -p /etc/resolver
+    sudo bash -c 'echo "nameserver 127.0.0.1" > /etc/resolver/test'
+  fi
+
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+  sleep 1
+
+  ./opt/$INSTALL_DIR/.macos
 
   source $HOME/.bash_profile
   osascript -e 'tell application "System Events" to log out'
@@ -208,13 +215,12 @@ else
   sleep 1
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
-
   if [ ! -d "/etc/resolver" ]; then
     sudo mkdir -p /etc/resolver
     sudo bash -c 'echo "nameserver 127.0.0.1" > /etc/resolver/test'
   fi
 
-  /opt/$INSTALL_DIR/lib/shared/.macos
+  ./opt/$INSTALL_DIR/.macos
   sleep 1
 
   osascript -e 'tell application "System Events" to log out'

@@ -79,6 +79,25 @@ vscode() {
 webdev() {
   echo "  Installing WebDev env configs for Dnsmasq, MongoDB, Nginx, Redis"
 
+  echo "
+    Copying Dnsmasq configs"
+  cp $(brew --prefix)/etc/dnsmasq.conf $(pwd)/dnsmasq.pre_dotfiles.conf
+  ln -sf  $(pwd)/config/dnsmasq.conf $(brew --prefix)/etc/dnsmasq.conf
+
+  echo "
+    Copying MongoDB configs"
+  cp $(brew --prefix)/etc/mongod.conf $(pwd)/mongod.pre_dotfiles.conf
+  ln -sf  $(pwd)/config/mongod.conf $(brew --prefix)/etc/mongod.conf
+
+  echo "
+    Copying Nginx configs"
+  cp $(brew --prefix)/etc/nginx/nginx.conf $(pwd)/nginx.pre_dotfiles.conf
+  ln -sf  $(pwd)/config/nginx/nginx.conf $(brew --prefix)/etc/nginx/nginx.conf
+
+  echo "
+    Copying Redis configs"
+  cp $(brew --prefix)/etc/redis.conf $(pwd)/redis.pre_dotfiles.conf
+  ln -sf  $(pwd)/config/redis.conf $(brew --prefix)/etc/redis.conf
 }
 
 echo ""
@@ -92,39 +111,37 @@ printf "%s" $'\e[1;32m
       Dotfiles v0.5.0 https://github.com/pongstr/dotfiles\e[0m\n'
 
 printf "\n\e[1;32m
-  📦  Please select which packages to install.
+  Please select which option you'd like to install.
 
   \e[1;36mOptions
-  ---\e[0m
+  ====\e[0m
 
-  [*] Cancel installation
+  [*] any :Pressing key that aren't in the option below will exit this prompt.
   [0] all :install all tools.
 
-  \e[1;36mPackages
-  ---\e[0m
+  \e[1;36m Packages
+  ====\e[0m
 
-  [1] brew  :install homebrew taps and formulas .
+  [1] brew  :install homebrew taps and formulas.
   [2] cask  :install macos apps via homebrew cask.
-  [3] gem   :install ruby gems
-  [4] npm   :install node modules
+  [3] gem   :install ruby gems.
+  [4] npm   :install node modules.
 
   \e[1;36mTerminal + Text Editors
-  ----\e[0m
+  ====\e[0m
 
-  [5] omzsh  :install OhMyZSH customisations
-  [6] vim    :install Vim settings
-  [7] vscode :install VSCode settings
+  [5] omzsh  :install OhMyZSH customisations.
+  [6] vim    :install Vim settings.
+  [7] vscode :install VSCode settings.
 
   \e[1;36mWebDev Environment
-  ----\e[0m
+  ====\e[0m
 
   [8] webdev :install Web development environment (See README.md)
-\n
 
 \e[1;33m  so, which one? \e[0m"
 
-read -p "
-" PKG
+read -p " " PKG
 
 while true; do
   case $PKG in

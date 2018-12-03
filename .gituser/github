@@ -42,7 +42,7 @@ while true; do
   esac
 done
 
-HOME_PATH=$HOME
+HOME_PATH=$(pwd)
 GITHUB_RSA="$HOME_PATH/.ssh/github_rsa"
 
 writeconfig() {
@@ -111,9 +111,10 @@ if [ -z "$GITHUB_PERSONAL_TOKEN" ]; then
   ------------------------------------------------
   "
 else
+  TITLE=$(hostname -s)
   curl -H "Authorization: token ${GITHUB_PERSONAL_TOKEN}" \
     -H "Content-Type: application/json" \
-    -X POST --data "{ \"title\": \"Pongstr Dotfiles\", \"key\": \"`cat $GITHUB_RSA.pub`\" }" \
+    -X POST --data "{ \"title\": \"$TITLE\", \"key\": \"`cat $GITHUB_RSA.pub`\" }" \
     https://api.github.com/user/keys -#o /dev/null
 
   echo ""
