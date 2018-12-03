@@ -1,6 +1,8 @@
 #!/bin/bash
 source pongstr.packages
 
+HOME_PATH=$HOME
+
 ## Install Homebrew taps and packages
 brews() {
   brew update
@@ -51,6 +53,33 @@ npms() {
   done
 }
 
+# Install OhMyZsh Customisations
+omzsh() {
+  echo "  Installing OhMyZSH customisations"
+  cp $(pwd)/.omzsh/pongstr.zsh-theme $HOME_PATH/.oh-my-zsh/themes/pongstr.zsh-theme
+  cp $(pwd)/.zshrc $HOME/.zshrc
+  sleep 1
+  source $HOME_PATH/.zshrc
+}
+
+# Install Vim Settings
+vimsettings() {
+  echo "  Installing Vim settings"
+  cp -R $(pwd)/.vim $HOME_PATH/.vim
+  ln -sf $(pwd)/.vimrc $HOME_PATH/.vimrc
+  echo "  Done!"
+}
+
+# Install VSCode Settings
+vscode() {
+  exec $(pwd)/.vscode/setup
+}
+
+# Install WebDev Env
+webdev() {
+  echo "  Installing WebDev env configs for Dnsmasq, MongoDB, Nginx, Redis"
+
+}
 
 echo ""
 printf "%s" $'\e[1;32m
@@ -64,103 +93,91 @@ printf "%s" $'\e[1;32m
 
 printf "\n\e[1;32m
   📦  Please select which packages to install.
-  \e[1;30m
-  [*] Skip installation\e[1;36m
+
+  \e[1;36mOptions
+  ---\e[0m
+
+  [*] Cancel installation
+  [0] all :install all tools.
+
+  \e[1;36mPackages
+  ---\e[0m
+
   [1] brew  :install homebrew taps and formulas .
   [2] cask  :install macos apps via homebrew cask.
   [3] gem   :install ruby gems
   [4] npm   :install node modules
-  [5] all   :install all of the above.
-\n\e[0m"
 
-read -p "  so, which one? " PKG
+  \e[1;36mTerminal + Text Editors
+  ----\e[0m
+
+  [5] omzsh  :install OhMyZSH customisations
+  [6] vim    :install Vim settings
+  [7] vscode :install VSCode settings
+
+  \e[1;36mWebDev Environment
+  ----\e[0m
+
+  [8] webdev :install Web development environment (See README.md)
+\n
+
+\e[1;33m  so, which one? \e[0m"
+
+read -p "
+" PKG
 
 while true; do
   case $PKG in
+    0|all)
+      echo "Installing all packages..."
+      brews; sleep 1;
+      casks; sleep 1;
+      rgems; sleep 1;
+      npms; sleep 1;
+      omzsh; sleep 1;
+      vimsettings; sleep 1;
+      vscode; sleep 1;
+      webdev; sleep 1;
+      break;;
     1|brew)
-      printf "\n\e[0;34mBrew Taps+Packages\n\e[0m"
+      printf "\n\e[0;35mBrew Taps+Packages\n\e[0m"
       brews
       break;;
     2|cask)
-      printf "\n\e[0;34mBrew Casks\n\e[0m"
+      printf "\n\e[0;35mBrew Casks\n\e[0m"
       casks
       break;;
     3|gem)
-      printf "\n\e[0;34mRuby Gems\n\e[0m"
+      printf "\n\e[0;35mRuby Gems\n\e[0m"
       rgems
       break;;
     4|npm)
-      printf "\n\e[0;34mNode Packages\n\e[0m"
+      printf "\n\e[0;35mNode Packages\n\e[0m"
       npms
       break;;
-    5|all)
-      echo "Installing all packages..."
-      brews
-      casks
-      rgems
-      npms
+    5|omzsh)
+      printf "\n\e[0;35mOhMyZSH Customisations\n\e[0m"
+      omzsh
+      break;;
+    6|vimsettings)
+      printf "\n\e[0;35mVim Settings\n\e[0m"
+      vimsettings
+      break;;
+    7|vscode)
+      printf "\n\e[0;35mVSCode Settings\n\e[0m"
+      vscode
+      break;;
+    8|webdev)
+      printf "\n\e[0;35mWebDev Environment\n\e[0m"
+      webdev
       break;;
     *)
-      echo "  None selected, skipping installation..."
+      echo "  None selected, bailing out..."
       break;;
   esac
 done
 
 echo "
 "
-
-HOME_PATH=$HOME
-
-printf "  \e[1;32mInstall omZSH customisations? [Y/n]\e[0m"
-read -p "  " omZSH
-
-if [ ! -z $omZSH ]; then
-  if [ $omZSH == "Y" ] || [ $omZSH == "y" ]; then
-    cp $(pwd)/.omzsh/pongstr.zsh-theme $HOME_PATH/.oh-my-zsh/themes/pongstr.zsh-theme
-    cp $(pwd)/.zshrc $HOME/.zshrc
-    sleep 1
-    source $HOME_PATH/.zshrc
-  else
-    echo "  Skipping omZSH settings...
-    "
-  fi
-else
-  echo "  Skipping omZSH settings...
-  "
-fi
-
-
-printf "  \e[1;32mInstall Vim settings? [Y/n]\e[0m"
-read -p "  " VIM
-
-if [ ! -z $VIM ]; then
-  if [ $VIM == "Y" ] || [ $VIM == "y" ]; then
-    echo "  Installing Vim settings"
-    cp -R $(pwd)/.vim $HOME_PATH/.vim
-    ln -sf $(pwd)/.vimrc $HOME_PATH/.vimrc
-    echo "  Done!"
-  else
-    echo "  Skipping Vim settings...
-    "
-  fi
-else
-  echo "  Skipping Vim settings...
-  "
-fi
-
-printf "  \e[1;32mInstall VSCode settings? [Y/n]\e[0m"
-read -p " " VSCODE
-
-if [ ! -z $VSCODE ]; then
-  if [ $VSCODE == "Y" ] || [ $VSCODE == "y" ]; then
-    exec $(pwd)/.vscode/setup
-  else
-    echo "  Skipping VSCode settings...
-    "
-  fi
-else
-  echo "  Skipping VSCode settings...
-  "
-fi
 
 exit 0
