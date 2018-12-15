@@ -45,9 +45,11 @@ config/mongodb/logs/*
 !config/nginx/temp/.gitkeep
 !config/nginx/www/.gitkeep
 
-config/nginx/cache/*
-config/nginx/logs/*
-config/nginx/sites/*
-config/nginx/ssl/*
-config/nginx/temp/*
-config/nginx/www/*
+config/nginx/cache/*.*
+config/nginx/logs/*.*
+config/nginx/sites/*.*
+config/nginx/ssl/*.*
+config/nginx/temp/*.*
+config/nginx/www/*.*
+
+config/backup.conf
