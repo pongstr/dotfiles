@@ -42,7 +42,7 @@ while true; do
   esac
 done
 
-HOME_PATH=$(pwd)
+HOME_PATH=$HOME
 GITHUB_RSA="$HOME_PATH/.ssh/github_rsa"
 
 writeconfig() {
