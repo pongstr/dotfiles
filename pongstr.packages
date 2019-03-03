@@ -27,10 +27,10 @@ brew_formulas=(
 
 brew_casks=(
   "appcleaner"
-  "atom"
   "authy"
   "caprine"
   "dashlane"
+  "discord"
   "docker"
   "dropbox"
   "firefox"
@@ -50,6 +50,7 @@ brew_casks=(
   "slack"
   "spotify"
   "sublime-text"
+  "transmission"
   "vlc"
   "virtualbox"
   "torbrowser"
