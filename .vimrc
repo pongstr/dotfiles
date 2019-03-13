@@ -55,4 +55,11 @@ set directory=$HOME/.vim/swaps
 if exists("&undodir")
     set undodir=$HOME/.vim/undo
 endif
+
 set viminfo+=n$HOME/.vim/.viminfo
+
+if $TERM_PROGRAM =~ "iTerm"
+    let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
+    let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
+endif
+
