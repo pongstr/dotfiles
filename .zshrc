@@ -31,9 +31,14 @@ plugins=(
   docker-compose
   docker
   git
+  iterm2
   npm
   node
   osx
+  pip
+  pyenv
+  python
+  rbenv
   ruby
   terminalapp
 )
@@ -60,7 +65,6 @@ alias pop='popd'
 
 alias projects='$HOME/Projects'
 alias github='$HOME/Projects/github'
-alias sandbox='$HOME/Projects/sandbox'
 alias dotfiles='/opt/pongstr'
 
 alias pywebstart='python -m SimpleHTTPServer'
