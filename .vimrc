@@ -40,7 +40,7 @@ set number
 :highlight LineNr guibg=green guifg=black
 
 " Highlight current line
-:highlight CursorLine cterm=NONE ctermbg=green ctermfg=black guibg=darkred guifg=white
+:highlight CursorLine cterm=none ctermbg=green ctermfg=black guibg=darkred guifg=white
 set cursorline
 
 " Start scrolling three lines before the horizontal window border
@@ -58,8 +58,7 @@ endif
 
 set viminfo+=n$HOME/.vim/.viminfo
 
-if $TERM_PROGRAM =~ "iTerm"
-    let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
-    let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
-endif
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_SR = "\<Esc>]50;CursorShape=1\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
