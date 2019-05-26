@@ -23,7 +23,7 @@ nodes=(
 )
 
 rubies=(
-  '2.5.3'
+  '2.5.4'
 )
 
 # Homebrew Tap Installation
