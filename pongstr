@@ -79,25 +79,27 @@ vscode() {
 webdev() {
   echo "  Installing WebDev env configs for Dnsmasq, MongoDB, Nginx, Redis"
 
-  echo "
-    Copying Dnsmasq configs"
-  cp $(brew --prefix)/etc/dnsmasq.conf $(pwd)/config/backup.d/dnsmasq.conf.pre_dotfiles
-  ln -sf  $(pwd)/config/dnsmasq.conf $(brew --prefix)/etc/dnsmasq.conf
+  mkdir -p $(pwd)/config/backup.d/{dnsmasq,mongodb,mysql,nginx,redis}
 
-  echo "
-    Copying MongoDB configs"
-  cp $(brew --prefix)/etc/mongod.conf $(pwd)/config/backup.d/mongod.conf.pre_dotfiles
-  ln -sf  $(pwd)/config/mongod.conf $(brew --prefix)/etc/mongod.conf
+  DIR=$(pwd)/config
 
-  echo "
-    Copying Nginx configs"
-  cp $(brew --prefix)/etc/nginx/nginx.conf $(pwd)/config/backup.d/nginx.conf.pre_dotfiles
+  echo "✅  Copying Dnsmasq configs"
+  cp $(brew --prefix)/etc/dnsmasq.conf $DIR/dnsmasq/dnsmasq.conf
+  ln -sf  $(pwd)/config/dnsmasq/dnsmasq.conf $(brew --prefix)/etc/dnsmasq.conf
+
+  echo "✅  Copying MongoDB configs"
+  cp $(brew --prefix)/etc/mongod.conf $DIR/mongodb/mongod.conf
+  ln -sf  $(pwd)/config/mongodb/mongod.conf $(brew --prefix)/etc/mongod.conf
+
+  echo "✅  Copying Nginx configs"
+  cp $(brew --prefix)/etc/nginx/nginx.conf $DIR/nginx/nginx.conf
   ln -sf  $(pwd)/config/nginx/nginx.conf $(brew --prefix)/etc/nginx/nginx.conf
 
-  echo "
-    Copying Redis configs"
-  cp $(brew --prefix)/etc/redis.conf $(pwd)/config/backup.d/redis.conf.pre_dotfiles
-  ln -sf  $(pwd)/config/redis.conf $(brew --prefix)/etc/redis.conf
+  echo "✅  Copying Redis configs"
+  cp $(brew --prefix)/etc/redis.conf $DIR/redis/redis.conf
+  ln -sf  $(pwd)/config/redis/redis.conf $(brew --prefix)/etc/redis.conf
+
+  brew doctor
 }
 
 echo ""

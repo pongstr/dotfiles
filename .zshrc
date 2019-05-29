@@ -81,8 +81,8 @@ alias npmclean='find . -name "node_modules" -type d -prune -exec rm -rf '{}' +'
 export PATH="/usr/local/heroku/bin:$PATH"
 
 # Homebrew
-export PATH=/usr/local/bin:$PATH
-export PATH="$PATH:/usr/sbin"
+export PATH="/usr/local/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
 
 # To use Homebrew's directories rather than ~/.rbenv
 export RBENV_ROOT="/usr/local/var/rbenv"
@@ -96,4 +96,5 @@ if which nodenv > /dev/null; then eval "$(nodenv init -)"; fi
 # GPG
 export GPG_TTY=$(tty)
 
+# Iterm Integration
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

@@ -9,7 +9,7 @@ brew_formulas=(
   "gnupg"
   "gpg-agent"
   "mongodb"
-  "nginx --with-http2 --with-gunzip"
+  "nginx"
   "redis"
   "curl --with-openssl"
   "git"
