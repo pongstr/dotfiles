@@ -11,7 +11,7 @@ brew_formulas=(
   "mongodb"
   "nginx"
   "redis"
-  "curl --with-openssl"
+  "curl"
   "git"
   "heroku-toolbelt"
   "libyaml"
@@ -20,7 +20,7 @@ brew_formulas=(
   "pinentry-mac"
   "python"
   "rbenv"
-  "vim --with-override-system-vi"
+  "vim"
   "wget"
   "zsh"
 )
@@ -63,6 +63,7 @@ ruby_gems=(
 
 node_packages=(
   "@vue/cli"
+  "@angular/cli"
   "eslint"
   "express-generator"
   "nodemon"
