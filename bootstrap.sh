@@ -15,6 +15,7 @@ brew_formulas=(
   'rbenv'
   'tmux'
   'zsh'
+  'zlib'
 )
 
 nodes=(
@@ -24,6 +25,10 @@ nodes=(
 
 rubies=(
   '2.5.4'
+)
+
+pythons=(
+  '3.7.3'
 )
 
 # Homebrew Tap Installation
@@ -75,6 +80,30 @@ install_node () {
 
     printf "\n\e[0;33m    Setting node.js v${nodes} as the default global version.\n\e[0m"
     nodenv global "${nodes}"
+  fi
+}
+
+# Python Installation
+install_python () {
+  if hash pyenv 2>/dev/null; then
+    for python_ in "${pythons[@]}"
+    do
+      if [ "$(pyenv versions | grep -Eio $python_)" == $python_ ]; then
+        printf "\e[0;32m       * Python v$python_ is already installed...\n\e[0m"
+      fi
+
+      if [ "$(nodenv versions | grep -Eio $python_)" == "" ]; then
+        printf "\e[0;32m       * Installing Python v${python_}, sit back & relax\n"
+        printf "         this may take a few minutes to complete..\n\e[0m"
+        CFLAGS="-I$(xcrun --show-sdk-path)/usr/include" pyenv install $python_
+      fi
+    done
+
+    source $HOME/.bash_profile
+    sleep 5
+
+    printf "\n\e[0;33m    Setting node.js v${nodes} as the default global version.\n\e[0m"
+    pyenv global "${python_}"
   fi
 }
 
@@ -158,15 +187,15 @@ if hash brew 2>/dev/null; then
   sleep 1
 
   install_ruby
-  sleep 1
+  sleep 5
+  rbenv global ${rubies}
 
   install_node
-  sleep 1
-
-  rbenv global ${rubies}
-  sleep 1
-
+  sleep 5
   nodenv global ${nodes}
+
+  pyenv global ${pythons}
+  sleep 1
 
   cp /opt/$INSTALL_DIR/.bashrc $HOME/.bashrc
   cp /opt/$INSTALL_DIR/.bash_profile $HOME/.bash_profile
@@ -206,6 +235,8 @@ else
 
   install_ruby
   sleep 1
+
+  install_python
 
   source $HOME/.bash_profile
   nodenv global ${nodes}

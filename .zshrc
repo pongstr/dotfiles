@@ -85,13 +85,16 @@ export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 
 # To use Homebrew's directories rather than ~/.rbenv
-export RBENV_ROOT="/usr/local/var/rbenv"
+# export RBENV_ROOT="/usr/local/var/rbenv"
 
 # Enable Rbenv shims and autocompletion
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # Enable Nodenv shims and autocompletion
 if which nodenv > /dev/null; then eval "$(nodenv init -)"; fi
+
+# Enable Pyenv shims and autocompletion
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
 # GPG
 export GPG_TTY=$(tty)
