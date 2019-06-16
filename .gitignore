@@ -30,6 +30,7 @@ nbproject
 
 # Ignore stuff in settings
 node_modules
+package-lock.json
 
 ## MongoDB Configs
 !config/mongodb/databases/.gitkeep
