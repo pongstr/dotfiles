@@ -5,11 +5,11 @@
   "editor.fontFamily": "Consolas, Menlo, Monaco, 'Courier New', monospace",
   "editor.tabCompletion": true,
   "editor.lineHeight": 22,
-  "editor.rulers": [
-    100
-  ],
   "editor.scrollbar.verticalScrollbarSize": 5,
   "editor.scrollbar.horizontalScrollbarSize": 5,
+  "editor.rulers": [
+    90
+  ],
   "files.trimTrailingWhitespace": true,
   "files.trimFinalNewlines": true,
   "files.eol": "\n",
@@ -24,38 +24,14 @@
   },
   "html.format.indentInnerHtml": true,
   "html.format.indentHandlebars": true,
-  "sync.gist": "c405aacb085862d4f9cd9f0f1211bc15",
-  "sync.lastUpload": "2018-03-30T14:57:11.420Z",
-  "sync.autoDownload": false,
-  "sync.autoUpload": true,
-  "sync.lastDownload": "2017-11-11T07:35:59.290Z",
-  "sync.forceDownload": false,
-  "sync.anonymousGist": false,
-  "sync.host": "",
-  "sync.pathPrefix": "",
-  "sync.quietSync": false,
-  "sync.askGistName": false,
   "window.zoomLevel": 0,
   "workbench.colorTheme": "Atom One Dark",
   "workbench.colorCustomizations": {
     "scrollbar.shadow": "#1f252b"
   },
-  "workbench.panel.location": "right",
-  "workbench.activityBar.visible": false,
-  "[php]":{
-    "editor.quickSuggestions": {
-      "other": false,
-      "comments": false,
-      "strings": false
-    }
-  },
   "editor.wrappingIndent": "none",
   "explorer.confirmDragAndDrop": false,
-  "workbench.iconTheme": "vs-minimal",
   "explorer.confirmDelete": false,
-  "sync.removeExtensions": true,
-  "sync.syncExtensions": true,
-  "[nunjucks]": {},
   "editor.autoIndent": false,
   "editor.detectIndentation": false,
   "editor.quickSuggestions": {
@@ -66,6 +42,10 @@
   "element-helper.indent-size": 2,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "files.maxMemoryForLargeFilesMB": 2048,
+  "workbench.iconTheme": "vs-minimal",
+  "workbench.panel.location": "right",
+  "workbench.activityBar.visible": true,
   "workbench.list.openMode": "doubleClick",
-  "workbench.panel.defaultLocation": "right"
+  "workbench.panel.defaultLocation": "right",
+  "workbench.tree.renderIndentGuides": "none"
 }
