@@ -66,6 +66,7 @@ node_packages=(
   "@angular/cli"
   "eslint"
   "express-generator"
+  "firebase-tools"
   "nodemon"
   "pm2"
   "typescript"
