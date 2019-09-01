@@ -24,7 +24,7 @@ nodes=(
 )
 
 rubies=(
-  '2.5.4'
+  '2.6.4'
 )
 
 pythons=(
