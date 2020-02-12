@@ -51,9 +51,8 @@ brew_casks=(
   "spotify"
   "sublime-text"
   "transmission"
-  "vlc"
   "virtualbox"
-  "torbrowser"
+  "tor-browser"
   "visual-studio-code"
 )
 
