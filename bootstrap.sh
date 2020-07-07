@@ -2,9 +2,9 @@
 
 brew_taps=(
   'homebrew/services'
-  'caskroom/cask',
-  'caskroom/versions'
-  'caskroom/fonts'
+  'homebrew/cask-cask',
+  'homebrew/cask-versions'
+  'homebrew/cask-fonts'
 )
 
 brew_formulas=(
@@ -19,8 +19,8 @@ brew_formulas=(
 )
 
 nodes=(
-  '10.17.0'
-  '12.13.1'
+  '10.21.0'
+  '12.18.2'
 )
 
 rubies=(
@@ -28,7 +28,8 @@ rubies=(
 )
 
 pythons=(
-  '3.8.0'
+  '3.7.7'
+  '3.8.2'
 )
 
 # Homebrew Tap Installation
