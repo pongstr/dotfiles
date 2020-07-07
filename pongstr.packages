@@ -49,7 +49,7 @@ brew_casks=(
   "sublime-text"
   "transmission"
   "virtualbox"
-  "torbrowser"
+  "tor-browser"
   "visual-studio-code"
 )
 
