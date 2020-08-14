@@ -164,25 +164,6 @@ defaults write com.apple.terminal SecureKeyboardEntry -bool true
 
 echo "
 ###############################################################################
-# SSD-specific tweaks                                                         #
-###############################################################################
-"
-
-echo "  --> Disable hibernation (speeds up entering sleep mode)"
-sudo pmset -a hibernatemode 0
-
-echo "  --> Remove the sleep image file to save disk space"
-sudo rm /private/var/vm/sleepimage
-
-echo "  --> Create a zero-byte file instead and make sure it can’t be rewritten"
-sudo touch /private/var/vm/sleepimage
-sudo chflags uchg /private/var/vm/sleepimage
-
-echo "  --> Disable the sudden motion sensor as it’s not useful for SSDs"
-sudo pmset -a sms 0
-
-echo "
-###############################################################################
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
 ###############################################################################
 "
