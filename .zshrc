@@ -34,7 +34,7 @@ plugins=(
   iterm2
   npm
   node
-  osx
+  macos
   pip
   pyenv
   python

@@ -1,4 +1,4 @@
-Dotfiles (Pongstr) `0.5.0b`
+Dotfiles (Pongstr) `0.5.0c`
 ===
 
 Please make sure **Xcode** and **Xcode Command line tools** are installed and have been initialized.
@@ -10,7 +10,7 @@ the key to all of these.
 
 ```bash
 # Download bootstrap and run it
-$ curl -L -o bootstrap.sh https://raw.githubusercontent.com/pongstr/dotfiles/master/bootstrap.sh \
+$ curl -L -o bootstrap.sh https://raw.githubusercontent.com/pongstr/dotfiles/main/bootstrap.sh \
   && chmod +x bootstrap.sh \
   && ./bootstrap.sh
 ```
@@ -40,7 +40,7 @@ $ cd /opt/dotfiles && ./pongstr
 
 > **ℹ️ Before running `./pongstr` command**<br>
 > You may customise the `formulas`, `casks`, `gems` or `npm` packages that will be installed by modifying
-> the file [`pongstr.packages`](https://github.com/pongstr/dotfiles/blob/master/pongstr.packages)
+> the file [`pongstr.packages`](https://github.com/pongstr/dotfiles/blob/main/pongstr.packages)
 
 ```bash
 brew_taps=(

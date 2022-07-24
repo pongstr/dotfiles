@@ -19,17 +19,16 @@ brew_formulas=(
 )
 
 nodes=(
-  '10.21.0'
-  '12.18.2'
+  '16.6.0'
+  '18.6.0'
 )
 
 rubies=(
-  '2.6.5'
+  '3.1.2'
 )
 
 pythons=(
-  '3.7.7'
-  '3.8.2'
+  '3.10.5'
 )
 
 # Homebrew Tap Installation
@@ -176,7 +175,7 @@ fi
 
 sudo mkdir -p /opt/$INSTALL_DIR
 sudo chown ${USER}:staff /opt/$INSTALL_DIR
-git clone --depth=1 --branch=master https://github.com/pongstr/dotfiles.git /opt/$INSTALL_DIR
+git clone --depth=1 --branch=main https://github.com/pongstr/dotfiles.git /opt/$INSTALL_DIR
 
 # Let the bootstrapping begin!
 # Tools and dependencies has to be installed in to get commands to run.
@@ -207,7 +206,7 @@ if hash brew 2>/dev/null; then
     sudo bash -c 'echo "nameserver 127.0.0.1" > /etc/resolver/test'
   fi
 
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   sleep 1
 
   ./opt/$INSTALL_DIR/.macos
@@ -218,7 +217,7 @@ if hash brew 2>/dev/null; then
 else
   printf "\e[0;1m
       Did not find Homebrew installation, installing it now...\e[0m\n\n"
-  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   brew doctor
 
   echo "

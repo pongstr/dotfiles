@@ -6,7 +6,7 @@ brew_taps=(
 
 brew_formulas=(
   "dnsmasq"
-  "gnupg"
+  "gpg-suite"
   "gpg-agent"
   "mongodb"
   "nginx"
@@ -25,8 +25,7 @@ brew_formulas=(
 brew_casks=(
   "appcleaner"
   "authy"
-  "caprine"
-  "dashlane"
+  "bitwarden"
   "discord"
   "docker"
   "firefox"
@@ -38,17 +37,10 @@ brew_casks=(
   "iina"
   "istat-menus"
   "iterm2"
-  "kaleidoscope"
-  "kitematic"
-  "notion"
   "plex-media-player"
-  "rdm"
-  "robo-3t"
   "slack"
   "spotify"
-  "sublime-text"
   "transmission"
-  "virtualbox"
   "tor-browser"
   "visual-studio-code"
 )
@@ -58,12 +50,10 @@ ruby_gems=(
 )
 
 node_packages=(
-  "@vue/cli"
-  "express-generator"
+  "npm"
   "firebase-tools"
   "http-server"
-  "lighthouse"
   "nodemon"
-  "pm2"
   "typescript"
+  "yarn"
 )

@@ -103,13 +103,6 @@ defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 echo "  --> Disable smart dashes as they’re annoying when typing code"
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 
-curl -L -o $HOME/Pictures/razer-chroma.png http://assets.razerzone.com/eedownloads/desktop-wallpapers/RazerChroma_3840x2160.png
-# Set a custom wallpaper image. `DefaultDesktop.jpg` is already a symlink, and
-# all wallpapers are in `/Library/Desktop Pictures/`. The default is `Wave.jpg`.
-rm -rf ~/Library/Application Support/Dock/desktoppicture.db
-sudo rm -rf /System/Library/CoreServices/DefaultDesktop.jpg
-sudo ln -s $HOME/Pictures/razer-chroma.png /System/Library/CoreServices/DefaultDesktop.jpg
-
 echo "
 ###############################################################################
 # Terminal & iTerm 2                                                          #
@@ -161,6 +154,9 @@ EOD
 # Enable Secure Keyboard Entry in Terminal.app
 # See: https://security.stackexchange.com/a/47786/8918
 defaults write com.apple.terminal SecureKeyboardEntry -bool true
+
+## Unthrottle timemachine backup
+sysctl debug.lowpri_throttle_enabled=0
 
 echo "
 ###############################################################################
@@ -269,10 +265,10 @@ echo "  --> Don’t automatically rearrange Spaces based on most recent use"
 defaults write com.apple.dock mru-spaces -bool false
 
 echo "  --> Remove the auto-hiding Dock delay"
-defaults write com.apple.dock autohide-delay -float 0
+defaults write com.apple.dock autohide-delay -float 0.5
 
 echo "  --> Remove the animation when hiding/showing the Dock"
-defaults write com.apple.dock autohide-time-modifier -float 0
+defaults write com.apple.dock autohide-time-modifier -float 0.1
 
 echo "  --> Automatically hide and show the Dock"
 defaults write com.apple.dock autohide -bool true
@@ -302,9 +298,11 @@ sudo ln -sf "/Applications/Xcode.app/Contents/Developer/Applications/Simulator (
 # Top left screen corner → Mission Control
 defaults write com.apple.dock wvous-tl-corner -int 2
 defaults write com.apple.dock wvous-tl-modifier -int 0
+
 # Top right screen corner → Desktop
 defaults write com.apple.dock wvous-tr-corner -int 4
 defaults write com.apple.dock wvous-tr-modifier -int 0
+
 # Bottom right screen corner → Start screen saver
 defaults write com.apple.dock wvous-br-corner -int 5
 defaults write com.apple.dock wvous-br-modifier -int 10
