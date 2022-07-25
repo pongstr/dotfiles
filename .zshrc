@@ -36,11 +36,9 @@ plugins=(
   node
   macos
   pip
-  pyenv
   python
   rbenv
   ruby
-  terminalapp
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -77,15 +75,9 @@ alias npmclean='find . -name "node_modules" -type d -prune -exec rm -rf '{}' +'
 # Configs
 # -----------------------------------------------------------------------------
 
-# Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
 # Homebrew
 export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
-
-# To use Homebrew's directories rather than ~/.rbenv
-# export RBENV_ROOT="/usr/local/var/rbenv"
 
 # Enable Rbenv shims and autocompletion
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
@@ -93,8 +85,8 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 # Enable Nodenv shims and autocompletion
 if which nodenv > /dev/null; then eval "$(nodenv init -)"; fi
 
-# Enable Pyenv shims and autocompletion
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+## Enable Pyenv shims and autocompletion
+## if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
 # GPG
 export GPG_TTY=$(tty)

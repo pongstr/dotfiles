@@ -18,14 +18,13 @@ brew_formulas=(
   "pinentry-mac"
   "vim"
   "wget"
-  "yarn"
-  "zsh"
 )
 
 brew_casks=(
   "appcleaner"
   "authy"
   "bitwarden"
+  "brave-browser"
   "discord"
   "docker"
   "firefox"
