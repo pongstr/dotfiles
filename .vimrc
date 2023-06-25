@@ -14,11 +14,6 @@ set scrolloff=3                     " Start scrolling three lines before the hor
 set cursorline                      " Cursor line
 set nostartofline                   " Don’t reset cursor to start of line when moving around.
 
-" Show line number, highlight current line
-set number
-:highlight LineNr guibg=green guifg=black
-:highlight CursorLine cterm=none ctermbg=green ctermfg=black guibg=darkred guifg=white
-
 " Centralize backups, swapfiles and undo history
 set backupdir=$HOME/.vim/backups
 set directory=$HOME/.vim/swaps
@@ -55,6 +50,19 @@ if (empty($TMUX))
   endif
 endif
 
-syntax enable                         " Enable syntax highlighting
-silent! colorscheme onedark           " Set colorscheme
+set           number
+syntax        enable                         " Enable syntax highlighting
+:colorscheme  catppuccin_mocha
 
+" Vim Plug
+" Plugins will be downloaded under the specified directory.
+call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
+
+" Declare the list of plugins.
+Plug 'tpope/vim-sensible'
+Plug 'junegunn/seoul256.vim'
+Plug 'leafgarland/typescript-vim'
+Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+
+" List ends here. Plugins become visible to Vim after this call.
+call plug#end()

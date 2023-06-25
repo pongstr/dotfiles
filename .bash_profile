@@ -12,15 +12,13 @@ alias pop='popd'
 # Autocorrect typos in path names when using `cd`
 shopt -s cdspell;
 
-# Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
-# Homebrew
-export PATH=/usr/local/bin:$PATH
-export PATH="$PATH:/usr/sbin"
-
-# Enable Rbenv shims and autocompletion
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Enable Nodenv shims and autocompletion
 if which nodenv > /dev/null; then eval "$(nodenv init -)"; fi
+export PATH="$HOME/.nodenv/bin:$PATH"
+
+# Enable PyEnv shims and autocompletion
+if which pyenv > /dev/null; then eval "$(pyenv init --path)"; fi
+export PATH="$HOME/.pyenv/bin:$PATH"

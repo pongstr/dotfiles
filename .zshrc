@@ -1,5 +1,7 @@
 #!/usr/bin/sh
 
+ZSH_DISABLE_COMPFIX="true"
+
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
@@ -16,7 +18,7 @@ ZSH_THEME="pongstr"
 CASE_SENSITIVE="true"
 
 # Uncomment this to disable bi-weekly auto-update checks
-DISABLE_AUTO_UPDATE="false"s
+DISABLE_AUTO_UPDATE="false"
 
 # Uncomment to change how often before auto-updates occur? (in days)
 export UPDATE_ZSH_DAYS=10
@@ -28,17 +30,17 @@ DISABLE_AUTO_TITLE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(
-  docker-compose
-  docker
+  brew
+  cask
   git
+  httpie
   iterm2
   npm
-  node
   macos
+  node
   pip
+  pyenv
   python
-  rbenv
-  ruby
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -72,21 +74,28 @@ alias services='brew services list'
 alias npmlist='npm list -g --depth=0 2>/dev/null'
 alias npmclean='find . -name "node_modules" -type d -prune -exec rm -rf '{}' +'
 
+alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # Configs
 # -----------------------------------------------------------------------------
 
-# Homebrew
-export PATH="/usr/local/bin:$PATH"
-export PATH="/usr/local/sbin:$PATH"
+# pnpm
+export PNPM_HOME="$HOME/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
 
-# Enable Rbenv shims and autocompletion
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # Enable Nodenv shims and autocompletion
 if which nodenv > /dev/null; then eval "$(nodenv init -)"; fi
+export PATH="$HOME/.nodenv/bin:$PATH"
 
-## Enable Pyenv shims and autocompletion
-## if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+# Enable PyEnv shims and autocompletion
+if which pyenv > /dev/null; then eval "$(pyenv init --path)"; fi
+export PATH="$HOME/.pyenv/bin:$PATH"
 
 # GPG
 export GPG_TTY=$(tty)

@@ -1,138 +1,56 @@
 #!/bin/bash
 
-brew_taps=(
-  'homebrew/services'
-  'homebrew/cask-cask',
-  'homebrew/cask-versions'
-  'homebrew/cask-fonts'
-)
-
 brew_formulas=(
-  'golang'
-  'nodenv'
-  'openssl'
-  'pyenv'
-  'rbenv'
-  'tmux'
-  'zsh'
-  'zlib'
+  gpg-suite
+  gpg-agent
+  git
+  httpie
+  pinentry-mac
+  neovim
+  vim
+  nodenv
+  pyenv
+  zlib
 )
 
-nodes=(
-  '16.16.0'
-  '18.6.0'
+brew_casks=(
+  appcleaner
+  bitwarden
+  brave-browser
+  discord
+  firefox
+  firefox-developer-edition
+  google-chrome
+  google-chrome-canary
+  iina
+  istat-menus
+  iterm2
+  slack
+  spotify
+  transmission
+  visual-studio-code
 )
 
-rubies=(
-  '3.1.2'
-)
-
-pythons=(
-  '3.10.5'
-)
-
-# Homebrew Tap Installation
-install_taps () {
-  for tap in ${brew_taps[@]}
-  do
-    if [ "$(brew tap | grep -io ${tap})" == ${tap} ]; then
-      printf "\e[0;32m       * Already tapped: ${tap}\n\e[0m"
-    else
-      printf "\e[0;32m       * Tapping [ ${tap} ]\n\e[0m"
-      brew tap ${tap}
-    fi
-  done
-}
-
-# Homebrew Formula Installation
-install_formulas () {
-  for package in "${brew_formulas[@]}"
-  do
-    if brew info $package | grep "Not installed" > /dev/null; then
+brews() {
+  for package in "${brew_formulas[@]}"; do
+    if brew info $package | grep "Not installed" >/dev/null; then
       printf "\e[0;32m       * Installing ${package}, please wait... \e[0m\n\n"
       brew install $package
       echo
       echo
     else
-      printf  "\e[0;32m       * ${package} is already installed. \n\e[0m"
+      printf "\e[0;32m       * ${package} is already installed. \n\e[0m"
     fi
   done
 }
 
-# Node.js Installation
-install_node () {
-  if hash nodenv 2>/dev/null; then
-    for node in "${nodes[@]}"
-    do
-      if [ "$(nodenv versions | grep -Eio $node)" == $node ]; then
-        printf "\e[0;32m       * node.js v$node is already installed...\n\e[0m"
-      fi
-
-      if [ "$(nodenv versions | grep -Eio $node)" == "" ]; then
-        printf "\e[0;32m       * Installing node.js v${node}, sit back & relax\n"
-        printf "         this may take a few minutes to complete..\n\e[0m"
-        nodenv install $node
-      fi
-    done
-
-    source $HOME/.bash_profile
-    sleep 1
-
-    printf "\n\e[0;33m    Setting node.js v${nodes} as the default global version.\n\e[0m"
-    nodenv global "${nodes}"
-  fi
+casks() {
+  for package in "${brew_casks[@]}"; do
+    printf "\e[1;32m\nInstalling \e[1;34m$package\e[0m\n"
+    echo ""
+    brew install --cask $package
+  done
 }
-
-# Python Installation
-install_python () {
-  if hash pyenv 2>/dev/null; then
-    for python_ in "${pythons[@]}"
-    do
-      if [ "$(pyenv versions | grep -Eio $python_)" == $python_ ]; then
-        printf "\e[0;32m       * Python v$python_ is already installed...\n\e[0m"
-      fi
-
-      if [ "$(nodenv versions | grep -Eio $python_)" == "" ]; then
-        printf "\e[0;32m       * Installing Python v${python_}, sit back & relax\n"
-        printf "         this may take a few minutes to complete..\n\e[0m"
-        CFLAGS="-I$(xcrun --show-sdk-path)/usr/include" pyenv install $python_
-      fi
-    done
-
-    source $HOME/.bash_profile
-    sleep 5
-
-    printf "\n\e[0;33m    Setting node.js v${nodes} as the default global version.\n\e[0m"
-    pyenv global "${python_}"
-  fi
-}
-
-# Ruby Installation
-install_ruby () {
-  if hash rbenv 2>/dev/null; then
-    for rb in "${rubies[@]}"
-    do
-      if [ "$(rbenv versions | grep -Eio $rb)" == $rb ]; then
-        printf "\e[0;32m       * ruby $rb is already installed...\n\e[0m"
-      fi
-
-      if [ "$(rbenv versions | grep -Eio $rb)" == "" ]; then
-        printf "\e[0;32m       * Installing ruby ${rb}, sit back & relax\n"
-        printf "         this may take a few minutes to complete..\n\e[0m"
-        rbenv install $rb
-      fi
-    done
-
-    source $HOME/.bash_profile
-    sleep 1
-
-    printf "\n\e[0;33m    Setting Ruby ${rubies} as the default global version.\n\e[0m"
-    rbenv global "${rubies}"
-    sleep 1
-    sudo gem install bundler
-  fi
-}
-
 
 ###############################################################################
 #                     >>>>> Begin Here <<<<<
@@ -161,12 +79,17 @@ osascript -e 'tell application "System Preferences" to quit'
 sudo -p "      Password for sudo: " echo "      Thanks! See you in vegas sucker!"
 
 # Keep-alive: update existing `sudo` time stamp until `.osx` has finished
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+while true; do
+  sudo -n true
+  sleep 60
+  kill -0 "$$" || exit
+done 2>/dev/null &
 
-# Create Installation Directory
+touch .hushlogin
+
 echo "
   --> Where would you like to install the setup files? "
-read -p  "      defaults to /opt/dotfiles
+read -p "      defaults to /opt/dotfiles
       " INSTALL_DIR
 
 if [ -z $INSTALL_DIR ]; then
@@ -177,83 +100,56 @@ sudo mkdir -p /opt/$INSTALL_DIR
 sudo chown ${USER}:staff /opt/$INSTALL_DIR
 git clone --depth=1 --branch=main https://github.com/pongstr/dotfiles.git /opt/$INSTALL_DIR
 
-# Let the bootstrapping begin!
-# Tools and dependencies has to be installed in to get commands to run.
-printf "\n\e[0;1m  --> Checking to see if Homebrew is installed..."
 if hash brew 2>/dev/null; then
   printf "
       Awesome! Homebrew is installed! Now updating...\n\n\e[0m"
   brew doctor && brew update && brew upgrade && brew cleanup
-  sleep 1
-
-  install_ruby
-  sleep 5
-  rbenv global ${rubies}
-
-  install_node
-  sleep 5
-  nodenv global ${nodes}
-
-  pyenv global ${pythons}
-  sleep 1
-
-  cp /opt/$INSTALL_DIR/.bashrc $HOME/.bashrc
-  cp /opt/$INSTALL_DIR/.bash_profile $HOME/.bash_profile
-  cp /opt/$INSTALL_DIR/.tmux-config $HOME/.tmux.config
-
-  if [ ! -d "/etc/resolver" ]; then
-    sudo mkdir -p /etc/resolver
-    sudo bash -c 'echo "nameserver 127.0.0.1" > /etc/resolver/test'
-  fi
-
-  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-  sleep 1
-
-  ./opt/$INSTALL_DIR/.macos
-
-  source $HOME/.bash_profile
-  osascript -e 'tell application "System Events" to log out'
-  builtin exit
 else
   printf "\e[0;1m
       Did not find Homebrew installation, installing it now...\e[0m\n\n"
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   brew doctor
 
-  echo "
-    --> Installing homebrew taps"
-  install_taps
-  install_formulas
+  brews
+  casks
 
-  cp /opt/$INSTALL_DIR/.bashrc $HOME/.bashrc
-  cp /opt/$INSTALL_DIR/.bash_profile $HOME/.bash_profile
-  cp /opt/$INSTALL_DIR/.tmux-config $HOME/.tmux.config
+  brew tap homebrew/cask-fonts
+  brew install --cask font-jetbrains-mono-nerd-font
+fi
 
-  source $HOME/.bash_profile
-  install_node
-  sleep 1
+if hash omz 2>/dev/null; then
+  printf "
+      Installing OhMyZSH...\n\n\e[0m"
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  curl -L -o $HOME/.oh-my-zsh/themes/pongstr.zsh-theme https://raw.githubusercontent.com/pongstr/dotfiles/main/.omzsh/pongstr.zsh-theme
+  cp $INSTALL_DIR/.zshrc $HOME/.zshrc
+else
+  omz update
+  curl -L -o $HOME/.oh-my-zsh/themes/pongstr.zsh-theme https://raw.githubusercontent.com/pongstr/dotfiles/main/.omzsh/pongstr.zsh-theme
+  cp $INSTALL_DIR/.zshrc $HOME/.zshrc
+fi
 
-  install_ruby
-  sleep 1
+if hash vim 2>/dev/null; then
+  printf "
+      Setting up Vim...\n\n\e[0m"
 
-  install_python
+  cp -r /opt/$INSTALL_DIR/.vim $HOME/.vim
+  cp /opt/$INSTALL_DIR/.vimrc $HOME/.vimrc
+  vim +'PlugInstall --sync' +qa
+fi
 
-  source $HOME/.bash_profile
-  nodenv global ${nodes}
-  cd /opt/$INSTALL_DIR && npm install
-  rbenv global ${rubies}
+if hash nvim 2>/dev/null; then
+  printf "
+      Setting up LazyVim...\n\n\e[0m"
 
-  sleep 1
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+  git clone https://github.com/LazyVim/starter $HOME/.config/nvim
+  rm -rf $HOME/.config/nvim/.git
 
-  if [ ! -d "/etc/resolver" ]; then
-    sudo mkdir -p /etc/resolver
-    sudo bash -c 'echo "nameserver 127.0.0.1" > /etc/resolver/test'
-  fi
+  nvim +'checkhealth' +qa
+fi
 
-  ./opt/$INSTALL_DIR/.macos
-  sleep 1
-
-  osascript -e 'tell application "System Events" to log out'
-  builtin exit
+if hash git 2>/dev/null; then
+  printf "
+      Setting up Git Config...\n\n\e[0m"
+  ./gitconfig.sh
 fi
