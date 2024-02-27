@@ -7,6 +7,7 @@ brew_formulas=(
   git
   httpie
   pinentry-mac
+  postgresql@16
   neovim
   nodenv
   pyenv
@@ -142,8 +143,23 @@ if hash nvim 2>/dev/null; then
   nvim +'checkhealth' +qa
 fi
 
+if hash pyenv 2>/dev/null; then
+  printf "
+      Setting up Python...\n\n\e[0m"
+  pyenv install 3.12
+  pyenv global 3.12
+fi
+
+if hash nodenv 2>/dev/null; then
+  printf "
+      Setting up Node...\n\n\e[0m"
+  nodenv install 20.11.1
+  nodenv global 20.11.1
+fi
+
 if hash git 2>/dev/null; then
   printf "
       Setting up Git Config...\n\n\e[0m"
   ./gitconfig.sh
 fi
+
