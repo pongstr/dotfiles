@@ -1,0 +1,30 @@
+[global_config]
+  suppress_multiple_term_dialog = True
+  putty_paste_style_source_clipboard = True
+  smart_copy = False
+[keybindings]
+[profiles]
+  [[default]]
+    icon_bell = False
+    background_color = "#1e1e2e"
+    background_darkness = 0.97
+    background_type = transparent
+    background_image = /home/pongstr/Pictures/debian-black-4k.png
+    font = JetBrainsMono Nerd Font Mono 10
+    foreground_color = "#cdd6f4"
+    show_titlebar = False
+    scroll_on_keystroke = False
+    scrollback_infinite = True
+    palette = "#45475a:#f38ba8:#a6e3a1:#f9e2af:#89b4fa:#f5c2e7:#94e2d5:#bac2de:#585b70:#f38ba8:#a6e3a1:#f9e2af:#89b4fa:#f5c2e7:#94e2d5:#a6adc8"
+    use_system_font = False
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+      size = 960,600
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+      profile = default
+[plugins]
