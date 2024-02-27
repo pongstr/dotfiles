@@ -47,11 +47,6 @@ GITHUB_RSA="$HOME_PATH/.ssh/github_rsa"
 
 writeconfig() {
 cat >> $HOME_PATH/.ssh/config << EOF
-Host bitbucket.org
-  Hostname bitbucket.org
-  IdentityFile $HOME/.ssh/bitbucket_rsa
-  UseKeychain yes
-
 Host github.com
   Hostname github.com
   IdentityFile $HOME/.ssh/github_rsa
@@ -60,11 +55,6 @@ Host github.com
 Host *.github.com
   Hostname *.github.com
   IdentityFile $HOME/.ssh/github_rsa
-  UseKeychain yes
-
-Host gitlab.com
-  Hostname gitlab.com
-  IdentityFile $HOME/.ssh/gitlab_rsa
   UseKeychain yes
 
 Host *

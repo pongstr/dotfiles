@@ -1,5 +1,7 @@
 #!/bin/bash
 
+## Updates a Cloudflare DNS record with the current public IP addres
+
 ## Identify your current public IP Address
 IP=$(dig +short txt ch whoami.cloudflare @1.1.1.1)
 

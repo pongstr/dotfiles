@@ -1,15 +1,16 @@
 #!/bin/bash
 
 brew_formulas=(
+  curl
   gpg-suite
   gpg-agent
   git
   httpie
   pinentry-mac
   neovim
-  vim
   nodenv
   pyenv
+  wget
   zlib
 )
 
@@ -25,6 +26,7 @@ brew_casks=(
   iina
   istat-menus
   iterm2
+  pgadmin4
   slack
   spotify
   transmission
@@ -114,7 +116,8 @@ else
   casks
 
   brew tap homebrew/cask-fonts
-  brew install --cask font-jetbrains-mono-nerd-font
+  brew install --cask font-jetbrains-mono
+  brew jandedobbeleer/oh-my-posh/oh-my-posh
 fi
 
 if hash omz 2>/dev/null; then
@@ -129,22 +132,13 @@ else
   cp $INSTALL_DIR/.zshrc $HOME/.zshrc
 fi
 
-if hash vim 2>/dev/null; then
-  printf "
-      Setting up Vim...\n\n\e[0m"
-
-  cp -r /opt/$INSTALL_DIR/.vim $HOME/.vim
-  cp /opt/$INSTALL_DIR/.vimrc $HOME/.vimrc
-  vim +'PlugInstall --sync' +qa
-fi
-
 if hash nvim 2>/dev/null; then
   printf "
-      Setting up LazyVim...\n\n\e[0m"
+      Setting up NeoVim...\n\n\e[0m"
 
-  git clone https://github.com/LazyVim/starter $HOME/.config/nvim
+  git clone https://github.com/pongstr/kickstart.nvim.git $HOME/.config/nvim
   rm -rf $HOME/.config/nvim/.git
-
+  nvim --headless "+Lazy! sync" +qa
   nvim +'checkhealth' +qa
 fi
 

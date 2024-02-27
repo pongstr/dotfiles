@@ -1,1 +1,1 @@
-# Dotfiles (Pongstr) `1.0.0`
+# Dotfiles (Pongstr) `1.1.0`
