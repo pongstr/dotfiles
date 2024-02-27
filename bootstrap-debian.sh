@@ -18,8 +18,8 @@ sudo apt install -y \
     curl wget git firmware-linux-free build-essential \
     apt-transport-https terminator tree unzip zsh \
     make build-essential libssl-dev zlib1g-dev libbz2-dev \
-    libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev \
-    xz-utils tk-dev libffi-dev liblzma-dev
+    libreadline-dev libsqlite3-dev wget curl libncurses-dev \
+    xz-utils libffi-dev liblzma-dev nvidia-driver
 
 
 sudo apt purge --autoremove gnome-games -y
@@ -38,6 +38,7 @@ export PATH="$HOME/.nodenv/bin:$PATH"
 eval "$(nodenv init -)" && $HOME/.zshrc
 
 sleep 1
+
 nodenv install 20.11.1
 nodenv global 20.11.1
 
@@ -53,7 +54,4 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 source $HOME/.zshrc
 pyenv install 3.12
 pyenv global 3.12
-
-
-
 
