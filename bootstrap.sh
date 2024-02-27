@@ -5,6 +5,7 @@ brew_formulas=(
   gpg-suite
   gpg-agent
   git
+  gh
   httpie
   pinentry-mac
   postgresql@16
