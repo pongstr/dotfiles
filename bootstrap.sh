@@ -139,7 +139,6 @@ if hash nvim 2>/dev/null; then
       Setting up NeoVim...\n\n\e[0m"
 
   git clone https://github.com/pongstr/kickstart.nvim.git $HOME/.config/nvim
-  rm -rf $HOME/.config/nvim/.git
   nvim --headless "+Lazy! sync" +qa
   nvim +'checkhealth' +qa
 fi
