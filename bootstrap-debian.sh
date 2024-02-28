@@ -49,12 +49,12 @@ sudo tar -C /opt -xzf nvim-linux64.tar.gz
 
 sleep 1
 
-export PATH="$PATH:/opt/nvim-linux64/bin" >> $HOME/.zshrc
+echo 'export PATH="$PATH:/opt/nvim-linux64/bin"' >> $HOME/.zshrc
 
 git clone https://github.com/pongstr/kickstart.nvim.git $HOME/.config/nvim
 
-nvim +'checkhealth' +qa
 nvim --headless "+Lazy! sync" +qa
+nvim +'checkhealth' +qa
 
 ## Install pyenv
 curl https://pyenv.run | bash
