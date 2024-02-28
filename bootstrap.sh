@@ -7,6 +7,7 @@ brew_formulas=(
   git
   gh
   httpie
+  lazygit
   pinentry-mac
   postgresql@16
   neovim

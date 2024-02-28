@@ -23,10 +23,19 @@ sudo apt install -y \
 
 sudo apt purge --autoremove gnome-games -y
 
+LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
+curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
+tar xf lazygit.tar.gz lazygit
+sudo install lazygit /usr/local/bin
+
+lazygit --version
+
 ## Install OhMyZsh
+echot ""
 sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 ## Install OhMyPosh
+echo ""
 sudo wget https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/posh-linux-amd64 -O /usr/local/bin/oh-my-posh
 sudo chmod +x /usr/local/bin/oh-my-posh
 
@@ -43,6 +52,7 @@ sudo fc-cache -f -v
 eval "$(oh-my-posh init zsh --config $HOME/.poshthemes/aliens.omp.json)"
 
 ## Install Neovim
+echo ""
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
 sudo rm -rf /opt/nvim
 sudo tar -C /opt -xzf nvim-linux64.tar.gz
@@ -57,6 +67,7 @@ nvim --headless "+Lazy! sync" +qa
 nvim +'checkhealth' +qa
 
 ## Install pyenv
+echo ""
 curl https://pyenv.run | bash
 
 echo '
@@ -71,6 +82,7 @@ pyenv global 3.12
 sleep 1
 
 ## Install nodenv
+echo ""
 git clone https://github.com/nodenv/nodenv.git $HOME/.nodenv
 
 echo '
