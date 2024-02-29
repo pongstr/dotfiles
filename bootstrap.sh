@@ -30,6 +30,7 @@ brew_casks=(
   istat-menus
   iterm2
   pgadmin4
+  rectangle
   slack
   spotify
   transmission
