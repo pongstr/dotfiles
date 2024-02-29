@@ -41,8 +41,7 @@ brews() {
     if brew info $package | grep "Not installed" >/dev/null; then
       printf "\e[0;32m       * Installing ${package}, please wait... \e[0m\n\n"
       brew install $package
-      echo
-      echo
+      echo ""
     else
       printf "\e[0;32m       * ${package} is already installed. \n\e[0m"
     fi
@@ -157,6 +156,17 @@ if hash nodenv 2>/dev/null; then
   nodenv install 20.11.1
   nodenv global 20.11.1
 fi
+
+source $HOME/.zshrc
+sleep 1
+
+## supporting tools for neovim
+npm i -g neovim eslint prettier
+python -m pip install --upgrade neovim
+python -m pip install --upgrade pynvim black
+
+## install pnpm
+curl -fsSL https://get.pnpm.io/install.sh | sh -
 
 if hash git 2>/dev/null; then
   printf "
