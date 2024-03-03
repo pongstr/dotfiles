@@ -70,7 +70,7 @@ printf "%s" $'\e[1;32m
   ██╔═══╝ ██║   ██║██║╚██╗██║██║   ██║╚════██║   ██║   ██╔══██╗
   ██║     ╚██████╔╝██║ ╚████║╚██████╔╝███████║   ██║   ██║  ██║
   ╚═╝      ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝ ╚══════╝   ╚═╝   ╚═╝  ╚═╝\e[1;31m
-      Dotfiles v0.5.0 https://github.com/pongstr/dotfiles\e[0m\n'
+      Dotfiles v1.1.0 https://github.com/pongstr/dotfiles\e[0m\n'
 
 echo "
   --> For added privacy invasion I'll need your local account's password.
@@ -140,7 +140,7 @@ if hash nvim 2>/dev/null; then
   printf "
       Setting up NeoVim...\n\n\e[0m"
 
-  git clone https://github.com/pongstr/kickstart.nvim.git $HOME/.config/nvim
+  git clone --branch=main https://github.com/pongstr/kickstart.nvim.git $HOME/.config/nvim
   nvim --headless "+Lazy! sync" +qa
   nvim +'checkhealth' +qa
 fi

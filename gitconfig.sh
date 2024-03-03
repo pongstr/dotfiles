@@ -16,4 +16,4 @@ git config --global alias.lg "log --graph --pretty=format:'%Cred%h%Creset -%C(ye
 
 echo ""
 
-./utils/setup.sh
+sh $(pwd)/utils/setup_github.sh

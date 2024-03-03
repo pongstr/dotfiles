@@ -34,6 +34,10 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
+# Enable Nodenv shims and autocompletion
+if which nodenv > /dev/null; then eval "$(nodenv init -)"; fi
+export PATH="$HOME/.nodenv/bin:$PATH"
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
@@ -41,7 +45,6 @@ plugins=(
   git
   iterm2
   node
-  macos
   pip
   pyenv
   python
@@ -86,10 +89,6 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
-
-# Enable Nodenv shims and autocompletion
-if which nodenv > /dev/null; then eval "$(nodenv init -)"; fi
-export PATH="$HOME/.nodenv/bin:$PATH"
 
 # GPG
 export GPG_TTY=$(tty)
