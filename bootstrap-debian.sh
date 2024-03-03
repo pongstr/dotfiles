@@ -19,7 +19,7 @@ sudo apt install -y \
     apt-transport-https terminator tree unzip zsh \
     make build-essential libssl-dev zlib1g-dev libbz2-dev \
     libreadline-dev libsqlite3-dev wget curl libncurses-dev \
-    xz-utils libffi-dev liblzma-dev nvidia-driver
+    fd-find xz-utils libffi-dev liblzma-dev nvidia-driver
 
 sudo apt purge --autoremove gnome-games -y
 
@@ -80,6 +80,11 @@ pyenv install 3.12
 pyenv global 3.12
 
 sleep 1
+
+## Install go
+curl -L -O https://go.dev/dl/go1.22.0.linux-amd64.tar.gz
+rm -rf /usr/local/go && tar -C /usr/local -xzf go1.22.0.linux-amd64.tar.gz
+rm go1.22.0.linux-amd64.tar.gz
 
 ## Install nodenv
 echo ""

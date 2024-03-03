@@ -6,6 +6,7 @@ brew_formulas=(
   gpg-agent
   git
   gh
+  go
   httpie
   lazygit
   pinentry-mac
