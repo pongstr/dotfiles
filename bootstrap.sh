@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 brew_formulas=(
   curl
@@ -70,7 +70,7 @@ printf "%s" $'\e[1;32m
   ██╔═══╝ ██║   ██║██║╚██╗██║██║   ██║╚════██║   ██║   ██╔══██╗
   ██║     ╚██████╔╝██║ ╚████║╚██████╔╝███████║   ██║   ██║  ██║
   ╚═╝      ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝ ╚══════╝   ╚═╝   ╚═╝  ╚═╝\e[1;31m
-      Dotfiles v1.1.0 https://github.com/pongstr/dotfiles\e[0m\n'
+      Dotfiles v0.5.0 https://github.com/pongstr/dotfiles\e[0m\n'
 
 echo "
   --> For added privacy invasion I'll need your local account's password.
@@ -102,11 +102,13 @@ if [ -z $INSTALL_DIR ]; then
   INSTALL_DIR="dotfiles"
 fi
 
-sudo mkdir -p /opt/$INSTALL_DIR
-sudo chown ${USER}:staff /opt/$INSTALL_DIR
-git clone --depth=1 --branch=main https://github.com/pongstr/dotfiles.git /opt/$INSTALL_DIR
+if [ -d "/opt/${INSTALL_DIR}" ]; then
+  sudo mkdir -p /opt/$INSTALL_DIR
+  sudo chown ${USER}:staff /opt/$INSTALL_DIR
+  git clone --depth=1 --branch=main https://github.com/pongstr/dotfiles.git /opt/$INSTALL_DIR
+fi
 
-if hash brew 2>/dev/null; then
+if ! hash brew 2>/dev/null; then
   printf "
       Awesome! Homebrew is installed! Now updating...\n\n\e[0m"
   brew doctor && brew update && brew upgrade && brew cleanup
@@ -120,11 +122,11 @@ else
   casks
 
   brew tap homebrew/cask-fonts
-  brew install --cask font-jetbrains-mono
+  brew install font-hack-nerd-font
   brew jandedobbeleer/oh-my-posh/oh-my-posh
 fi
 
-if hash omz 2>/dev/null; then
+if ! hash omz 2>/dev/null; then
   printf "
       Installing OhMyZSH...\n\n\e[0m"
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -136,23 +138,23 @@ else
   cp $INSTALL_DIR/.zshrc $HOME/.zshrc
 fi
 
-if hash nvim 2>/dev/null; then
+if ! hash nvim 2>/dev/null; then
   printf "
       Setting up NeoVim...\n\n\e[0m"
 
-  git clone --branch=main https://github.com/pongstr/kickstart.nvim.git $HOME/.config/nvim
+  git clone https://github.com/pongstr/kickstart.nvim.git $HOME/.config/nvim
   nvim --headless "+Lazy! sync" +qa
   nvim +'checkhealth' +qa
 fi
 
-if hash pyenv 2>/dev/null; then
+if ! hash pyenv 2>/dev/null; then
   printf "
       Setting up Python...\n\n\e[0m"
   pyenv install 3.12
   pyenv global 3.12
 fi
 
-if hash nodenv 2>/dev/null; then
+if ! hash nodenv 2>/dev/null; then
   printf "
       Setting up Node...\n\n\e[0m"
   nodenv install 20.11.1
@@ -163,12 +165,18 @@ source $HOME/.zshrc
 sleep 1
 
 ## supporting tools for neovim
-npm i -g neovim eslint prettier
-python -m pip install --upgrade neovim
-python -m pip install --upgrade pynvim black
+if hash nodenv 2>/dev/null; then
+  npm i -g npm
+  npm i -g neovim eslint prettier
+  curl -fsSL https://get.pnpm.io/install.sh | sh -
+fi
 
-## install pnpm
-curl -fsSL https://get.pnpm.io/install.sh | sh -
+if hash nodenv 2>/dev/null; then
+  python -m pip install --upgrade neovim
+  python -m pip install --upgrade pynvim black
+fi
+
+
 
 if hash git 2>/dev/null; then
   printf "
