@@ -689,21 +689,16 @@
 	</dict>
 	<key>Default Bookmark Guid</key>
 	<string>7FB833C7-707C-4F78-AFBE-50E300FFA282</string>
+	<key>DimBackgroundWindows</key>
+	<true/>
 	<key>DimOnlyText</key>
 	<true/>
 	<key>GlobalKeyMap</key>
 	<dict>
-		<key>0x19-0x60000</key>
+		<key>0x3c-0xa0000-0x2b</key>
 		<dict>
 			<key>Action</key>
-			<integer>39</integer>
-			<key>Text</key>
-			<string></string>
-		</dict>
-		<key>0x61-0x80000-0x0</key>
-		<dict>
-			<key>Action</key>
-			<integer>31</integer>
+			<integer>51</integer>
 			<key>Label</key>
 			<string></string>
 			<key>Text</key>
@@ -711,10 +706,10 @@
 			<key>Version</key>
 			<integer>1</integer>
 		</dict>
-		<key>0x64-0x80000-0x2</key>
+		<key>0x3e-0xa0000-0x2f</key>
 		<dict>
 			<key>Action</key>
-			<integer>30</integer>
+			<integer>52</integer>
 			<key>Label</key>
 			<string></string>
 			<key>Text</key>
@@ -722,12 +717,49 @@
 			<key>Version</key>
 			<integer>1</integer>
 		</dict>
-		<key>0x9-0x40000</key>
+		<key>0x68-0x80000-0x4</key>
 		<dict>
 			<key>Action</key>
-			<integer>32</integer>
+			<integer>18</integer>
+			<key>Label</key>
+			<string></string>
 			<key>Text</key>
 			<string></string>
+			<key>Version</key>
+			<integer>1</integer>
+		</dict>
+		<key>0x6a-0x80000-0x26</key>
+		<dict>
+			<key>Action</key>
+			<integer>21</integer>
+			<key>Label</key>
+			<string></string>
+			<key>Text</key>
+			<string></string>
+			<key>Version</key>
+			<integer>1</integer>
+		</dict>
+		<key>0x6b-0x80000-0x28</key>
+		<dict>
+			<key>Action</key>
+			<integer>20</integer>
+			<key>Label</key>
+			<string></string>
+			<key>Text</key>
+			<string></string>
+			<key>Version</key>
+			<integer>1</integer>
+		</dict>
+		<key>0x6c-0x80000-0x25</key>
+		<dict>
+			<key>Action</key>
+			<integer>19</integer>
+			<key>Label</key>
+			<string></string>
+			<key>Text</key>
+			<string></string>
+			<key>Version</key>
+			<integer>1</integer>
 		</dict>
 		<key>0xf700-0x300000</key>
 		<dict>
@@ -1550,6 +1582,8 @@
 			<array/>
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
+			<key>Thin Strokes</key>
+			<integer>2</integer>
 			<key>Title Components</key>
 			<integer>34</integer>
 			<key>Transparency</key>
@@ -1563,7 +1597,7 @@
 			<key>Use Custom Tab Title</key>
 			<true/>
 			<key>Use Italic Font</key>
-			<true/>
+			<false/>
 			<key>Use Non-ASCII Font</key>
 			<false/>
 			<key>Vertical Spacing</key>
@@ -1580,6 +1614,8 @@
 	<false/>
 	<key>OpenNoWindowsAtStartup</key>
 	<true/>
+	<key>PMPrintingPanelSize</key>
+	<string>{777, 828}</string>
 	<key>PointerActions</key>
 	<dict>
 		<key>Button,1,1,,</key>
@@ -1622,7 +1658,7 @@
 	<key>SoundForEsc</key>
 	<false/>
 	<key>SplitPaneDimmingAmount</key>
-	<real>0.104809807342233</real>
+	<real>0.20070047026699026</real>
 	<key>TabStyleWithAutomaticOption</key>
 	<integer>5</integer>
 	<key>TabViewType</key>
