@@ -1583,7 +1583,7 @@
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
 			<key>Thin Strokes</key>
-			<integer>2</integer>
+			<integer>4</integer>
 			<key>Title Components</key>
 			<integer>34</integer>
 			<key>Transparency</key>
