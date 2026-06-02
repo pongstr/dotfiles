@@ -14,6 +14,7 @@ brew_formulas=(
   neovim
   nodenv
   pyenv
+  tmux
   wget
   zlib
 )
@@ -24,16 +25,14 @@ brew_casks=(
   brave-browser
   discord
   firefox
-  firefox-developer-edition
+  db-browser-for-sqlite
   google-chrome
-  google-chrome-canary
   iina
   istat-menus
   iterm2
   pgadmin4
   rectangle
   slack
-  spotify
   transmission
   visual-studio-code
 )
@@ -70,7 +69,7 @@ printf "%s" $'\e[1;32m
   ██╔═══╝ ██║   ██║██║╚██╗██║██║   ██║╚════██║   ██║   ██╔══██╗
   ██║     ╚██████╔╝██║ ╚████║╚██████╔╝███████║   ██║   ██║  ██║
   ╚═╝      ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝ ╚══════╝   ╚═╝   ╚═╝  ╚═╝\e[1;31m
-      Dotfiles v0.5.0 https://github.com/pongstr/dotfiles\e[0m\n'
+      Dotfiles v1.1.1 https://github.com/pongstr/dotfiles\e[0m\n'
 
 echo "
   --> For added privacy invasion I'll need your local account's password.
@@ -82,7 +81,7 @@ osascript -e 'tell application "System Preferences" to quit'
 
 # Ask for the administrator password upfront
 # This prompt is taken from `boxen-web`, see https://github.com/boxen/boxen-web
-sudo -p "      Password for sudo: " echo "      Thanks! See you in vegas sucker!"
+sudo -p "      Password for sudo: "
 
 # Keep-alive: update existing `sudo` time stamp until `.osx` has finished
 while true; do
@@ -117,12 +116,12 @@ else
       Did not find Homebrew installation, installing it now...\e[0m\n\n"
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   brew doctor
-
   brews
   casks
 
   brew tap homebrew/cask-fonts
   brew install font-hack-nerd-font
+
   brew jandedobbeleer/oh-my-posh/oh-my-posh
 fi
 
@@ -138,6 +137,12 @@ else
   cp $INSTALL_DIR/.zshrc $HOME/.zshrc
 fi
 
+if ! hash tmux 2>/dev/null; then
+  printf "
+      Setting up Tmux+Plugins...\n\n\e[0m"
+  git clone https://github.com/tmux-plugins/tpm.git $HOME/.tmux/plugins/tpm
+fi
+
 if ! hash nvim 2>/dev/null; then
   printf "
       Setting up NeoVim...\n\n\e[0m"
@@ -150,32 +155,28 @@ fi
 if ! hash pyenv 2>/dev/null; then
   printf "
       Setting up Python...\n\n\e[0m"
-  pyenv install 3.12
-  pyenv global 3.12
+  pyenv install 3.16
+  pyenv global 3.16
 fi
 
 if ! hash nodenv 2>/dev/null; then
   printf "
       Setting up Node...\n\n\e[0m"
-  nodenv install 20.11.1
-  nodenv global 20.11.1
+  nodenv install 24.16.0
+  nodenv global 24.16.0
 fi
 
 source $HOME/.zshrc
 sleep 1
 
-## supporting tools for neovim
 if hash nodenv 2>/dev/null; then
   npm i -g npm
-  npm i -g neovim eslint prettier
   curl -fsSL https://get.pnpm.io/install.sh | sh -
 fi
 
 if hash nodenv 2>/dev/null; then
   python -m pip install --upgrade neovim
-  python -m pip install --upgrade pynvim black
 fi
-
 
 
 if hash git 2>/dev/null; then
